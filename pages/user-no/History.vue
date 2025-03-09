@@ -1,0 +1,5 @@
+<template>
+    <MenuBar>
+        
+    </MenuBar>
+</template>
