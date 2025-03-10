@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container fluid class="d-flex align-center justify-center" style="height: 100vh; background-color: #FFFFFF;">
+    <v-container fluid class="d-flex align-center justify-center" style="height: 100vh; padding: 0; margin: 0;">
       <!-- Barra lateral fija -->
       <v-col cols="1" md="1" class="d-none d-md-flex justify-center align-center"
         style="background-color: #29235C; position: fixed; left: 0; top: 0; height: 100vh; width: 5px;">
@@ -8,12 +8,11 @@
 
       <!-- Formulario de login -->
       <v-col cols="12" md="6" class="d-flex justify-center align-center px-4">
-        <v-card width="100%" max-width="400px" class="pa-6 card-no-shadow">
+        <v-card width="100%" height="100%" max-width="400px" class="pa-6 card-no-shadow">
           <v-img src="/img/Logo_GrupoForpa.png" alt="Logo" height="200" class="mb-4 mx-auto" contain></v-img>
 
           <v-card-subtitle class="text-center" style="font-size: 24px; color: black;">¡Bienvenido!</v-card-subtitle>
-          <v-card-subtitle class="text-center" style="font-size: 14px;">Ingresa tus datos para
-            acceder.</v-card-subtitle>
+          <v-card-subtitle class="text-center" style="font-size: 14px;">Ingresa tus datos para acceder.</v-card-subtitle>
 
           <v-form @submit.prevent="login" v-model="valid">
             <v-text-field v-model="phoneNumber" label="Número de teléfono" type="tel" :rules="phoneRules" required dense
@@ -37,10 +36,11 @@
         </v-card>
       </v-col>
 
+      <!-- Imagen de fondo -->
       <v-col cols="12" md="6" class="d-none d-md-flex justify-end align-center pr-0"
-        style="padding-right: 0; display: flex; height: 100vh;">
-        <v-img src="/img/login_imagen.png" alt="Imagen de fondo" height="100%"
-          style="object-fit: cover; width: 100%; height: 100%; max-width: 100%; margin-left: auto;"></v-img>
+        style="padding: 0; display: flex; height: 100vh; position: relative;">
+        <v-img src="/img/login_imagen.png" alt="Imagen de fondo" height="100%" width="100%" 
+          style="object-fit: cover; margin: 0;"/>
       </v-col>
 
     </v-container>
@@ -92,6 +92,18 @@ export default {
 
 .white-text {
   color: #FFFFFF !important;
+}
+
+.v-col {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.v-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 @media (max-width: 600px) {
