@@ -1,8 +1,6 @@
 <template>
     <v-app>
-      <MenuBar />
       <v-container fluid class="d-flex flex-column" style="padding: 20px; background-color: #F3F3F3;">
-        <!-- Filtro de compras con un select -->
         <v-row>
           <v-col cols="12" sm="6" class="d-flex align-center">
             <v-select
@@ -20,9 +18,7 @@
             <span style="font-size: 14px; color: #29235C; font-weight: 500;">{{ filteredPurchases.length }} compras</span>
           </v-col>
         </v-row>
-  
-        <!-- Listado de compras -->
-        <v-row>
+          <v-row>
           <v-col v-for="(purchase, index) in filteredPurchases" :key="index" cols="12">
             <v-card
               class="mb-4"
