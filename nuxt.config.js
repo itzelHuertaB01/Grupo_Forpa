@@ -22,6 +22,28 @@ export default {
     ]
   },
 
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push(
+        {
+          name: 'home',
+          path: '/home',
+          component: resolve(__dirname, 'pages/user-no/Home.vue')
+        },
+        {
+          name: 'pedidos',
+          path: '/pedidos',
+          component: resolve(__dirname, 'pages/user-no/Orders.vue')
+        },
+        {
+          name: 'historial',
+          path: '/historial',
+          component: resolve(__dirname, 'pages/user-no/History.vue')
+        },
+      );
+    }
+  },  
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
