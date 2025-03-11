@@ -22,7 +22,7 @@
         <div class="steps">
           <div v-for="(step, index) in steps" :key="index" class="step">
             <div class="circle" :class="{ 'active': index < currentStep }"></div>
-            <p class="step-title" :class="{ 'font-weight-bold': index === currentStep - 1 }">
+            <p class="step-title" :class="{ 'font-weight-bold active-step': index === currentStep - 1 }">
               {{ step.title }}
             </p>
             <small class="step-date">{{ step.date || "Pendiente" }}</small>
@@ -37,8 +37,8 @@
         <v-col cols="12">
           <h4 class="font-weight-medium">Detalles de seguimiento</h4>
           <v-expand-transition>
-            <div v-show="showAllDetails" class="tracking-details">
-              <div v-for="(detail, index) in details" :key="index" class="detail-item">
+            <div class="tracking-details">
+              <div v-for="(detail, index) in filteredDetails" :key="index" class="detail-item">
                 <span class="detail-date">{{ detail.date }}</span>
                 <p class="detail-text">{{ detail.text }}</p>
               </div>
@@ -63,7 +63,7 @@
 export default {
   data() {
     return {
-      currentStep: 2, // Cambiar según el estado del pedido
+      currentStep: 2,
       estimatedDelivery: "24 de Febrero",
       showAllDetails: false,
       steps: [
@@ -81,6 +81,12 @@ export default {
       ]
     };
   },
+  computed: {
+    filteredDetails() {
+      const relevantDetails = this.details.slice(0, this.currentStep + 1);
+      return this.showAllDetails ? relevantDetails : relevantDetails.slice(0, 2);
+    }
+  },
   methods: {
     toggleDetails() {
       this.showAllDetails = !this.showAllDetails;
@@ -90,7 +96,6 @@ export default {
 </script>
 
 <style scoped>
-/* General */
 .full-screen {
   min-height: 100vh;
   display: flex;
@@ -117,7 +122,6 @@ export default {
   font-size: 1.2rem;
 }
 
-/* Línea de progreso */
 .tracking-container {
   position: relative;
   width: 100%;
@@ -140,7 +144,6 @@ export default {
   transition: width 0.4s ease-in-out;
 }
 
-/* Pasos */
 .steps {
   display: flex;
   justify-content: space-between;
@@ -171,6 +174,10 @@ export default {
 
 .active {
   background-color: #247323;
+}
+
+.active-step {
+  color: #247323;
 }
 
 .btn-details {
