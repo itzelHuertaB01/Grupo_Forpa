@@ -11,7 +11,6 @@
 
       <v-divider class="my-2"></v-divider>
 
-      <!-- Línea de progreso -->
       <div class="tracking-container">
         <div class="progress-line">
           <div 
@@ -32,7 +31,6 @@
 
       <v-divider class="my-4"></v-divider>
 
-      <!-- Detalles de seguimiento -->
       <v-row>
         <v-col cols="12">
           <h4 class="font-weight-medium">Detalles de seguimiento</h4>
@@ -47,7 +45,6 @@
         </v-col>
       </v-row>
 
-      <!-- Botón de detalles -->
       <v-row>
         <v-col cols="12" class="text-left">
           <v-btn text color="primary" class="font-weight-bold btn-details" @click="toggleDetails">
@@ -99,17 +96,17 @@ export default {
 .full-screen {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background-color: #F3F3F3;
-  padding: 20px;
+  margin-top: 20px;
 }
 
 .card-container {
   background-color: #ffffff;
   border-radius: 16px;
   padding: 40px;
-  max-width: 800px;
+   max-width:2000px;
   width: 100%;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
