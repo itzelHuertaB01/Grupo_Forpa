@@ -70,7 +70,8 @@
           { text: "Inicio", icon: "mdi-home", route: "/home" },
           { text: "Ver Pedidos", icon: "mdi-shopping", route: "/pedidos" },
           { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/historial" },
-          { text: "Catálogo", icon: "mdi-book-open", route: "/catalogo" }
+          { text: "Catálogo", icon: "mdi-book-open", route: "/catalogo" },
+          { text: "Ofertas", icon: "mdi-tag", route: "/ofertas" }
         ]
       };
     },

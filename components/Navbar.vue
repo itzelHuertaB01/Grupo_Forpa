@@ -52,7 +52,8 @@
           "/home": "Inicio",
           "/pedidos": "Ver Pedidos",
           "/historial": "Historial",
-          "/catalogo": "Catálogo"
+          "/catalogo": "Catálogo",
+          "/ofertas": "Ofertas"
         };
         return titles[this.$route.path] || "Inicio";
       }

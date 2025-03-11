@@ -101,7 +101,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f8f9fc;
+  background-color: #F3F3F3;
   padding: 20px;
 }
 
