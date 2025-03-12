@@ -36,11 +36,20 @@
         </v-card>
       </v-col>
 
-      <!-- Imagen de fondo -->
-      <v-col cols="12" md="6" class="d-none d-md-flex justify-end align-center pr-0"
-        style="padding: 0; display: flex; height: 100vh; position: relative;">
-        <v-img src="/img/login_imagen.png" alt="Imagen de fondo" height="100%" width="100%" 
-          style="object-fit: cover; margin: 0;"/>
+      <!-- Carrusel de imágenes -->
+      <v-col cols="12" md="6" class="d-none d-md-flex justify-end align-center pr-0" style="padding: 0; display: flex; height: 100vh; position: relative; overflow: hidden; border-top-left-radius: 50px; border-bottom-left-radius: 50px;">
+        <v-carousel
+          v-model="model"
+          cycle
+          show-arrows
+          height="100%"
+          hide-delimiters
+          style="width: 100%; box-shadow: none;"
+        >
+          <v-carousel-item v-for="(img, index) in images" :key="index">
+            <v-img :src="img" alt="Imagen de fondo" style="object-fit: contain; width: 100%; height: 100%;" />
+          </v-carousel-item>
+        </v-carousel>
       </v-col>
 
     </v-container>
@@ -66,6 +75,13 @@ export default {
         v => !!v || 'Contraseña es requerida',
         v => v.length >= 6 || 'Debe tener al menos 6 caracteres',
       ],
+      model: 0, // Para controlar el carrusel
+      images: [
+        '/img/login_imagen1.jpg',
+        '/img/login_imagen2.jpg',
+        '/img/login_imagen3.jpg',
+        '/img/login_imagen4.jpg'
+      ]
     };
   },
   methods: {
@@ -75,7 +91,6 @@ export default {
         this.snackbar = true;
         return;
       }
-
       console.log('Iniciando sesión con:', this.phoneNumber, this.password);
     },
     togglePasswordVisibility() {
@@ -100,7 +115,7 @@ export default {
 }
 
 .v-img {
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: 100%;
   margin: 0;
