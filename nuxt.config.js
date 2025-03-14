@@ -40,6 +40,32 @@ export default {
           path: '/historial',
           component: resolve(__dirname, 'pages/user-no/History.vue')
         },
+        // Rutas de preventista
+        {
+          name: 'compras',
+          path: '/compras-pre',
+          component: resolve(__dirname, 'pages/user-pre/Shopping.vue')
+        },
+        {
+          name: 'pedidos',
+          path: '/pedidos-pre',
+          component: resolve(__dirname, 'pages/user-pre/Orders.vue')
+        },
+        {
+          name: 'historial',
+          path: '/historial-pre',
+          component: resolve(__dirname, 'pages/user-pre/History.vue')
+        },
+        {
+          name: 'catalogo',
+          path: '/catalogo-pre',
+          component: resolve(__dirname, 'pages/user-pre/Catalog.vue')
+        },
+        {
+          name: 'ofertas',
+          path: '/ofertas-pre',
+          component: resolve(__dirname, 'pages/user-pre/Offers.vue')
+        }
       );
     }
   },  
