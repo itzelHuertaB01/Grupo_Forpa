@@ -1,68 +1,54 @@
 <template>
   <v-app>
-    <v-container fluid class="d-flex flex-column" style="padding: 20px; background-color: #F3F3F3;">
-      <v-row class="d-flex align-center" style="margin-bottom: 20px;">
-        <!-- Filtro de compras con un select en la misma columna de las cards -->
+    <v-container fluid class="d-flex flex-column" style="padding: 10px; background-color: #F3F3F3;">
+      <v-row class="d-flex align-center" style="margin-bottom: 0;">
         <v-col cols="12" sm="6" class="d-flex align-center">
-          <v-select
-            v-model="selectedFilter"
-            :items="filters"
-            label="Filtrar por"
-            dense
-            outlined
-            prepend-icon="mdi-filter-outline"
-            style="max-width: 200px; font-size: 14px; border-radius: 16px; box-shadow: none;"
-          ></v-select>
-        </v-col>
-        
-        <!-- Cantidad total de compras -->
-        <v-col cols="12" sm="6" class="d-flex align-center justify-start" style="padding-left: 10px;">
-          <span style="font-size: 14px; color: #29235C; font-weight: 500;">
+          <div class="select-container">
+            <i class="mdi mdi-tune-variant custom-icon"></i> <!-- Ícono de filtro a la izquierda -->
+            <select v-model="selectedFilter" class="custom-select">
+              <option v-for="(filter, index) in filters" :key="index" :value="filter.value">
+                {{ filter.text }}
+              </option>
+            </select>
+            <i class="mdi mdi-menu-down custom-icon-right"></i> <!-- Flecha hacia abajo -->
+          </div>
+
+
+          <v-divider vertical
+            style="height: 40px; border-left: 2px solid #7A7A7A; margin-left: 20px; margin-right: 10px;"></v-divider>
+          <span style="font-size: 14px; color: #7A7A7A; font-weight: 500;">
             {{ filteredPurchases.length }} compras
           </span>
         </v-col>
       </v-row>
 
-      <!-- Listado de compras -->
       <v-row>
         <v-col v-for="(purchase, index) in filteredPurchases" :key="index" cols="12">
-          <v-card
-            class="mb-4"
-            outlined
-            style="max-width: 1200px; margin-left: auto; margin-right: auto; background-color: #ffffff; border-radius: 16px; height: auto; padding: 20px;"
-          >
+          <v-card class="mb-4" outlined
+            style="max-width: 1200px; margin-left: auto; margin-right: auto; background-color: #ffffff; border-radius: 16px; height: 220px; padding: 8px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
             <!-- Fecha y separación -->
-            <v-card-title class="d-flex justify-between align-center" style="padding-bottom: 10px;">
-              <div>
-                <span class="text-h6 font-weight-bold">{{ formatDate(purchase.date) }}</span>
-              </div>
+            <v-card-title class="d-flex justify-between align-center" style="padding-bottom: 2px;">
+              <span style="font-size: 20px; color: #29235C; margin: 0;">{{ formatDate(purchase.date) }}</span>
             </v-card-title>
 
             <v-divider></v-divider>
 
-            <!-- Estado como texto sin fondo con color dinámico -->
-            <v-card-subtitle 
-              class="text-h6" 
-              :style="{ color: purchase.status === 'Entregado' ? '#247323' : 'orange' }"
-              style="margin-top: 3px;"
-            >
+            <v-card-subtitle class="text-h6" :style="{ color: purchase.status === 'Entregado' ? '#247323' : 'orange' }"
+              style="margin-top: 2px; color: #29235C; font-size: 12px; padding: 5px; margin-left: 11px;">
               {{ purchase.status }}
             </v-card-subtitle>
 
-            <!-- Leyenda de entrega debajo del estado (solo si el pedido está entregado) -->
-            <v-card-subtitle 
-              v-if="purchase.status === 'Entregado'" 
-              class="text-body-2" 
-              style="color: gray; margin-top: 3px;"
-            >
+            <v-card-subtitle v-if="purchase.status === 'Entregado'" class="text-body-2"
+              style="font-weight: bold; color: black; font-size: 12px; padding: 1px; margin-left: 15px;">
               Llegó el {{ formatDate(purchase.details) }}
             </v-card-subtitle>
 
             <!-- Descripción y unidades -->
-            <v-card-text>
-              <p>{{ purchase.description }}</p>
-              <p>{{ purchase.units }} Unidad(es)</p>
+            <v-card-text style="font-size: 14px; overflow-y: auto; padding: 1px; margin-left: 15px;">
+              <p style="margin: 0; color: grey;">{{ purchase.description }}</p>
+              <p style="font-size: 12px; color: #757575; margin: 1;">{{ purchase.units }} Unidad(es)</p>
             </v-card-text>
+
           </v-card>
         </v-col>
       </v-row>
@@ -129,13 +115,12 @@ export default {
   computed: {
     filteredPurchases() {
       if (this.selectedFilter === 'Todas') {
-        return this.purchases; // Show all purchases when the filter is "Todas"
+        return this.purchases;
       }
       return this.purchases.filter(purchase => purchase.status === this.selectedFilter); // Filter by selected status
     },
   },
   methods: {
-    // Método para formatear las fechas
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       return new Date(date).toLocaleDateString('es-ES', options);
@@ -153,6 +138,7 @@ export default {
   color: #FFFFFF !important;
 }
 
+
 .v-col {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -166,6 +152,7 @@ export default {
   font-weight: bold;
 }
 
+
 h1 {
   color: #29235C;
   font-size: 24px;
@@ -178,8 +165,52 @@ h1 {
 }
 
 .v-card-text {
-  font-size: 14px;
+  font-size: 12px;
+  padding: 0;
 }
+
+.select-container {
+  position: relative;
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.custom-select {
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 14px;
+  border-radius: 20px;
+  outline: none;
+  background-color: #F3F3F3;
+  width: 100%;
+}
+
+.custom-select option {
+  font-size: 14px;
+  color: #29235C;
+}
+
+.custom-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #29235C;
+  pointer-events: none;
+}
+
+.custom-icon-right {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #29235C;
+  pointer-events: none;
+}
+
 
 @media (max-width: 600px) {
   .v-col {
@@ -190,12 +221,21 @@ h1 {
     width: 100%;
     max-width: 350px;
   }
+
+  .custom-select {
+
+    font-size: 12px;
+  }
+
+  .custom-icon-right,
+  .custom-icon {
+    font-size: 14px;
+  }
+  .select-container {
+  width: 35%;
+}
 }
 
-.v-divider {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
 
 @media (min-width: 601px) {
   .v-card {
