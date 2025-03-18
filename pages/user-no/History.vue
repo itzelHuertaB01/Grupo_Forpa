@@ -2,9 +2,9 @@
   <v-app>
     <v-container fluid class="d-flex flex-column" style="padding: 10px; background-color: #F3F3F3;">
       <v-row class="d-flex align-center" style="margin-bottom: 0;">
-        <v-col cols="12" sm="6" class="d-flex align-center">
+        <v-col cols="12" sm="6" class="d-flex align-center" style="margin-left: 15px;">
           <div class="select-container">
-            <i class="mdi mdi-tune-variant custom-icon"></i> <!-- Ícono de filtro a la izquierda -->
+            <i class="mdi mdi-tune-variant custom-icon"></i> 
             <select v-model="selectedFilter" class="custom-select">
               <option v-for="(filter, index) in filters" :key="index" :value="filter.value">
                 {{ filter.text }}
@@ -25,7 +25,7 @@
       <v-row>
         <v-col v-for="(purchase, index) in filteredPurchases" :key="index" cols="12">
           <v-card class="mb-4" outlined
-            style="max-width: 1200px; margin-left: auto; margin-right: auto; background-color: #ffffff; border-radius: 16px; height: 220px; padding: 8px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
+            style="max-width: 1200px; margin-left: auto; margin-right: auto; background-color: #ffffff; border-radius: 16px; height: 200px; padding: 8px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
             <!-- Fecha y separación -->
             <v-card-title class="d-flex justify-between align-center" style="padding-bottom: 2px;">
               <span style="font-size: 20px; color: #29235C; margin: 0;">{{ formatDate(purchase.date) }}</span>
