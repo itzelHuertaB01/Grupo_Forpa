@@ -2,7 +2,7 @@
   <v-app>
     <v-container fluid class="d-flex flex-column" style="padding: 10px; background-color: #F3F3F3;">
       <v-row class="d-flex align-center" style="margin-bottom: 0;">
-        <v-col cols="12" sm="6" class="d-flex align-center" style="margin-left: 17px;">
+        <v-col cols="12" sm="6" class="d-flex align-center">
           <div class="select-container">
             <i class="mdi mdi-tune-variant custom-icon"></i> 
             <select v-model="selectedFilter" class="custom-select">
@@ -10,7 +10,7 @@
                 {{ filter.text }}
               </option>
             </select>
-            <i class="mdi mdi-menu-down custom-icon-right"></i>
+            <i class="mdi mdi-menu-down custom-icon-right"></i> 
           </div>
 
 
