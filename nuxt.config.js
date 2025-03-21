@@ -40,6 +40,16 @@ export default {
           path: '/historial',
           component: resolve(__dirname, 'pages/user-no/History.vue')
         },
+        {
+          name: 'catalogo',
+          path: '/catalogo',
+          component: resolve(__dirname, 'pages/user-no/Catalog.vue')
+        },
+        {
+          name: 'notificaciones',
+          path: '/notificaciones',
+          component: resolve(__dirname, 'pages/user-no/Notifications.vue')
+        },
         // Rutas de preventista
         {
           name: 'compras',
