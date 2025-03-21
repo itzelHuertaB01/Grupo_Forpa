@@ -128,11 +128,11 @@ export default {
       ],
       menuItems: [
         { text: "Inicio", icon: "mdi-home-outline", route: "/home" },
+        { text: "Notificaciones", icon: "mdi-bell-outline", route: "/notificaciones" },
         { text: "Ver Pedidos", icon: "mdi-shopping-outline", route: "/pedidos" },
         { text: "Historial", icon: "mdi-clipboard-text-clock-outline", route: "/historial" },
         { text: "Catálogo", icon: "mdi-book-open-outline", route: "/catalogo" },
         { text: "Ofertas", icon: "mdi-tag-outline", route: "/ofertas" },
-        { text: "Notificaciones", icon: "mdi-bell-outline", route: "/notificaciones" },
         { text: "Salir", icon: "mdi-logout", route: "/logout" }
       ]
     };
