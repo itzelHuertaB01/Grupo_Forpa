@@ -1,9 +1,24 @@
 <template>
   <v-container fluid class="fondo">
+    <!-- Buscador -->
+    <v-text-field
+      v-model="busqueda"
+      label="Buscar producto (nombre, clave o código)"
+      clearable
+      @input="onBuscar"
+      class="pa-4"
+    />
+
     <v-row no-gutters>
       <v-col cols="12" class="productos-wrapper d-flex flex-wrap">
         <v-chip-group active-class="verde white--text" class="d-flex flex-wrap justify-center">
-          <v-chip v-for="(marca, i) in marcas" :key="i" @click="filtrarMarca(marca)" class="chip-filtro">
+          <v-chip
+            v-for="(marca, i) in marcas"
+            :key="i"
+            @click="filtrarMarca(marca)"
+            :class="{ 'verde white--text': marcaSeleccionada === marca }"
+            class="chip-filtro"
+          >
             {{ marca }}
           </v-chip>
         </v-chip-group>
@@ -12,8 +27,11 @@
       <v-col cols="12" class="pedidos-sidebar pr-3 pl-3">
         <v-card class="productos-container pa-3" style="max-height: 75vh; overflow-y: auto;">
           <div class="productos-scroll">
-            <v-card v-for="(producto, index) in productosFiltrados" :key="index"
-              class="producto-card d-flex flex-column pa-3">
+            <v-card
+              v-for="(producto, index) in productos"
+              :key="index"
+              class="producto-card d-flex flex-column pa-3"
+            >
               <div class="decoracion-verde"></div>
               <v-row class="producto-info ml-5 align-center" @click="toggleDetalles(index)">
                 <v-col cols="10">
@@ -29,8 +47,9 @@
                     <v-icon class="white--text">mdi-plus</v-icon>
                   </v-btn>
                   <v-btn icon class="boton-azul ml-2" @click.stop="toggleDetalles(index)">
-                    <v-icon class="white--text">{{ producto.mostrarDetalles ? 'mdi-chevron-up' : 'mdi-chevron-down'
-                      }}</v-icon>
+                    <v-icon class="white--text">
+                      {{ producto.mostrarDetalles ? 'mdi-chevron-up' : 'mdi-chevron-down' }}
+                    </v-icon>
                   </v-btn>
                 </v-col>
               </v-row>
@@ -40,17 +59,14 @@
                     <v-col cols="6" class="detalle-col">
                       <p><span class="verde--text font-weight-bold">Descripción:</span> {{ producto.descripcion }}</p>
                       <p><span class="verde--text font-weight-bold">Precio público:</span> {{ producto.precio }}</p>
-                      <p><span class="verde--text font-weight-bold">Precio Mayoreo:</span> {{ producto.precioMayoreo }}
-                      </p>
+                      <p><span class="verde--text font-weight-bold">Precio Mayoreo:</span> {{ producto.precioMayoreo }}</p>
                       <p><span class="verde--text font-weight-bold">Clave:</span> {{ producto.clave }}</p>
                     </v-col>
                     <v-col cols="6" class="detalle-col">
                       <p><span class="verde--text font-weight-bold">Marca:</span> {{ producto.marca }}</p>
                       <p><span class="verde--text font-weight-bold">Código:</span> {{ producto.codigo }}</p>
-                      <p><span class="verde--text font-weight-bold">Peso:</span> <strong>{{ producto.peso }}</strong>
-                      </p>
-                      <p><span class="verde--text font-weight-bold">Unidad:</span> <strong>{{ producto.unidad
-                          }}</strong></p>
+                      <p><span class="verde--text font-weight-bold">Peso:</span> <strong>{{ producto.peso }}</strong></p>
+                      <p><span class="verde--text font-weight-bold">Unidad:</span> <strong>{{ producto.unidad }}</strong></p>
                     </v-col>
                   </v-row>
                 </div>
@@ -58,13 +74,14 @@
             </v-card>
           </div>
         </v-card>
+        <div class="text-center mt-4">
+          <v-pagination v-model="page" :length="totalPages" @input="cargarProductos" />
+        </div>
       </v-col>
     </v-row>
 
     <!-- Botón inferior para móviles -->
-    <v-btn class="boton-inferior-movil" @click="dialog = true">
-      Ver Pedidos
-    </v-btn>
+    <v-btn class="boton-inferior-movil" @click="dialog = true">Ver Pedidos</v-btn>
 
     <!-- Modal de pedidos -->
     <v-dialog v-model="dialog" max-width="600">
@@ -79,8 +96,7 @@
                 <v-btn icon class="cantidad-btn-outline" @click="modificarCantidad(index, -1)">
                   <v-icon>mdi-minus</v-icon>
                 </v-btn>
-                <v-text-field v-model="item.cantidad" class="cantidad-box" dense solo hide-details
-                  background-color="transparent" flat></v-text-field>
+                <v-text-field v-model="item.cantidad" class="cantidad-box" dense solo hide-details background-color="transparent" flat></v-text-field>
                 <v-btn icon class="cantidad-btn-outline" @click="modificarCantidad(index, 1)">
                   <v-icon>mdi-plus</v-icon>
                 </v-btn>
@@ -110,34 +126,59 @@
     </v-dialog>
   </v-container>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      dialog: false, // Controla la visibilidad del modal
-      marcas: ["Todo", "Truper", "Expert", "Hermex", "Fiero", "Foset", "Klintek", "Pretul", "Ultracraft", "Volteck"],
-      productos: [
-        { nombre: "Estuche con 50 cuchillas SKA", marca: "Truper", clave: "REP-CUT-650", codigo: "100101", precio: 125.0, precioMayoreo: 90.52, peso: "0.368", unidad: "Set", descripcion: "Estuche con 50 cuchillas SK4 de 18 mm para cutter, Truper.", mostrarDetalles: false },
-        { nombre: "Martillo de uña", marca: "Truper", clave: "H-UÑA-16", codigo: "100102", precio: 250.0, precioMayoreo: 200.0, peso: "0.500", unidad: "Pieza", descripcion: "Martillo de uña de acero forjado con mango de fibra de vidrio.", mostrarDetalles: false },
-        { nombre: "Destornillador de punta plana", marca: "Expert", clave: "DST-PLANA-6", codigo: "100103", precio: 80.0, precioMayoreo: 65.0, peso: "0.250", unidad: "Pieza", descripcion: "Destornillador de punta plana de 6 pulgadas con mango ergonómico.", mostrarDetalles: false },
-        { nombre: "Llave ajustable 10”", marca: "Truper", clave: "LLAVE-AJ-10", codigo: "100104", precio: 150.0, precioMayoreo: 120.0, peso: "0.750", unidad: "Pieza", descripcion: "Llave ajustable de 10 pulgadas en acero forjado.", mostrarDetalles: false },
-        { nombre: "Cinta métrica de 5m", marca: "Pretul", clave: "CINTA-MET-5M", codigo: "100105", precio: 95.0, precioMayoreo: 75.0, peso: "0.350", unidad: "Pieza", descripcion: "Cinta métrica de 5 metros con carcasa de plástico resistente.", mostrarDetalles: false },
-        { nombre: "Flexómetro de 8m", marca: "Fiero", clave: "FLEX-8M", codigo: "100106", precio: 180.0, precioMayoreo: 140.0, peso: "0.450", unidad: "Pieza", descripcion: "Flexómetro de 8 metros con gancho magnético y cinta reforzada.", mostrarDetalles: false },
-        { nombre: "Pinza de corte diagonal 6”", marca: "Volteck", clave: "PINZA-CORTE-6", codigo: "100107", precio: 130.0, precioMayoreo: 100.0, peso: "0.400", unidad: "Pieza", descripcion: "Pinza de corte diagonal de 6 pulgadas en acero al cromo-vanadio.", mostrarDetalles: false },
-      ],
+      dialog: false,
+      productos: [],
+      marcas: [],
+      busqueda: '',
       marcaSeleccionada: "Todo",
       carrito: [],
+      page: 1,
+      limit: 50,
+      total: 0
     };
   },
   computed: {
-    productosFiltrados() {
-      return this.marcaSeleccionada === "Todo" ? this.productos : this.productos.filter((p) => p.marca === this.marcaSeleccionada);
-    },
     totalCarrito() {
       return this.carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
     },
+    totalPages() {
+      return Math.ceil(this.total / this.limit);
+    }
+  },
+  async mounted() {
+    await this.cargarProductos();
   },
   methods: {
+    async cargarProductos() {
+      try {
+        const params = {
+          page: this.page,
+          limit: this.limit
+        };
+
+        let endpoint = '/productos';
+        if (this.busqueda) {
+          endpoint = '/productos/buscar';
+          params.q = this.busqueda;
+        }
+
+        const res = await this.$axios.$get(endpoint, { params });
+        this.productos = res.data.map(p => ({ ...p, mostrarDetalles: false }));
+        this.total = res.total;
+        this.marcas = ["Todo", ...new Set(res.data.map(p => p.marca))];
+      } catch (err) {
+        console.error("❌ Error al obtener productos:", err);
+      }
+    },
+    onBuscar() {
+      this.page = 1;
+      this.cargarProductos();
+    },
     filtrarMarca(marca) {
       this.marcaSeleccionada = marca;
     },
@@ -145,7 +186,7 @@ export default {
       this.productos[index].mostrarDetalles = !this.productos[index].mostrarDetalles;
     },
     agregarACarrito(producto) {
-      const existe = this.carrito.find((p) => p.clave === producto.clave);
+      const existe = this.carrito.find(p => p.clave === producto.clave);
       if (existe) {
         existe.cantidad++;
       } else {
@@ -155,9 +196,9 @@ export default {
     modificarCantidad(index, cantidad) {
       this.carrito[index].cantidad += cantidad;
       if (this.carrito[index].cantidad <= 0) this.carrito.splice(index, 1);
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="scss">

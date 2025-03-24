@@ -2,7 +2,12 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   target: 'static',
-
+  axios: {
+    baseURL: process.env.API_BASE_URL || 'http://localhost:3001'
+  },
+  env: {
+    API_BASE_URL: process.env.API_BASE_URL
+  },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -11,7 +16,7 @@ export default {
     titleTemplate: '%s - GrupoForpa',
     title: 'GrupoForpa',
     htmlAttrs: {
-      lang: 'es'
+      lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
@@ -20,7 +25,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/img/Logo_min.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
@@ -54,59 +59,33 @@ export default {
         },
         // Rutas de preventista
         {
-          name: 'compras-prev',
+          name: 'compras',
           path: '/compras-pre',
           component: resolve(__dirname, 'pages/user-pre/Shopping.vue')
         },
         {
-          name: 'pedidos-prev',
+          name: 'pedidos',
           path: '/pedidos-pre',
           component: resolve(__dirname, 'pages/user-pre/Orders.vue')
         },
         {
-          name: 'historial-prev',
+          name: 'historial',
           path: '/historial-pre',
           component: resolve(__dirname, 'pages/user-pre/History.vue')
         },
         {
-          name: 'catalogo-prev',
+          name: 'catalogo',
           path: '/catalogo-pre',
           component: resolve(__dirname, 'pages/user-pre/Catalog.vue')
         },
         {
-          name: 'notificaciones-prev',
-          path: '/notificaciones-pre',
-          component: resolve(__dirname, 'pages/user-pre/Notifications.vue')
-        },
-        {
-          name: 'ofertas-prev',
+          name: 'ofertas',
           path: '/ofertas-pre',
           component: resolve(__dirname, 'pages/user-pre/Offers.vue')
-        },
-        // Rutas de administrador
-        {
-          name: 'inicio-admin',
-          path: '/inicio-admin',
-          component: resolve(__dirname, 'pages/user-admin/index.vue')
-        },
-                {
-          name: 'productos-admin',
-          path: '/productos-admin',
-          component: resolve(__dirname, 'pages/user-admin/Orders.vue')
-        },
-                {
-          name: 'usuarios-admin',
-          path: '/usuarios-admin',
-          component: resolve(__dirname, 'pages/user-admin/Users.vue')
-        },
-        {
-          name: 'uploadfiles-admin',
-          path: '/uploadfiles-admin',
-          component: resolve(__dirname, 'pages/user-admin/UploadFiles.vue')
         }
       );
     }
-  },  
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -126,7 +105,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
+  modules: ['@nuxtjs/axios'
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -136,14 +115,14 @@ export default {
       dark: false,
       themes: {
         light: {
-          primary: '#29235C',  
-          secondary: '#118737', 
+          primary: '#29235C',
+          secondary: '#118737',
           accent: '#F3F3F3',
         },
       },
     },
   },
-  
+
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
