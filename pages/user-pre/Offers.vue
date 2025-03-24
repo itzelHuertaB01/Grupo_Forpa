@@ -5,6 +5,12 @@
 <script>
 export default {
     name: 'Ofertas - Preventista',
-    layout: 'preventista'
+    layout: 'preventista',
+    head() {
+      return {
+        title: "Ofertas - Preventista",
+        meta: [{ name: "ofertas", content: "Preventista" }],
+      };
+    },
 }
 </script>

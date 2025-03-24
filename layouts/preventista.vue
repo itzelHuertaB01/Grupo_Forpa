@@ -61,4 +61,3 @@ import Navbar from '../components/preventista/Navbar.vue'
     margin: 0;
   }
   </style>
-  

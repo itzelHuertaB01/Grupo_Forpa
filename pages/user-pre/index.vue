@@ -74,7 +74,7 @@
     head() {
       return {
         title: "Inicio - Preventista",
-        meta: [{ name: "inicio", content: "Inicio - Preventista" }],
+        meta: [{ name: "inicio", content: "Preventista" }],
       };
     },
         

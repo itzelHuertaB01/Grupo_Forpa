@@ -1,5 +1,6 @@
 <template>
   <v-navigation-drawer
+    v-if="isLargeScreen"
     app
     :permanent="!isCollapsed"
     :mini-variant="false"
@@ -13,7 +14,7 @@
         :src="isCollapsed ? '/img/Logo_min.png' : '/img/Logo.png'" 
         contain 
         height="80"
-        class="logo-img"index
+        class="logo-img"
       ></v-img>
     </div>
 
@@ -41,7 +42,7 @@
     <v-spacer></v-spacer>
 
     <v-list dense>
-      <v-list-item to="pages/index.vue" class="logout-item">
+      <v-list-item to="/logout" class="logout-item">
         <v-list-item-icon>
           <v-icon>mdi-logout</v-icon>
         </v-list-item-icon>
@@ -74,6 +75,11 @@ export default {
         { text: "Ofertas", icon: "mdi-tag", route: "/ofertas-pre" }
       ]
     };
+  },
+  computed: {
+    isLargeScreen() {
+      return this.$vuetify.breakpoint.lgAndUp;
+    }
   },
   methods: {
     isSelected(route) {

@@ -11,7 +11,7 @@ export default {
     titleTemplate: '%s - GrupoForpa',
     title: 'GrupoForpa',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'es'
     },
     meta: [
       { charset: 'utf-8' },
@@ -20,7 +20,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/img/Logo_min.png' }
     ]
   },
 
@@ -54,29 +54,55 @@ export default {
         },
         // Rutas de preventista
         {
-          name: 'compras',
+          name: 'compras-prev',
           path: '/compras-pre',
           component: resolve(__dirname, 'pages/user-pre/Shopping.vue')
         },
         {
-          name: 'pedidos',
+          name: 'pedidos-prev',
           path: '/pedidos-pre',
           component: resolve(__dirname, 'pages/user-pre/Orders.vue')
         },
         {
-          name: 'historial',
+          name: 'historial-prev',
           path: '/historial-pre',
           component: resolve(__dirname, 'pages/user-pre/History.vue')
         },
         {
-          name: 'catalogo',
+          name: 'catalogo-prev',
           path: '/catalogo-pre',
           component: resolve(__dirname, 'pages/user-pre/Catalog.vue')
         },
         {
-          name: 'ofertas',
+          name: 'notificaciones-prev',
+          path: '/notificaciones-pre',
+          component: resolve(__dirname, 'pages/user-pre/Notifications.vue')
+        },
+        {
+          name: 'ofertas-prev',
           path: '/ofertas-pre',
           component: resolve(__dirname, 'pages/user-pre/Offers.vue')
+        },
+        // Rutas de administrador
+        {
+          name: 'inicio-admin',
+          path: '/inicio-admin',
+          component: resolve(__dirname, 'pages/user-admin/index.vue')
+        },
+                {
+          name: 'productos-admin',
+          path: '/productos-admin',
+          component: resolve(__dirname, 'pages/user-admin/Orders.vue')
+        },
+                {
+          name: 'usuarios-admin',
+          path: '/usuarios-admin',
+          component: resolve(__dirname, 'pages/user-admin/Users.vue')
+        },
+        {
+          name: 'uploadfiles-admin',
+          path: '/uploadfiles-admin',
+          component: resolve(__dirname, 'pages/user-admin/UploadFiles.vue')
         }
       );
     }
