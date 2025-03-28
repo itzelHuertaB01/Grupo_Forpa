@@ -74,6 +74,13 @@
 
 <script>
 export default {
+  layout: 'preventista',
+  head() {
+      return {
+        title: "Pedidos - Preventista",
+        meta: [{ name: "pedidos", content: "Preventista" }],
+      };
+    },
   data() {
     return {
       currentStep: 2,

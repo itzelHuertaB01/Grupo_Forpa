@@ -8,6 +8,14 @@
 import PDFObject from 'pdfobject';
 
 export default {
+        name: 'Catálogo - Preventista',
+    layout: 'preventista',
+    head() {
+      return {
+        title: "Catálogo - Preventista",
+        meta: [{ name: "catalogo", content: "Preventista" }],
+      };
+    },
     mounted() {
         this.loadPdf();
     },

@@ -17,7 +17,7 @@
           <v-divider vertical
             style="height: 40px; border-left: 2px solid #7A7A7A; margin-left: 20px; margin-right: 10px;"></v-divider>
           <span style="font-size: 14px; color: #7A7A7A; font-weight: 500;">
-            {{ filteredPurchases.length }} compras
+            {{ filteredPurchases.length }} Compras
           </span>
         </v-col>
       </v-row>
@@ -58,6 +58,13 @@
 
 <script>
 export default {
+  layout: 'preventista',
+  head() {
+      return {
+        title: "Historial - Preventista",
+        meta: [{ name: "historial", content: "Preventista" }],
+      };
+    },
   data() {
     return {
       selectedFilter: 'Todas', // Default filter value
