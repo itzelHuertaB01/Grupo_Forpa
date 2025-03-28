@@ -103,7 +103,13 @@ export default {
           name: 'uploadfiles-admin',
           path: '/uploadfiles-admin',
           component: resolve(__dirname, 'pages/user-admin/UploadFiles.vue')
-        }
+        },
+        {
+          name: '404',
+          path: '/404',
+          component: resolve(__dirname, 'pages/404.vue')
+        },
+        
       );
     }
   },  
