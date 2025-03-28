@@ -1,7 +1,8 @@
 <template>
   <v-app class="bg-background">
-    <Sidebar v-if="showNavbar"/>
-    <Navbar v-if="showNavbar" />
+    <!-- Oculta Sidebar y Navbar en rutas específicas -->
+    <Sidebar v-if="showLayout" />
+    <Navbar v-if="showLayout" />
 
     <v-main class="page-wrapper">
       <nuxt />
@@ -22,19 +23,11 @@ export default {
   },
 
   computed: {
-    showNavbar() {
-      return this.$route.path !== '/'; 
+    showLayout() {
+      // Rutas donde NO queremos mostrar Sidebar ni Navbar
+      const hiddenPaths = ['/', '/403', '/404', '/ErrorOffline'];
+      return !hiddenPaths.includes(this.$route.path);
     }
-  },
-
-  data() {
-    return {
-      drawer: false,
-      items: [
-        { icon: 'mdi-apps', title: 'Home', to: '/' },
-        { icon: 'mdi-chart-bubble', title: 'Inspire', to: '/inspire' }
-      ]
-    };
   }
 };
 </script>
