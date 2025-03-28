@@ -66,6 +66,7 @@ export default {
   name: "Sidebar",
   data() {
     return {
+      selectedItem: null,
       isCollapsed: false,
       menuItems: [
         { text: "Inicio", icon: "mdi-home", route: "/home" },
