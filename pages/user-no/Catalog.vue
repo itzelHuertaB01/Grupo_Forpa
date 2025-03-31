@@ -5,6 +5,19 @@
 </template>
 
 <script>
+import PDFObject from 'pdfobject';
+
+export default {
+    mounted() {
+        this.loadPdf();
+    },
+    methods: {
+        loadPdf() {
+            const fileURL = '/pdf/catalogo.pdf';
+            PDFObject.embed(fileURL, "#pdf-viewer");
+        },
+    },
+};
 </script>
 
 <style scoped>

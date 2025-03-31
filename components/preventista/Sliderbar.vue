@@ -63,16 +63,16 @@
 
 <script>
 export default {
-  name: "Sidebar",
+  name: "Sliderbar",
   data() {
     return {
       isCollapsed: false,
       menuItems: [
-        { text: "Inicio", icon: "mdi-home", route: "/home" },
-        { text: "Ver Pedidos", icon: "mdi-shopping", route: "/pedidos" },
-        { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/historial" },
-        { text: "Catálogo", icon: "mdi-book-open", route: "/catalogo" },
-        { text: "Ofertas", icon: "mdi-tag", route: "/ofertas" }
+        { text: "Inicio", icon: "mdi-home", route: "/user-pre" },
+        { text: "Ver Pedidos", icon: "mdi-shopping", route: "/pedidos-pre" },
+        { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/historial-pre" },
+        { text: "Catálogo", icon: "mdi-book-open", route: "/catalogo-pre" },
+        { text: "Ofertas", icon: "mdi-tag", route: "/ofertas-pre" }
       ]
     };
   },

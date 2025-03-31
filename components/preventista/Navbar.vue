@@ -9,9 +9,10 @@
             </v-btn>
           </v-col>
 
-          <v-col cols="auto" class="pl-2 text-title">
+          <v-col cols="auto" class="pl-2 text-title" v-if="!isMobile">
             <h1 class="font-weight-bold">{{ currentTitle }}</h1>
           </v-col>
+
 
           <v-col class="d-flex justify-center flex-grow-1 px-2">
             <v-text-field
@@ -51,16 +52,18 @@
 
             <div class="d-flex align-center ml-4">
               <div class="d-flex flex-column text-right mr-3">
-                <span class="text-primary font-weight-medium">Itzel</span>
-                <small class="text-muted">Cliente</small>
+                <span class="text-primary font-weight-medium">Edgar Emmanuel</span>
+                <small class="text-muted">Preventista</small>
               </div>
-              <v-avatar :size="avatarSize" class="grey lighten-2"></v-avatar>
+              <v-avatar :size="avatarSize" class="grey lighten-2">
+              </v-avatar>
             </div>
           </v-col>
         </v-row>
       </v-container>
     </v-app-bar>
 
+    <!--================== Menú móvil =======================-->
     <v-navigation-drawer v-if="isMobile" v-model="drawer" app temporary class="custom-drawer">
       <div class="user-info">
         <div class="close-button">
@@ -68,10 +71,11 @@
             <v-icon color="white">mdi-close</v-icon>
           </v-btn>
         </div>
-        <v-avatar size="60" class="avatar-overlay mb-2"></v-avatar>
+        <v-avatar size="60" class="avatar-overlay mb-2">
+        </v-avatar>
         <div class="user-text">
-          <span class="font-weight-bold d-block">Itzel Narváez</span>
-          <p class="mb-0">Cliente</p>
+          <span class="font-weight-bold d-block">Edgar Emmanuel</span>
+          <p class="mb-0">Preventista</p>
         </div>
       </div>
       <v-list>
@@ -126,26 +130,26 @@ export default {
           fecha: "05/03"
         }
       ],
-      menuItems: [
-        { text: "Inicio", icon: "mdi-home-outline", route: "/home" },
-        { text: "Notificaciones", icon: "mdi-bell-outline", route: "/notificaciones" },
-        { text: "Ver Pedidos", icon: "mdi-shopping-outline", route: "/pedidos" },
-        { text: "Historial", icon: "mdi-clipboard-text-clock-outline", route: "/historial" },
-        { text: "Catálogo", icon: "mdi-book-open-outline", route: "/catalogo" },
-        { text: "Ofertas", icon: "mdi-tag-outline", route: "/ofertas" },
-        { text: "Salir", icon: "mdi-logout", route: "/logout" }
+menuItems: [
+        { text: "Inicio", icon: "mdi-home", route: "/user-pre" },
+        { text: "Notificaciones", icon: "mdi-bell-outline", route: "/notificaciones-pre" },
+        { text: "Ver Pedidos", icon: "mdi-shopping", route: "/pedidos-pre" },
+        { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/historial-pre" },
+        { text: "Catálogo", icon: "mdi-book-open", route: "/catalogo-pre" },
+        { text: "Ofertas", icon: "mdi-tag", route: "/ofertas-pre" }
       ]
     };
   },
   computed: {
     currentTitle() {
       return {
-        "/home": "Inicio",
-        "/pedidos": "Ver Pedidos",
-        "/historial": "Historial",
-        "/catalogo": "Catálogo",
-        "/ofertas": "Ofertas",
-        "/notificaciones": "Notificaciones"
+        "/user-pre/": "Inicio",
+        "/notificaciones-pre": "Notificaciones",
+        "/compras-pre": "Compras",
+        "/pedidos-pre": "Ver Pedidos",
+        "/historial-pre": "Historial",
+        "/catalogo-pre": "Catálogo",
+        "/ofertas-pre": "Ofertas"
       }[this.$route.path] || "Inicio";
     },
     avatarSize() {
@@ -153,7 +157,7 @@ export default {
     },
     isMobile() {
       return this.$vuetify.breakpoint.mdAndDown;
-    }
+    },
   }
 };
 </script>

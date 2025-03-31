@@ -28,81 +28,81 @@ export default {
     extendRoutes(routes, resolve) {
       routes.push(
         {
-          name: 'home_cli',
-          path: '/home_cli',
-          component: resolve(__dirname, 'pages/client/Home_Cli.vue')
+          name: 'home',
+          path: '/home',
+          component: resolve(__dirname, 'pages/user-no/Home.vue')
         },
         {
-          name: 'pedidos_cli',
-          path: '/pedidos_cli',
-          component: resolve(__dirname, 'pages/client/Orders_Cli.vue')
+          name: 'pedidos',
+          path: '/pedidos',
+          component: resolve(__dirname, 'pages/user-no/Orders.vue')
         },
         {
-          name: 'historial_cli',
-          path: '/historial_cli',
-          component: resolve(__dirname, 'pages/client/History_Cli.vue')
+          name: 'historial',
+          path: '/historial',
+          component: resolve(__dirname, 'pages/user-no/History.vue')
         },
         {
-          name: 'catalogo_cli',
-          path: '/catalogo_cli',
-          component: resolve(__dirname, 'pages/client/Catalog_Cli.vue')
+          name: 'catalogo',
+          path: '/catalogo',
+          component: resolve(__dirname, 'pages/user-no/Catalog.vue')
         },
         {
-          name: 'notificaciones_cli',
-          path: '/notificaciones_cli',
-          component: resolve(__dirname, 'pages/client/Notifications_Cli.vue')
+          name: 'notificaciones',
+          path: '/notificaciones',
+          component: resolve(__dirname, 'pages/user-no/Notifications.vue')
         },
         // Rutas de preventista
         {
-          name: 'compras_pre',
-          path: '/compras_pre',
-          component: resolve(__dirname, 'pages/preventive/Shopping_Pre.vue')
+          name: 'compras-prev',
+          path: '/compras-pre',
+          component: resolve(__dirname, 'pages/user-pre/Shopping.vue')
         },
         {
-          name: 'pedidos_pre',
-          path: '/pedidos_pre',
-          component: resolve(__dirname, 'pages/preventive/Orders_Pre.vue')
+          name: 'pedidos-prev',
+          path: '/pedidos-pre',
+          component: resolve(__dirname, 'pages/user-pre/Orders.vue')
         },
         {
-          name: 'historial_pre',
-          path: '/historial_pre',
-          component: resolve(__dirname, 'pages/preventive/History_Pre.vue')
+          name: 'historial-prev',
+          path: '/historial-pre',
+          component: resolve(__dirname, 'pages/user-pre/History.vue')
         },
         {
-          name: 'catalogo_pre',
-          path: '/catalogo_pre',
-          component: resolve(__dirname, 'pages/preventive/Catalog_Pre.vue')
+          name: 'catalogo-prev',
+          path: '/catalogo-pre',
+          component: resolve(__dirname, 'pages/user-pre/Catalog.vue')
         },
         {
-          name: 'notificaciones_pre',
-          path: '/notificaciones_pre',
-          component: resolve(__dirname, 'pages/preventive/Notifications_Pre.vue')
+          name: 'notificaciones-prev',
+          path: '/notificaciones-pre',
+          component: resolve(__dirname, 'pages/user-pre/Notifications.vue')
         },
         {
-          name: 'ofertas_pre',
-          path: '/ofertas_pre',
-          component: resolve(__dirname, 'pages/preventive/Offers_Pre.vue')
+          name: 'ofertas-prev',
+          path: '/ofertas-pre',
+          component: resolve(__dirname, 'pages/user-pre/Offers.vue')
         },
         // Rutas de administrador
         {
-          name: 'inicio_admin',
-          path: '/inicio_admin',
-          component: resolve(__dirname, 'pages/admin/Index_Admin.vue')
+          name: 'inicio-admin',
+          path: '/inicio-admin',
+          component: resolve(__dirname, 'pages/user-admin/index.vue')
         },
                 {
-          name: 'productos_admin',
-          path: '/productos_admin',
-          component: resolve(__dirname, 'pages/admin/Orders_Admin.vue')
+          name: 'productos-admin',
+          path: '/productos-admin',
+          component: resolve(__dirname, 'pages/user-admin/Orders.vue')
         },
                 {
-          name: 'usuarios_admin',
-          path: '/usuarios_admin',
-          component: resolve(__dirname, 'pages/admin/Users_Admin.vue')
+          name: 'usuarios-admin',
+          path: '/usuarios-admin',
+          component: resolve(__dirname, 'pages/user-admin/Users.vue')
         },
         {
-          name: 'uploadfiles_admin',
-          path: '/uploadfiles_admin',
-          component: resolve(__dirname, 'pages/admin/UploadFiles_Admin.vue')
+          name: 'uploadfiles-admin',
+          path: '/uploadfiles-admin',
+          component: resolve(__dirname, 'pages/user-admin/UploadFiles.vue')
         }
       );
     }

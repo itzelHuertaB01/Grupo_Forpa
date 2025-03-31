@@ -1,33 +1,42 @@
 <template>
-  <v-app>
-    <Sidebar v-if="showLayout" :role="userRole" />
-    <Navbar v-if="showLayout" :role="userRole" />
+  <v-app class="bg-background">
+    <Sidebar v-if="showNavbar"/>
+    <Navbar v-if="showNavbar" />
 
     <v-main class="page-wrapper">
-      <Nuxt />
+      <nuxt />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Sidebar from '~/components/Sidebar.vue'
-import Navbar from '~/components/Navbar.vue'
+import Sidebar from "@/components/Sidebar.vue";
+import Navbar from "@/components/Navbar.vue";
 
 export default {
-  components: { Sidebar, Navbar },
+  name: 'DefaultLayout',
+
+  components: {
+    Sidebar,
+    Navbar
+  },
+
   computed: {
-    showLayout() {
-      return this.$route.path !== '/'
-    },
-    userRole() {
-      const path = this.$route.path.toLowerCase()
-      if (path.startsWith('/admin')) return 'admin'
-      if (path.startsWith('/client')) return 'cliente'
-      if (path.startsWith('/preventive')) return 'preventista'
-      return 'cliente'
+    showNavbar() {
+      return this.$route.path !== '/'; 
     }
+  },
+
+  data() {
+    return {
+      drawer: false,
+      items: [
+        { icon: 'mdi-apps', title: 'Home', to: '/' },
+        { icon: 'mdi-chart-bubble', title: 'Inspire', to: '/inspire' }
+      ]
+    };
   }
-}
+};
 </script>
 
 <style scoped>
