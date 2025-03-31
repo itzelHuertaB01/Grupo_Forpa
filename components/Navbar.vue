@@ -3,18 +3,22 @@
     <v-app-bar app color="#F3F3F3" elevation="0" class="custom-app-bar">
       <v-container fluid class="pa-0">
         <v-row align="center" justify="space-between" no-gutters class="w-100 mt-2">
+          <!-- Botón de menú para móviles -->
           <v-col cols="auto" class="pl-2" v-if="isMobile">
             <v-btn icon @click="drawer = !drawer">
               <v-icon color="#08093F">mdi-menu</v-icon>
             </v-btn>
           </v-col>
 
+          <!-- Título dinámico -->
           <v-col cols="auto" class="pl-2 text-title">
             <h1 class="font-weight-bold">{{ currentTitle }}</h1>
           </v-col>
 
+          <!-- Búsqueda en tiempo real -->
           <v-col class="d-flex justify-center flex-grow-1 px-2">
             <v-text-field
+              v-model="searchTerm"
               placeholder="Buscar..."
               prepend-inner-icon="mdi-magnify"
               append-icon="mdi-microphone"
@@ -22,10 +26,13 @@
               dense
               hide-details
               class="custom-search"
+              @input="searchProducts"
             ></v-text-field>
           </v-col>
 
+          <!-- Sección de notificaciones y usuario (desktop) -->
           <v-col v-if="!isMobile" cols="auto" class="d-flex align-center pr-2">
+            <!-- Notificaciones -->
             <v-menu offset-y left>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn icon class="custom-notification" v-bind="attrs" v-on="on">
@@ -37,7 +44,11 @@
               </template>
               <v-card width="350px">
                 <v-list style="max-height: 400px; overflow-y: auto;">
-                  <div v-for="(noti, index) in notificaciones" :key="index" class="notification-item">
+                  <div
+                    v-for="(noti, index) in notificaciones"
+                    :key="index"
+                    class="notification-item"
+                  >
                     <div class="d-flex justify-space-between align-center">
                       <span class="notification-title">{{ noti.titulo }}</span>
                       <small class="text-muted">{{ noti.fecha }}</small>
@@ -49,10 +60,11 @@
               </v-card>
             </v-menu>
 
+            <!-- Nombre y rol del cliente -->
             <div class="d-flex align-center ml-4">
               <div class="d-flex flex-column text-right mr-3">
-                <span class="text-primary font-weight-medium">Itzel</span>
-                <small class="text-muted">Cliente</small>
+                <span class="text-primary font-weight-medium">{{ clientName }}</span>
+                <small class="text-muted">{{ clientRole }}</small>
               </div>
               <v-avatar :size="avatarSize" class="grey lighten-2"></v-avatar>
             </div>
@@ -61,6 +73,7 @@
       </v-container>
     </v-app-bar>
 
+    <!-- Drawer para móviles -->
     <v-navigation-drawer v-if="isMobile" v-model="drawer" app temporary class="custom-drawer">
       <div class="user-info">
         <div class="close-button">
@@ -70,15 +83,32 @@
         </div>
         <v-avatar size="60" class="avatar-overlay mb-2"></v-avatar>
         <div class="user-text">
-          <span class="font-weight-bold d-block">Itzel Narváez</span>
-          <p class="mb-0">Cliente</p>
+          <span class="font-weight-bold">{{ clientName }}</span>
+          <p class="mb-0">{{ clientRole }}</p>
         </div>
       </div>
       <v-list>
-        <router-link v-for="item in menuItems" :key="item.route" :to="item.route" exact custom v-slot="{ navigate, href, isActive }">
-          <v-list-item :href="href" @click="navigate" :class="{'active-menu-item': isActive}" clickable>
+        <!-- Ajusta las rutas según tu proyecto -->
+        <router-link
+          v-for="item in menuItems"
+          :key="item.route"
+          :to="item.route"
+          exact
+          custom
+          v-slot="{ navigate, href, isActive }"
+        >
+          <v-list-item
+            :href="href"
+            @click="navigate"
+            :class="{'active-menu-item': isActive}"
+            clickable
+          >
             <v-list-item-icon>
-              <v-badge v-if="item.route === '/notificaciones' && notificaciones.length" color="red" :content="notificaciones.length">
+              <v-badge
+                v-if="item.route === '/notificaciones' && notificaciones.length"
+                color="red"
+                :content="notificaciones.length"
+              >
                 <v-icon color="#29235C">{{ item.icon }}</v-icon>
               </v-badge>
               <v-icon v-else color="#29235C">{{ item.icon }}</v-icon>
@@ -99,6 +129,7 @@ export default {
   data() {
     return {
       drawer: false,
+      searchTerm: "",
       notificaciones: [
         {
           titulo: "📢 Oferta especial en Estuche con 50 cuchillas SKA",
@@ -122,7 +153,7 @@ export default {
         },
         {
           titulo: "🛠️ Nueva herramienta en catálogo: Serrucho profesional",
-          mensaje: "Clave: SERR-PRO-12 | Código: 100105. ¡Ya disponible en nuestra tienda! Revisa las especificaciones y precios en nuestro catálogo.",
+          mensaje: "Clave: SERR-PRO-12 | Código: 100105. ¡Ya disponible en nuestra tienda!",
           fecha: "05/03"
         }
       ],
@@ -153,6 +184,27 @@ export default {
     },
     isMobile() {
       return this.$vuetify.breakpoint.mdAndDown;
+    },
+    // Se obtienen nombre y rol desde localStorage
+    clientName() {
+      return localStorage.getItem("clientName") || "Sin nombre";
+    },
+    clientRole() {
+      return localStorage.getItem("clientRole") || "Cliente";
+    }
+  },
+  methods: {
+    // Búsqueda en tiempo real (cada tecla)
+    searchProducts() {
+      if (this.searchTerm.trim() !== "") {
+        this.$router.replace({
+          path: "/home",
+          query: { term: this.searchTerm.trim() }
+        });
+      } else {
+        // Si se borra el texto, se quita el query param
+        this.$router.replace({ path: "/home" });
+      }
     }
   }
 };
@@ -186,6 +238,7 @@ export default {
   .text-title h1 {
     font-size: 28px;
   }
+
   .custom-search {
     margin: 0 30px;
   }
@@ -195,6 +248,7 @@ export default {
   .text-title h1 {
     font-size: 18px;
   }
+
   .custom-search {
     margin: 0 10px;
   }

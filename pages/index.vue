@@ -11,18 +11,22 @@
         <v-card width="100%" height="100%" max-width="400px" class="pa-6 card-no-shadow">
           <v-img src="/img/Logo_GrupoForpa.png" alt="Logo" height="200" class="mb-4 mx-auto" contain></v-img>
 
-          <v-card-subtitle class="text-center" style="font-size: 24px; color: black;">¡Bienvenido!</v-card-subtitle>
-          <v-card-subtitle class="text-center" style="font-size: 14px;">Ingresa tus datos para acceder.</v-card-subtitle>
+          <v-card-subtitle class="text-center" style="font-size: 24px; color: black;">
+            ¡Bienvenido!
+          </v-card-subtitle>
+          <v-card-subtitle class="text-center" style="font-size: 14px;">
+            Ingresa tus datos para acceder.
+          </v-card-subtitle>
 
-          <v-form @submit.prevent="login" v-model="valid">
+          <v-form ref="loginForm" v-model="valid" @submit.prevent="login">
             <v-text-field v-model="phoneNumber" label="Número de teléfono" type="tel" :rules="phoneRules" required dense
-              outlined class="mb-3"></v-text-field>
+              outlined class="mb-3" />
 
             <v-text-field v-model="password" label="Contraseña" :type="passwordVisible ? 'text' : 'password'"
               :rules="passwordRules" required dense outlined class="mb-3" append-icon="mdi-eye"
-              @click:append="togglePasswordVisibility"></v-text-field>
+              @click:append="togglePasswordVisibility" />
 
-            <v-checkbox v-model="rememberMe" label="Recordar esta sesión" class="mb-4"></v-checkbox>
+            <v-checkbox v-model="rememberMe" label="Recordar esta sesión" class="mb-4" />
 
             <v-btn color="#118737" type="submit" block :disabled="!valid" rounded class="white-text">
               Iniciar sesión
@@ -37,21 +41,15 @@
       </v-col>
 
       <!-- Carrusel de imágenes -->
-      <v-col cols="12" md="6" class="d-none d-md-flex justify-end align-center pr-0" style="padding: 0; display: flex; height: 100vh; position: relative; overflow: hidden; border-top-left-radius: 50px; border-bottom-left-radius: 50px;">
-        <v-carousel
-          v-model="model"
-          cycle
-          show-arrows
-          height="100%"
-          hide-delimiters
-          style="width: 100%; box-shadow: none;"
-        >
+      <v-col cols="12" md="6" class="d-none d-md-flex justify-end align-center pr-0"
+        style="padding: 0; display: flex; height: 100vh; position: relative; overflow: hidden; border-top-left-radius: 50px; border-bottom-left-radius: 50px;">
+        <v-carousel v-model="model" cycle show-arrows height="100%" hide-delimiters
+          style="width: 100%; box-shadow: none;">
           <v-carousel-item v-for="(img, index) in images" :key="index">
             <v-img :src="img" alt="Imagen de fondo" style="object-fit: contain; width: 100%; height: 100%;" />
           </v-carousel-item>
         </v-carousel>
       </v-col>
-
     </v-container>
   </v-app>
 </template>
@@ -60,39 +58,92 @@
 export default {
   data() {
     return {
-      phoneNumber: '',
-      password: '',
+      phoneNumber: "",
+      password: "",
       rememberMe: false,
       valid: false,
       passwordVisible: false,
       snackbar: false,
-      snackbarMessage: '',
+      snackbarMessage: "",
       phoneRules: [
-        v => !!v || 'Número de teléfono es requerido',
-        v => /^\d{10}$/.test(v) || 'Formato de número de teléfono inválido',
+        (v) => !!v || "Número de teléfono es requerido",
+        (v) => /^\d{10}$/.test(v) || "Formato de número de teléfono inválido",
       ],
       passwordRules: [
-        v => !!v || 'Contraseña es requerida',
-        v => v.length >= 6 || 'Debe tener al menos 6 caracteres',
+        (v) => !!v || "Contraseña es requerida",
+        (v) => v.length >= 6 || "Debe tener al menos 6 caracteres",
       ],
-      model: 0, // Para controlar el carrusel
+      model: 0,
       images: [
-        '/img/login_imagen1.jpg',
-        '/img/login_imagen2.jpg',
-        '/img/login_imagen3.jpg',
-        '/img/login_imagen4.jpg'
-      ]
+        "/img/login_imagen1.jpg",
+        "/img/login_imagen2.jpg",
+        "/img/login_imagen3.jpg",
+        "/img/login_imagen4.jpg",
+      ],
     };
   },
   methods: {
-    login() {
-      if (!this.phoneNumber || !this.password) {
-        this.snackbarMessage = 'Completa todos los campos.';
+    async login() {
+      // Validamos el formulario antes de hacer la petición
+      if (!this.$refs.loginForm.validate()) {
+        this.snackbarMessage = "Por favor, corrige los errores del formulario.";
         this.snackbar = true;
         return;
       }
-      console.log('Iniciando sesión con:', this.phoneNumber, this.password);
+
+      try {
+        // Petición al backend
+        const response = await this.$api.login({
+          numero_cel: this.phoneNumber,
+          password_user: this.password,
+        });
+
+        // El backend debería retornar algo como:
+        // {
+        //   message: "Inicio de sesión exitoso",
+        //   accessToken,
+        //   tipo_usuario,
+        //   nombre // <-- importante
+        // }
+
+        // Suponiendo que en tu método login en Login.vue ya tienes la respuesta del backend:
+        const { accessToken, tipo_usuario, nombre, apellido_p } = response;
+
+        // Guardamos el token
+        if (this.rememberMe) {
+          localStorage.setItem("accessToken", accessToken);
+        } else {
+          sessionStorage.setItem("accessToken", accessToken);
+        }
+
+        // Guardamos el nombre completo y rol
+        localStorage.setItem("clientName", `${nombre} ${apellido_p}`);
+        localStorage.setItem("clientRole", tipo_usuario);
+
+        // Redirigimos según el tipo de usuario...
+
+
+        // Redirigimos según el tipo de usuario
+        switch (tipo_usuario) {
+          case "admin":
+            this.$router.push("/Orders");
+            break;
+          case "cliente":
+            this.$router.push("/home"); // <--- Ruta para clientes
+            break;
+          case "preventista":
+            this.$router.push("/user-pre");
+            break;
+          default:
+            this.$router.push("/");
+        }
+      } catch (error) {
+        this.snackbarMessage =
+          error.response?.data?.message || "Error al iniciar sesión";
+        this.snackbar = true;
+      }
     },
+
     togglePasswordVisibility() {
       this.passwordVisible = !this.passwordVisible;
     },
