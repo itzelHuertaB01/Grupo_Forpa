@@ -17,17 +17,9 @@
 
           <!-- Búsqueda en tiempo real -->
           <v-col class="d-flex justify-center flex-grow-1 px-2">
-            <v-text-field
-              v-model="searchTerm"
-              placeholder="Buscar..."
-              prepend-inner-icon="mdi-magnify"
-              append-icon="mdi-microphone"
-              solo
-              dense
-              hide-details
-              class="custom-search"
-              @input="searchProducts"
-            ></v-text-field>
+            <v-text-field v-model="searchTerm" placeholder="Buscar..." prepend-inner-icon="mdi-magnify"
+              append-icon="mdi-microphone" solo dense hide-details class="custom-search"
+              @input="searchProducts"></v-text-field>
           </v-col>
 
           <!-- Sección de notificaciones y usuario (desktop) -->
@@ -44,11 +36,7 @@
               </template>
               <v-card width="350px">
                 <v-list style="max-height: 400px; overflow-y: auto;">
-                  <div
-                    v-for="(noti, index) in notificaciones"
-                    :key="index"
-                    class="notification-item"
-                  >
+                  <div v-for="(noti, index) in notificaciones" :key="index" class="notification-item">
                     <div class="d-flex justify-space-between align-center">
                       <span class="notification-title">{{ noti.titulo }}</span>
                       <small class="text-muted">{{ noti.fecha }}</small>
@@ -87,28 +75,14 @@
           <p class="mb-0">{{ clientRole }}</p>
         </div>
       </div>
+
       <v-list>
         <!-- Ajusta las rutas según tu proyecto -->
-        <router-link
-          v-for="item in menuItems"
-          :key="item.route"
-          :to="item.route"
-          exact
-          custom
-          v-slot="{ navigate, href, isActive }"
-        >
-          <v-list-item
-            :href="href"
-            @click="navigate"
-            :class="{'active-menu-item': isActive}"
-            clickable
-          >
+        <router-link v-for="item in menuItems" :key="item.route" :to="item.route" class="menu-link">
+          <v-list-item :class="{ 'active-menu-item': $route.path === item.route }" clickable>
             <v-list-item-icon>
-              <v-badge
-                v-if="item.route === '/notificaciones' && notificaciones.length"
-                color="red"
-                :content="notificaciones.length"
-              >
+              <v-badge v-if="item.route === '/notificaciones' && notificaciones.length" color="red"
+                :content="notificaciones.length">
                 <v-icon color="#29235C">{{ item.icon }}</v-icon>
               </v-badge>
               <v-icon v-else color="#29235C">{{ item.icon }}</v-icon>
@@ -126,6 +100,12 @@
 <script>
 export default {
   name: "Navbar",
+  props: {
+    role: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       drawer: false,
@@ -155,29 +135,64 @@ export default {
           titulo: "🛠️ Nueva herramienta en catálogo: Serrucho profesional",
           mensaje: "Clave: SERR-PRO-12 | Código: 100105. ¡Ya disponible en nuestra tienda!",
           fecha: "05/03"
+        },
+        {
+          titulo: "🎯 Promoción en taladros industriales",
+          mensaje: "Clave: TAL-IND-20 | Código: 100106. ¡Descuento del 20% esta semana!",
+          fecha: "06/03"
         }
-      ],
-      menuItems: [
-        { text: "Inicio", icon: "mdi-home-outline", route: "/home" },
-        { text: "Notificaciones", icon: "mdi-bell-outline", route: "/notificaciones" },
-        { text: "Ver Pedidos", icon: "mdi-shopping-outline", route: "/pedidos" },
-        { text: "Historial", icon: "mdi-clipboard-text-clock-outline", route: "/historial" },
-        { text: "Catálogo", icon: "mdi-book-open-outline", route: "/catalogo" },
-        { text: "Ofertas", icon: "mdi-tag-outline", route: "/ofertas" },
-        { text: "Salir", icon: "mdi-logout", route: "/logout" }
       ]
     };
   },
   computed: {
+    userData() {
+      switch (this.role) {
+        case "admin":
+          return { nombre: "Eliasib", rol: "Administrador" };
+        case "preventista":
+          return { nombre: "Yovanny", rol: "Preventista" };
+        case "cliente":
+        default:
+          return { nombre: "Itzel", rol: "Cliente" };
+      }
+    },
+    menuItems() {
+      switch (this.role) {
+        case "admin":
+          return [
+            { text: "Inicio", icon: "mdi-home-outline", route: "/admin/Index_Admin" },
+            { text: "Usuarios", icon: "mdi-account-outline", route: "/admin/Users_Admin" },
+            { text: "Productos", icon: "mdi-shopping-outline", route: "/admin/Orders_Admin" },
+            { text: "Catálogos", icon: "mdi-book-open-outline", route: "/admin/UploadFiles_Admin" },
+            { text: "Salir", icon: "mdi-logout", route: "/logout" }
+          ];
+        case "preventista":
+          return [
+            { text: "Inicio", icon: "mdi-home-outline", route: "/preventive/Shopping_Pre" },
+            { text: "Notificaciones", icon: "mdi-bell-outline", route: "/preventive/Notifications_Pre" },
+            { text: "Ver Pedidos", icon: "mdi-shopping-outline", route: "/preventive/Orders_Pre" },
+            { text: "Historial", icon: "mdi-clipboard-text-clock-outline", route: "/preventive/History_Pre" },
+            { text: "Catálogo", icon: "mdi-book-open-outline", route: "/preventive/Catalog_Pre" },
+            { text: "Ofertas", icon: "mdi-tag-outline", route: "/preventive/Offers_Pre" },
+            { text: "Salir", icon: "mdi-logout", route: "/logout" }
+          ];
+        case "cliente":
+        default:
+          return [
+            { text: "Inicio", icon: "mdi-home-outline", route: "/client/Home_Cli" },
+            { text: "Notificaciones", icon: "mdi-bell-outline", route: "/client/Notifications_Cli" },
+            { text: "Ver Pedidos", icon: "mdi-shopping-outline", route: "/client/Orders_Cli" },
+            { text: "Historial", icon: "mdi-clipboard-text-clock-outline", route: "/client/History_Cli" },
+            { text: "Catálogo", icon: "mdi-book-open-outline", route: "/client/Catalog_Cli" },
+            { text: "Ofertas", icon: "mdi-tag-outline", route: "/client/Ofertas_Cli" },
+            { text: "Salir", icon: "mdi-logout", route: "/logout" }
+          ];
+      }
+    },
     currentTitle() {
-      return {
-        "/home": "Inicio",
-        "/pedidos": "Ver Pedidos",
-        "/historial": "Historial",
-        "/catalogo": "Catálogo",
-        "/ofertas": "Ofertas",
-        "/notificaciones": "Notificaciones"
-      }[this.$route.path] || "Inicio";
+      const path = this.$route.path;
+      const match = this.menuItems.find((item) => path.startsWith(item.route));
+      return match ? match.text : "Inicio";
     },
     avatarSize() {
       return this.$vuetify.breakpoint.smAndDown ? 35 : 45;
@@ -198,12 +213,12 @@ export default {
     searchProducts() {
       if (this.searchTerm.trim() !== "") {
         this.$router.replace({
-          path: "/home",
+          path: "/home_cli",
           query: { term: this.searchTerm.trim() }
         });
       } else {
         // Si se borra el texto, se quita el query param
-        this.$router.replace({ path: "/home" });
+        this.$router.replace({ path: "/home_cli" });
       }
     }
   }

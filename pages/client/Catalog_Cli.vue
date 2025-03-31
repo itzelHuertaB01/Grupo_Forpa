@@ -4,7 +4,8 @@
     </v-container>
 </template>
 
-
+<script>
+</script>
 
 <style scoped>
 .fill-height {

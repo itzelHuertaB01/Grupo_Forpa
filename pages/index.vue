@@ -129,7 +129,7 @@ export default {
             this.$router.push("/Orders");
             break;
           case "cliente":
-            this.$router.push("/home"); // <--- Ruta para clientes
+            this.$router.push("/home_cli"); // <--- Ruta para clientes
             break;
           case "preventista":
             this.$router.push("/user-pre");
