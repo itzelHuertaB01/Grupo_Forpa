@@ -1,35 +1,33 @@
 <template>
-  <v-app class="bg-background">
-    <!-- Oculta Sidebar y Navbar en rutas específicas -->
-    <Sidebar v-if="showLayout" />
-    <Navbar v-if="showLayout" />
+  <v-app>
+    <Sidebar v-if="showLayout" :role="userRole" />
+    <Navbar v-if="showLayout" :role="userRole" />
 
     <v-main class="page-wrapper">
-      <nuxt />
+      <Nuxt />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Sidebar from "@/components/Sidebar.vue";
-import Navbar from "@/components/Navbar.vue";
+import Sidebar from '~/components/Sidebar.vue'
+import Navbar from '~/components/Navbar.vue'
 
 export default {
-  name: 'DefaultLayout',
-
-  components: {
-    Sidebar,
-    Navbar
-  },
-
+  components: { Sidebar, Navbar },
   computed: {
     showLayout() {
-      // Rutas donde NO queremos mostrar Sidebar ni Navbar
-      const hiddenPaths = ['/', '/403', '/404', '/ErrorOffline'];
-      return !hiddenPaths.includes(this.$route.path);
+      return this.$route.path !== '/'
+    },
+    userRole() {
+      const path = this.$route.path.toLowerCase()
+      if (path.startsWith('/admin')) return 'admin'
+      if (path.startsWith('/client')) return 'cliente'
+      if (path.startsWith('/preventive')) return 'preventista'
+      return 'cliente'
     }
   }
-};
+}
 </script>
 
 <style scoped>

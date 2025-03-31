@@ -10,12 +10,7 @@
     class="custom-sidebar"
   >
     <div class="logo-container">
-      <v-img 
-        :src="isCollapsed ? '/img/Logo_min.png' : '/img/Logo.png'" 
-        contain 
-        height="80"
-        class="logo-img"
-      ></v-img>
+      <v-img :src="isCollapsed ? '/img/Logo_min.png' : '/img/Logo.png'" contain height="80" class="logo-img" />
     </div>
 
     <v-list dense>
@@ -28,9 +23,7 @@
           :class="{ 'selected-item': isSelected(item.route) }"
         >
           <v-list-item-icon>
-            <v-icon :class="{ 'selected-icon': isSelected(item.route) }">
-              {{ item.icon }}
-            </v-icon>
+            <v-icon :class="{ 'selected-icon': isSelected(item.route) }">{{ item.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-title v-if="!isCollapsed" :class="{ 'selected-text': isSelected(item.route) }">
             {{ item.text }}
@@ -50,12 +43,7 @@
       </v-list-item>
     </v-list>
 
-    <v-btn 
-      icon 
-      @click="toggleMenu" 
-      class="toggle-btn"
-      dark
-    >
+    <v-btn icon @click="toggleMenu" class="toggle-btn" dark>
       <v-icon>{{ isCollapsed ? 'mdi-chevron-right' : 'mdi-chevron-left' }}</v-icon>
     </v-btn>
   </v-navigation-drawer>
@@ -64,26 +52,55 @@
 <script>
 export default {
   name: "Sidebar",
+  props: {
+    role: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
-      isCollapsed: false,
-      menuItems: [
-        { text: "Inicio", icon: "mdi-home", route: "/home" },
-        { text: "Ver Pedidos", icon: "mdi-shopping", route: "/pedidos" },
-        { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/historial" },
-        { text: "Catálogo", icon: "mdi-book-open", route: "/catalogo" },
-        { text: "Ofertas", icon: "mdi-tag", route: "/ofertas" }
-      ]
-    };
+        selectedItem: null,
+        isCollapsed: false
+    }
   },
   computed: {
     isLargeScreen() {
       return this.$vuetify.breakpoint.lgAndUp;
+    },
+    menuItems() {
+  switch (this.role) {
+    case "admin":
+      return [
+        { text: "Inicio", icon: "mdi-home", route: "/admin/Index_Admin" },
+        { text: "Productos", icon: "mdi-shopping", route: "/admin/Orders_Admin" },
+        { text: "Usuarios", icon: "mdi-account", route: "/admin/Users_Admin" },
+        { text: "Catálogos", icon: "mdi-book-open", route: "/admin/UploadFiles_Admin" },
+      ];
+    case "cliente":
+      return [
+        { text: "Inicio", icon: "mdi-home", route: "/client/Home_Cli" },
+        { text: "Ver Pedidos", icon: "mdi-shopping", route: "/client/Orders_Cli" },
+        { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/client/History_Cli" },
+        { text: "Catálogo", icon: "mdi-book-open", route: "/client/Catalog_Cli" },
+        { text: "Ofertas", icon: "mdi-tag-outline", route: "/client/Ofertas_Cli" },
+      ];
+    case "preventista":
+      return [
+        { text: "Inicio", icon: "mdi-home", route: "/preventive/Shopping_Pre" },
+        { text: "Ver Pedidos", icon: "mdi-shopping", route: "/preventive/Orders_Pre" },
+        { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/preventive/History_Pre" },
+        { text: "Catálogo", icon: "mdi-book-open", route: "/preventive/Catalog_Pre" },
+        { text: "Ofertas", icon: "mdi-tag", route: "/preventive/Offers_Pre" },
+      ];
+    default:
+      return [];
+      }
     }
   },
   methods: {
-    isSelected(route) {
-      return this.$route.path === route;
+  isSelected(route) {
+      return this.$route.path.startsWith(route);
     },
     toggleMenu() {
       this.isCollapsed = !this.isCollapsed;
