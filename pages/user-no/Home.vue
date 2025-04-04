@@ -242,7 +242,7 @@ export default {
       this.marcaSeleccionada = marca;
       this.paginaActual = 1;
       // Quitamos la búsqueda si existe
-      this.$router.replace({ path: "/home_cli" });
+      this.$router.replace({ path: "Client/Home_Cli" });
       if (marca === "Todo") {
         this.obtenerProductos();
       } else {

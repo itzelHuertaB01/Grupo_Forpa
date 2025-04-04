@@ -3,28 +3,23 @@
     <v-app-bar app color="#F3F3F3" elevation="0" class="custom-app-bar">
       <v-container fluid class="pa-0">
         <v-row align="center" justify="space-between" no-gutters class="w-100 mt-2">
-          <!-- Botón de menú para móviles -->
           <v-col cols="auto" class="pl-2" v-if="isMobile">
             <v-btn icon @click="drawer = !drawer">
               <v-icon color="#08093F">mdi-menu</v-icon>
             </v-btn>
           </v-col>
 
-          <!-- Título dinámico -->
           <v-col cols="auto" class="pl-2 text-title">
             <h1 class="font-weight-bold">{{ currentTitle }}</h1>
           </v-col>
 
-          <!-- Búsqueda en tiempo real -->
           <v-col class="d-flex justify-center flex-grow-1 px-2">
             <v-text-field v-model="searchTerm" placeholder="Buscar..." prepend-inner-icon="mdi-magnify"
               append-icon="mdi-microphone" solo dense hide-details class="custom-search"
               @input="searchProducts"></v-text-field>
           </v-col>
 
-          <!-- Sección de notificaciones y usuario (desktop) -->
           <v-col v-if="!isMobile" cols="auto" class="d-flex align-center pr-2">
-            <!-- Notificaciones -->
             <v-menu offset-y left>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn icon class="custom-notification" v-bind="attrs" v-on="on">
@@ -48,11 +43,10 @@
               </v-card>
             </v-menu>
 
-            <!-- Nombre y rol del cliente -->
             <div class="d-flex align-center ml-4">
               <div class="d-flex flex-column text-right mr-3">
-                <span class="text-primary font-weight-medium">{{ clientName }}</span>
-                <small class="text-muted">{{ clientRole }}</small>
+                <span class="text-primary font-weight-medium">{{ clientFullName }}</span>
+                <small class="text-muted">{{ clientFormattedRole }}</small>
               </div>
               <v-avatar :size="avatarSize" class="grey lighten-2"></v-avatar>
             </div>
@@ -61,7 +55,6 @@
       </v-container>
     </v-app-bar>
 
-    <!-- Drawer para móviles -->
     <v-navigation-drawer v-if="isMobile" v-model="drawer" app temporary class="custom-drawer">
       <div class="user-info">
         <div class="close-button">
@@ -71,13 +64,12 @@
         </div>
         <v-avatar size="60" class="avatar-overlay mb-2"></v-avatar>
         <div class="user-text">
-          <span class="font-weight-bold">{{ clientName }}</span>
-          <p class="mb-0">{{ clientRole }}</p>
+          <span class="text-primary font-weight-medium">{{ clientFullName }}</span>
+          <p class="mb-0">{{ clientFormattedRole }}</p>
         </div>
       </div>
 
       <v-list>
-        <!-- Ajusta las rutas según tu proyecto -->
         <router-link v-for="item in menuItems" :key="item.route" :to="item.route" class="menu-link">
           <v-list-item :class="{ 'active-menu-item': $route.path === item.route }" clickable>
             <v-list-item-icon>
@@ -145,17 +137,6 @@ export default {
     };
   },
   computed: {
-    userData() {
-      switch (this.role) {
-        case "admin":
-          return { nombre: "Eliasib", rol: "Administrador" };
-        case "preventista":
-          return { nombre: "Yovanny", rol: "Preventista" };
-        case "cliente":
-        default:
-          return { nombre: "Itzel", rol: "Cliente" };
-      }
-    },
     menuItems() {
       switch (this.role) {
         case "admin":
@@ -200,25 +181,34 @@ export default {
     isMobile() {
       return this.$vuetify.breakpoint.mdAndDown;
     },
-    // Se obtienen nombre y rol desde localStorage
     clientName() {
       return localStorage.getItem("clientName") || "Sin nombre";
     },
     clientRole() {
       return localStorage.getItem("clientRole") || "Cliente";
+    },
+    clientFullName() {
+      const name = this.clientName;
+      return name
+        .split(" ")
+        .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+        .join(" ");
+    },
+    clientFormattedRole() {
+      const role = this.clientRole;
+      return role
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ");
     }
   },
   methods: {
-    // Búsqueda en tiempo real (cada tecla)
     searchProducts() {
+      const path = "/client/Home_Cli";
       if (this.searchTerm.trim() !== "") {
-        this.$router.replace({
-          path: "/home_cli",
-          query: { term: this.searchTerm.trim() }
-        });
+        this.$router.replace({ path, query: { term: this.searchTerm.trim() } });
       } else {
-        // Si se borra el texto, se quita el query param
-        this.$router.replace({ path: "/home_cli" });
+        this.$router.replace({ path });
       }
     }
   }

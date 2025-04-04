@@ -41,27 +41,27 @@ export default {
       routes.push(
         {
           name: 'home_cli',
-          path: '/home_cli',
+          path: '/client/Home_Cli',
           component: resolve(__dirname, 'pages/client/Home_Cli.vue')
         },
         {
           name: 'pedidos_cli',
-          path: '/pedidos_cli',
+          path: '/client/Pedidos_Cli',
           component: resolve(__dirname, 'pages/client/Orders_Cli.vue')
         },
         {
           name: 'historial_cli',
-          path: '/historial_cli',
+          path: '/client/Historial_Cli',
           component: resolve(__dirname, 'pages/client/History_Cli.vue')
         },
         {
           name: 'catalogo_cli',
-          path: '/catalogo_cli',
+          path: '/client/Catalogo_Cli',
           component: resolve(__dirname, 'pages/client/Catalog_Cli.vue')
         },
         {
           name: 'notificaciones_cli',
-          path: '/notificaciones_cli',
+          path: '/client/Notificaciones_Cli',
           component: resolve(__dirname, 'pages/client/Notifications_Cli.vue')
         },
         // Rutas de preventista

@@ -4,13 +4,8 @@
       <!-- Chips de marca (búsqueda avanzada) -->
       <v-col cols="12" class="productos-wrapper d-flex flex-wrap">
         <v-chip-group active-class="verde white--text" class="d-flex flex-wrap justify-center">
-          <v-chip
-            v-for="(marca, i) in marcas"
-            :key="i"
-            @click="filtrarMarca(marca)"
-            :class="{'chip-selected': marca === marcaSeleccionada}"
-            class="chip-filtro"
-          >
+          <v-chip v-for="(marca, i) in marcas" :key="i" @click="filtrarMarca(marca)"
+            :class="{ 'chip-selected': marca === marcaSeleccionada }" class="chip-filtro">
             {{ marca }}
           </v-chip>
         </v-chip-group>
@@ -20,11 +15,8 @@
       <v-col :cols="mostrarPedidos ? 8 : 12" class="pedidos-sidebar pr-3 pl-3 transition-width">
         <v-card class="productos-container pa-3" style="max-height: 75vh; overflow-y: auto;">
           <div class="productos-scroll" ref="productosScroll">
-            <v-card
-              v-for="(producto, index) in productos"
-              :key="producto.id_producto || index"
-              class="producto-card d-flex flex-column pa-3"
-            >
+            <v-card v-for="(producto, index) in productos" :key="producto.id_producto || index"
+              class="producto-card d-flex flex-column pa-3">
               <div class="decoracion-verde"></div>
               <v-row class="producto-info ml-5 align-center" @click="toggleDetalles(index)">
                 <v-col cols="10">
@@ -56,7 +48,7 @@
                       </p>
                       <p>
                         <span class="verde--text font-weight-bold">Precio:</span>
-                        {{ producto.precio }}
+                        ${{ producto.precio }}
                       </p>
                       <p>
                         <span class="verde--text font-weight-bold">Unidad:</span>
@@ -70,7 +62,7 @@
                       </p>
                       <p>
                         <span class="verde--text font-weight-bold">Precio Mínimo:</span>
-                        {{ producto.precio_minimo }}
+                        ${{ producto.precio_minimo }}
                       </p>
                       <p>
                         <span class="verde--text font-weight-bold">Familia:</span>
@@ -93,14 +85,9 @@
               <v-icon>mdi-chevron-left</v-icon>
             </v-btn>
             <div class="d-flex align-center justify-center" style="min-width: 80px;">
-              <v-text-field
-                v-model.number="paginaActual"
-                type="number"
-                class="mx-2 text-center"
-                style="max-width: 80px; text-align: center;"
-                @keyup.enter="cambiarPagina(paginaActual)"
-                @blur="cambiarPagina(paginaActual)"
-              />
+              <v-text-field v-model.number="paginaActual" type="number" class="mx-2 text-center"
+                style="max-width: 80px; text-align: center;" @keyup.enter="cambiarPagina(paginaActual)"
+                @blur="cambiarPagina(paginaActual)" />
               <span>/ {{ totalPaginas }}</span>
             </div>
             <v-btn icon @click="paginaActual < totalPaginas && cambiarPagina(paginaActual + 1)">
@@ -123,21 +110,16 @@
                   <v-btn icon class="cantidad-btn-outline" @click="modificarCantidad(index + inicioCarrito, -1)">
                     <v-icon>mdi-minus</v-icon>
                   </v-btn>
-                  <v-text-field
-                    v-model="item.cantidad"
-                    class="cantidad-box"
-                    dense
-                    solo
-                    hide-details
-                    background-color="transparent"
-                    flat
-                  ></v-text-field>
+                  <v-text-field v-model="item.cantidad" class="cantidad-box" dense solo hide-details
+                    background-color="transparent" flat></v-text-field>
                   <v-btn icon class="cantidad-btn-outline" @click="modificarCantidad(index + inicioCarrito, 1)">
                     <v-icon>mdi-plus</v-icon>
                   </v-btn>
                 </div>
                 <span class="precio-dinamico font-weight-bold">
-                  ${{ (item.precio * item.cantidad).toFixed(2) }}
+                  ${{ (item.precio * item.cantidad).toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                  maximumFractionDigits: 2 }) }}
                 </span>
               </v-row>
               <p class="disponibles">+50 disponibles</p>
@@ -150,28 +132,28 @@
             <v-divider class="my-2"></v-divider>
             <div class="total-container mb-2">
               <h3 class="font-weight-bold">Total</h3>
-              <span class="font-weight-bold precio">${{ totalCarrito.toFixed(2) }}</span>
+              <span class="font-weight-bold precio">
+                ${{ totalCarrito.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}
+              </span>
             </div>
             <v-row justify="center" align="center">
               <v-btn icon @click="paginaCarrito > 1 && cambiarPaginaCarrito(paginaCarrito - 1)">
                 <v-icon>mdi-chevron-left</v-icon>
               </v-btn>
               <div class="d-flex align-center justify-center" style="min-width: 80px;">
-                <v-text-field
-                  v-model.number="paginaCarrito"
-                  type="number"
-                  class="mx-2 text-center"
-                  style="max-width: 80px; text-align: center;"
-                  @keyup.enter="cambiarPaginaCarrito(paginaCarrito)"
-                  @blur="cambiarPaginaCarrito(paginaCarrito)"
-                />
+                <v-text-field v-model.number="paginaCarrito" type="number" class="mx-2 text-center"
+                  style="max-width: 80px; text-align: center;" @keyup.enter="cambiarPaginaCarrito(paginaCarrito)"
+                  @blur="cambiarPaginaCarrito(paginaCarrito)" />
                 <span>/ {{ totalPaginasCarrito }}</span>
               </div>
               <v-btn icon @click="paginaCarrito < totalPaginasCarrito && cambiarPaginaCarrito(paginaCarrito + 1)">
                 <v-icon>mdi-chevron-right</v-icon>
               </v-btn>
             </v-row>
-            <v-btn block class="encargar-btn mt-2">Encargar</v-btn>
+            <!-- Botón para encargar el pedido -->
+            <v-btn block class="encargar-btn mt-2" @click="encargarPedido">
+              Encargar
+            </v-btn>
           </div>
         </v-card>
       </v-col>
@@ -199,22 +181,20 @@ export default {
       productos: [],
       carrito: [],
       marcaSeleccionada: "Todo",
-      // Paginación
+      // Paginación de productos
       paginaActual: 1,
       totalPaginas: 1,
-      // Paginación Carrito
+      // Paginación del carrito
       paginaCarrito: 1,
-      itemsPorPaginaCarrito: 10,
+      itemsPorPaginaCarrito: 10
     };
   },
   watch: {
-    // Cuando cambie el query param "term", hacemos la búsqueda
     "$route.query.term"(newVal) {
       this.paginaActual = 1;
       if (newVal && newVal.trim() !== "") {
         this.obtenerProductosBusqueda(newVal.trim());
       } else {
-        // Si no hay término de búsqueda, usamos la marcaSeleccionada
         if (this.marcaSeleccionada === "Todo") {
           this.obtenerProductos();
         } else {
@@ -241,8 +221,7 @@ export default {
     filtrarMarca(marca) {
       this.marcaSeleccionada = marca;
       this.paginaActual = 1;
-      // Quitamos la búsqueda si existe
-      this.$router.replace({ path: "/home_cli" });
+      this.$router.replace({ path: "/client/Home_Cli" });
       if (marca === "Todo") {
         this.obtenerProductos();
       } else {
@@ -260,11 +239,13 @@ export default {
     },
 
     agregarACarrito(producto) {
-      const existe = this.carrito.find((p) => p.clave === producto.clave);
-      if (existe) {
-        existe.cantidad++;
+      const idx = this.carrito.findIndex((p) => p.clave === producto.clave);
+      if (idx !== -1) {
+        this.carrito[idx].cantidad++;
+        const item = this.carrito.splice(idx, 1)[0];
+        this.carrito.unshift(item);
       } else {
-        this.carrito.push({ ...producto, cantidad: 1 });
+        this.carrito.unshift({ ...producto, cantidad: 1 });
       }
       this.mostrarPedidos = true;
     },
@@ -284,17 +265,10 @@ export default {
 
     async obtenerProductos() {
       try {
-        const res = await this.$api.getProductos({
-          page: this.paginaActual,
-          limit: 50
-        });
-        this.productos = res.data.map((p) => ({
-          ...p,
-          mostrarDetalles: false
-        }));
+        const res = await this.$api.getProductos({ page: this.paginaActual, limit: 50 });
+        this.productos = res.data.map((p) => ({ ...p, mostrarDetalles: false }));
         const limit = res.limit || 50;
         this.totalPaginas = Math.ceil(res.total / limit);
-
         this.$nextTick(() => {
           if (this.$refs.productosScroll) {
             this.$refs.productosScroll.scrollTop = 0;
@@ -307,17 +281,10 @@ export default {
 
     async obtenerProductosBusqueda(term) {
       try {
-        const res = await this.$api.searchProductos(term, {
-          page: this.paginaActual,
-          limit: 50
-        });
-        this.productos = res.data.map((p) => ({
-          ...p,
-          mostrarDetalles: false
-        }));
+        const res = await this.$api.searchProductos(term, { page: this.paginaActual, limit: 50 });
+        this.productos = res.data.map((p) => ({ ...p, mostrarDetalles: false }));
         const limit = res.limit || 50;
         this.totalPaginas = Math.ceil(res.total / limit);
-
         this.$nextTick(() => {
           if (this.$refs.productosScroll) {
             this.$refs.productosScroll.scrollTop = 0;
@@ -345,10 +312,64 @@ export default {
       if (pagina >= 1 && pagina <= this.totalPaginasCarrito) {
         this.paginaCarrito = pagina;
       }
-    }
+    },
+
+    async encargarPedido() {
+      if (this.carrito.length === 0) return;
+
+      const userId = localStorage.getItem("userId");
+      if (!userId) {
+        console.error("No se encontró userId en localStorage. El usuario debe iniciar sesión.");
+        return;
+      }
+
+      const direccion = localStorage.getItem("direccion") || "Dirección no definida";
+      const metodo_de_pago = "efectivo";
+      const fecha_entrega_estimada = new Date(Date.now() + 24 * 60 * 60 * 1000)
+        .toISOString()
+        .slice(0, 10);
+      const fecha_levantamiento_pedido = new Date().toISOString().slice(0, 10);
+
+      try {
+        const newOrder = {
+          estado: "pendiente",
+          total: 0,
+          metodo_de_pago,
+          fecha_levantamiento_pedido,
+          fecha_entrega_estimada,
+          direccion,
+          id_usuario: userId
+        };
+
+        const createOrderResponse = await this.$api.createOrder(newOrder);
+        const orderId = createOrderResponse.id;
+
+        for (const item of this.carrito) {
+          const productDetail = {
+            id_pedido: orderId,
+            id_producto: item.id_producto,
+            cantidad: item.cantidad
+          };
+          await this.$api.addProductToOrder(productDetail);
+        }
+
+        await this.$axios.$put(`/pedidos/${orderId}`, {
+          estado: "pendiente",
+          total: this.totalCarrito,
+          metodo_de_pago,
+          fecha_entrega_estimada,
+          direccion
+        });
+
+        this.carrito = [];
+        this.mostrarPedidos = false;
+      } catch (error) {
+        console.error("Error al enviar el pedido", error);
+      }
+    },
+
   },
   mounted() {
-    // Si llega con un query ?term=...
     const term = this.$route.query.term;
     if (term && term.trim() !== "") {
       this.obtenerProductosBusqueda(term.trim());
@@ -365,6 +386,7 @@ export default {
 .fondo {
   background-color: #f5f5f5;
 }
+
 .chip-selected {
   background-color: #2e7d32 !important;
   color: white !important;

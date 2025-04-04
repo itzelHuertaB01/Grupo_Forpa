@@ -92,47 +92,42 @@ export default {
       }
 
       try {
-        // Petición al backend
-        const response = await this.$api.login({
+        // Petición al backend para iniciar sesión
+        const loginResponse = await this.$api.login({
           numero_cel: this.phoneNumber,
           password_user: this.password,
         });
 
-        // El backend debería retornar algo como:
-        // {
-        //   message: "Inicio de sesión exitoso",
-        //   accessToken,
-        //   tipo_usuario,
-        //   nombre // <-- importante
-        // }
+        // Extraemos accessToken y refreshToken de la respuesta
+        const { accessToken, refreshToken } = loginResponse;
 
-        // Suponiendo que en tu método login en Login.vue ya tienes la respuesta del backend:
-        const { accessToken, tipo_usuario, nombre, apellido_p } = response;
-
-        // Guardamos el token
+        // Guardamos los tokens según la preferencia de la sesión
         if (this.rememberMe) {
           localStorage.setItem("accessToken", accessToken);
+          localStorage.setItem("refreshToken", refreshToken);
         } else {
           sessionStorage.setItem("accessToken", accessToken);
+          sessionStorage.setItem("refreshToken", refreshToken);
         }
 
-        // Guardamos el nombre completo y rol
-        localStorage.setItem("clientName", `${nombre} ${apellido_p}`);
-        localStorage.setItem("clientRole", tipo_usuario);
+        // Utilizamos el accessToken para obtener los datos completos del usuario
+        const userData = await this.$axios.$get("/clientes/user");
 
-        // Redirigimos según el tipo de usuario...
-
+        // Guardamos el ID, nombre completo y rol del usuario
+        localStorage.setItem("userId", userData.id_usuario);
+        localStorage.setItem("clientName", `${userData.nombre} ${userData.apellido_p}`);
+        localStorage.setItem("clientRole", userData.tipo_usuario);
 
         // Redirigimos según el tipo de usuario
-        switch (tipo_usuario) {
+        switch (userData.tipo_usuario) {
           case "admin":
-            this.$router.push("/Orders");
+            this.$router.push("/admin");
             break;
           case "cliente":
-            this.$router.push("/home_cli"); // <--- Ruta para clientes
+            this.$router.push("/client");
             break;
           case "preventista":
-            this.$router.push("/user-pre");
+            this.$router.push("/preventive");
             break;
           default:
             this.$router.push("/");
