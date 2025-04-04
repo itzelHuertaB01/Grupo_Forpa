@@ -42,32 +42,16 @@
                 <div v-if="producto.mostrarDetalles" class="producto-detalle pa-0">
                   <v-row class="ma-0 pa-0 pl-10 align-start">
                     <v-col cols="6" class="detalle-col">
-                      <p>
-                        <span class="verde--text font-weight-bold">Descripción:</span>
-                        {{ producto.descripcion }}
-                      </p>
-                      <p>
-                        <span class="verde--text font-weight-bold">Precio:</span>
-                        ${{ producto.precio }}
-                      </p>
-                      <p>
-                        <span class="verde--text font-weight-bold">Unidad:</span>
-                        {{ producto.unidad }}
-                      </p>
+                      <p><span class="verde--text font-weight-bold">Descripción:</span> {{ producto.descripcion }}</p>
+                      <p><span class="verde--text font-weight-bold">Precio público:</span> ${{ producto.precio_publico_con_IVA }}</p>
+                      <p><span class="verde--text font-weight-bold">Precio Mayoreo:</span> ${{ producto.precio_mayoreo_con_IVA }}</p>
+                      <p><span class="verde--text font-weight-bold">Clave:</span> {{ producto.clave }}</p>
                     </v-col>
                     <v-col cols="6" class="detalle-col">
-                      <p>
-                        <span class="verde--text font-weight-bold">EAN:</span>
-                        {{ producto.ean }}
-                      </p>
-                      <p>
-                        <span class="verde--text font-weight-bold">Precio Mínimo:</span>
-                        ${{ producto.precio_minimo }}
-                      </p>
-                      <p>
-                        <span class="verde--text font-weight-bold">Familia:</span>
-                        {{ producto.familia }}
-                      </p>
+                      <p><span class="verde--text font-weight-bold">Marca:</span> {{ producto.marca }} </p>
+                      <p><span class="verde--text font-weight-bold">Código:</span> {{ producto.codigo }} </p>
+                      <p><span class="verde--text font-weight-bold">Peso:</span> {{ producto.peso_kg }} </p>
+                      <p><span class="verde--text font-weight-bold">Unidad:</span> {{ producto.unidad}} </p>
                     </v-col>
                   </v-row>
                 </div>
@@ -119,7 +103,8 @@
                 <span class="precio-dinamico font-weight-bold">
                   ${{ (item.precio * item.cantidad).toLocaleString("en-US", {
                     minimumFractionDigits: 2,
-                  maximumFractionDigits: 2 }) }}
+                    maximumFractionDigits: 2
+                  }) }}
                 </span>
               </v-row>
               <p class="disponibles">+50 disponibles</p>
@@ -205,7 +190,7 @@ export default {
   },
   computed: {
     totalCarrito() {
-      return this.carrito.reduce((acc, item) => acc + (item.precio || 0) * item.cantidad, 0);
+      return this.carrito.reduce((acc, item) => acc + (item.precio_publico_con_IVA || 0) * item.cantidad, 0);
     },
     totalPaginasCarrito() {
       return Math.ceil(this.carrito.length / this.itemsPorPaginaCarrito);
