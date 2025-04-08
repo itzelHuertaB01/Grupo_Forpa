@@ -17,7 +17,6 @@
           <v-card-subtitle class="text-center" style="font-size: 14px;">
             Ingresa tus datos para acceder.
           </v-card-subtitle>
-
           <v-form ref="loginForm" v-model="valid" @submit.prevent="login">
             <v-text-field v-model="phoneNumber" label="Número de teléfono" type="tel" :rules="phoneRules" required dense
               outlined class="mb-3" />
