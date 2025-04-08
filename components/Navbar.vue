@@ -172,7 +172,7 @@ export default {
           ];
         case "preventista":
           return [
-            { text: "Inicio", icon: "mdi-home-outline", route: "/preventive/Shopping_Pre" },
+            { text: "Usuarios", icon: "mdi-account-outline", route: "/preventive/Users_Pre" },
             { text: "Notificaciones", icon: "mdi-bell-outline", route: "/preventive/Notifications_Pre" },
             { text: "Ver Pedidos", icon: "mdi-shopping-outline", route: "/preventive/Orders_Pre" },
             { text: "Historial", icon: "mdi-clipboard-text-clock-outline", route: "/preventive/History_Pre" },

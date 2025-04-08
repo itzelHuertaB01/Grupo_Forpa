@@ -59,6 +59,11 @@ export default {
           component: resolve(__dirname, 'pages/preventive/Shopping_Pre.vue')
         },
         {
+          name: 'usuarios_pre',
+          path: '/usuarios_pre',
+          component: resolve(__dirname, 'pages/preventive/Users_Pre.vue')
+        },
+        {
           name: 'pedidos_pre',
           path: '/pedidos_pre',
           component: resolve(__dirname, 'pages/preventive/Orders_Pre.vue')
@@ -94,7 +99,7 @@ export default {
           path: '/productos_admin',
           component: resolve(__dirname, 'pages/admin/Orders_Admin.vue')
         },
-                {
+        {
           name: 'usuarios_admin',
           path: '/usuarios_admin',
           component: resolve(__dirname, 'pages/admin/Users_Admin.vue')

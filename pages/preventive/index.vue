@@ -5,7 +5,7 @@
 <script>
 export default {
   mounted() {
-    this.$router.replace('/preventive/Shopping_Pre')
+    this.$router.replace('/preventive/Users_Pre')
   }
 }
 </script> 
