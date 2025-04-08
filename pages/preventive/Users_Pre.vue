@@ -97,7 +97,7 @@ export default {
   methods: {
     irACompras(cliente) {
       this.$router.push({
-        path: '/preventive/Shoping_Pre',
+        path: '/preventive/Shopping_Pre',
         query: { nombre: cliente.nombre, telefono: cliente.telefono }
       });
     },
