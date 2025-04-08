@@ -313,7 +313,7 @@ export default {
       const fecha_entrega_estimada = new Date(Date.now() + 24 * 60 * 60 * 1000)
         .toISOString()
         .slice(0, 10);
-      const fecha_levantamiento_pedido = new Date().toISOString().slice(0, 10);
+        const fecha_levantamiento_pedido = new Date().toISOString().slice(0, 10);
 
       try {
         const newOrder = {

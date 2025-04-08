@@ -40,6 +40,7 @@ export default ({ $axios }, inject) => {
   const api = {
     login: (credentials) => $axios.$post("/clientes/login", credentials),
     getClientes: () => $axios.$get("/clientes/getAll"),
+
     getProductos: (params) => $axios.$get("/productos/productos", { params }),
     searchProductos: (term, params) =>
       $axios.$post("productos/buscarByname", { term }, { params }),
@@ -48,7 +49,8 @@ export default ({ $axios }, inject) => {
     // Método para agregar un producto al pedido (usa la ruta actualizada)
     addProductToOrder: (data) => $axios.$post("/pedidos/add-product", data),
     getOrderProducts: (orderId) => $axios.$get(`/pedidos/productos/${orderId}`),
-    getUserOrders: (userId) => $axios.$get(`/pedidos/user/${userId}`),
+    getUserOrders: (userId, estado = 'Todas') =>
+      $axios.$get(`/pedidos/user/${userId}`, { params: { estado } }),    
     refreshToken: () => $axios.$post("/clientes/refresh-token")
   };
 

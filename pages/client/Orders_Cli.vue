@@ -1,40 +1,64 @@
 <template>
   <v-container fluid class="full-screen">
-    <v-row justify="center">
+    <!-- Título de la vista -->
+    <v-row>
       <v-col cols="12">
-        <v-card class="pa-4 card-container">
+        <h2 class="font-weight-bold text-primary title-text">Seguimiento de tus pedidos</h2>
+      </v-col>
+    </v-row>
+
+    <!-- Lista de pedidos no entregados -->
+    <v-row v-if="filteredOrders.length">
+      <v-col v-for="order in filteredOrders" :key="order.id_pedido" cols="12">
+        <v-card :class="{'cancelled-card': order.estado === 'cancelado'}" class="pa-4 card-container" outlined>
           <v-row>
             <v-col cols="12">
               <h3 class="font-weight-bold text-primary title-text">
-                <span class="delivery-text">Llega entre el 24 de Febrero</span>
+                <span class="delivery-text">
+                  Llega entre el {{ formatDate(order.fecha_entrega_estimada) }}
+                </span>
               </h3>
             </v-col>
           </v-row>
 
           <v-divider class="my-2"></v-divider>
 
+          <!-- Encabezado: Fechas y estado -->
+          <v-row>
+            <v-col cols="6">
+              <p><strong>Realizado:</strong> {{ formatDate(order.fecha_levantamiento_pedido) }}</p>
+            </v-col>
+            <v-col cols="6" class="text-right">
+              <v-chip color="primary" text-color="white">
+                {{ order.estado.toUpperCase() }}
+              </v-chip>
+            </v-col>
+          </v-row>
+
+          <v-divider class="my-2"></v-divider>
+
+          <!-- Timeline de seguimiento -->
           <div class="tracking-container">
             <div v-if="isMobile" class="timeline">
-              <div v-for="(step, index) in steps" :key="index" class="timeline-item">
-                <div class="timeline-line" :class="{ completed: index < currentStep }"></div>
-                <div class="timeline-circle" :class="{ completed: index < currentStep }"></div>
+              <div v-for="(step, index) in getTimelineSteps(order)" :key="index" class="timeline-item">
+                <div class="timeline-line" :class="{ completed: index < getCurrentStep(order) }"></div>
+                <div class="timeline-circle" :class="{ completed: index < getCurrentStep(order) }"></div>
                 <div class="timeline-content">
-                  <p class="step-title" :class="{ highlight: index <= currentStep }">
+                  <p class="step-title" :class="{ highlight: index <= getCurrentStep(order) }">
                     {{ step.title }}
                   </p>
                   <small class="step-date">{{ step.date || 'Pendiente' }}</small>
                 </div>
               </div>
             </div>
-
             <div v-else class="progress-horizontal">
               <div class="progress-line">
-                <div class="progress-line-completed" :style="{ width: progressWidth }"></div>
+                <div class="progress-line-completed" :style="{ width: getProgressWidth(order) }"></div>
               </div>
               <div class="steps">
-                <div v-for="(step, index) in steps" :key="index" class="step">
-                  <div class="circle" :class="{ completed: index < currentStep }"></div>
-                  <p class="step-title" :class="{ highlight: index <= currentStep }">
+                <div v-for="(step, index) in getTimelineSteps(order)" :key="index" class="step">
+                  <div class="circle" :class="{ completed: index < getCurrentStep(order) }"></div>
+                  <p class="step-title" :class="{ highlight: index <= getCurrentStep(order) }">
                     {{ step.title }}
                   </p>
                   <small class="step-date">{{ step.date || 'Pendiente' }}</small>
@@ -45,12 +69,17 @@
 
           <v-divider class="my-4"></v-divider>
 
+          <!-- Detalles de seguimiento -->
           <v-row>
             <v-col cols="12">
               <h4 class="font-weight-medium">Detalles de seguimiento</h4>
               <v-expand-transition>
                 <div class="tracking-details">
-                  <div v-for="(detail, index) in displayedDetails" :key="index" class="detail-item">
+                  <div
+                    v-for="(detail, index) in order.showDetails ? getDetails(order) : getDetails(order).slice(0, 2)"
+                    :key="index"
+                    class="detail-item"
+                  >
                     <span class="detail-date">{{ detail.date }}</span>
                     <p class="detail-text">{{ detail.text }}</p>
                   </div>
@@ -58,15 +87,21 @@
               </v-expand-transition>
             </v-col>
           </v-row>
-
-          <v-row v-if="details.length > 2">
+          <v-row v-if="getDetails(order).length > 2">
             <v-col cols="12" class="text-left">
-              <v-btn text color="primary" class="font-weight-bold btn-details" @click="toggleDetails">
-                {{ showAllDetails ? 'Ocultar detalles ▲' : 'Ver detalles ▼' }}
+              <v-btn text color="primary" class="font-weight-bold btn-details" @click="toggleDetails(order)">
+                {{ order.showDetails ? 'Ocultar detalles ▲' : 'Ver detalles ▼' }}
               </v-btn>
             </v-col>
           </v-row>
         </v-card>
+      </v-col>
+    </v-row>
+
+    <!-- Mensaje en caso de no haber pedidos pendientes o en camino -->
+    <v-row v-else>
+      <v-col cols="12">
+        <v-alert type="info">No tienes pedidos pendientes o en camino.</v-alert>
       </v-col>
     </v-row>
   </v-container>
@@ -76,45 +111,99 @@
 export default {
   data() {
     return {
-      currentStep: 2,
-      showAllDetails: false,
-      isMobile: process.client ? window.innerWidth < 600 : false,
-      steps: [
-        { title: 'Pedido confirmado', date: 'Lunes, Enero 31 2025' },
-        { title: 'En preparación', date: 'Lunes, Febrero 02 2025' },
-        { title: 'En camino', date: 'Pendiente' },
-        { title: 'Entregado', date: 'Pendiente' }
-      ],
-      details: [
-        { date: 'Lunes, Enero 31 2025', text: 'Hemos recibido tu pedido y está en proceso de validación.' },
-        { date: 'Lunes, Febrero 02 2025', text: 'Estamos reuniendo los productos de tu pedido.' },
-        { date: 'Martes, Febrero 03 2025', text: 'Tu pedido ha sido empacado y está listo para ser enviado.' },
-        { date: 'Miércoles, Febrero 04 2025', text: 'Tu paquete ha salido de nuestro almacén.' },
-        { date: 'Jueves, Febrero 05 2025', text: 'El repartidor tiene tu pedido y está en camino.' }
-      ]
+      orders: [],
+      isMobile: process.client ? window.innerWidth < 600 : false
     }
   },
   computed: {
-    displayedDetails() {
-      return this.showAllDetails ? this.details : this.details.slice(0, 2)
-    },
-    progressWidth() {
-      return this.currentStep === 2 ? '50%' : this.currentStep > 2 ? '100%' : '25%';
+    // Filtra los pedidos para mostrar solo los que NO están en estado "entregado"
+    filteredOrders() {
+      return this.orders.filter(order => order.estado !== 'entregado');
     }
   },
   methods: {
-    toggleDetails() {
-      this.showAllDetails = !this.showAllDetails
+    formatDate(date) {
+      if (!date) return '';
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(date).toLocaleDateString('es-ES', options);
     },
     updateIsMobile() {
-      this.isMobile = window.innerWidth < 600
+      this.isMobile = window.innerWidth < 600;
+    },
+    getPreparationDate(order) {
+      if (!order || !order.fecha_levantamiento_pedido) return '';
+      let d = new Date(order.fecha_levantamiento_pedido);
+      d.setDate(d.getDate() + 1);
+      return this.formatDate(d);
+    },
+    getShippingDate(order) {
+      if (!order || !order.fecha_levantamiento_pedido) return '';
+      let d = new Date(order.fecha_levantamiento_pedido);
+      d.setDate(d.getDate() + 2);
+      return this.formatDate(d);
+    },
+    getTimelineSteps(order) {
+      return [
+        { title: 'Pedido confirmado', date: order.fecha_levantamiento_pedido ? this.formatDate(order.fecha_levantamiento_pedido) : '' },
+        { title: 'En preparación', date: order.fecha_levantamiento_pedido ? this.getPreparationDate(order) : 'Pendiente' },
+        { title: 'En camino', date: order.estado === 'enviado' ? this.getShippingDate(order) : 'Pendiente' },
+        { title: 'Entregado', date: order.estado === 'entregado' ? this.formatDate(order.fecha_entrega_estimada) : 'Pendiente' }
+      ];
+    },
+    getCurrentStep(order) {
+      switch (order.estado) {
+        case 'pendiente':
+          return 1;
+        case 'enviado':
+          return 2;
+        case 'cancelado':
+          return 0;
+        case 'entregado':
+          return 3;
+        default:
+          return 0;
+      }
+    },
+    getProgressWidth(order) {
+      let step = this.getCurrentStep(order);
+      return (step / 3) * 100 + '%';
+    },
+    getDetails(order) {
+      return [
+        { date: order.fecha_levantamiento_pedido ? this.formatDate(order.fecha_levantamiento_pedido) : '', text: 'Hemos recibido tu pedido y está en proceso de validación.' },
+        { date: order.fecha_levantamiento_pedido ? this.getPreparationDate(order) : 'Pendiente', text: 'Estamos reuniendo los productos de tu pedido.' },
+        { date: order.estado === 'enviado' ? this.getShippingDate(order) : 'Pendiente', text: 'Tu pedido ha sido empacado y está listo para ser enviado.' },
+        { date: order.estado === 'entregado' ? this.formatDate(order.fecha_entrega_estimada) : 'Pendiente', text: 'Tu paquete ha salido de nuestro almacén.' },
+        { date: order.estado === 'entregado' ? this.formatDate(order.fecha_entrega_estimada) : 'Pendiente', text: 'El repartidor tiene tu pedido y está en camino.' }
+      ];
+    },
+    toggleDetails(order) {
+      if (order.showDetails === undefined) {
+        this.$set(order, 'showDetails', true);
+      } else {
+        order.showDetails = !order.showDetails;
+      }
+    },
+    fetchOrders() {
+      const userId = localStorage.getItem("userId");
+      if (!userId) return;
+      this.$api.getUserOrders(userId, 'Todas')
+        .then(response => {
+          // Se asume que el backend retorna los pedidos ordenados descendentemente por fecha.
+          // Agregamos la propiedad showDetails a cada pedido para el toggle de detalles.
+          this.orders = response.map(order => ({ ...order, showDetails: false }));
+        })
+        .catch(error => {
+          console.error("Error al obtener los pedidos:", error);
+        });
     }
   },
   mounted() {
-    window.addEventListener('resize', this.updateIsMobile)
+    this.fetchOrders();
+    window.addEventListener('resize', this.updateIsMobile);
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.updateIsMobile)
+    window.removeEventListener('resize', this.updateIsMobile);
   }
 }
 </script>
@@ -133,6 +222,7 @@ export default {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 95%;
   margin: auto;
+  margin-bottom: 16px;
 }
 
 .delivery-text {
@@ -231,7 +321,6 @@ export default {
   padding-left: 10px;
 }
 
-
 .detail-date {
   font-size: 14px;
   font-weight: bold;
@@ -248,5 +337,10 @@ export default {
   text-transform: uppercase;
   font-weight: bold;
   color: #2c3e50 !important;
+}
+
+/* Tarjeta para pedidos cancelados */
+.cancelled-card {
+  background-color: #ffe6e6 !important;
 }
 </style>

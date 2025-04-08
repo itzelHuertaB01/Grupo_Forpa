@@ -30,7 +30,7 @@
             <!-- Fecha y separación -->
             <v-card-title class="d-flex justify-content-between align-center" style="padding-bottom: 2px;">
               <span style="font-size: 20px; color: #29235C; margin: 0;">
-                {{ formatDate(purchase.fecha_entrega_estimada) }}
+                {{ formatDate(purchase.fecha_levantamiento_pedido) }}
               </span>
             </v-card-title>
             <v-divider></v-divider>
@@ -41,7 +41,7 @@
             <!-- Si el pedido está entregado, se muestra la fecha de entrega -->
             <v-card-subtitle v-if="purchase.estado === 'Entregado'" class="text-body-2"
               style="font-weight: bold; color: black; font-size: 12px; padding: 1px; margin-left: 15px;">
-              Llegó el {{ formatDate(purchase.fecha_entrega_estimada) }}
+              Llegó el {{ formatDate(purchase.fecha_levantamiento_pedido) }}
             </v-card-subtitle>
             <!-- Información adicional: Dirección, total y método de pago -->
             <v-card-text style="font-size: 14px; overflow-y: auto; padding: 1px; margin-left: 15px;">
@@ -100,9 +100,12 @@ export default {
       selectedFilter: 'Todas', // Filtro por defecto
       filters: [
         { text: 'Todas', value: 'Todas', icon: 'mdi-all-inclusive' },
-        { text: 'Entregado', value: 'Entregado', icon: 'mdi-checkbox-marked-circle' },
-        { text: 'Pendiente', value: 'Pendiente', icon: 'mdi-clock-outline' }
+        { text: 'Entregado', value: 'entregado', icon: 'mdi-checkbox-marked-circle' },
+        { text: 'Pendiente', value: 'pendiente', icon: 'mdi-clock-outline' },
+        { text: 'Enviado', value: 'enviado', icon: 'mdi-truck' },
+        { text: 'Cancelado', value: 'cancelado', icon: 'mdi-close-circle' }
       ],
+
       // Los pedidos se obtendrán desde el backend
       purchases: [],
       dialog: false,
@@ -116,10 +119,11 @@ export default {
       }
       return this.purchases.filter(purchase => purchase.estado === this.selectedFilter);
     },
+
     // Ordena los pedidos para que el último aparezca primero (orden descendente por fecha)
     sortedPurchases() {
       return this.filteredPurchases.slice().sort(
-        (a, b) => new Date(b.fecha_entrega_estimada) - new Date(a.fecha_entrega_estimada)
+        (a, b) => new Date(b.fecha_levantamiento_pedido) - new Date(a.fecha_levantamiento_pedido)
       );
     },
     // Ordena los productos (por ejemplo, por id_producto, pero puedes ajustar el criterio)
@@ -142,7 +146,7 @@ export default {
     },
     // Obtiene los pedidos del usuario mediante el endpoint: GET /pedidos/user/:userId
     fetchPurchases(userId) {
-      this.$api.getUserOrders(userId)
+      this.$api.getUserOrders(userId, this.selectedFilter)
         .then(response => {
           this.purchases = response;
         })
