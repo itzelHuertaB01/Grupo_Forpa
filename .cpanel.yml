@@ -5,5 +5,6 @@ deployment:
     - nvm use 18
     - npm install
     - npm run build
-    - rm -rf public_html/*
-    - cp -r dist/* public_html/
+    - rm -rf public_html/grupoforpa.codersti.com/*
+    - mkdir -p public_html/grupoforpa.codersti.com
+    - cp -r dist/* public_html/grupoforpa.codersti.com/
