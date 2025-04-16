@@ -39,6 +39,7 @@ export default ({ $axios }, inject) => {
 
   const api = {
     login: (credentials) => $axios.$post("/clientes/login", credentials),
+    logout: () => $axios.$post("/clientes/logout"),
     getClientes: () => $axios.$get("/clientes/getAll"),
 
     getProductos: (params) => $axios.$get("/productos/productos", { params }),

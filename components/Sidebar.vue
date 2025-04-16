@@ -9,10 +9,12 @@
     :width="isCollapsed ? 100 : 250"
     class="custom-sidebar"
   >
+    <!-- Logo -->
     <div class="logo-container">
       <v-img :src="isCollapsed ? '/img/Logo_min.png' : '/img/Logo.png'" contain height="80" class="logo-img" />
     </div>
 
+    <!-- Menú principal -->
     <v-list dense>
       <v-list-item-group v-model="selectedItem">
         <v-list-item
@@ -32,10 +34,12 @@
       </v-list-item-group>
     </v-list>
 
+    <!-- Espaciador -->
     <v-spacer></v-spacer>
 
+    <!-- Cerrar sesión -->
     <v-list dense>
-      <v-list-item to="/logout" class="logout-item">
+      <v-list-item @click="logout" class="logout-item" link>
         <v-list-item-icon>
           <v-icon>mdi-logout</v-icon>
         </v-list-item-icon>
@@ -43,6 +47,7 @@
       </v-list-item>
     </v-list>
 
+    <!-- Botón colapsar menú -->
     <v-btn icon @click="toggleMenu" class="toggle-btn" dark>
       <v-icon>{{ isCollapsed ? 'mdi-chevron-right' : 'mdi-chevron-left' }}</v-icon>
     </v-btn>
@@ -60,50 +65,66 @@ export default {
   },
   data() {
     return {
-        selectedItem: null,
-        isCollapsed: false
-    }
+      selectedItem: null,
+      isCollapsed: false
+    };
   },
   computed: {
     isLargeScreen() {
       return this.$vuetify.breakpoint.lgAndUp;
     },
     menuItems() {
-  switch (this.role) {
-    case "admin":
-      return [
-        { text: "Inicio", icon: "mdi-home", route: "/admin/Index_Admin" },
-        { text: "Productos", icon: "mdi-shopping", route: "/admin/Orders_Admin" },
-        { text: "Usuarios", icon: "mdi-account", route: "/admin/Users_Admin" },
-        { text: "Catálogos", icon: "mdi-book-open", route: "/admin/UploadFiles_Admin" },
-      ];
-    case "cliente":
-      return [
-        { text: "Inicio", icon: "mdi-home", route: "/client/Home_Cli" },
-        { text: "Ver Pedidos", icon: "mdi-shopping", route: "/client/Orders_Cli" },
-        { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/client/History_Cli" },
-        { text: "Catálogo", icon: "mdi-book-open", route: "/client/Catalog_Cli" },
-        { text: "Ofertas", icon: "mdi-tag-outline", route: "/client/Ofertas_Cli" },
-      ];
-    case "preventista":
-      return [
-        { text: "Inicio", icon: "mdi-home", route: "/preventive/Shopping_Pre" },
-        { text: "Ver Pedidos", icon: "mdi-shopping", route: "/preventive/Orders_Pre" },
-        { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/preventive/History_Pre" },
-        { text: "Catálogo", icon: "mdi-book-open", route: "/preventive/Catalog_Pre" },
-        { text: "Ofertas", icon: "mdi-tag", route: "/preventive/Offers_Pre" },
-      ];
-    default:
-      return [];
+      switch (this.role) {
+        case "admin":
+          return [
+            { text: "Inicio", icon: "mdi-home", route: "/admin/Index_Admin" },
+            { text: "Productos", icon: "mdi-shopping", route: "/admin/Orders_Admin" },
+            { text: "Usuarios", icon: "mdi-account", route: "/admin/Users_Admin" },
+            { text: "Catálogos", icon: "mdi-book-open", route: "/admin/UploadFiles_Admin" },
+          ];
+        case "cliente":
+          return [
+            { text: "Inicio", icon: "mdi-home", route: "/client/Home_Cli" },
+            { text: "Ver Pedidos", icon: "mdi-shopping", route: "/client/Orders_Cli" },
+            { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/client/History_Cli" },
+            { text: "Catálogo", icon: "mdi-book-open", route: "/client/Catalog_Cli" },
+            { text: "Ofertas", icon: "mdi-tag-outline", route: "/client/Ofertas_Cli" },
+          ];
+        case "preventista":
+          return [
+            { text: "Inicio", icon: "mdi-home", route: "/preventive/Shopping_Pre" },
+            { text: "Ver Pedidos", icon: "mdi-shopping", route: "/preventive/Orders_Pre" },
+            { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/preventive/History_Pre" },
+            { text: "Catálogo", icon: "mdi-book-open", route: "/preventive/Catalog_Pre" },
+            { text: "Ofertas", icon: "mdi-tag", route: "/preventive/Offers_Pre" },
+          ];
+        default:
+          return [];
       }
     }
   },
   methods: {
-  isSelected(route) {
+    isSelected(route) {
       return this.$route.path.startsWith(route);
     },
     toggleMenu() {
       this.isCollapsed = !this.isCollapsed;
+    },
+    async logout() {
+      try {
+        // Llama a tu backend para cerrar sesión
+        await this.$api.logout();
+
+        // Limpia el localStorage y sessionStorage
+        localStorage.clear();
+        sessionStorage.clear();
+
+        // Redirige al login
+        this.$router.push("/");
+      } catch (err) {
+        console.error("Error al cerrar sesión:", err);
+        this.$router.push("/");
+      }
     }
   }
 };

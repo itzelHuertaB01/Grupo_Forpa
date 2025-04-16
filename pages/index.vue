@@ -117,6 +117,7 @@ export default {
         localStorage.setItem("userId", userData.id_usuario);
         localStorage.setItem("clientName", `${userData.nombre} ${userData.apellido_p}`);
         localStorage.setItem("clientRole", userData.tipo_usuario);
+        localStorage.setItem("direccion", userData.direccion);
 
         // Redirigimos según el tipo de usuario
         switch (userData.tipo_usuario) {
