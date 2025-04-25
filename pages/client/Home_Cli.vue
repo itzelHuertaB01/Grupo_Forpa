@@ -43,8 +43,10 @@
                   <v-row class="ma-0 pa-0 pl-10 align-start">
                     <v-col cols="6">
                       <p><span class="verde--text font-weight-bold">Descripción:</span> {{ producto.descripcion }}</p>
-                      <p><span class="verde--text font-weight-bold">Precio público:</span> ${{ producto.precio_publico_con_IVA }}</p>
-                      <p><span class="verde--text font-weight-bold">Precio Mayoreo:</span> ${{ producto.precio_mayoreo_con_IVA }}</p>
+                      <p><span class="verde--text font-weight-bold">Precio público:</span> ${{
+                        producto.precio_publico_con_IVA }}</p>
+                      <p><span class="verde--text font-weight-bold">Precio Mayoreo:</span> ${{
+                        producto.precio_mayoreo_con_IVA }}</p>
                       <p><span class="verde--text font-weight-bold">Clave:</span> {{ producto.clave }}</p>
                     </v-col>
                     <v-col cols="6">
@@ -100,7 +102,10 @@
                   </v-btn>
                 </div>
                 <span class="precio-dinamico font-weight-bold">
-                  ${{ (item.precio * item.cantidad).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}
+                  ${{ (item.precio * item.cantidad).toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                  }) }}
                 </span>
               </v-row>
               <p class="disponibles">+50 disponibles</p>
@@ -363,13 +368,43 @@ export default {
       }
 
       const direccion = localStorage.getItem("direccion") || "Dirección no definida";
-
       const metodo_de_pago = "efectivo";
-      const fecha_entrega_estimada = new Date(Date.now() + 24 * 60 * 60 * 1000)
-        .toISOString()
-        .slice(0, 10);
 
       try {
+        // Obtener localidad del usuario
+        const userResponse = await this.$api.getUserById(userId);
+        const id_localidad = userResponse.id_localidad;
+
+        // Obtener ruta asignada a la localidad
+        const localidadResponse = await this.$api.getLocalidadById(id_localidad);
+        const id_ruta = localidadResponse.id_ruta;
+
+        // Obtener día de entrega de la ruta
+        const rutaResponse = await this.$api.getRutaById(id_ruta);
+        const dia_entrega = rutaResponse.dia_entrega.toLowerCase();
+
+        // Calcular la próxima fecha de entrega considerando mínimo 2 días de anticipación
+        const diasSemana = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+        const hoy = new Date();
+        const hoyDia = hoy.getDay(); // 0 = domingo, 1 = lunes, ..., 6 = sábado
+        const entregaDia = diasSemana.indexOf(dia_entrega.toLowerCase());
+
+        // Calcular cuántos días faltan para el próximo día de entrega
+        let diasHastaEntrega = (entregaDia - hoyDia + 7) % 7;
+
+        // Asegurar al menos 2 días de anticipación
+        if (diasHastaEntrega < 2) {
+          diasHastaEntrega += 7;
+        }
+
+        // Calcular la fecha final sumando los días correspondientes
+        const fechaEntrega = new Date(hoy);
+        fechaEntrega.setDate(hoy.getDate() + diasHastaEntrega);
+
+        // Convertir a formato local YYYY-MM-DD sin zona horaria UTC
+        const fecha_entrega_estimada = fechaEntrega.toLocaleDateString('sv-SE');
+
+        // Crear pedido
         const newOrder = {
           estado: "enviado",
           total: 0,

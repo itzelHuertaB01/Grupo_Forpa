@@ -1,33 +1,94 @@
 <template>
   <div class="order-list fill-height">
-    <div class="d-flex align-center mb-6 px-4">
-      <v-select v-model="selectedFilter" :items="filterOptions" dense outlined hide-details class="filter-select mr-4"
-        prepend-inner-icon="mdi-filter-variant"></v-select>
-      <div class="order-count grey--text text--darken-1">{{ totalOrders }} pedidos</div>
+    <!-- Filtros de estado y día -->
+    <div class="d-flex align-center justify-space-between mb-4 px-4 flex-wrap">
+      <div class="d-flex align-center">
+        <v-select
+          v-model="selectedFilter"
+          :items="filterOptions"
+          dense
+          outlined
+          hide-details
+          class="filter-select mr-4"
+          prepend-inner-icon="mdi-filter-variant"
+          @change="filterOrders"
+        />
+        <div class="order-count grey--text text--darken-1">
+          {{ filteredOrders.length }} pedidos
+        </div>
+      </div>
+
+      <v-chip-group
+        v-model="selectedDay"
+        class="mt-2 mt-md-0 ml-md-5"
+        row
+        active-class="chip-active"
+        @change="filterOrders"
+      >
+        <v-chip
+          v-for="(day, i) in deliveryDays"
+          :key="i"
+          :value="day"
+          class="ma-1"
+          outlined
+          color="yellow darken-2"
+        >
+          {{ day }}
+        </v-chip>
+      </v-chip-group>
     </div>
 
+    <!-- Pedidos agrupados -->
     <div class="orders-container">
-      <div v-for="(dateGroup, index) in groupedOrders" :key="index" class="date-group mb-6">
-        <div class="date-header pa-4">
-          {{ dateGroup.date }}
-          <span v-if="dateGroup.tag" class="date-tag ml-2">{{ dateGroup.tag }}</span>
+      <div
+        v-for="(dateGroup, index) in groupedOrders"
+        :key="index"
+        class="date-group mb-6"
+      >
+        <div class="d-flex justify-space-between pa-4">
+          <div class="date-header yellow--text text--darken-3 font-weight-bold">
+            {{ dateGroup.date }}
+          </div>
+          <div class="route-id font-weight-bold yellow--text text--darken-3">
+            Ruta {{ dateGroup.orders[0]?.id_ruta }} - {{ dateGroup.orders[0]?.nombre_ruta }}
+          </div>
         </div>
 
         <v-divider></v-divider>
 
-        <div v-for="order in dateGroup.orders" :key="order.id" class="order-item">
+        <div
+          v-for="order in dateGroup.orders"
+          :key="order.id_pedido"
+          class="order-item"
+        >
           <div class="order-content">
             <div class="order-left">
-              <div class="order-number success--text">{{ order.id }}</div>
-              <div class="order-location font-weight-bold">{{ order.location }}</div>
-              <div class="product-description">{{ order.product }}</div>
-              <div class="order-quantity grey--text">{{ order.quantity }}</div>
+              <div class="order-number success--text font-weight-bold">
+                ${{ order.total }} MXN
+              </div>
+              <div class="order-location font-weight-bold">
+                {{ order.localidad_nombre }}
+              </div>
+              <div class="product-description">
+                {{ order.direccion }}
+              </div>
+              <div class="order-quantity grey--text">
+                {{ order.unidades }} Unidades
+              </div>
             </div>
 
             <div class="order-center">
-              <div class="customer-name">{{ order.customer }}</div>
+              <div class="customer-name">
+                {{ order.nombre_completo }}
+              </div>
               <div class="message-btn-container">
-                <v-btn text small color="success" class="send-message-btn px-0">
+                <v-btn
+                  text
+                  small
+                  color="success"
+                  class="send-message-btn px-0"
+                  @click="openMessage(order)"
+                >
                   <v-icon small left>mdi-email-outline</v-icon>
                   Enviar Mensaje
                 </v-btn>
@@ -35,19 +96,34 @@
             </div>
 
             <div class="order-right">
-              <v-btn color="success" outlined class="mr-3 view-order-btn">
+              <v-btn
+                color="success"
+                outlined
+                class="mr-3 view-order-btn"
+                @click="verProductos(order)"
+              >
                 Ver Pedido
               </v-btn>
 
               <v-menu offset-y left>
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn outlined color="light-green lighten-3" class="status-btn" v-bind="attrs" v-on="on">
-                    Estado
+                  <v-btn
+                    outlined
+                    color="light-green lighten-3"
+                    class="status-btn"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    {{ getDisplayStatus(order.estado) }}
                     <v-icon right>mdi-chevron-down</v-icon>
                   </v-btn>
                 </template>
                 <v-list>
-                  <v-list-item v-for="(status, i) in statusOptions" :key="i" @click="updateStatus(order.id, status)">
+                  <v-list-item
+                    v-for="(status, i) in statusOptions"
+                    :key="i"
+                    @click="updateStatus(order, status)"
+                  >
                     <v-list-item-title>{{ status }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
@@ -58,98 +134,152 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal de Enviar Mensaje -->
+    <v-dialog v-model="mensajeVisible" max-width="500px" persistent>
+      <v-card>
+        <v-card-title class="headline yellow--text text--darken-2">
+          Enviar mensaje a {{ destinatario }}
+        </v-card-title>
+
+        <v-card-text>
+          <v-textarea
+            v-model="mensaje"
+            label="Escribe tu mensaje"
+            rows="5"
+            outlined
+            auto-grow
+            clearable
+          />
+        </v-card-text>
+
+        <v-card-actions class="justify-end">
+          <v-btn text color="grey" @click="mensajeVisible = false">
+            Cancelar
+          </v-btn>
+          <v-btn color="success" dark @click="enviarMensaje">
+            Enviar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
-  name: 'OrderList',
-  layout: 'admin',
-  head() {
-    return {
-      title: "Inicio - Administrador",
-      meta: [{ name: "inicio", content: "Administrador" }],
-    };
-  },
   data() {
     return {
       selectedFilter: 'Todos',
-      filterOptions: ['Todos', 'Pendientes', 'Completados', 'Cancelados'],
-      totalOrders: 500,
-      statusOptions: ['Pendiente', 'En proceso', 'Completado', 'Cancelado'],
-      orders: [
-        {
-          id: '01565',
-          date: '25 de febrero',
-          location: 'TUZUAPAN',
-          product: 'Estuche con 50 cuchillas SKA',
-          quantity: '1 Unidad',
-          customer: 'Lizeth Huerta Beristain',
-          status: 'Pendiente'
-        },
-        {
-          id: '01566',
-          date: '10 de enero',
-          location: 'PALMARITO',
-          product: 'Estuche con 50 cuchillas SKA',
-          quantity: '20 Unidades',
-          customer: 'Valeria Vázquez Castillo',
-          status: 'Pendiente'
-        },
-        {
-          id: '01567',
-          date: '10 de enero',
-          location: 'TECAMACHALCO',
-          product: 'Estuche con 50 cuchillas SKA',
-          quantity: '10 Unidades',
-          customer: 'Cristina Escalante Torres',
-          status: 'Pendiente'
-        },
-        {
-          id: '01568',
-          date: '20 de diciembre de 2024',
-          location: 'TEPEACA',
-          product: 'Estuche con 50 cuchillas SKA',
-          quantity: '10 Unidades',
-          customer: 'Willy Martinez Valerio',
-          status: 'Pendiente',
-        }
-      ]
-    }
+      filterOptions: ['Todos', 'pendiente', 'ruta', 'entregado', 'cancelado'],
+      statusOptions: ['pendiente', 'ruta', 'entregado', 'cancelado'],
+      deliveryDays: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+      selectedDay: 'Todos',
+      orders: [],
+      filteredOrders: [],
+      modalVisible: false,
+      mensajeVisible: false,
+      mensaje: '',
+      pedidoSeleccionado: null,
+      productosPedido: [],
+      destinatario: null
+    };
   },
-
   computed: {
     groupedOrders() {
-      // Group orders by date
       const groups = {};
-
-      this.orders.forEach(order => {
-        if (!groups[order.date]) {
-          groups[order.date] = {
-            date: order.date,
-            orders: [],
-            tag: order.tag || null
-          };
-        }
-
-        groups[order.date].orders.push(order);
+      this.filteredOrders.forEach(order => {
+        const fecha = moment(order.fecha_levantamiento_pedido).format('DD [de] MMMM (HH:mm)');
+        if (!groups[fecha]) groups[fecha] = { date: fecha, orders: [] };
+        groups[fecha].orders.push(order);
       });
-
-      // Convert to array for v-for
       return Object.values(groups);
     }
   },
-
   methods: {
-    updateStatus(orderId, newStatus) {
-      // Find and update the order status
-      const orderToUpdate = this.orders.find(order => order.id === orderId);
-      if (orderToUpdate) {
-        orderToUpdate.status = newStatus;
+    async fetchOrders() {
+      const [orders, clientes] = await Promise.all([
+        this.$api.getAllOrdersAdmin(),
+        this.$api.getClientes()
+      ]);
+
+      const usuariosPorId = {};
+      for (const c of clientes) {
+        usuariosPorId[c.id_usuario] = `${c.nombre} ${c.apellido_p} ${c.apellido_m}`;
       }
+
+      for (const order of orders) {
+        const cliente = clientes.find(c => c.id_usuario === order.id_usuario);
+        order.nombre_completo = usuariosPorId[order.id_usuario] || `Usuario #${order.id_usuario}`;
+        order.dia_entrega = cliente?.dia_entrega || '';
+        const productos = await this.$api.getOrderProducts(order.id_pedido);
+        order.unidades = productos.reduce((acc, p) => acc + p.cantidad, 0);
+      }
+
+      this.orders = orders;
+      this.filterOrders();
+    },
+    filterOrders() {
+      let result = [...this.orders];
+
+      if (this.selectedFilter !== 'Todos') {
+        result = result.filter(o => o.estado === this.selectedFilter);
+      }
+
+      if (this.selectedDay !== 'Todos') {
+        result = result.filter(o =>
+          o.dia_entrega &&
+          o.dia_entrega.toLowerCase().trim() === this.selectedDay.toLowerCase().trim()
+        );
+      }
+
+      // Orden personalizado
+      const noEntregados = result
+        .filter(o => o.estado !== 'entregado')
+        .sort((a, b) => new Date(b.fecha_levantamiento_pedido) - new Date(a.fecha_levantamiento_pedido));
+
+      const entregados = result
+        .filter(o => o.estado === 'entregado')
+        .sort((a, b) => new Date(b.fecha_levantamiento_pedido) - new Date(a.fecha_levantamiento_pedido));
+
+      this.filteredOrders = [...noEntregados, ...entregados];
+    },
+    getDisplayStatus(status) {
+      return status === 'enviado' ? 'Nuevo' : status.charAt(0).toUpperCase() + status.slice(1);
+    },
+    async verProductos(order) {
+      if (order.estado === 'enviado') {
+        await this.$api.setOrderToPending(order.id_pedido);
+        order.estado = 'pendiente';
+      }
+      this.productosPedido = await this.$api.getOrderProducts(order.id_pedido);
+      this.pedidoSeleccionado = order;
+      this.modalVisible = true;
+    },
+    async updateStatus(order, status) {
+      await this.$axios.$put(`/pedidos/${order.id_pedido}`, {
+        ...order,
+        estado: status
+      });
+      order.estado = status;
+      this.filterOrders(); // Reordenar después del cambio
+    },
+    openMessage(order) {
+      this.destinatario = order.nombre_completo;
+      this.mensajeVisible = true;
+    },
+    enviarMensaje() {
+      console.log(`Mensaje a ${this.destinatario}: ${this.mensaje}`);
+      this.mensajeVisible = false;
+      this.mensaje = '';
     }
+  },
+  mounted() {
+    this.fetchOrders();
   }
-}
+};
 </script>
 
 <style scoped>

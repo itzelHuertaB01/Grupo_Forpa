@@ -25,7 +25,7 @@
             <v-col cols="12">
               <h3 class="font-weight-bold text-primary title-text">
                 <span class="delivery-text">
-                  Llega entre el {{ formatDate(order.fecha_entrega_estimada) }}
+                  Llega el {{ formatDate(order.fecha_entrega_estimada) }}
                 </span>
               </h3>
             </v-col>

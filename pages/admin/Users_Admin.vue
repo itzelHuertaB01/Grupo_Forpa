@@ -11,7 +11,7 @@
         </v-row>
 
         <v-row>
-            <v-col v-for="(usuario, index) in usuarios" :key="index" cols="12" sm="6" md="4" lg="4" class="py-1">
+            <v-col v-for="usuario in usuarios" :key="usuario.id_usuario" cols="12" sm="6" md="4" lg="4" class="py-1">
                 <v-card outlined class="user-card" style="border-radius: 5px; border-left: 10px solid #4CAF50;">
                     <v-card-text class="py-4 px-4">
                         <div class="d-flex align-center">
@@ -19,17 +19,19 @@
                                 {{ getInitials(usuario.nombre) }}
                             </v-avatar>
                             <div class="ml-4">
-                                <div class="font-weight-medium">{{ usuario.nombre }}</div>
+                                <div class="font-weight-medium">
+                                    {{ usuario.nombre }} {{ usuario.apellido_p }}
+                                </div>
                                 <div class="d-flex align-center mt-1">
                                     <v-icon small class="mr-1">mdi-phone</v-icon>
-                                    <span>{{ usuario.telefono }}</span>
+                                    <span>{{ usuario.numero_cel }}</span>
                                 </div>
                             </div>
                             <v-spacer></v-spacer>
-                            <v-btn icon color="error" class="mx-1" @click="eliminarUsuario(index)">
+                            <v-btn icon color="error" class="mx-1" @click="confirmEliminarUsuario(usuario.id_usuario)">
                                 <v-icon>mdi-delete</v-icon>
                             </v-btn>
-                            <v-btn icon color="success" class="mx-1" @click="editarUsuario(index)">
+                            <v-btn icon color="success" class="mx-1" @click="editarUsuario(usuario)">
                                 <v-icon>mdi-pencil</v-icon>
                             </v-btn>
                         </div>
@@ -38,57 +40,58 @@
             </v-col>
         </v-row>
 
-        <!-- Diálogo para añadir/editar usuario -->
-        <v-dialog v-model="dialog" max-width="500px">
+        <v-dialog v-model="dialog" max-width="700px">
             <v-card>
-                <v-card-title>
-                    <span class="text-h5">{{ formTitle }}</span>
+                <v-card-title class="headline font-weight-bold">
+                    {{ formTitle }}
                 </v-card-title>
-
                 <v-card-text>
-                    <v-container>
-                        <v-row>
-                            <v-col cols="12">
-                                <v-text-field v-model="editedItem.nombre" label="Nombre completo"
-                                    required></v-text-field>
-                            </v-col>
-                            <v-col cols="12">
-                                <v-text-field v-model="editedItem.telefono" label="Número de teléfono"
-                                    required></v-text-field>
-                            </v-col>
-                            <v-col cols="12">
-                                <v-text-field v-model="editedItem.contraseña" label="Contraseña del usuario"
-                                    required></v-text-field>
-                            </v-col>
-                        </v-row>
-                    </v-container>
+                    <v-form @submit.prevent="guardarUsuario">
+                        <v-container>
+                            <v-row>
+                                <v-col cols="12" sm="6">
+                                    <v-text-field v-model="editedItem.nombre" label="Nombre" required />
+                                </v-col>
+                                <v-col cols="12" sm="6">
+                                    <v-text-field v-model="editedItem.apellido_p" label="Apellido Paterno" required />
+                                </v-col>
+                                <v-col cols="12" sm="6">
+                                    <v-text-field v-model="editedItem.apellido_m" label="Apellido Materno" required />
+                                </v-col>
+                                <v-col cols="12" sm="6">
+                                    <v-text-field v-model="editedItem.numero_cel" label="Número Celular" required />
+                                </v-col>
+                                <v-col cols="12" sm="6">
+                                    <v-text-field v-model="editedItem.password_user"
+                                        :type="showPassword ? 'text' : 'password'" label="Contraseña"
+                                        append-icon="mdi-eye" @click:append="showPassword = !showPassword"
+                                        :rules="[v => !!v || 'Campo requerido']" />
+                                </v-col>
+                                <v-col cols="12" sm="6">
+                                    <v-select :items="tipoUsuarios" v-model="editedItem.tipo_usuario"
+                                        label="Tipo de Usuario" required />
+                                </v-col>
+                                <v-col cols="12" sm="6">
+                                    <v-select :items="localidades" v-model="editedItem.id_localidad" label="Localidad"
+                                        item-text="nombre" item-value="id" required />
+                                </v-col>
+                                <v-col cols="12" sm="6">
+                                    <v-text-field v-model="editedItem.direccion" label="Dirección" required />
+                                </v-col>
+                                <v-col cols="12" sm="6">
+                                    <v-text-field v-model="editedItem.curp" label="CURP" />
+                                </v-col>
+                                <v-col cols="12" sm="6">
+                                    <v-text-field v-model="editedItem.clave" label="Clave" />
+                                </v-col>
+                            </v-row>
+                        </v-container>
+                    </v-form>
                 </v-card-text>
-
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="blue darken-1" text @click="cerrarDialog">
-                        Cancelar
-                    </v-btn>
-                    <v-btn color="blue darken-1" text @click="guardarUsuario">
-                        Guardar
-                    </v-btn>
-                </v-card-actions>
-            </v-card>
-        </v-dialog>
-
-        <!-- Confirmación para eliminar -->
-        <v-dialog v-model="dialogDelete" max-width="500px">
-            <v-card>
-                <v-card-title class="text-h5">
-                    ¿Estás seguro de que quieres eliminar este usuario?
-                </v-card-title>
-                <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="blue darken-1" text @click="closeDelete">No</v-btn>
-                    <v-btn color="blue darken-1" text @click="eliminarUsuarioConfirmado">
-                        Sí
-                    </v-btn>
-                    <v-spacer></v-spacer>
+                    <v-btn text @click="cerrarDialog">Cancelar</v-btn>
+                    <v-btn color="primary" @click="guardarUsuario">Guardar</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -97,118 +100,92 @@
 
 <script>
 export default {
-    name: 'GestionUsuarios',
-    layout: 'admin',
-    head() {
-        return {
-            title: "Usuarios - Administrador",
-            meta: [{ name: "usuarios", content: "Administrador" }],
-        };
-    },
     data() {
         return {
-            usuarios: [
-                {
-                    nombre: 'Edgar Emmanuel',
-                    telefono: '2491863710'
-                },
-                {
-                    nombre: 'Edgar Emmanuel',
-                    telefono: '2491863710'
-                },
-                {
-                    nombre: 'Edgar Emmanuel',
-                    telefono: '2491863710'
-                },
-                {
-                    nombre: 'Edgar Emmanuel',
-                    telefono: '2491863710'
-                },
-                {
-                    nombre: 'Edgar Emmanuel',
-                    telefono: '2491863710'
-                },
-                {
-                    nombre: 'Edgar Emmanuel',
-                    telefono: '2491863710'
-                }
-            ],
+            usuarios: [],
             dialog: false,
-            dialogDelete: false,
-            editedIndex: -1,
-            deleteIndex: -1,
-            editedItem: {
-                nombre: '',
-                telefono: ''
-            },
-            defaultItem: {
-                nombre: '',
-                telefono: ''
-            }
-        }
+            editedItem: {},
+            showPassword: false,
+            tipoUsuarios: ['cliente', 'admin', 'empleado'],
+            localidades: [
+                { id: 1, nombre: 'El Salado' }, { id: 2, nombre: 'Tecamachalco' },
+                { id: 3, nombre: 'El Laurel' }, { id: 4, nombre: 'Alseseca' },
+                { id: 5, nombre: 'Xochimilco' }, { id: 6, nombre: 'Zozutla' },
+                { id: 7, nombre: 'Yehualtepec' }, { id: 8, nombre: 'Nazareno' },
+                { id: 9, nombre: 'Xaltepec' }, { id: 10, nombre: 'Ocotlan' },
+                { id: 11, nombre: 'La Purisima' }, { id: 12, nombre: 'Palmar de Bravo' },
+                { id: 13, nombre: 'Cuacnopalan' }, { id: 14, nombre: 'San Mateo' },
+                { id: 15, nombre: 'Vergel' }, { id: 16, nombre: 'San Juan' },
+                { id: 17, nombre: 'Santa Rosa' }, { id: 18, nombre: 'Huixcolotla' },
+                { id: 19, nombre: 'San Martin Caltenco' }, { id: 20, nombre: 'Tochtepec' },
+                { id: 21, nombre: 'Quecholac' }, { id: 22, nombre: 'Tenango' },
+                { id: 23, nombre: 'San Simon de Bravo' }, { id: 24, nombre: 'Compañia' },
+                { id: 25, nombre: 'Acatzingo' }
+            ],
+        };
     },
     computed: {
         formTitle() {
-            return this.editedIndex === -1 ? 'Nuevo Usuario' : 'Editar Usuario'
+            return this.editedItem.id_usuario ? 'Editar Usuario' : 'Nuevo Usuario';
         }
     },
     methods: {
-        getInitials(nombre) {
-            // Obtener las iniciales del nombre
-            return nombre
-                .split(' ')
-                .map(word => word.charAt(0).toUpperCase())
-                .join('')
-                .substring(0, 2)
-        },
-
-        openAddUserDialog() {
-            this.editedIndex = -1
-            this.editedItem = Object.assign({}, this.defaultItem)
-            this.dialog = true
-        },
-
-        editarUsuario(index) {
-            this.editedIndex = index
-            this.editedItem = Object.assign({}, this.usuarios[index])
-            this.dialog = true
-        },
-
-        cerrarDialog() {
-            this.dialog = false
-            this.$nextTick(() => {
-                this.editedItem = Object.assign({}, this.defaultItem)
-                this.editedIndex = -1
-            })
-        },
-
-        guardarUsuario() {
-            if (this.editedIndex > -1) {
-                Object.assign(this.usuarios[this.editedIndex], this.editedItem)
-            } else {
-                this.usuarios.push(Object.assign({}, this.editedItem))
+        async fetchUsuarios() {
+            try {
+                const allUsers = await this.$api.getClientes();
+                const currentUserId = parseInt(localStorage.getItem("userId") || sessionStorage.getItem("userId"));
+                this.usuarios = allUsers.filter(u => u.id_usuario !== currentUserId);
+            } catch (e) {
+                console.error('Error cargando usuarios', e);
             }
-            this.cerrarDialog()
         },
-
-        eliminarUsuario(index) {
-            this.deleteIndex = index
-            this.dialogDelete = true
+        openAddUserDialog() {
+            this.editedItem = {};
+            this.dialog = true;
         },
-
-        closeDelete() {
-            this.dialogDelete = false
-            this.$nextTick(() => {
-                this.deleteIndex = -1
-            })
+        editarUsuario(usuario) {
+            this.editedItem = { ...usuario };
+            this.dialog = true;
         },
-
-        eliminarUsuarioConfirmado() {
-            this.usuarios.splice(this.deleteIndex, 1)
-            this.closeDelete()
+        cerrarDialog() {
+            this.dialog = false;
+            this.editedItem = {};
+            this.showPassword = false;
+        },
+        async guardarUsuario() {
+            try {
+                if (this.editedItem.id_usuario) {
+                    await this.$axios.$put(`/clientes/update/${this.editedItem.id_usuario}`, this.editedItem);
+                } else {
+                    await this.$axios.$post('/clientes/register', this.editedItem);
+                }
+                await this.fetchUsuarios();
+                this.cerrarDialog();
+            } catch (e) {
+                console.error('Error guardando usuario', e);
+            }
+        },
+        confirmEliminarUsuario(id) {
+            if (confirm('¿Estás seguro de eliminar este usuario?')) {
+                this.eliminarUsuario(id);
+            }
+        },
+        async eliminarUsuario(id) {
+            try {
+                await this.$axios.$delete(`/clientes/delete/${id}`);
+                await this.fetchUsuarios();
+            } catch (e) {
+                console.error('Error eliminando usuario', e);
+            }
+        },
+        getInitials(nombre) {
+            return nombre ? nombre.split(' ').map(word => word.charAt(0)).join('').toUpperCase() : '';
         }
+    },
+    mounted() {
+        this.fetchUsuarios();
     }
-}
+};
 </script>
 
 <style scoped>
