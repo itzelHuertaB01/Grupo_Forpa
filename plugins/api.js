@@ -38,9 +38,17 @@ export default ({ $axios }, inject) => {
   });
 
   const api = {
+
+    getUserById: (id) => $axios.$get(`/clientes/${id}`),
+    getLocalidadById: (id) => $axios.$get(`/clientes/localidades/${id}`),
+    getRutaById: (id) => $axios.$get(`/clientes/rutas/${id}`),
+
     login: (credentials) => $axios.$post("/clientes/login", credentials),
     logout: () => $axios.$post("/clientes/logout"),
     getClientes: () => $axios.$get("/clientes/getAll"),
+
+    setOrderToPending: (id) => $axios.$put(`/pedidos/estado/pendiente/${id}`),
+    getAllOrdersAdmin: () => $axios.$get("/pedidos/orders"),
 
     getProductos: (params) => $axios.$get("/productos/productos", { params }),
     searchProductos: (term, params) =>
