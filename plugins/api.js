@@ -30,7 +30,7 @@ export default ({ $axios }, inject) => {
         }
         error.config.headers.Authorization = `Bearer ${newAccessToken}`;
         return $axios.request(error.config);
-      } catch (refreshError) {
+      } catch (refreshError) {  
         console.error("Refresh token inválido o expirado:", refreshError);
       }
     }

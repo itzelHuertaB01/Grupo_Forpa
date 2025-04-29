@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{638:function(n,e,t){"use strict";t.r(e);t(28),t(59);var o={mounted:function(){this.$router.replace("/admin/Index_Admin")}},c=t(72),component=Object(c.a)(o,(function(){return(0,this._self._c)("div")}),[],!1,null,null,null);e.default=component.exports}}]);
