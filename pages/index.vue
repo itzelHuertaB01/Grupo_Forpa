@@ -19,8 +19,18 @@
           </v-card-subtitle>
 
           <v-form ref="loginForm" v-model="valid" @submit.prevent="login">
-            <v-text-field v-model="phoneNumber" label="Número de teléfono" type="tel" :rules="phoneRules" required dense
-              outlined class="mb-3" />
+            <v-text-field
+              v-model="phoneNumber"
+              label="Número de teléfono"
+              type="tel"
+              :rules="phoneRules"
+              required
+              dense
+              outlined
+              class="mb-3"
+              maxlength="10"
+              @input="handlePhoneNumberInput"
+            />
 
             <v-text-field v-model="password" label="Contraseña" :type="passwordVisible ? 'text' : 'password'"
               :rules="passwordRules" required dense outlined class="mb-3" append-icon="mdi-eye"
@@ -83,6 +93,14 @@ export default {
     };
   },
   methods: {
+
+    handlePhoneNumberInput(value) {
+      let input = value.replace(/\D/g, ''); // Aquí 'value' ya es el texto escrito
+      if (input.length > 10) {
+        input = input.slice(0, 10);
+      }
+      this.phoneNumber = input;
+    },
     async login() {
       // Validamos el formulario antes de hacer la petición
       if (!this.$refs.loginForm.validate()) {

@@ -3,36 +3,16 @@
     <!-- Filtros de estado y día -->
     <div class="d-flex align-center justify-space-between mb-4 px-4 flex-wrap">
       <div class="d-flex align-center">
-        <v-select
-          v-model="selectedFilter"
-          :items="filterOptions"
-          dense
-          outlined
-          hide-details
-          class="filter-select mr-4"
-          prepend-inner-icon="mdi-filter-variant"
-          @change="filterOrders"
-        />
+        <v-select v-model="selectedFilter" :items="filterOptions" dense outlined hide-details class="filter-select mr-4"
+          prepend-inner-icon="mdi-filter-variant" @change="filterOrders" />
         <div class="order-count grey--text text--darken-1">
           {{ filteredOrders.length }} pedidos
         </div>
       </div>
 
-      <v-chip-group
-        v-model="selectedDay"
-        class="mt-2 mt-md-0 ml-md-5"
-        row
-        active-class="chip-active"
-        @change="filterOrders"
-      >
-        <v-chip
-          v-for="(day, i) in deliveryDays"
-          :key="i"
-          :value="day"
-          class="ma-1"
-          outlined
-          color="yellow darken-2"
-        >
+      <v-chip-group v-model="selectedDay" class="mt-2 mt-md-0 ml-md-5" row active-class="chip-active"
+        @change="filterOrders">
+        <v-chip v-for="(day, i) in deliveryDays" :key="i" :value="day" class="ma-1" outlined color="yellow darken-2">
           {{ day }}
         </v-chip>
       </v-chip-group>
@@ -40,27 +20,19 @@
 
     <!-- Pedidos agrupados -->
     <div class="orders-container">
-      <div
-        v-for="(dateGroup, index) in groupedOrders"
-        :key="index"
-        class="date-group mb-6"
-      >
+      <div v-for="(dateGroup, index) in groupedOrders" :key="index" class="date-group mb-6">
         <div class="d-flex justify-space-between pa-4">
           <div class="date-header yellow--text text--darken-3 font-weight-bold">
             {{ dateGroup.date }}
           </div>
           <div class="route-id font-weight-bold yellow--text text--darken-3">
-            Ruta {{ dateGroup.orders[0]?.id_ruta }} - {{ dateGroup.orders[0]?.nombre_ruta }}
+            Ruta {{ dateGroup.orders[0]?.id_ruta || 'Sin Ruta' }} - {{ dateGroup.orders[0]?.nombre_ruta || 'Sin nombre de ruta' }}
           </div>
         </div>
 
         <v-divider></v-divider>
 
-        <div
-          v-for="order in dateGroup.orders"
-          :key="order.id_pedido"
-          class="order-item"
-        >
+        <div v-for="order in dateGroup.orders" :key="order.id_pedido" class="order-item">
           <div class="order-content">
             <div class="order-left">
               <div class="order-number success--text font-weight-bold">
@@ -82,13 +54,7 @@
                 {{ order.nombre_completo }}
               </div>
               <div class="message-btn-container">
-                <v-btn
-                  text
-                  small
-                  color="success"
-                  class="send-message-btn px-0"
-                  @click="openMessage(order)"
-                >
+                <v-btn text small color="success" class="send-message-btn px-0" @click="openMessage(order)">
                   <v-icon small left>mdi-email-outline</v-icon>
                   Enviar Mensaje
                 </v-btn>
@@ -96,34 +62,19 @@
             </div>
 
             <div class="order-right">
-              <v-btn
-                color="success"
-                outlined
-                class="mr-3 view-order-btn"
-                @click="verProductos(order)"
-              >
+              <v-btn color="success" outlined class="mr-3 view-order-btn" @click="verProductos(order)">
                 Ver Pedido
               </v-btn>
 
               <v-menu offset-y left>
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn
-                    outlined
-                    color="light-green lighten-3"
-                    class="status-btn"
-                    v-bind="attrs"
-                    v-on="on"
-                  >
+                  <v-btn outlined color="light-green lighten-3" class="status-btn" v-bind="attrs" v-on="on">
                     {{ getDisplayStatus(order.estado) }}
                     <v-icon right>mdi-chevron-down</v-icon>
                   </v-btn>
                 </template>
                 <v-list>
-                  <v-list-item
-                    v-for="(status, i) in statusOptions"
-                    :key="i"
-                    @click="updateStatus(order, status)"
-                  >
+                  <v-list-item v-for="(status, i) in statusOptions" :key="i" @click="updateStatus(order, status)">
                     <v-list-item-title>{{ status }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
@@ -136,24 +87,23 @@
     </div>
 
     <!-- Modal de Enviar Mensaje -->
-    <v-dialog v-model="mensajeVisible" max-width="500px" persistent>
-      <v-card>
-        <v-card-title class="headline yellow--text text--darken-2">
-          Enviar mensaje a {{ destinatario }}
+    <!-- Modal de Enviar Mensaje -->
+    <v-dialog v-model="mensajeVisible" max-width="600px" persistent>
+      <v-card class="pa-4 rounded-xl">
+        <v-card-title class="justify-center">
+          <span class="text-h6 font-weight-bold yellow--text text--darken-2">
+            Enviar mensaje a {{ destinatario }}
+          </span>
         </v-card-title>
 
-        <v-card-text>
-          <v-textarea
-            v-model="mensaje"
-            label="Escribe tu mensaje"
-            rows="5"
-            outlined
-            auto-grow
-            clearable
-          />
+        <v-card-text class="pt-2 pb-0">
+          <v-text-field v-model="mensajeTitulo" label="Título del mensaje"
+            placeholder="Ej. Pedido urgente, Cambio de dirección..." outlined dense clearable class="mb-4" />
+          <v-textarea v-model="mensaje" label="Contenido del mensaje"
+            placeholder="Escribe aquí el contenido del mensaje..." rows="5" outlined auto-grow clearable />
         </v-card-text>
 
-        <v-card-actions class="justify-end">
+        <v-card-actions class="justify-end mt-4">
           <v-btn text color="grey" @click="mensajeVisible = false">
             Cancelar
           </v-btn>
@@ -175,13 +125,14 @@ export default {
       selectedFilter: 'Todos',
       filterOptions: ['Todos', 'pendiente', 'ruta', 'entregado', 'cancelado'],
       statusOptions: ['pendiente', 'ruta', 'entregado', 'cancelado'],
-      deliveryDays: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+      deliveryDays: ['Todos', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
       selectedDay: 'Todos',
       orders: [],
       filteredOrders: [],
       modalVisible: false,
       mensajeVisible: false,
       mensaje: '',
+      mensajeTitulo: '',
       pedidoSeleccionado: null,
       productosPedido: [],
       destinatario: null
@@ -200,26 +151,12 @@ export default {
   },
   methods: {
     async fetchOrders() {
-      const [orders, clientes] = await Promise.all([
-        this.$api.getAllOrdersAdmin(),
-        this.$api.getClientes()
-      ]);
-
-      const usuariosPorId = {};
-      for (const c of clientes) {
-        usuariosPorId[c.id_usuario] = `${c.nombre} ${c.apellido_p} ${c.apellido_m}`;
-      }
-
-      for (const order of orders) {
-        const cliente = clientes.find(c => c.id_usuario === order.id_usuario);
-        order.nombre_completo = usuariosPorId[order.id_usuario] || `Usuario #${order.id_usuario}`;
-        order.dia_entrega = cliente?.dia_entrega || '';
-        const productos = await this.$api.getOrderProducts(order.id_pedido);
-        order.unidades = productos.reduce((acc, p) => acc + p.cantidad, 0);
-      }
-
+      const orders = await this.$api.getAllOrdersWithUnits(); // <<--- usa la nueva ruta
       this.orders = orders;
       this.filterOrders();
+    },
+    removeAccents(str) {
+      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     },
     filterOrders() {
       let result = [...this.orders];
@@ -229,9 +166,9 @@ export default {
       }
 
       if (this.selectedDay !== 'Todos') {
-        result = result.filter(o =>
-          o.dia_entrega &&
-          o.dia_entrega.toLowerCase().trim() === this.selectedDay.toLowerCase().trim()
+        result = result.filter(o => 
+          this.removeAccents((o.dia_entrega || '').toLowerCase().trim()) === 
+          this.removeAccents(this.selectedDay.toLowerCase().trim())
         );
       }
 
@@ -246,6 +183,7 @@ export default {
 
       this.filteredOrders = [...noEntregados, ...entregados];
     },
+
     getDisplayStatus(status) {
       return status === 'enviado' ? 'Nuevo' : status.charAt(0).toUpperCase() + status.slice(1);
     },
@@ -271,9 +209,10 @@ export default {
       this.mensajeVisible = true;
     },
     enviarMensaje() {
-      console.log(`Mensaje a ${this.destinatario}: ${this.mensaje}`);
+      console.log(`Mensaje a ${this.destinatario}: Título: ${this.mensajeTitulo} - ${this.mensaje}`);
       this.mensajeVisible = false;
       this.mensaje = '';
+      this.mensajeTitulo = '';
     }
   },
   mounted() {
@@ -283,6 +222,12 @@ export default {
 </script>
 
 <style scoped>
+.chip-active {
+  background-color: #FFD600 !important; /* amarillo fuerte */
+  color: black !important; /* para que el texto sea legible */
+  font-weight: bold;
+}
+
 .order-list {
   max-width: 100%;
   display: flex;

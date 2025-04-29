@@ -43,6 +43,8 @@ export default ({ $axios }, inject) => {
     getLocalidadById: (id) => $axios.$get(`/clientes/localidades/${id}`),
     getRutaById: (id) => $axios.$get(`/clientes/rutas/${id}`),
 
+    getAllOrdersWithUnits: () => $axios.$get("/pedidos/orders-with-units"),
+
     login: (credentials) => $axios.$post("/clientes/login", credentials),
     logout: () => $axios.$post("/clientes/logout"),
     getClientes: () => $axios.$get("/clientes/getAll"),
