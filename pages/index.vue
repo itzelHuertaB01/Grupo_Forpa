@@ -28,11 +28,6 @@
               Iniciar sesión
             </v-btn>
           </v-form>
-
-          <v-snackbar v-model="snackbar" color="error" top>
-            <span>{{ snackbarMessage }}</span>
-            <v-btn color="white" text @click="snackbar = false">Cerrar</v-btn>
-          </v-snackbar>
         </v-card>
       </v-col>
 
@@ -52,6 +47,39 @@
         </v-carousel>
       </v-col>
 
+      <!-- ALERTA VISUAL MEJORADA -->
+      <transition name="fade">
+        <div v-if="alerta.activa" class="alerta-tarjeta">
+          <v-card
+            class="pa-6 text-center tarjeta-mejorada"
+            elevation="10"
+            rounded="xl"
+          >
+            <v-icon
+              :color="alerta.tipo === 'success' ? '#118737' : '#e53935'"
+              size="70"
+              class="mb-3 bounce-icon"
+            >
+              {{ alerta.tipo === 'success' ? 'mdi-check-circle-outline' : 'mdi-alert-circle-outline' }}
+            </v-icon>
+
+            <h2 :class="alerta.tipo === 'success' ? 'titulo-exito' : 'titulo-error'">
+              {{ alerta.tipo === 'success' ? '¡ÉXITO!' : 'OH NO...' }}
+            </h2>
+
+            <p class="mb-4">{{ alerta.mensaje }}</p>
+
+            <v-btn
+              :color="alerta.tipo === 'success' ? '#118737' : '#e53935'"
+              dark
+              class="px-6 py-2 text-uppercase"
+              @click="alerta.activa = false"
+            >
+              {{ alerta.tipo === 'success' ? 'Hecho' : 'Intentar de nuevo' }}
+            </v-btn>
+          </v-card>
+        </div>
+      </transition>
     </v-container>
   </v-app>
 </template>
@@ -65,8 +93,11 @@ export default {
       rememberMe: false,
       valid: false,
       passwordVisible: false,
-      snackbar: false,
-      snackbarMessage: '',
+      alerta: {
+        activa: false,
+        tipo: '',
+        mensaje: ''
+      },
       phoneRules: [
         v => !!v || 'Número de teléfono es requerido',
         v => /^\d{10}$/.test(v) || 'Formato de número de teléfono inválido',
@@ -75,7 +106,7 @@ export default {
         v => !!v || 'Contraseña es requerida',
         v => v.length >= 6 || 'Debe tener al menos 6 caracteres',
       ],
-      model: 0, // Para controlar el carrusel
+      model: 0,
       images: [
         '/img/login_imagen1.jpg',
         '/img/login_imagen2.jpg',
@@ -87,16 +118,20 @@ export default {
   methods: {
     login() {
       if (!this.phoneNumber || !this.password) {
-        this.snackbarMessage = 'Completa todos los campos.';
-        this.snackbar = true;
-        return;
+        this.mostrarAlerta('error', 'Completa todos los campos.');
+      } else if (this.phoneNumber === '1234' && this.password === 'admin') {
+        this.mostrarAlerta('success', 'Has iniciado sesión correctamente.');
+      } else {
+        this.mostrarAlerta('error', 'Teléfono o contraseña incorrectos.');
       }
-      console.log('Iniciando sesión con:', this.phoneNumber, this.password);
     },
     togglePasswordVisibility() {
       this.passwordVisible = !this.passwordVisible;
     },
-  },
+    mostrarAlerta(tipo, mensaje) {
+      this.alerta = { activa: true, tipo, mensaje };
+    }
+  }
 };
 </script>
 
@@ -109,26 +144,60 @@ export default {
   color: #FFFFFF !important;
 }
 
-.v-col {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+.alerta-tarjeta {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: 320px;
 }
 
-.v-img {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-  margin: 0;
+.tarjeta-mejorada {
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
-@media (max-width: 600px) {
-  .v-col {
-    margin-left: 0 !important;
-  }
+.titulo-exito {
+  color: #118737;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
 
-  .v-card {
-    width: 100%;
-    max-width: 350px;
+.titulo-error {
+  color: #e53935;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.bounce-icon {
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
   }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
