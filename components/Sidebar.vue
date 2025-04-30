@@ -171,21 +171,22 @@ export default {
       this.isCollapsed = !this.isCollapsed;
     },
     async logout() {
-      try {
-        // Llama a tu backend para cerrar sesión
-        await this.$api.logout();
+  try {
+    // (Opcional) Llama a tu backend si tienes una ruta para cerrar sesión
+    if (this.$api?.logout) await this.$api.logout()
 
-        // Limpia el localStorage y sessionStorage
-        localStorage.clear();
-        sessionStorage.clear();
+    // Limpia tokens y datos locales
+    localStorage.removeItem('accessToken')
+    sessionStorage.clear()
 
-        // Redirige al login
-        this.$router.push("/");
-      } catch (err) {
-        console.error("Error al cerrar sesión:", err);
-        this.$router.push("/");
-      }
-    },
+    // Redirige al login y evita el botón atrás
+    this.$router.replace('/')
+  } catch (err) {
+    console.error("Error al cerrar sesión:", err)
+    this.$router.replace('/')
+  }
+}
+,
   },
 };
 </script>
