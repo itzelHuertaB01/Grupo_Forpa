@@ -1,0 +1,215 @@
+[
+  {
+    "name": "403",
+    "path": "/403",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\403.vue",
+    "chunkName": "pages/403"
+  },
+  {
+    "name": "404",
+    "path": "/404",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\404.vue",
+    "chunkName": "pages/404"
+  },
+  {
+    "name": "admin",
+    "path": "/admin",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\index.vue",
+    "chunkName": "pages/admin/index"
+  },
+  {
+    "name": "client",
+    "path": "/client",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\index.vue",
+    "chunkName": "pages/client/index"
+  },
+  {
+    "name": "ErrorOffline",
+    "path": "/ErrorOffline",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\ErrorOffline.vue",
+    "chunkName": "pages/ErrorOffline"
+  },
+  {
+    "name": "preventive",
+    "path": "/preventive",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\index.vue",
+    "chunkName": "pages/preventive/index"
+  },
+  {
+    "name": "admin-Index_Admin",
+    "path": "/admin/Index_Admin",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Index_Admin.vue",
+    "chunkName": "pages/admin/Index_Admin"
+  },
+  {
+    "name": "admin-Orders_Admin",
+    "path": "/admin/Orders_Admin",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Orders_Admin.vue",
+    "chunkName": "pages/admin/Orders_Admin"
+  },
+  {
+    "name": "admin-UploadFiles_Admin",
+    "path": "/admin/UploadFiles_Admin",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\UploadFiles_Admin.vue",
+    "chunkName": "pages/admin/UploadFiles_Admin"
+  },
+  {
+    "name": "admin-Users_Admin",
+    "path": "/admin/Users_Admin",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Users_Admin.vue",
+    "chunkName": "pages/admin/Users_Admin"
+  },
+  {
+    "name": "client-Catalog_Cli",
+    "path": "/client/Catalog_Cli",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Catalog_Cli.vue",
+    "chunkName": "pages/client/Catalog_Cli"
+  },
+  {
+    "name": "client-History_Cli",
+    "path": "/client/History_Cli",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\History_Cli.vue",
+    "chunkName": "pages/client/History_Cli"
+  },
+  {
+    "name": "client-Home_Cli",
+    "path": "/client/Home_Cli",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Home_Cli.vue",
+    "chunkName": "pages/client/Home_Cli"
+  },
+  {
+    "name": "client-Notifications_Cli",
+    "path": "/client/Notifications_Cli",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Notifications_Cli.vue",
+    "chunkName": "pages/client/Notifications_Cli"
+  },
+  {
+    "name": "client-Ofertas_Cli",
+    "path": "/client/Ofertas_Cli",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Ofertas_Cli.vue",
+    "chunkName": "pages/client/Ofertas_Cli"
+  },
+  {
+    "name": "client-Orders_Cli",
+    "path": "/client/Orders_Cli",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Orders_Cli.vue",
+    "chunkName": "pages/client/Orders_Cli"
+  },
+  {
+    "name": "preventive-Catalog_Pre",
+    "path": "/preventive/Catalog_Pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Catalog_Pre.vue",
+    "chunkName": "pages/preventive/Catalog_Pre"
+  },
+  {
+    "name": "preventive-History_Pre",
+    "path": "/preventive/History_Pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\History_Pre.vue",
+    "chunkName": "pages/preventive/History_Pre"
+  },
+  {
+    "name": "preventive-Notifications_Pre",
+    "path": "/preventive/Notifications_Pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Notifications_Pre.vue",
+    "chunkName": "pages/preventive/Notifications_Pre"
+  },
+  {
+    "name": "preventive-Offers_Pre",
+    "path": "/preventive/Offers_Pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Offers_Pre.vue",
+    "chunkName": "pages/preventive/Offers_Pre"
+  },
+  {
+    "name": "preventive-Orders_Pre",
+    "path": "/preventive/Orders_Pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Orders_Pre.vue",
+    "chunkName": "pages/preventive/Orders_Pre"
+  },
+  {
+    "name": "preventive-Shopping_Pre",
+    "path": "/preventive/Shopping_Pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Shopping_Pre.vue",
+    "chunkName": "pages/preventive/Shopping_Pre"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
+  },
+  {
+    "name": "home_cli",
+    "path": "/client/Home_Cli",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Home_Cli.vue"
+  },
+  {
+    "name": "pedidos_cli",
+    "path": "/client/Pedidos_Cli",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Orders_Cli.vue"
+  },
+  {
+    "name": "historial_cli",
+    "path": "/client/Historial_Cli",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\History_Cli.vue"
+  },
+  {
+    "name": "catalogo_cli",
+    "path": "/client/Catalogo_Cli",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Catalog_Cli.vue"
+  },
+  {
+    "name": "notificaciones_cli",
+    "path": "/client/Notificaciones_Cli",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Notifications_Cli.vue"
+  },
+  {
+    "name": "compras_pre",
+    "path": "/compras_pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Shopping_Pre.vue"
+  },
+  {
+    "name": "pedidos_pre",
+    "path": "/pedidos_pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Orders_Pre.vue"
+  },
+  {
+    "name": "historial_pre",
+    "path": "/historial_pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\History_Pre.vue"
+  },
+  {
+    "name": "catalogo_pre",
+    "path": "/catalogo_pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Catalog_Pre.vue"
+  },
+  {
+    "name": "notificaciones_pre",
+    "path": "/notificaciones_pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Notifications_Pre.vue"
+  },
+  {
+    "name": "ofertas_pre",
+    "path": "/ofertas_pre",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Offers_Pre.vue"
+  },
+  {
+    "name": "inicio_admin",
+    "path": "/inicio_admin",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Index_Admin.vue"
+  },
+  {
+    "name": "productos_admin",
+    "path": "/productos_admin",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Orders_Admin.vue"
+  },
+  {
+    "name": "usuarios_admin",
+    "path": "/usuarios_admin",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Users_Admin.vue"
+  },
+  {
+    "name": "uploadfiles_admin",
+    "path": "/uploadfiles_admin",
+    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\UploadFiles_Admin.vue"
+  }
+]
