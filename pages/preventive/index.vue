@@ -1,11 +1,9 @@
-<template>
-
-</template>
+<template></template>
 
 <script>
 export default {
   mounted() {
-    this.$router.replace('/preventive/Shopping_Pre')
-  }
-}
-</script> 
+    this.$router.replace("/preventive/Shopping_Pre");
+  },
+};
+</script>

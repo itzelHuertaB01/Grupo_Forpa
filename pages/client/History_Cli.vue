@@ -1,92 +1,185 @@
 <template>
   <v-app>
-    <v-container fluid class="d-flex flex-column" style="padding: 10px; background-color: #F3F3F3;">
-      <!-- Filtro de pedidos y contador -->
-      <v-row class="d-flex align-center" style="margin-bottom: 0;">
+    <v-container fluid class="pa-0" style="background-color: #f3f3f3">
+      <!-- Filtro de pedidos -->
+      <v-row align="center" class="px-4 py-2">
         <v-col cols="12" sm="6" class="d-flex align-center">
-          <div class="select-container">
-            <i class="mdi mdi-tune-variant custom-icon"></i>
-            <select v-model="selectedFilter" class="custom-select">
-              <option v-for="(filter, index) in filters" :key="index" :value="filter.value">
-                {{ filter.text }}
-              </option>
-            </select>
-            <i class="mdi mdi-menu-down custom-icon-right"></i>
-          </div>
-          <v-divider vertical
-            style="height: 40px; border-left: 2px solid #7A7A7A; margin-left: 20px; margin-right: 10px;"></v-divider>
-          <span style="font-size: 14px; color: #7A7A7A; font-weight: 500;">
-            {{ sortedPurchases.length }} compras
-          </span>
+          <v-icon left>mdi-tune-variant</v-icon>
+          <select v-model="selectedFilter" class="custom-select">
+            <option v-for="(f, i) in filters" :key="i" :value="f.value">
+              {{ f.text }}
+            </option>
+          </select>
+          <v-icon right>mdi-menu-down</v-icon>
+          <v-divider vertical class="mx-4" />
+          <span class="order-count">{{ sortedPurchases.length }} compras</span>
         </v-col>
       </v-row>
 
-      <!-- Listado de pedidos -->
-      <v-row>
-        <v-col v-for="(purchase, index) in sortedPurchases" :key="purchase.id_pedido" cols="12">
-          <v-card class="mb-4" outlined
-            style="max-width: 1200px; margin-left: auto; margin-right: auto; background-color: #ffffff; border-radius: 16px; height: 200px; padding: 8px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; cursor: pointer;"
-            @click="viewOrder(purchase)">
-            <!-- Fecha y separación -->
-            <v-card-title class="d-flex justify-content-between align-center" style="padding-bottom: 2px;">
-              <span style="font-size: 20px; color: #29235C; margin: 0;">
-                {{ formatDate(purchase.fecha_levantamiento_pedido) }}
-              </span>
-            </v-card-title>
-            <v-divider></v-divider>
-            <v-card-subtitle class="text-h6" :style="{ color: purchase.estado === 'Entregado' ? '#247323' : 'orange' }"
-              style="margin-top: 2px; color: #29235C; font-size: 12px; padding: 5px; margin-left: 11px;">
-              {{ purchase.estado }}
-            </v-card-subtitle>
-            <!-- Si el pedido está entregado, se muestra la fecha de entrega -->
-            <v-card-subtitle v-if="purchase.estado === 'Entregado'" class="text-body-2"
-              style="font-weight: bold; color: black; font-size: 12px; padding: 1px; margin-left: 15px;">
-              Llegó el {{ formatDate(purchase.fecha_levantamiento_pedido) }}
-            </v-card-subtitle>
-            <!-- Información adicional: Dirección, total y método de pago -->
-            <v-card-text style="font-size: 14px; overflow-y: auto; padding: 1px; margin-left: 15px;">
-              <p style="margin: 0; color: grey;">Dirección: {{ purchase.direccion }}</p>
-              <p style="margin: 0; color: grey;">Total: ${{ purchase.total }}</p>
-              <p v-if="purchase.metodo_de_pago" style="font-size: 12px; color: #757575; margin: 1;">
-                Método de pago: {{ purchase.metodo_de_pago }}
-              </p>
-            </v-card-text>
+      <!-- Tarjetas de pedidos -->
+      <v-row class="px-4">
+        <v-col
+          v-for="order in sortedPurchases"
+          :key="order.id_pedido"
+          cols="12"
+        >
+          <v-card
+            outlined
+            class="order-card"
+            @click="viewOrder(order, false)"
+            style="cursor: pointer"
+          >
+            <v-row class="px-4 pt-3 pb-1 align-center justify-space-between">
+              <v-col cols="12" md="6" class="d-flex align-center">
+                <span class="order-date">
+                  Realizado: {{ formatDate(order.fecha_levantamiento_pedido) }}
+                </span>
+              </v-col>
+              <v-col
+                cols="12"
+                md="6"
+                class="text-md-right text-left mt-2 mt-md-0"
+              >
+                <v-chip
+                  :color="statusColor(order.estado)"
+                  text-color="white"
+                  class="font-weight-bold"
+                >
+                  {{ capitalize(order.estado) }}
+                </v-chip>
+              </v-col>
+            </v-row>
+
+            <v-divider class="my-2" />
+
+            <v-row class="px-4">
+              <v-col cols="12" md="6">
+                <div><strong>Dirección:</strong> {{ order.direccion }}</div>
+                <div>
+                  <strong>Método de pago:</strong> {{ order.metodo_de_pago }}
+                </div>
+              </v-col>
+              <v-col
+                cols="12"
+                md="6"
+                class="text-md-right text-left mt-2 mt-md-0"
+              >
+                <span class="text-h6 font-weight-bold text--primary">
+                  Total: ${{ formatCurrency(order.total) }}
+                </span>
+              </v-col>
+            </v-row>
+
+            <!-- Botones (solo visibles al pasar el cursor) -->
+            <v-row class="px-4 pt-2 pb-2 d-flex justify-end align-center">
+              <v-btn
+                small
+                color="#247323"
+                dark
+                @click.stop="viewOrder(order, true)"
+                v-if="order.estado.toLowerCase() === 'enviado'"
+              >
+                <v-icon left small>mdi-pencil</v-icon> Editar
+              </v-btn>
+              <v-btn
+                small
+                color="red darken-1"
+                dark
+                class="ml-2"
+                @click.stop="deleteFullOrder(order.id_pedido)"
+                v-if="order.estado.toLowerCase() === 'enviado'"
+              >
+                <v-icon left small>mdi-delete</v-icon> Eliminar
+              </v-btn>
+            </v-row>
           </v-card>
         </v-col>
       </v-row>
 
-      <!-- Diálogo para mostrar los productos del pedido seleccionado -->
+      <!-- Modal de productos -->
       <v-dialog v-model="dialog" max-width="600px">
         <v-card>
-          <!-- Encabezado fijo del modal -->
-          <v-card-title class="modal-header">
+          <v-card-title class="modal-header d-flex align-center">
             Productos del pedido
-            <v-btn icon class="close-button" @click="dialog = false">
-              <v-icon class="close-icon">mdi-close</v-icon>
+            <v-spacer />
+            <v-btn
+              icon
+              small
+              v-if="
+                selectedOrder &&
+                selectedOrder.estado.toLowerCase() === 'enviado'
+              "
+              @click="toggleEdit"
+            >
+              <v-icon>{{
+                isEditing ? "mdi-close-circle" : "mdi-pencil"
+              }}</v-icon>
+            </v-btn>
+            <v-btn icon @click="closeDialog">
+              <v-icon>mdi-close</v-icon>
             </v-btn>
           </v-card-title>
 
+          <v-divider />
 
-          <v-divider></v-divider>
-          <v-card-text style="max-height: 400px; overflow-y: auto;">
+          <v-card-text style="max-height: 400px; overflow-y: auto">
             <v-list two-line>
-              <v-list-item v-for="(product, idx) in orderedProducts" :key="idx" class="striped">
+              <v-list-item
+                v-for="p in activeProducts"
+                :key="p.id_producto"
+                class="striped d-flex align-center"
+              >
                 <v-list-item-content>
-                  <v-list-item-title class="bold-text">{{ product.descripcion }}</v-list-item-title>
-                  <v-list-item-subtitle>
-                    <span class="label">Cantidad:</span> <span class="value">{{ product.cantidad }}</span> -
-                    <span class="label">Precio unitario:</span> <span class="value">${{ product.precio_unitario
-                    }}</span>
+                  <v-list-item-title>{{ p.descripcion }}</v-list-item-title>
+                  <v-list-item-subtitle class="d-flex align-center">
+                    <span class="label">Cant:</span>
+                    <v-text-field
+                      v-if="isEditing"
+                      v-model.number="p.cantidad"
+                      type="number"
+                      dense
+                      class="qty-input mx-2"
+                      @change="recalcTotal"
+                    />
+                    <span v-else>{{ p.cantidad }}</span>
                   </v-list-item-subtitle>
+                  <v-list-item-subtitle
+                    >Precio: ${{
+                      formatCurrency(p.precio_unitario)
+                    }}</v-list-item-subtitle
+                  >
                 </v-list-item-content>
-              </v-list-item>
-              <v-list-item v-if="orderedProducts.length === 0">
-                <v-list-item-content>
-                  <v-list-item-title>No se encontraron productos para este pedido.</v-list-item-title>
-                </v-list-item-content>
+
+                <v-btn
+                  icon
+                  color="red"
+                  v-if="isEditing"
+                  @click="deleteProduct(p.id_producto)"
+                >
+                  <v-icon>mdi-delete</v-icon>
+                </v-btn>
               </v-list-item>
             </v-list>
           </v-card-text>
+
+          <v-divider />
+
+          <v-card-actions>
+            <v-spacer />
+            <v-btn
+              text
+              color="red"
+              v-if="isEditing"
+              @click="deleteFullOrder(selectedOrder.id_pedido)"
+            >
+              Eliminar Pedido
+            </v-btn>
+            <v-btn text v-if="isEditing" @click="closeDialog">Cancelar</v-btn>
+            <v-btn color="primary" v-if="isEditing" @click="saveChanges"
+              >Guardar</v-btn
+            >
+            <v-btn text v-else @click="closeDialog">Cerrar</v-btn>
+          </v-card-actions>
         </v-card>
       </v-dialog>
     </v-container>
@@ -95,221 +188,326 @@
 
 <script>
 export default {
+  name: "HistoryCli",
   data() {
     return {
-      selectedFilter: 'Todas', // Filtro por defecto
+      selectedFilter: "Todas",
       filters: [
-        { text: 'Todas', value: 'Todas', icon: 'mdi-all-inclusive' },
-        { text: 'Entregado', value: 'entregado', icon: 'mdi-checkbox-marked-circle' },
-        { text: 'Pendiente', value: 'pendiente', icon: 'mdi-clock-outline' },
-        { text: 'Enviado', value: 'enviado', icon: 'mdi-truck' },
-        { text: 'Cancelado', value: 'cancelado', icon: 'mdi-close-circle' }
+        { text: "Todas", value: "Todas" },
+        { text: "Entregado", value: "Entregado" },
+        { text: "Pendiente", value: "Pendiente" },
+        { text: "Enviado", value: "Enviado" },
+        { text: "Cancelado", value: "Cancelado" },
       ],
-
-      // Los pedidos se obtendrán desde el backend
       purchases: [],
       dialog: false,
-      selectedProducts: []
+      isEditing: false,
+      activeProducts: [],
+      selectedOrder: null,
     };
   },
   computed: {
-    filteredPurchases() {
-      if (this.selectedFilter === 'Todas') {
-        return this.purchases;
-      }
-      return this.purchases.filter(purchase => purchase.estado === this.selectedFilter);
-    },
-
-    // Ordena los pedidos para que el último aparezca primero (orden descendente por fecha)
     sortedPurchases() {
-      return this.filteredPurchases.slice().sort(
-        (a, b) => new Date(b.fecha_levantamiento_pedido) - new Date(a.fecha_levantamiento_pedido)
+      const list =
+        this.selectedFilter === "Todas"
+          ? this.purchases
+          : this.purchases.filter((o) => o.estado === this.selectedFilter);
+      return [...list].sort(
+        (a, b) =>
+          new Date(b.fecha_levantamiento_pedido) -
+          new Date(a.fecha_levantamiento_pedido)
       );
     },
-    // Ordena los productos (por ejemplo, por id_producto, pero puedes ajustar el criterio)
-    orderedProducts() {
-      return this.selectedProducts.slice().sort((a, b) => a.id_producto - b.id_producto);
-    }
   },
   mounted() {
-    // Se obtiene el id del usuario desde localStorage y se consultan sus pedidos
-    const userId = localStorage.getItem("userId");
-    if (userId) {
-      this.fetchPurchases(userId);
-    }
+    const id = localStorage.getItem("userId");
+    if (id) this.fetchPurchases(id);
   },
   methods: {
-    formatDate(date) {
-      if (!date) return '';
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return new Date(date).toLocaleDateString('es-ES', options);
+    fetchPurchases(id) {
+      this.$api
+        .getUserOrders(id)
+        .then((r) => (this.purchases = r))
+        .catch(console.error);
     },
-    // Obtiene los pedidos del usuario mediante el endpoint: GET /pedidos/user/:userId
-    fetchPurchases(userId) {
-      this.$api.getUserOrders(userId, this.selectedFilter)
-        .then(response => {
-          this.purchases = response;
-        })
-        .catch(error => {
-          console.error("Error al obtener los pedidos:", error);
-        });
+    formatDate(d) {
+      return new Date(d).toLocaleDateString("es-ES", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
     },
-    // Al hacer clic en un pedido se consultan sus productos mediante GET /pedidos/productos/:idPedido
-    viewOrder(purchase) {
-      this.$api.getOrderProducts(purchase.id_pedido)
-        .then(response => {
-          this.selectedProducts = response;
-          this.dialog = true;
-        })
-        .catch(error => {
-          console.error("Error al obtener los productos del pedido:", error);
+    formatCurrency(v) {
+      return Number(v || 0).toFixed(2);
+    },
+    statusColor(e) {
+      switch (e.toLowerCase()) {
+        case "entregado":
+          return "green darken-2";
+        case "pendiente":
+          return "amber lighten-1";
+        case "enviado":
+          return "blue lighten-1";
+        case "cancelado":
+          return "red darken-2";
+        default:
+          return "grey lighten-1";
+      }
+    },
+    capitalize(s) {
+      return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+    },
+    viewOrder(o, edit) {
+      this.selectedOrder = o;
+      this.isEditing = edit;
+      this.dialog = true;
+      this.$api
+        .getOrderProducts(o.id_pedido)
+        .then(
+          (ps) =>
+            (this.activeProducts = edit ? JSON.parse(JSON.stringify(ps)) : ps)
+        )
+        .catch(console.error);
+    },
+    closeDialog() {
+      this.dialog = false;
+      this.isEditing = false;
+      this.activeProducts = [];
+      this.selectedOrder = null;
+    },
+    toggleEdit() {
+      this.isEditing = !this.isEditing;
+    },
+    recalcTotal() {
+      let t = 0;
+      this.activeProducts.forEach((p) => (t += p.cantidad * p.precio_unitario));
+      if (this.selectedOrder) this.selectedOrder.total = t;
+    },
+    async saveChanges() {
+      if (!this.selectedOrder) return;
+
+      try {
+        await this.$api.editProducts(this.selectedOrder.id_pedido, {
+          productos: this.activeProducts,
         });
-    }
-  }
+
+        // Actualizar total manualmente desde frontend
+        let nuevoTotal = 0;
+        this.activeProducts.forEach(
+          (p) => (nuevoTotal += p.cantidad * p.precio_unitario)
+        );
+        this.selectedOrder.total = nuevoTotal;
+
+        // Actualizar en la base de datos también
+        await this.$api.editOrderDetails(this.selectedOrder.id_pedido, {
+          estado: this.selectedOrder.estado,
+          total: nuevoTotal,
+          metodo_de_pago: this.selectedOrder.metodo_de_pago,
+          fecha_entrega_estimada: this.selectedOrder.fecha_entrega_estimada,
+          direccion: this.selectedOrder.direccion,
+        });
+
+        await this.fetchPurchases(localStorage.getItem("userId"));
+        this.closeDialog(); // Ahora sí cierra correctamente
+      } catch (e) {
+        console.error(e);
+      }
+    },
+
+    async deleteFullOrder(id) {
+      if (!confirm("¿Eliminar este pedido?")) return;
+      try {
+        await this.$api.deleteOrder(id);
+        await this.fetchPurchases(localStorage.getItem("userId"));
+        this.closeDialog();
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    async deleteProduct(id) {
+      if (!confirm("¿Eliminar producto?")) return;
+      try {
+        await this.$api.deleteProductFromOrder(
+          this.selectedOrder.id_pedido,
+          id
+        );
+        this.activeProducts = this.activeProducts.filter(
+          (p) => p.id_producto !== id
+        );
+        this.recalcTotal();
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
-.v-col {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.v-card-title {
-  font-weight: bold;
-}
-
-.v-card-subtitle {
-  font-size: 16px;
-  color: gray;
-}
-
-.v-card-text {
-  font-size: 12px;
-  padding: 0;
-}
-
-.select-container {
-  position: relative;
-  width: 30%;
-  display: flex;
-  align-items: center;
-}
-
-.custom-select {
-  padding-left: 30px;
-  padding-right: 30px;
-  font-size: 14px;
-  border-radius: 20px;
-  outline: none;
-  background-color: #F3F3F3;
-  width: 100%;
-}
-
-.custom-select option {
-  font-size: 14px;
-  color: #29235C;
-}
-
-.custom-icon {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 18px;
-  color: #29235C;
-  pointer-events: none;
-}
-
-.custom-icon-right {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 18px;
-  color: #29235C;
-  pointer-events: none;
-}
-
-/* Encabezado fijo en el modal */
-.modal-header {
-  position: sticky;
-  top: 0;
-  background: #ffffff;
-  z-index: 1;
-}
-
-/* Alternar colores en la lista de productos */
-.striped:nth-child(odd) {
+.order-card {
+  border-radius: 12px;
   background-color: #ffffff;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+  padding-top: 0px;
+  padding-bottom: 12px;
+}
+
+.order-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.v-btn {
+  min-width: 110px;
+  font-size: 13px;
+}
+
+.order-date {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.v-chip {
+  border-radius: 12px;
+  font-size: 14px;
+  padding: 0 12px;
+}
+
+.v-btn {
+  border-radius: 8px;
+  text-transform: none;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.text--primary {
+  color: #247323 !important;
+}
+
+@media (max-width: 768px) {
+  .order-date {
+    font-size: 15px;
+  }
+}
+
+.v-container {
+  background-color: #f3f3f3;
+  padding-top: 20px;
+  min-height: 100vh;
+}
+
+/* Filtro */
+.custom-select {
+  width: 200px;
+  padding: 8px 32px 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  color: #444;
+  background-color: white;
+  appearance: none;
+  background-image: none;
+}
+
+.order-count {
+  font-size: 14px;
+  color: #555;
+  margin-left: 8px;
+}
+
+/* Tarjeta de pedido */
+.order-card {
+  border-radius: 12px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.order-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.title-text {
+  font-size: 18px;
+  color: #247323;
+  margin-bottom: 0;
+}
+
+.delivery-text {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.text--primary {
+  color: #247323 !important;
+}
+
+/* Sección de acciones */
+.gap-3 {
+  gap: 12px;
+}
+
+.v-btn {
+  text-transform: none;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  border-radius: 8px;
+}
+
+/* Modal */
+.modal-header {
+  font-weight: bold;
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.qty-input {
+  max-width: 70px;
+  margin-left: 8px;
+}
+
+/* Lista de productos */
+.striped:nth-child(odd) {
+  background-color: #fafafa;
 }
 
 .striped:nth-child(even) {
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 
-.bold-text {
-  font-weight: bold;
-}
-
-/* Estilos para el texto de cantidad y precio unitario */
 .label {
-  color: #2e7d32;
-  font-weight: bold;
+  font-weight: 600;
+  margin-right: 6px;
+  color: #247323;
 }
 
-.value {
-  color: #f44336;
-  font-weight: bold;
-}
-
-.modal-header {
-  position: relative;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.close-button {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.close-icon {
-  font-weight: bold;
-}
-
+/* Responsivo */
 @media (max-width: 600px) {
-  .v-col {
-    margin-left: 0 !important;
-  }
-
-  .v-card {
-    width: 100%;
-    max-width: 350px;
-  }
-
   .custom-select {
-    font-size: 12px;
+    width: 100%;
+    margin-top: 8px;
   }
 
-  .custom-icon-right,
-  .custom-icon {
-    font-size: 14px;
+  .title-text,
+  .delivery-text {
+    font-size: 16px;
+    text-align: left;
   }
 
-  .select-container {
-    width: 35%;
+  .gap-3 {
+    flex-direction: column;
+    gap: 8px !important;
   }
-}
 
-@media (min-width: 601px) {
-  .v-card {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+  .v-col.text-right {
+    text-align: left !important;
+    margin-top: 8px;
   }
 }
 </style>

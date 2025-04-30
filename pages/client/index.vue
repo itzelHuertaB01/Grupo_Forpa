@@ -1,11 +1,9 @@
-<template>
-  
-</template>
+<template></template>
 
 <script>
 export default {
   mounted() {
-    this.$router.replace('/client/Home_Cli')
-  }
-}
+    this.$router.replace("/client/Home_Cli");
+  },
+};
 </script>

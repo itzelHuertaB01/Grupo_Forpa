@@ -1,1 +1,32 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[21],{651:function(t,e,n){"use strict";n.r(e);var r={name:"Ofertas - Preventista",layout:"preventista",head:function(){return{title:"Ofertas - Preventista",meta:[{name:"ofertas",content:"Preventista"}]}}},o=n(72),component=Object(o.a)(r,(function(){return(0,this._self._c)("h1",[this._v("Ofertas")])}),[],!1,null,null,null);e.default=component.exports}}]);
+(window.webpackJsonp = window.webpackJsonp || []).push([
+  [21],
+  {
+    651: function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var r = {
+          name: "Ofertas - Preventista",
+          layout: "preventista",
+          head: function () {
+            return {
+              title: "Ofertas - Preventista",
+              meta: [{ name: "ofertas", content: "Preventista" }],
+            };
+          },
+        },
+        o = n(72),
+        component = Object(o.a)(
+          r,
+          function () {
+            return (0, this._self._c)("h1", [this._v("Ofertas")]);
+          },
+          [],
+          !1,
+          null,
+          null,
+          null
+        );
+      e.default = component.exports;
+    },
+  },
+]);

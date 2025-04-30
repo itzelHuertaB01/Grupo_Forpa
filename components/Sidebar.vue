@@ -11,7 +11,12 @@
   >
     <!-- Logo -->
     <div class="logo-container">
-      <v-img :src="isCollapsed ? '/img/Logo_min.png' : '/img/Logo.png'" contain height="80" class="logo-img" />
+      <v-img
+        :src="isCollapsed ? '/img/Logo_min.png' : '/img/Logo.png'"
+        contain
+        height="80"
+        class="logo-img"
+      />
     </div>
 
     <!-- Menú principal -->
@@ -25,9 +30,14 @@
           :class="{ 'selected-item': isSelected(item.route) }"
         >
           <v-list-item-icon>
-            <v-icon :class="{ 'selected-icon': isSelected(item.route) }">{{ item.icon }}</v-icon>
+            <v-icon :class="{ 'selected-icon': isSelected(item.route) }">{{
+              item.icon
+            }}</v-icon>
           </v-list-item-icon>
-          <v-list-item-title v-if="!isCollapsed" :class="{ 'selected-text': isSelected(item.route) }">
+          <v-list-item-title
+            v-if="!isCollapsed"
+            :class="{ 'selected-text': isSelected(item.route) }"
+          >
             {{ item.text }}
           </v-list-item-title>
         </v-list-item>
@@ -49,7 +59,9 @@
 
     <!-- Botón colapsar menú -->
     <v-btn icon @click="toggleMenu" class="toggle-btn" dark>
-      <v-icon>{{ isCollapsed ? 'mdi-chevron-right' : 'mdi-chevron-left' }}</v-icon>
+      <v-icon>{{
+        isCollapsed ? "mdi-chevron-right" : "mdi-chevron-left"
+      }}</v-icon>
     </v-btn>
   </v-navigation-drawer>
 </template>
@@ -60,13 +72,13 @@ export default {
   props: {
     role: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       selectedItem: null,
-      isCollapsed: false
+      isCollapsed: false,
     };
   },
   computed: {
@@ -78,30 +90,78 @@ export default {
         case "admin":
           return [
             { text: "Inicio", icon: "mdi-home", route: "/admin/Index_Admin" },
-            { text: "Productos", icon: "mdi-shopping", route: "/admin/Orders_Admin" },
-            { text: "Usuarios", icon: "mdi-account", route: "/admin/Users_Admin" },
-            { text: "Catálogos", icon: "mdi-book-open", route: "/admin/UploadFiles_Admin" },
+            {
+              text: "Productos",
+              icon: "mdi-shopping",
+              route: "/admin/Orders_Admin",
+            },
+            {
+              text: "Usuarios",
+              icon: "mdi-account",
+              route: "/admin/Users_Admin",
+            },
+            {
+              text: "Catálogos",
+              icon: "mdi-book-open",
+              route: "/admin/UploadFiles_Admin",
+            },
           ];
         case "cliente":
           return [
             { text: "Inicio", icon: "mdi-home", route: "/client/Home_Cli" },
-            { text: "Ver Pedidos", icon: "mdi-shopping", route: "/client/Orders_Cli" },
-            { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/client/History_Cli" },
-            { text: "Catálogo", icon: "mdi-book-open", route: "/client/Catalog_Cli" },
-            { text: "Ofertas", icon: "mdi-tag-outline", route: "/client/Ofertas_Cli" },
+            {
+              text: "Ver Pedidos",
+              icon: "mdi-shopping",
+              route: "/client/Orders_Cli",
+            },
+            {
+              text: "Historial",
+              icon: "mdi-clipboard-text-clock",
+              route: "/client/History_Cli",
+            },
+            {
+              text: "Catálogo",
+              icon: "mdi-book-open",
+              route: "/client/Catalog_Cli",
+            },
+            {
+              text: "Ofertas",
+              icon: "mdi-tag-outline",
+              route: "/client/Ofertas_Cli",
+            },
           ];
         case "preventista":
           return [
-            { text: "Inicio", icon: "mdi-home", route: "/preventive/Shopping_Pre" },
-            { text: "Ver Pedidos", icon: "mdi-shopping", route: "/preventive/Orders_Pre" },
-            { text: "Historial", icon: "mdi-clipboard-text-clock", route: "/preventive/History_Pre" },
-            { text: "Catálogo", icon: "mdi-book-open", route: "/preventive/Catalog_Pre" },
-            { text: "Ofertas", icon: "mdi-tag", route: "/preventive/Offers_Pre" },
+            {
+              text: "Inicio",
+              icon: "mdi-home",
+              route: "/preventive/Shopping_Pre",
+            },
+            {
+              text: "Ver Pedidos",
+              icon: "mdi-shopping",
+              route: "/preventive/Orders_Pre",
+            },
+            {
+              text: "Historial",
+              icon: "mdi-clipboard-text-clock",
+              route: "/preventive/History_Pre",
+            },
+            {
+              text: "Catálogo",
+              icon: "mdi-book-open",
+              route: "/preventive/Catalog_Pre",
+            },
+            {
+              text: "Ofertas",
+              icon: "mdi-tag",
+              route: "/preventive/Offers_Pre",
+            },
           ];
         default:
           return [];
       }
-    }
+    },
   },
   methods: {
     isSelected(route) {
@@ -125,8 +185,8 @@ export default {
         console.error("Error al cerrar sesión:", err);
         this.$router.push("/");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -156,18 +216,18 @@ export default {
 }
 
 .selected-item {
-  background-color: #F3F3F3 !important;
+  background-color: #f3f3f3 !important;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   color: transparent !important;
 }
 
 .selected-icon {
-  color: #08093F !important;
+  color: #08093f !important;
 }
 
 .selected-text {
-  color: #08093F !important;
+  color: #08093f !important;
   font-weight: bold;
 }
 

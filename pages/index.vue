@@ -1,20 +1,49 @@
 <template>
   <v-app>
-    <v-container fluid class="d-flex align-center justify-center" style="height: 100vh; padding: 0; margin: 0;">
+    <v-container
+      fluid
+      class="d-flex align-center justify-center"
+      style="height: 100vh; padding: 0; margin: 0"
+    >
       <!-- Barra lateral fija -->
-      <v-col cols="1" md="1" class="d-none d-md-flex justify-center align-center"
-        style="background-color: #29235C; position: fixed; left: 0; top: 0; height: 100vh; width: 5px;">
+      <v-col
+        cols="1"
+        md="1"
+        class="d-none d-md-flex justify-center align-center"
+        style="
+          background-color: #29235c;
+          position: fixed;
+          left: 0;
+          top: 0;
+          height: 100vh;
+          width: 5px;
+        "
+      >
       </v-col>
 
       <!-- Formulario de login -->
       <v-col cols="12" md="6" class="d-flex justify-center align-center px-4">
-        <v-card width="100%" height="100%" max-width="400px" class="pa-6 card-no-shadow">
-          <v-img src="/img/Logo_GrupoForpa.png" alt="Logo" height="200" class="mb-4 mx-auto" contain></v-img>
+        <v-card
+          width="100%"
+          height="100%"
+          max-width="400px"
+          class="pa-6 card-no-shadow"
+        >
+          <v-img
+            src="/img/Logo_GrupoForpa.png"
+            alt="Logo"
+            height="200"
+            class="mb-4 mx-auto"
+            contain
+          ></v-img>
 
-          <v-card-subtitle class="text-center" style="font-size: 24px; color: black;">
+          <v-card-subtitle
+            class="text-center"
+            style="font-size: 24px; color: black"
+          >
             ¡Bienvenido!
           </v-card-subtitle>
-          <v-card-subtitle class="text-center" style="font-size: 14px;">
+          <v-card-subtitle class="text-center" style="font-size: 14px">
             Ingresa tus datos para acceder.
           </v-card-subtitle>
           <v-form ref="loginForm" v-model="valid" @submit.prevent="login">
@@ -31,13 +60,33 @@
               @input="handlePhoneNumberInput"
             />
 
-            <v-text-field v-model="password" label="Contraseña" :type="passwordVisible ? 'text' : 'password'"
-              :rules="passwordRules" required dense outlined class="mb-3" append-icon="mdi-eye"
-              @click:append="togglePasswordVisibility" />
+            <v-text-field
+              v-model="password"
+              label="Contraseña"
+              :type="passwordVisible ? 'text' : 'password'"
+              :rules="passwordRules"
+              required
+              dense
+              outlined
+              class="mb-3"
+              append-icon="mdi-eye"
+              @click:append="togglePasswordVisibility"
+            />
 
-            <v-checkbox v-model="rememberMe" label="Recordar esta sesión" class="mb-4" />
+            <v-checkbox
+              v-model="rememberMe"
+              label="Recordar esta sesión"
+              class="mb-4"
+            />
 
-            <v-btn color="#118737" type="submit" block :disabled="!valid" rounded class="white-text">
+            <v-btn
+              color="#118737"
+              type="submit"
+              block
+              :disabled="!valid"
+              rounded
+              class="white-text"
+            >
               Iniciar sesión
             </v-btn>
           </v-form>
@@ -50,12 +99,34 @@
       </v-col>
 
       <!-- Carrusel de imágenes -->
-      <v-col cols="12" md="6" class="d-none d-md-flex justify-end align-center pr-0"
-        style="padding: 0; display: flex; height: 100vh; position: relative; overflow: hidden; border-top-left-radius: 50px; border-bottom-left-radius: 50px;">
-        <v-carousel v-model="model" cycle show-arrows height="100%" hide-delimiters
-          style="width: 100%; box-shadow: none;">
+      <v-col
+        cols="12"
+        md="6"
+        class="d-none d-md-flex justify-end align-center pr-0"
+        style="
+          padding: 0;
+          display: flex;
+          height: 100vh;
+          position: relative;
+          overflow: hidden;
+          border-top-left-radius: 50px;
+          border-bottom-left-radius: 50px;
+        "
+      >
+        <v-carousel
+          v-model="model"
+          cycle
+          show-arrows
+          height="100%"
+          hide-delimiters
+          style="width: 100%; box-shadow: none"
+        >
           <v-carousel-item v-for="(img, index) in images" :key="index">
-            <v-img :src="img" alt="Imagen de fondo" style="object-fit: contain; width: 100%; height: 100%;" />
+            <v-img
+              :src="img"
+              alt="Imagen de fondo"
+              style="object-fit: contain; width: 100%; height: 100%"
+            />
           </v-carousel-item>
         </v-carousel>
       </v-col>
@@ -92,9 +163,8 @@ export default {
     };
   },
   methods: {
-
     handlePhoneNumberInput(value) {
-      let input = value.replace(/\D/g, ''); // Aquí 'value' ya es el texto escrito
+      let input = value.replace(/\D/g, ""); // Aquí 'value' ya es el texto escrito
       if (input.length > 10) {
         input = input.slice(0, 10);
       }
@@ -132,7 +202,10 @@ export default {
 
         // Guardamos el ID, nombre completo y rol del usuario
         localStorage.setItem("userId", userData.id_usuario);
-        localStorage.setItem("clientName", `${userData.nombre} ${userData.apellido_p}`);
+        localStorage.setItem(
+          "clientName",
+          `${userData.nombre} ${userData.apellido_p}`
+        );
         localStorage.setItem("clientRole", userData.tipo_usuario);
         localStorage.setItem("direccion", userData.direccion);
 
@@ -170,7 +243,7 @@ export default {
 }
 
 .white-text {
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .v-col {

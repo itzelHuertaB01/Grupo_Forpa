@@ -1,1 +1,411 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[22],{559:function(t,e,d){var content=d(608);content.__esModule&&(content=content.default),"string"==typeof content&&(content=[[t.i,content,""]]),content.locals&&(t.exports=content.locals);(0,d(18).default)("52bddffa",content,!0,{sourceMap:!1})},607:function(t,e,d){"use strict";d(559)},608:function(t,e,d){var l=d(17)((function(i){return i[1]}));l.push([t.i,".full-screen[data-v-566d572d]{background-color:#f3f3f3;min-height:100vh;padding-top:20px}.card-container[data-v-566d572d]{background-color:#fff;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);margin:auto;max-width:95%;padding:20px}.delivery-text[data-v-566d572d]{color:#2c3e50;font-weight:700}.timeline[data-v-566d572d]{flex-direction:column;padding-left:20px}.timeline[data-v-566d572d],.timeline-item[data-v-566d572d]{display:flex;position:relative}.timeline-item[data-v-566d572d]{align-items:center;margin-bottom:10px}.timeline-line[data-v-566d572d]{background-color:#c4c4c4;height:100%;left:7px;position:absolute;top:16px;width:3px}.timeline-line.completed[data-v-566d572d]{background-color:#247323}.timeline-circle[data-v-566d572d]{background-color:#c4c4c4;border-radius:50%;height:16px;margin-right:10px;position:relative;width:16px;z-index:2}.timeline-circle.completed[data-v-566d572d]{background-color:#247323}.progress-horizontal[data-v-566d572d],.progress-line[data-v-566d572d]{position:relative;width:100%}.progress-line[data-v-566d572d]{background-color:#c4c4c4;height:4px;overflow:hidden}.progress-line-completed[data-v-566d572d]{background-color:#247323;height:100%;left:0;position:absolute;top:0;transition:width .3s ease-in-out}.steps[data-v-566d572d]{display:flex;justify-content:space-between;margin-top:-10px}.circle[data-v-566d572d]{background-color:#c4c4c4;border-radius:50%;height:16px;width:16px}.circle.completed[data-v-566d572d]{background-color:#247323}.tracking-details[data-v-566d572d]{max-height:1000px;overflow:hidden;transition:all .5s ease}.detail-item[data-v-566d572d]{margin-bottom:12px;padding-left:10px}.detail-date[data-v-566d572d]{color:#2c3e50;font-size:14px;font-weight:700}.detail-text[data-v-566d572d]{color:#555;font-size:14px;margin:4px 0 0}.btn-details[data-v-566d572d]{color:#2c3e50!important;font-weight:700;text-transform:uppercase}",""]),l.locals={},t.exports=l},652:function(t,e,d){"use strict";d.r(e);var l=d(511),o=d(505),n=d(526),r=d(530),c=d(512),v=d(128),h=d(525),m=(d(43),{layout:"preventista",head:function(){return{title:"Pedidos - Preventista",meta:[{name:"pedidos",content:"Preventista"}]}},data:function(){return{currentStep:2,showAllDetails:!1,isMobile:window.innerWidth<600,steps:[{title:"Pedido confirmado",date:"Lunes, Enero 31 2025"},{title:"En preparación",date:"Lunes, Febrero 02 2025"},{title:"En camino",date:"Pendiente"},{title:"Entregado",date:"Pendiente"}],details:[{date:"Lunes, Enero 31 2025",text:"Hemos recibido tu pedido y está en proceso de validación."},{date:"Lunes, Febrero 02 2025",text:"Estamos reuniendo los productos de tu pedido."},{date:"Martes, Febrero 03 2025",text:"Tu pedido ha sido empacado y está listo para ser enviado."},{date:"Miércoles, Febrero 04 2025",text:"Tu paquete ha salido de nuestro almacén."},{date:"Jueves, Febrero 05 2025",text:"El repartidor tiene tu pedido y está en camino."}]}},computed:{displayedDetails:function(){return this.showAllDetails?this.details:this.details.slice(0,2)},progressWidth:function(){return 2===this.currentStep?"50%":this.currentStep>2?"100%":"25%"}},methods:{toggleDetails:function(){this.showAllDetails=!this.showAllDetails},updateIsMobile:function(){this.isMobile=window.innerWidth<600}},mounted:function(){window.addEventListener("resize",this.updateIsMobile)},beforeDestroy:function(){window.removeEventListener("resize",this.updateIsMobile)}}),f=(d(607),d(72)),component=Object(f.a)(m,(function(){var t=this,e=t._self._c;return e(r.a,{staticClass:"full-screen",attrs:{fluid:""}},[e(h.a,{attrs:{justify:"center"}},[e(n.a,{attrs:{cols:"12"}},[e(o.a,{staticClass:"pa-4 card-container"},[e(h.a,[e(n.a,{attrs:{cols:"12"}},[e("h3",{staticClass:"font-weight-bold text-primary title-text"},[e("span",{staticClass:"delivery-text"},[t._v("Llega entre el 24 de Febrero")])])])],1),t._v(" "),e(c.a,{staticClass:"my-2"}),t._v(" "),e("div",{staticClass:"tracking-container"},[t.isMobile?e("div",{staticClass:"timeline"},t._l(t.steps,(function(d,l){return e("div",{key:l,staticClass:"timeline-item"},[e("div",{staticClass:"timeline-line",class:{completed:l<t.currentStep}}),t._v(" "),e("div",{staticClass:"timeline-circle",class:{completed:l<t.currentStep}}),t._v(" "),e("div",{staticClass:"timeline-content"},[e("p",{staticClass:"step-title",class:{highlight:l<=t.currentStep}},[t._v("\n                  "+t._s(d.title)+"\n                ")]),t._v(" "),e("small",{staticClass:"step-date"},[t._v(t._s(d.date||"Pendiente"))])])])})),0):e("div",{staticClass:"progress-horizontal"},[e("div",{staticClass:"progress-line"},[e("div",{staticClass:"progress-line-completed",style:{width:t.progressWidth}})]),t._v(" "),e("div",{staticClass:"steps"},t._l(t.steps,(function(d,l){return e("div",{key:l,staticClass:"step"},[e("div",{staticClass:"circle",class:{completed:l<t.currentStep}}),t._v(" "),e("p",{staticClass:"step-title",class:{highlight:l<=t.currentStep}},[t._v("\n                  "+t._s(d.title)+"\n                ")]),t._v(" "),e("small",{staticClass:"step-date"},[t._v(t._s(d.date||"Pendiente"))])])})),0)])]),t._v(" "),e(c.a,{staticClass:"my-4"}),t._v(" "),e(h.a,[e(n.a,{attrs:{cols:"12"}},[e("h4",{staticClass:"font-weight-medium"},[t._v("Detalles de seguimiento")]),t._v(" "),e(v.a,[e("div",{staticClass:"tracking-details"},t._l(t.displayedDetails,(function(d,l){return e("div",{key:l,staticClass:"detail-item"},[e("span",{staticClass:"detail-date"},[t._v(t._s(d.date))]),t._v(" "),e("p",{staticClass:"detail-text"},[t._v(t._s(d.text))])])})),0)])],1)],1),t._v(" "),t.details.length>2?e(h.a,[e(n.a,{staticClass:"text-left",attrs:{cols:"12"}},[e(l.a,{staticClass:"font-weight-bold btn-details",attrs:{text:"",color:"primary"},on:{click:t.toggleDetails}},[t._v("\n              "+t._s(t.showAllDetails?"Ocultar detalles ▲":"Ver detalles ▼")+"\n            ")])],1)],1):t._e()],1)],1)],1)],1)}),[],!1,null,"566d572d",null);e.default=component.exports}}]);
+(window.webpackJsonp = window.webpackJsonp || []).push([
+  [22],
+  {
+    559: function (t, e, d) {
+      var content = d(608);
+      content.__esModule && (content = content.default),
+        "string" == typeof content && (content = [[t.i, content, ""]]),
+        content.locals && (t.exports = content.locals);
+      (0, d(18).default)("52bddffa", content, !0, { sourceMap: !1 });
+    },
+    607: function (t, e, d) {
+      "use strict";
+      d(559);
+    },
+    608: function (t, e, d) {
+      var l = d(17)(function (i) {
+        return i[1];
+      });
+      l.push([
+        t.i,
+        ".full-screen[data-v-566d572d]{background-color:#f3f3f3;min-height:100vh;padding-top:20px}.card-container[data-v-566d572d]{background-color:#fff;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);margin:auto;max-width:95%;padding:20px}.delivery-text[data-v-566d572d]{color:#2c3e50;font-weight:700}.timeline[data-v-566d572d]{flex-direction:column;padding-left:20px}.timeline[data-v-566d572d],.timeline-item[data-v-566d572d]{display:flex;position:relative}.timeline-item[data-v-566d572d]{align-items:center;margin-bottom:10px}.timeline-line[data-v-566d572d]{background-color:#c4c4c4;height:100%;left:7px;position:absolute;top:16px;width:3px}.timeline-line.completed[data-v-566d572d]{background-color:#247323}.timeline-circle[data-v-566d572d]{background-color:#c4c4c4;border-radius:50%;height:16px;margin-right:10px;position:relative;width:16px;z-index:2}.timeline-circle.completed[data-v-566d572d]{background-color:#247323}.progress-horizontal[data-v-566d572d],.progress-line[data-v-566d572d]{position:relative;width:100%}.progress-line[data-v-566d572d]{background-color:#c4c4c4;height:4px;overflow:hidden}.progress-line-completed[data-v-566d572d]{background-color:#247323;height:100%;left:0;position:absolute;top:0;transition:width .3s ease-in-out}.steps[data-v-566d572d]{display:flex;justify-content:space-between;margin-top:-10px}.circle[data-v-566d572d]{background-color:#c4c4c4;border-radius:50%;height:16px;width:16px}.circle.completed[data-v-566d572d]{background-color:#247323}.tracking-details[data-v-566d572d]{max-height:1000px;overflow:hidden;transition:all .5s ease}.detail-item[data-v-566d572d]{margin-bottom:12px;padding-left:10px}.detail-date[data-v-566d572d]{color:#2c3e50;font-size:14px;font-weight:700}.detail-text[data-v-566d572d]{color:#555;font-size:14px;margin:4px 0 0}.btn-details[data-v-566d572d]{color:#2c3e50!important;font-weight:700;text-transform:uppercase}",
+        "",
+      ]),
+        (l.locals = {}),
+        (t.exports = l);
+    },
+    652: function (t, e, d) {
+      "use strict";
+      d.r(e);
+      var l = d(511),
+        o = d(505),
+        n = d(526),
+        r = d(530),
+        c = d(512),
+        v = d(128),
+        h = d(525),
+        m =
+          (d(43),
+          {
+            layout: "preventista",
+            head: function () {
+              return {
+                title: "Pedidos - Preventista",
+                meta: [{ name: "pedidos", content: "Preventista" }],
+              };
+            },
+            data: function () {
+              return {
+                currentStep: 2,
+                showAllDetails: !1,
+                isMobile: window.innerWidth < 600,
+                steps: [
+                  { title: "Pedido confirmado", date: "Lunes, Enero 31 2025" },
+                  { title: "En preparación", date: "Lunes, Febrero 02 2025" },
+                  { title: "En camino", date: "Pendiente" },
+                  { title: "Entregado", date: "Pendiente" },
+                ],
+                details: [
+                  {
+                    date: "Lunes, Enero 31 2025",
+                    text: "Hemos recibido tu pedido y está en proceso de validación.",
+                  },
+                  {
+                    date: "Lunes, Febrero 02 2025",
+                    text: "Estamos reuniendo los productos de tu pedido.",
+                  },
+                  {
+                    date: "Martes, Febrero 03 2025",
+                    text: "Tu pedido ha sido empacado y está listo para ser enviado.",
+                  },
+                  {
+                    date: "Miércoles, Febrero 04 2025",
+                    text: "Tu paquete ha salido de nuestro almacén.",
+                  },
+                  {
+                    date: "Jueves, Febrero 05 2025",
+                    text: "El repartidor tiene tu pedido y está en camino.",
+                  },
+                ],
+              };
+            },
+            computed: {
+              displayedDetails: function () {
+                return this.showAllDetails
+                  ? this.details
+                  : this.details.slice(0, 2);
+              },
+              progressWidth: function () {
+                return 2 === this.currentStep
+                  ? "50%"
+                  : this.currentStep > 2
+                  ? "100%"
+                  : "25%";
+              },
+            },
+            methods: {
+              toggleDetails: function () {
+                this.showAllDetails = !this.showAllDetails;
+              },
+              updateIsMobile: function () {
+                this.isMobile = window.innerWidth < 600;
+              },
+            },
+            mounted: function () {
+              window.addEventListener("resize", this.updateIsMobile);
+            },
+            beforeDestroy: function () {
+              window.removeEventListener("resize", this.updateIsMobile);
+            },
+          }),
+        f = (d(607), d(72)),
+        component = Object(f.a)(
+          m,
+          function () {
+            var t = this,
+              e = t._self._c;
+            return e(
+              r.a,
+              { staticClass: "full-screen", attrs: { fluid: "" } },
+              [
+                e(
+                  h.a,
+                  { attrs: { justify: "center" } },
+                  [
+                    e(
+                      n.a,
+                      { attrs: { cols: "12" } },
+                      [
+                        e(
+                          o.a,
+                          { staticClass: "pa-4 card-container" },
+                          [
+                            e(
+                              h.a,
+                              [
+                                e(n.a, { attrs: { cols: "12" } }, [
+                                  e(
+                                    "h3",
+                                    {
+                                      staticClass:
+                                        "font-weight-bold text-primary title-text",
+                                    },
+                                    [
+                                      e(
+                                        "span",
+                                        { staticClass: "delivery-text" },
+                                        [t._v("Llega entre el 24 de Febrero")]
+                                      ),
+                                    ]
+                                  ),
+                                ]),
+                              ],
+                              1
+                            ),
+                            t._v(" "),
+                            e(c.a, { staticClass: "my-2" }),
+                            t._v(" "),
+                            e("div", { staticClass: "tracking-container" }, [
+                              t.isMobile
+                                ? e(
+                                    "div",
+                                    { staticClass: "timeline" },
+                                    t._l(t.steps, function (d, l) {
+                                      return e(
+                                        "div",
+                                        {
+                                          key: l,
+                                          staticClass: "timeline-item",
+                                        },
+                                        [
+                                          e("div", {
+                                            staticClass: "timeline-line",
+                                            class: {
+                                              completed: l < t.currentStep,
+                                            },
+                                          }),
+                                          t._v(" "),
+                                          e("div", {
+                                            staticClass: "timeline-circle",
+                                            class: {
+                                              completed: l < t.currentStep,
+                                            },
+                                          }),
+                                          t._v(" "),
+                                          e(
+                                            "div",
+                                            { staticClass: "timeline-content" },
+                                            [
+                                              e(
+                                                "p",
+                                                {
+                                                  staticClass: "step-title",
+                                                  class: {
+                                                    highlight:
+                                                      l <= t.currentStep,
+                                                  },
+                                                },
+                                                [
+                                                  t._v(
+                                                    "\n                  " +
+                                                      t._s(d.title) +
+                                                      "\n                "
+                                                  ),
+                                                ]
+                                              ),
+                                              t._v(" "),
+                                              e(
+                                                "small",
+                                                { staticClass: "step-date" },
+                                                [
+                                                  t._v(
+                                                    t._s(d.date || "Pendiente")
+                                                  ),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      );
+                                    }),
+                                    0
+                                  )
+                                : e(
+                                    "div",
+                                    { staticClass: "progress-horizontal" },
+                                    [
+                                      e(
+                                        "div",
+                                        { staticClass: "progress-line" },
+                                        [
+                                          e("div", {
+                                            staticClass:
+                                              "progress-line-completed",
+                                            style: { width: t.progressWidth },
+                                          }),
+                                        ]
+                                      ),
+                                      t._v(" "),
+                                      e(
+                                        "div",
+                                        { staticClass: "steps" },
+                                        t._l(t.steps, function (d, l) {
+                                          return e(
+                                            "div",
+                                            { key: l, staticClass: "step" },
+                                            [
+                                              e("div", {
+                                                staticClass: "circle",
+                                                class: {
+                                                  completed: l < t.currentStep,
+                                                },
+                                              }),
+                                              t._v(" "),
+                                              e(
+                                                "p",
+                                                {
+                                                  staticClass: "step-title",
+                                                  class: {
+                                                    highlight:
+                                                      l <= t.currentStep,
+                                                  },
+                                                },
+                                                [
+                                                  t._v(
+                                                    "\n                  " +
+                                                      t._s(d.title) +
+                                                      "\n                "
+                                                  ),
+                                                ]
+                                              ),
+                                              t._v(" "),
+                                              e(
+                                                "small",
+                                                { staticClass: "step-date" },
+                                                [
+                                                  t._v(
+                                                    t._s(d.date || "Pendiente")
+                                                  ),
+                                                ]
+                                              ),
+                                            ]
+                                          );
+                                        }),
+                                        0
+                                      ),
+                                    ]
+                                  ),
+                            ]),
+                            t._v(" "),
+                            e(c.a, { staticClass: "my-4" }),
+                            t._v(" "),
+                            e(
+                              h.a,
+                              [
+                                e(
+                                  n.a,
+                                  { attrs: { cols: "12" } },
+                                  [
+                                    e(
+                                      "h4",
+                                      { staticClass: "font-weight-medium" },
+                                      [t._v("Detalles de seguimiento")]
+                                    ),
+                                    t._v(" "),
+                                    e(v.a, [
+                                      e(
+                                        "div",
+                                        { staticClass: "tracking-details" },
+                                        t._l(
+                                          t.displayedDetails,
+                                          function (d, l) {
+                                            return e(
+                                              "div",
+                                              {
+                                                key: l,
+                                                staticClass: "detail-item",
+                                              },
+                                              [
+                                                e(
+                                                  "span",
+                                                  {
+                                                    staticClass: "detail-date",
+                                                  },
+                                                  [t._v(t._s(d.date))]
+                                                ),
+                                                t._v(" "),
+                                                e(
+                                                  "p",
+                                                  {
+                                                    staticClass: "detail-text",
+                                                  },
+                                                  [t._v(t._s(d.text))]
+                                                ),
+                                              ]
+                                            );
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                    ]),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                            t._v(" "),
+                            t.details.length > 2
+                              ? e(
+                                  h.a,
+                                  [
+                                    e(
+                                      n.a,
+                                      {
+                                        staticClass: "text-left",
+                                        attrs: { cols: "12" },
+                                      },
+                                      [
+                                        e(
+                                          l.a,
+                                          {
+                                            staticClass:
+                                              "font-weight-bold btn-details",
+                                            attrs: {
+                                              text: "",
+                                              color: "primary",
+                                            },
+                                            on: { click: t.toggleDetails },
+                                          },
+                                          [
+                                            t._v(
+                                              "\n              " +
+                                                t._s(
+                                                  t.showAllDetails
+                                                    ? "Ocultar detalles ▲"
+                                                    : "Ver detalles ▼"
+                                                ) +
+                                                "\n            "
+                                            ),
+                                          ]
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                )
+                              : t._e(),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            );
+          },
+          [],
+          !1,
+          null,
+          "566d572d",
+          null
+        );
+      e.default = component.exports;
+    },
+  },
+]);

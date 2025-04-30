@@ -15,29 +15,55 @@
 
           <div class="tracking-container">
             <div v-if="isMobile" class="timeline">
-              <div v-for="(step, index) in steps" :key="index" class="timeline-item">
-                <div class="timeline-line" :class="{ completed: index < currentStep }"></div>
-                <div class="timeline-circle" :class="{ completed: index < currentStep }"></div>
+              <div
+                v-for="(step, index) in steps"
+                :key="index"
+                class="timeline-item"
+              >
+                <div
+                  class="timeline-line"
+                  :class="{ completed: index < currentStep }"
+                ></div>
+                <div
+                  class="timeline-circle"
+                  :class="{ completed: index < currentStep }"
+                ></div>
                 <div class="timeline-content">
-                  <p class="step-title" :class="{ highlight: index <= currentStep }">
+                  <p
+                    class="step-title"
+                    :class="{ highlight: index <= currentStep }"
+                  >
                     {{ step.title }}
                   </p>
-                  <small class="step-date">{{ step.date || 'Pendiente' }}</small>
+                  <small class="step-date">{{
+                    step.date || "Pendiente"
+                  }}</small>
                 </div>
               </div>
             </div>
 
             <div v-else class="progress-horizontal">
               <div class="progress-line">
-                <div class="progress-line-completed" :style="{ width: progressWidth }"></div>
+                <div
+                  class="progress-line-completed"
+                  :style="{ width: progressWidth }"
+                ></div>
               </div>
               <div class="steps">
                 <div v-for="(step, index) in steps" :key="index" class="step">
-                  <div class="circle" :class="{ completed: index < currentStep }"></div>
-                  <p class="step-title" :class="{ highlight: index <= currentStep }">
+                  <div
+                    class="circle"
+                    :class="{ completed: index < currentStep }"
+                  ></div>
+                  <p
+                    class="step-title"
+                    :class="{ highlight: index <= currentStep }"
+                  >
                     {{ step.title }}
                   </p>
-                  <small class="step-date">{{ step.date || 'Pendiente' }}</small>
+                  <small class="step-date">{{
+                    step.date || "Pendiente"
+                  }}</small>
                 </div>
               </div>
             </div>
@@ -50,7 +76,11 @@
               <h4 class="font-weight-medium">Detalles de seguimiento</h4>
               <v-expand-transition>
                 <div class="tracking-details">
-                  <div v-for="(detail, index) in displayedDetails" :key="index" class="detail-item">
+                  <div
+                    v-for="(detail, index) in displayedDetails"
+                    :key="index"
+                    class="detail-item"
+                  >
                     <span class="detail-date">{{ detail.date }}</span>
                     <p class="detail-text">{{ detail.text }}</p>
                   </div>
@@ -61,8 +91,13 @@
 
           <v-row v-if="details.length > 2">
             <v-col cols="12" class="text-left">
-              <v-btn text color="primary" class="font-weight-bold btn-details" @click="toggleDetails">
-                {{ showAllDetails ? 'Ocultar detalles ▲' : 'Ver detalles ▼' }}
+              <v-btn
+                text
+                color="primary"
+                class="font-weight-bold btn-details"
+                @click="toggleDetails"
+              >
+                {{ showAllDetails ? "Ocultar detalles ▲" : "Ver detalles ▼" }}
               </v-btn>
             </v-col>
           </v-row>
@@ -74,56 +109,75 @@
 
 <script>
 export default {
-  layout: 'preventista',
+  layout: "preventista",
   head() {
-      return {
-        title: "Pedidos - Preventista",
-        meta: [{ name: "pedidos", content: "Preventista" }],
-      };
-    },
+    return {
+      title: "Pedidos - Preventista",
+      meta: [{ name: "pedidos", content: "Preventista" }],
+    };
+  },
   data() {
     return {
       currentStep: 2,
       showAllDetails: false,
       isMobile: process.client ? window.innerWidth < 600 : false,
       steps: [
-        { title: 'Pedido confirmado', date: 'Lunes, Enero 31 2025' },
-        { title: 'En preparación', date: 'Lunes, Febrero 02 2025' },
-        { title: 'En camino', date: 'Pendiente' },
-        { title: 'Entregado', date: 'Pendiente' }
+        { title: "Pedido confirmado", date: "Lunes, Enero 31 2025" },
+        { title: "En preparación", date: "Lunes, Febrero 02 2025" },
+        { title: "En camino", date: "Pendiente" },
+        { title: "Entregado", date: "Pendiente" },
       ],
       details: [
-        { date: 'Lunes, Enero 31 2025', text: 'Hemos recibido tu pedido y está en proceso de validación.' },
-        { date: 'Lunes, Febrero 02 2025', text: 'Estamos reuniendo los productos de tu pedido.' },
-        { date: 'Martes, Febrero 03 2025', text: 'Tu pedido ha sido empacado y está listo para ser enviado.' },
-        { date: 'Miércoles, Febrero 04 2025', text: 'Tu paquete ha salido de nuestro almacén.' },
-        { date: 'Jueves, Febrero 05 2025', text: 'El repartidor tiene tu pedido y está en camino.' }
-      ]
-    }
+        {
+          date: "Lunes, Enero 31 2025",
+          text: "Hemos recibido tu pedido y está en proceso de validación.",
+        },
+        {
+          date: "Lunes, Febrero 02 2025",
+          text: "Estamos reuniendo los productos de tu pedido.",
+        },
+        {
+          date: "Martes, Febrero 03 2025",
+          text: "Tu pedido ha sido empacado y está listo para ser enviado.",
+        },
+        {
+          date: "Miércoles, Febrero 04 2025",
+          text: "Tu paquete ha salido de nuestro almacén.",
+        },
+        {
+          date: "Jueves, Febrero 05 2025",
+          text: "El repartidor tiene tu pedido y está en camino.",
+        },
+      ],
+    };
   },
   computed: {
     displayedDetails() {
-      return this.showAllDetails ? this.details : this.details.slice(0, 2)
+      return this.showAllDetails ? this.details : this.details.slice(0, 2);
     },
     progressWidth() {
-      return this.currentStep === 2 ? '50%' : this.currentStep > 2 ? '100%' : '25%';
-    }
+      return this.currentStep === 2
+        ? "50%"
+        : this.currentStep > 2
+        ? "100%"
+        : "25%";
+    },
   },
   methods: {
     toggleDetails() {
-      this.showAllDetails = !this.showAllDetails
+      this.showAllDetails = !this.showAllDetails;
     },
     updateIsMobile() {
-      this.isMobile = window.innerWidth < 600
-    }
+      this.isMobile = window.innerWidth < 600;
+    },
   },
   mounted() {
-    window.addEventListener('resize', this.updateIsMobile)
+    window.addEventListener("resize", this.updateIsMobile);
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.updateIsMobile)
-  }
-}
+    window.removeEventListener("resize", this.updateIsMobile);
+  },
+};
 </script>
 
 <style scoped>
@@ -237,7 +291,6 @@ export default {
   margin-bottom: 12px;
   padding-left: 10px;
 }
-
 
 .detail-date {
   font-size: 14px;

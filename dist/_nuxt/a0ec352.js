@@ -1,1 +1,1408 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[13],{553:function(t,r,e){var content=e(594);content.__esModule&&(content=content.default),"string"==typeof content&&(content=[[t.i,content,""]]),content.locals&&(t.exports=content.locals);(0,e(18).default)("31ee40be",content,!0,{sourceMap:!1})},593:function(t,r,e){"use strict";e(553)},594:function(t,r,e){var o=e(17)((function(i){return i[1]}));o.push([t.i,".fondo{background-color:#f3f3f3;height:100%}.chip-filtro{align-items:center;border-radius:20px;display:flex;flex:1 1 auto;justify-content:center;margin:12px 12px 30px;max-width:calc(10% - 12px);min-width:100px;text-align:center;white-space:nowrap}.productos-container,.productos-wrapper{display:flex;flex-direction:column}.productos-container{background-color:#fff;border-radius:12px;overflow:hidden}.producto-card{background-color:#e6e6e6;border-radius:12px;cursor:pointer;margin-bottom:10px;padding-left:20px;padding-right:10px}.pedidos-card{background-color:#fff;border-radius:12px;padding:16px}.pedido-item{padding-bottom:15px}.pedido-item,.v-divider{margin-bottom:15px}.cantidad-container{align-items:center;display:flex;justify-content:space-between;padding-right:15px}.cantidad-wrapper{align-items:center;background-color:#fff;border:2px solid #c9c9c9;border-radius:8px;display:flex;margin-left:15px;min-width:60px;padding:4px 8px}.cantidad-box,.cantidad-wrapper{transition:width .2s ease-in-out}.cantidad-box{border:none;font-size:16px;font-weight:700;max-width:70px;min-width:30px;padding:0;text-align:center;width:auto}.cantidad-btn-outline{align-items:center;background:#fff!important;border:none;color:#08093f!important;display:flex;height:28px;justify-content:center;width:28px}.precio-dinamico{font-size:16px;font-weight:700;min-width:80px;text-align:right;transition:width .2s ease-in-out;white-space:nowrap}.disponibles{color:#c9c9c9;font-size:12px;margin-top:20px}.eliminar-btn{width:100px}.total-container{align-items:center;display:flex;font-size:20px;font-weight:700;justify-content:space-between;margin-top:15px}.encargar-btn{border-radius:12px;font-size:18px}.decoracion-verde{background-color:#247323;border-bottom-left-radius:12px;border-top-left-radius:12px;height:100%;left:0;position:absolute;top:0;width:14px}.boton-azul{background-color:#08093f!important;border-radius:50%}.boton-azul:hover{background-color:#181bb9!important}.verde{background-color:#247323!important}.verde--text{color:#247323!important}.producto-detalle{background-color:transparent;padding-left:20px;padding-right:20px}.detalle-col p{margin-bottom:5px}.detalle-col{display:flex;flex-direction:column;justify-content:flex-start}.boton-inferior-movil{display:none}.v-dialog{overflow:hidden}.v-card,.v-dialog{border-radius:12px}.v-card-text{padding:16px}.v-card-actions{display:flex;flex-direction:column;gap:8px;padding:16px}.encargar-btn{background-color:#08093f!important;font-size:16px;padding:12px}.eliminar-btn,.encargar-btn{border-radius:8px;color:#fff!important;font-weight:700;text-transform:uppercase;width:100%}.eliminar-btn{background-color:#247323!important;font-size:14px;padding:6px 10px}@media screen and (max-width:600px){.boton-inferior-movil{background-color:#08093f!important;border-radius:12px;bottom:20px;box-shadow:0 4px 6px rgba(0,0,0,.1);color:#fff!important;display:block;font-size:16px;font-weight:700;left:10%;padding:12px 24px;position:fixed;width:80%;z-index:1000}.fondo{padding:8px}.chip-filtro{font-size:10px;margin:6px 6px 15px;max-width:calc(25% - 6px);min-width:70px}.productos-wrapper{flex-direction:column}.productos-container{max-height:50vh;padding:8px}.producto-info{font-size:12px}.producto-card{font-size:14px;margin-bottom:8px;padding-left:8px;padding-right:8px}.pedidos-card{max-height:50vh;padding:12px}.pedido-item{font-size:14px;margin-bottom:10px;padding-bottom:10px}.cantidad-container{padding-right:8px}.cantidad-wrapper{min-width:50px;padding:2px 6px}.cantidad-box{font-size:14px;max-width:50px;min-width:20px}.cantidad-btn-outline{font-size:12px;height:24px;width:24px}.precio-dinamico{font-size:14px;min-width:60px}.disponibles{font-size:10px}.eliminar-btn{font-size:12px;padding:4px 8px;width:80px}.total-container{font-size:16px;margin-top:10px}.encargar-btn{font-size:16px;padding:10px}.producto-detalle{font-size:14px;padding-left:10px;padding-right:10px}.detalle-col p{margin-bottom:3px}.boton-azul{height:32px!important;width:32px!important}.boton-azul v-icon{font-size:18px!important}}.fondo{background-color:#f5f5f5}.chip-selected{background-color:#2e7d32!important;color:#fff!important}",""]),o.locals={},t.exports=o},647:function(t,r,e){"use strict";e.r(r);var o=e(511),n=e(505),c=e(536),d=e(657),l=e(526),f=e(530),m=e(512),x=e(128),h=e(149),v=e(525),_=e(515),C=e(34),w=e(2);e(106),e(13),e(74),e(75),e(12),e(243),e(65),e(63),e(43),e(194),e(38),e(15),e(16),e(10),e(5),e(28),e(41),e(40),e(59),e(9),e(44),e(73);function y(t,r){var e="undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(!e){if(Array.isArray(t)||(e=function(t,a){if(t){if("string"==typeof t)return k(t,a);var r={}.toString.call(t).slice(8,-1);return"Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?k(t,a):void 0}}(t))||r&&t&&"number"==typeof t.length){e&&(t=e);var o=0,n=function(){};return{s:n,n:function(){return o>=t.length?{done:!0}:{done:!1,value:t[o++]}},e:function(t){throw t},f:n}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var c,a=!0,u=!1;return{s:function(){e=e.call(t)},n:function(){var t=e.next();return a=t.done,t},e:function(t){u=!0,c=t},f:function(){try{a||null==e.return||e.return()}finally{if(u)throw c}}}}function k(t,a){(null==a||a>t.length)&&(a=t.length);for(var r=0,e=Array(a);r<a;r++)e[r]=t[r];return e}function P(t,r){var e=Object.keys(t);if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(t);r&&(o=o.filter((function(r){return Object.getOwnPropertyDescriptor(t,r).enumerable}))),e.push.apply(e,o)}return e}function S(t){for(var r=1;r<arguments.length;r++){var e=null!=arguments[r]?arguments[r]:{};r%2?P(Object(e),!0).forEach((function(r){Object(w.a)(t,r,e[r])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(e)):P(Object(e)).forEach((function(r){Object.defineProperty(t,r,Object.getOwnPropertyDescriptor(e,r))}))}return t}var j={data:function(){return{mostrarPedidos:!1,marcas:["Todo","Truper","Expert","Hermex","Fiero","Foset","Klintek","Pretul","Ultracraft","Volteck"],productos:[],carrito:[],marcaSeleccionada:"Todo",paginaActual:1,totalPaginas:1,paginaCarrito:1,itemsPorPaginaCarrito:10}},watch:{"$route.query.term":function(t){this.paginaActual=1,t&&""!==t.trim()?this.obtenerProductosBusqueda(t.trim()):"Todo"===this.marcaSeleccionada?this.obtenerProductos():this.obtenerProductosBusqueda(this.marcaSeleccionada)}},computed:{totalCarrito:function(){return this.carrito.reduce((function(t,r){return t+(r.precio_publico_con_IVA||0)*r.cantidad}),0)},totalPaginasCarrito:function(){return Math.ceil(this.carrito.length/this.itemsPorPaginaCarrito)},inicioCarrito:function(){return(this.paginaCarrito-1)*this.itemsPorPaginaCarrito},carritoPaginado:function(){return this.carrito.slice(this.inicioCarrito,this.inicioCarrito+this.itemsPorPaginaCarrito)}},methods:{filtrarMarca:function(t){var r=this;this.marcaSeleccionada=t,this.paginaActual=1,this.$router.replace({path:"/client/Home_Cli"}),"Todo"===t?this.obtenerProductos():this.obtenerProductosBusqueda(t),this.$nextTick((function(){r.$refs.productosScroll&&(r.$refs.productosScroll.scrollTop=0)}))},toggleDetalles:function(t){this.$set(this.productos[t],"mostrarDetalles",!this.productos[t].mostrarDetalles)},agregarACarrito:function(t){var r=this.carrito.findIndex((function(p){return p.clave===t.clave}));if(-1!==r){this.carrito[r].cantidad++;var e=this.carrito.splice(r,1)[0];this.carrito.unshift(e)}else this.carrito.unshift(S(S({},t),{},{cantidad:1}));this.mostrarPedidos=!0},modificarCantidad:function(t,r){this.carrito[t].cantidad+=r,this.carrito[t].cantidad<=0&&this.carrito.splice(t,1),0===this.carrito.length&&(this.mostrarPedidos=!1),this.inicioCarrito>=this.carrito.length&&this.paginaCarrito>1&&this.paginaCarrito--},obtenerProductos:function(){var t=this;return Object(C.a)(regeneratorRuntime.mark((function r(){var e,o;return regeneratorRuntime.wrap((function(r){for(;;)switch(r.prev=r.next){case 0:return r.prev=0,r.next=3,t.$api.getProductos({page:t.paginaActual,limit:50});case 3:e=r.sent,t.productos=e.data.map((function(p){return S(S({},p),{},{mostrarDetalles:!1})})),o=e.limit||50,t.totalPaginas=Math.ceil(e.total/o),t.$nextTick((function(){t.$refs.productosScroll&&(t.$refs.productosScroll.scrollTop=0)})),r.next=13;break;case 10:r.prev=10,r.t0=r.catch(0),console.error("Error al obtener productos:",r.t0);case 13:case"end":return r.stop()}}),r,null,[[0,10]])})))()},obtenerProductosBusqueda:function(t){var r=this;return Object(C.a)(regeneratorRuntime.mark((function e(){var o,n;return regeneratorRuntime.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.prev=0,e.next=3,r.$api.searchProductos(t,{page:r.paginaActual,limit:50});case 3:o=e.sent,r.productos=o.data.map((function(p){return S(S({},p),{},{mostrarDetalles:!1})})),n=o.limit||50,r.totalPaginas=Math.ceil(o.total/n),r.$nextTick((function(){r.$refs.productosScroll&&(r.$refs.productosScroll.scrollTop=0)})),e.next=13;break;case 10:e.prev=10,e.t0=e.catch(0),console.error("Error al obtener productos por búsqueda:",e.t0);case 13:case"end":return e.stop()}}),e,null,[[0,10]])})))()},cambiarPagina:function(t){if(!(t<1||t>this.totalPaginas)){this.paginaActual=t;var r=this.$route.query.term;r&&""!==r.trim()?this.obtenerProductosBusqueda(r.trim()):"Todo"===this.marcaSeleccionada?this.obtenerProductos():this.obtenerProductosBusqueda(this.marcaSeleccionada)}},cambiarPaginaCarrito:function(t){t>=1&&t<=this.totalPaginasCarrito&&(this.paginaCarrito=t)},encargarPedido:function(){var t=this;return Object(C.a)(regeneratorRuntime.mark((function r(){var e,o,n,c,d,l,f,m,x,h,v,_;return regeneratorRuntime.wrap((function(r){for(;;)switch(r.prev=r.next){case 0:if(0!==t.carrito.length){r.next=2;break}return r.abrupt("return");case 2:if(e=localStorage.getItem("userId")){r.next=6;break}return console.error("No se encontró userId en localStorage. El usuario debe iniciar sesión."),r.abrupt("return");case 6:return o=localStorage.getItem("direccion")||"Dirección no definida",n="efectivo",c=new Date(Date.now()+864e5).toISOString().slice(0,10),d=(new Date).toISOString().slice(0,10),r.prev=10,l={estado:"pendiente",total:0,metodo_de_pago:n,fecha_levantamiento_pedido:d,fecha_entrega_estimada:c,direccion:o,id_usuario:e},r.next=14,t.$api.createOrder(l);case 14:f=r.sent,m=f.id,x=y(t.carrito),r.prev=17,x.s();case 19:if((h=x.n()).done){r.next=26;break}return v=h.value,_={id_pedido:m,id_producto:v.id_producto,cantidad:v.cantidad},r.next=24,t.$api.addProductToOrder(_);case 24:r.next=19;break;case 26:r.next=31;break;case 28:r.prev=28,r.t0=r.catch(17),x.e(r.t0);case 31:return r.prev=31,x.f(),r.finish(31);case 34:return r.next=36,t.$axios.$put("/pedidos/".concat(m),{estado:"pendiente",total:t.totalCarrito,metodo_de_pago:n,fecha_entrega_estimada:c,direccion:o});case 36:t.carrito=[],t.mostrarPedidos=!1,r.next=43;break;case 40:r.prev=40,r.t1=r.catch(10),console.error("Error al enviar el pedido",r.t1);case 43:case"end":return r.stop()}}),r,null,[[10,40],[17,28,31,34]])})))()}},mounted:function(){var t=this.$route.query.term;t&&""!==t.trim()?this.obtenerProductosBusqueda(t.trim()):this.obtenerProductos()}},O=(e(593),e(72)),component=Object(O.a)(j,(function(){var t=this,r=t._self._c;return r(f.a,{staticClass:"fondo",attrs:{fluid:""}},[r(v.a,{attrs:{"no-gutters":""}},[r(l.a,{staticClass:"productos-wrapper d-flex flex-wrap",attrs:{cols:"12"}},[r(d.a,{staticClass:"d-flex flex-wrap justify-center",attrs:{"active-class":"verde white--text"}},t._l(t.marcas,(function(e,i){return r(c.a,{key:i,staticClass:"chip-filtro",class:{"chip-selected":e===t.marcaSeleccionada},on:{click:function(r){return t.filtrarMarca(e)}}},[t._v("\n          "+t._s(e)+"\n        ")])})),1)],1),t._v(" "),r(l.a,{staticClass:"pedidos-sidebar pr-3 pl-3 transition-width",attrs:{cols:t.mostrarPedidos?8:12}},[r(n.a,{staticClass:"productos-container pa-3",staticStyle:{"max-height":"75vh","overflow-y":"auto"}},[r("div",{ref:"productosScroll",staticClass:"productos-scroll"},[t._l(t.productos,(function(e,c){return r(n.a,{key:e.id_producto||c,staticClass:"producto-card d-flex flex-column pa-3"},[r("div",{staticClass:"decoracion-verde"}),t._v(" "),r(v.a,{staticClass:"producto-info ml-5 align-center",on:{click:function(r){return t.toggleDetalles(c)}}},[r(l.a,{attrs:{cols:"10"}},[r("strong",[t._v(t._s(e.descripcion))]),t._v(" "),r("p",[r("span",{staticClass:"verde--text font-weight-bold"},[t._v("Marca:")]),t._v(" "+t._s(e.marca)+"  \n                  "),r("span",{staticClass:"verde--text font-weight-bold"},[t._v("Clave:")]),t._v(" "+t._s(e.clave)+"  \n                  "),r("span",{staticClass:"verde--text font-weight-bold"},[t._v("Código:")]),t._v(" "+t._s(e.codigo)+"\n                ")])]),t._v(" "),r(l.a,{staticClass:"d-flex align-center justify-end",attrs:{cols:"2"}},[r(o.a,{staticClass:"boton-azul",attrs:{icon:""},on:{click:function(r){return r.stopPropagation(),t.agregarACarrito(e)}}},[r(h.a,{staticClass:"white--text"},[t._v("mdi-plus")])],1),t._v(" "),r(o.a,{staticClass:"boton-azul ml-2",attrs:{icon:""},on:{click:function(r){return r.stopPropagation(),t.toggleDetalles(c)}}},[r(h.a,{staticClass:"white--text"},[t._v("\n                    "+t._s(e.mostrarDetalles?"mdi-chevron-up":"mdi-chevron-down")+"\n                  ")])],1)],1)],1),t._v(" "),r(x.a,[e.mostrarDetalles?r("div",{staticClass:"producto-detalle pa-0"},[r(v.a,{staticClass:"ma-0 pa-0 pl-10 align-start"},[r(l.a,{staticClass:"detalle-col",attrs:{cols:"6"}},[r("p",[r("span",{staticClass:"verde--text font-weight-bold"},[t._v("Descripción:")]),t._v(" "+t._s(e.descripcion))]),t._v(" "),r("p",[r("span",{staticClass:"verde--text font-weight-bold"},[t._v("Precio público:")]),t._v(" $"+t._s(e.precio_publico_con_IVA))]),t._v(" "),r("p",[r("span",{staticClass:"verde--text font-weight-bold"},[t._v("Precio Mayoreo:")]),t._v(" $"+t._s(e.precio_mayoreo_con_IVA))]),t._v(" "),r("p",[r("span",{staticClass:"verde--text font-weight-bold"},[t._v("Clave:")]),t._v(" "+t._s(e.clave))])]),t._v(" "),r(l.a,{staticClass:"detalle-col",attrs:{cols:"6"}},[r("p",[r("span",{staticClass:"verde--text font-weight-bold"},[t._v("Marca:")]),t._v(" "+t._s(e.marca)+" ")]),t._v(" "),r("p",[r("span",{staticClass:"verde--text font-weight-bold"},[t._v("Código:")]),t._v(" "+t._s(e.codigo)+" ")]),t._v(" "),r("p",[r("span",{staticClass:"verde--text font-weight-bold"},[t._v("Peso:")]),t._v(" "+t._s(e.peso_kg)+" ")]),t._v(" "),r("p",[r("span",{staticClass:"verde--text font-weight-bold"},[t._v("Unidad:")]),t._v(" "+t._s(e.unidad)+" ")])])],1)],1):t._e()])],1)})),t._v(" "),0===t.productos.length?r("div",{staticClass:"text-center py-4"},[r("span",[t._v("No se encontraron productos")])]):t._e()],2),t._v(" "),r(v.a,{staticClass:"mt-4",attrs:{justify:"center",align:"center"}},[r(o.a,{attrs:{icon:""},on:{click:function(r){t.paginaActual>1&&t.cambiarPagina(t.paginaActual-1)}}},[r(h.a,[t._v("mdi-chevron-left")])],1),t._v(" "),r("div",{staticClass:"d-flex align-center justify-center",staticStyle:{"min-width":"80px"}},[r(_.a,{staticClass:"mx-2 text-center",staticStyle:{"max-width":"80px","text-align":"center"},attrs:{type:"number"},on:{keyup:function(r){return!r.type.indexOf("key")&&t._k(r.keyCode,"enter",13,r.key,"Enter")?null:t.cambiarPagina(t.paginaActual)},blur:function(r){return t.cambiarPagina(t.paginaActual)}},model:{value:t.paginaActual,callback:function(r){t.paginaActual=t._n(r)},expression:"paginaActual"}}),t._v(" "),r("span",[t._v("/ "+t._s(t.totalPaginas))])],1),t._v(" "),r(o.a,{attrs:{icon:""},on:{click:function(r){t.paginaActual<t.totalPaginas&&t.cambiarPagina(t.paginaActual+1)}}},[r(h.a,[t._v("mdi-chevron-right")])],1)],1)],1)],1),t._v(" "),t.mostrarPedidos?r(l.a,{staticClass:"pedidos-sidebar pr-3 pl-3",attrs:{cols:"4"}},[r(n.a,{staticClass:"pedidos-card pa-4 d-flex flex-column",staticStyle:{height:"75vh"}},[r("div",{staticStyle:{"overflow-y":"auto",flex:"1"}},[r("h2",{staticClass:"font-weight-bold"},[t._v("Mis Pedidos")]),t._v(" "),t._l(t.carritoPaginado,(function(e,n){return r("div",{key:n,staticClass:"pedido-item"},[r(m.a),t._v(" "),r("strong",{staticClass:"mb-2 d-block"},[t._v(t._s(e.descripcion))]),t._v(" "),r(v.a,{staticClass:"cantidad-container mt-2",attrs:{align:"center"}},[r("div",{staticClass:"cantidad-wrapper"},[r(o.a,{staticClass:"cantidad-btn-outline",attrs:{icon:""},on:{click:function(r){return t.modificarCantidad(n+t.inicioCarrito,-1)}}},[r(h.a,[t._v("mdi-minus")])],1),t._v(" "),r(_.a,{staticClass:"cantidad-box",attrs:{dense:"",solo:"","hide-details":"","background-color":"transparent",flat:""},model:{value:e.cantidad,callback:function(r){t.$set(e,"cantidad",r)},expression:"item.cantidad"}}),t._v(" "),r(o.a,{staticClass:"cantidad-btn-outline",attrs:{icon:""},on:{click:function(r){return t.modificarCantidad(n+t.inicioCarrito,1)}}},[r(h.a,[t._v("mdi-plus")])],1)],1),t._v(" "),r("span",{staticClass:"precio-dinamico font-weight-bold"},[t._v("\n                $"+t._s((e.precio*e.cantidad).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}))+"\n              ")])]),t._v(" "),r("p",{staticClass:"disponibles"},[t._v("+50 disponibles")]),t._v(" "),r(o.a,{staticClass:"eliminar-btn",attrs:{small:""},on:{click:function(r){return t.modificarCantidad(n+t.inicioCarrito,-e.cantidad)}}},[t._v("\n              Eliminar\n            ")])],1)}))],2),t._v(" "),r("div",[r(m.a,{staticClass:"my-2"}),t._v(" "),r("div",{staticClass:"total-container mb-2"},[r("h3",{staticClass:"font-weight-bold"},[t._v("Total")]),t._v(" "),r("span",{staticClass:"font-weight-bold precio"},[t._v("\n              $"+t._s(t.totalCarrito.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}))+"\n            ")])]),t._v(" "),r(v.a,{attrs:{justify:"center",align:"center"}},[r(o.a,{attrs:{icon:""},on:{click:function(r){t.paginaCarrito>1&&t.cambiarPaginaCarrito(t.paginaCarrito-1)}}},[r(h.a,[t._v("mdi-chevron-left")])],1),t._v(" "),r("div",{staticClass:"d-flex align-center justify-center",staticStyle:{"min-width":"80px"}},[r(_.a,{staticClass:"mx-2 text-center",staticStyle:{"max-width":"80px","text-align":"center"},attrs:{type:"number"},on:{keyup:function(r){return!r.type.indexOf("key")&&t._k(r.keyCode,"enter",13,r.key,"Enter")?null:t.cambiarPaginaCarrito(t.paginaCarrito)},blur:function(r){return t.cambiarPaginaCarrito(t.paginaCarrito)}},model:{value:t.paginaCarrito,callback:function(r){t.paginaCarrito=t._n(r)},expression:"paginaCarrito"}}),t._v(" "),r("span",[t._v("/ "+t._s(t.totalPaginasCarrito))])],1),t._v(" "),r(o.a,{attrs:{icon:""},on:{click:function(r){t.paginaCarrito<t.totalPaginasCarrito&&t.cambiarPaginaCarrito(t.paginaCarrito+1)}}},[r(h.a,[t._v("mdi-chevron-right")])],1)],1),t._v(" "),r(o.a,{staticClass:"encargar-btn mt-2",attrs:{block:""},on:{click:t.encargarPedido}},[t._v("\n            Encargar\n          ")])],1)])],1):t._e()],1)],1)}),[],!1,null,null,null);r.default=component.exports}}]);
+(window.webpackJsonp = window.webpackJsonp || []).push([
+  [13],
+  {
+    553: function (t, r, e) {
+      var content = e(594);
+      content.__esModule && (content = content.default),
+        "string" == typeof content && (content = [[t.i, content, ""]]),
+        content.locals && (t.exports = content.locals);
+      (0, e(18).default)("31ee40be", content, !0, { sourceMap: !1 });
+    },
+    593: function (t, r, e) {
+      "use strict";
+      e(553);
+    },
+    594: function (t, r, e) {
+      var o = e(17)(function (i) {
+        return i[1];
+      });
+      o.push([
+        t.i,
+        ".fondo{background-color:#f3f3f3;height:100%}.chip-filtro{align-items:center;border-radius:20px;display:flex;flex:1 1 auto;justify-content:center;margin:12px 12px 30px;max-width:calc(10% - 12px);min-width:100px;text-align:center;white-space:nowrap}.productos-container,.productos-wrapper{display:flex;flex-direction:column}.productos-container{background-color:#fff;border-radius:12px;overflow:hidden}.producto-card{background-color:#e6e6e6;border-radius:12px;cursor:pointer;margin-bottom:10px;padding-left:20px;padding-right:10px}.pedidos-card{background-color:#fff;border-radius:12px;padding:16px}.pedido-item{padding-bottom:15px}.pedido-item,.v-divider{margin-bottom:15px}.cantidad-container{align-items:center;display:flex;justify-content:space-between;padding-right:15px}.cantidad-wrapper{align-items:center;background-color:#fff;border:2px solid #c9c9c9;border-radius:8px;display:flex;margin-left:15px;min-width:60px;padding:4px 8px}.cantidad-box,.cantidad-wrapper{transition:width .2s ease-in-out}.cantidad-box{border:none;font-size:16px;font-weight:700;max-width:70px;min-width:30px;padding:0;text-align:center;width:auto}.cantidad-btn-outline{align-items:center;background:#fff!important;border:none;color:#08093f!important;display:flex;height:28px;justify-content:center;width:28px}.precio-dinamico{font-size:16px;font-weight:700;min-width:80px;text-align:right;transition:width .2s ease-in-out;white-space:nowrap}.disponibles{color:#c9c9c9;font-size:12px;margin-top:20px}.eliminar-btn{width:100px}.total-container{align-items:center;display:flex;font-size:20px;font-weight:700;justify-content:space-between;margin-top:15px}.encargar-btn{border-radius:12px;font-size:18px}.decoracion-verde{background-color:#247323;border-bottom-left-radius:12px;border-top-left-radius:12px;height:100%;left:0;position:absolute;top:0;width:14px}.boton-azul{background-color:#08093f!important;border-radius:50%}.boton-azul:hover{background-color:#181bb9!important}.verde{background-color:#247323!important}.verde--text{color:#247323!important}.producto-detalle{background-color:transparent;padding-left:20px;padding-right:20px}.detalle-col p{margin-bottom:5px}.detalle-col{display:flex;flex-direction:column;justify-content:flex-start}.boton-inferior-movil{display:none}.v-dialog{overflow:hidden}.v-card,.v-dialog{border-radius:12px}.v-card-text{padding:16px}.v-card-actions{display:flex;flex-direction:column;gap:8px;padding:16px}.encargar-btn{background-color:#08093f!important;font-size:16px;padding:12px}.eliminar-btn,.encargar-btn{border-radius:8px;color:#fff!important;font-weight:700;text-transform:uppercase;width:100%}.eliminar-btn{background-color:#247323!important;font-size:14px;padding:6px 10px}@media screen and (max-width:600px){.boton-inferior-movil{background-color:#08093f!important;border-radius:12px;bottom:20px;box-shadow:0 4px 6px rgba(0,0,0,.1);color:#fff!important;display:block;font-size:16px;font-weight:700;left:10%;padding:12px 24px;position:fixed;width:80%;z-index:1000}.fondo{padding:8px}.chip-filtro{font-size:10px;margin:6px 6px 15px;max-width:calc(25% - 6px);min-width:70px}.productos-wrapper{flex-direction:column}.productos-container{max-height:50vh;padding:8px}.producto-info{font-size:12px}.producto-card{font-size:14px;margin-bottom:8px;padding-left:8px;padding-right:8px}.pedidos-card{max-height:50vh;padding:12px}.pedido-item{font-size:14px;margin-bottom:10px;padding-bottom:10px}.cantidad-container{padding-right:8px}.cantidad-wrapper{min-width:50px;padding:2px 6px}.cantidad-box{font-size:14px;max-width:50px;min-width:20px}.cantidad-btn-outline{font-size:12px;height:24px;width:24px}.precio-dinamico{font-size:14px;min-width:60px}.disponibles{font-size:10px}.eliminar-btn{font-size:12px;padding:4px 8px;width:80px}.total-container{font-size:16px;margin-top:10px}.encargar-btn{font-size:16px;padding:10px}.producto-detalle{font-size:14px;padding-left:10px;padding-right:10px}.detalle-col p{margin-bottom:3px}.boton-azul{height:32px!important;width:32px!important}.boton-azul v-icon{font-size:18px!important}}.fondo{background-color:#f5f5f5}.chip-selected{background-color:#2e7d32!important;color:#fff!important}",
+        "",
+      ]),
+        (o.locals = {}),
+        (t.exports = o);
+    },
+    647: function (t, r, e) {
+      "use strict";
+      e.r(r);
+      var o = e(511),
+        n = e(505),
+        c = e(536),
+        d = e(657),
+        l = e(526),
+        f = e(530),
+        m = e(512),
+        x = e(128),
+        h = e(149),
+        v = e(525),
+        _ = e(515),
+        C = e(34),
+        w = e(2);
+      e(106),
+        e(13),
+        e(74),
+        e(75),
+        e(12),
+        e(243),
+        e(65),
+        e(63),
+        e(43),
+        e(194),
+        e(38),
+        e(15),
+        e(16),
+        e(10),
+        e(5),
+        e(28),
+        e(41),
+        e(40),
+        e(59),
+        e(9),
+        e(44),
+        e(73);
+      function y(t, r) {
+        var e =
+          ("undefined" != typeof Symbol && t[Symbol.iterator]) ||
+          t["@@iterator"];
+        if (!e) {
+          if (
+            Array.isArray(t) ||
+            (e = (function (t, a) {
+              if (t) {
+                if ("string" == typeof t) return k(t, a);
+                var r = {}.toString.call(t).slice(8, -1);
+                return (
+                  "Object" === r && t.constructor && (r = t.constructor.name),
+                  "Map" === r || "Set" === r
+                    ? Array.from(t)
+                    : "Arguments" === r ||
+                      /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
+                    ? k(t, a)
+                    : void 0
+                );
+              }
+            })(t)) ||
+            (r && t && "number" == typeof t.length)
+          ) {
+            e && (t = e);
+            var o = 0,
+              n = function () {};
+            return {
+              s: n,
+              n: function () {
+                return o >= t.length
+                  ? { done: !0 }
+                  : { done: !1, value: t[o++] };
+              },
+              e: function (t) {
+                throw t;
+              },
+              f: n,
+            };
+          }
+          throw new TypeError(
+            "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        }
+        var c,
+          a = !0,
+          u = !1;
+        return {
+          s: function () {
+            e = e.call(t);
+          },
+          n: function () {
+            var t = e.next();
+            return (a = t.done), t;
+          },
+          e: function (t) {
+            (u = !0), (c = t);
+          },
+          f: function () {
+            try {
+              a || null == e.return || e.return();
+            } finally {
+              if (u) throw c;
+            }
+          },
+        };
+      }
+      function k(t, a) {
+        (null == a || a > t.length) && (a = t.length);
+        for (var r = 0, e = Array(a); r < a; r++) e[r] = t[r];
+        return e;
+      }
+      function P(t, r) {
+        var e = Object.keys(t);
+        if (Object.getOwnPropertySymbols) {
+          var o = Object.getOwnPropertySymbols(t);
+          r &&
+            (o = o.filter(function (r) {
+              return Object.getOwnPropertyDescriptor(t, r).enumerable;
+            })),
+            e.push.apply(e, o);
+        }
+        return e;
+      }
+      function S(t) {
+        for (var r = 1; r < arguments.length; r++) {
+          var e = null != arguments[r] ? arguments[r] : {};
+          r % 2
+            ? P(Object(e), !0).forEach(function (r) {
+                Object(w.a)(t, r, e[r]);
+              })
+            : Object.getOwnPropertyDescriptors
+            ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(e))
+            : P(Object(e)).forEach(function (r) {
+                Object.defineProperty(
+                  t,
+                  r,
+                  Object.getOwnPropertyDescriptor(e, r)
+                );
+              });
+        }
+        return t;
+      }
+      var j = {
+          data: function () {
+            return {
+              mostrarPedidos: !1,
+              marcas: [
+                "Todo",
+                "Truper",
+                "Expert",
+                "Hermex",
+                "Fiero",
+                "Foset",
+                "Klintek",
+                "Pretul",
+                "Ultracraft",
+                "Volteck",
+              ],
+              productos: [],
+              carrito: [],
+              marcaSeleccionada: "Todo",
+              paginaActual: 1,
+              totalPaginas: 1,
+              paginaCarrito: 1,
+              itemsPorPaginaCarrito: 10,
+            };
+          },
+          watch: {
+            "$route.query.term": function (t) {
+              (this.paginaActual = 1),
+                t && "" !== t.trim()
+                  ? this.obtenerProductosBusqueda(t.trim())
+                  : "Todo" === this.marcaSeleccionada
+                  ? this.obtenerProductos()
+                  : this.obtenerProductosBusqueda(this.marcaSeleccionada);
+            },
+          },
+          computed: {
+            totalCarrito: function () {
+              return this.carrito.reduce(function (t, r) {
+                return t + (r.precio_publico_con_IVA || 0) * r.cantidad;
+              }, 0);
+            },
+            totalPaginasCarrito: function () {
+              return Math.ceil(
+                this.carrito.length / this.itemsPorPaginaCarrito
+              );
+            },
+            inicioCarrito: function () {
+              return (this.paginaCarrito - 1) * this.itemsPorPaginaCarrito;
+            },
+            carritoPaginado: function () {
+              return this.carrito.slice(
+                this.inicioCarrito,
+                this.inicioCarrito + this.itemsPorPaginaCarrito
+              );
+            },
+          },
+          methods: {
+            filtrarMarca: function (t) {
+              var r = this;
+              (this.marcaSeleccionada = t),
+                (this.paginaActual = 1),
+                this.$router.replace({ path: "/client/Home_Cli" }),
+                "Todo" === t
+                  ? this.obtenerProductos()
+                  : this.obtenerProductosBusqueda(t),
+                this.$nextTick(function () {
+                  r.$refs.productosScroll &&
+                    (r.$refs.productosScroll.scrollTop = 0);
+                });
+            },
+            toggleDetalles: function (t) {
+              this.$set(
+                this.productos[t],
+                "mostrarDetalles",
+                !this.productos[t].mostrarDetalles
+              );
+            },
+            agregarACarrito: function (t) {
+              var r = this.carrito.findIndex(function (p) {
+                return p.clave === t.clave;
+              });
+              if (-1 !== r) {
+                this.carrito[r].cantidad++;
+                var e = this.carrito.splice(r, 1)[0];
+                this.carrito.unshift(e);
+              } else this.carrito.unshift(S(S({}, t), {}, { cantidad: 1 }));
+              this.mostrarPedidos = !0;
+            },
+            modificarCantidad: function (t, r) {
+              (this.carrito[t].cantidad += r),
+                this.carrito[t].cantidad <= 0 && this.carrito.splice(t, 1),
+                0 === this.carrito.length && (this.mostrarPedidos = !1),
+                this.inicioCarrito >= this.carrito.length &&
+                  this.paginaCarrito > 1 &&
+                  this.paginaCarrito--;
+            },
+            obtenerProductos: function () {
+              var t = this;
+              return Object(C.a)(
+                regeneratorRuntime.mark(function r() {
+                  var e, o;
+                  return regeneratorRuntime.wrap(
+                    function (r) {
+                      for (;;)
+                        switch ((r.prev = r.next)) {
+                          case 0:
+                            return (
+                              (r.prev = 0),
+                              (r.next = 3),
+                              t.$api.getProductos({
+                                page: t.paginaActual,
+                                limit: 50,
+                              })
+                            );
+                          case 3:
+                            (e = r.sent),
+                              (t.productos = e.data.map(function (p) {
+                                return S(S({}, p), {}, { mostrarDetalles: !1 });
+                              })),
+                              (o = e.limit || 50),
+                              (t.totalPaginas = Math.ceil(e.total / o)),
+                              t.$nextTick(function () {
+                                t.$refs.productosScroll &&
+                                  (t.$refs.productosScroll.scrollTop = 0);
+                              }),
+                              (r.next = 13);
+                            break;
+                          case 10:
+                            (r.prev = 10),
+                              (r.t0 = r.catch(0)),
+                              console.error(
+                                "Error al obtener productos:",
+                                r.t0
+                              );
+                          case 13:
+                          case "end":
+                            return r.stop();
+                        }
+                    },
+                    r,
+                    null,
+                    [[0, 10]]
+                  );
+                })
+              )();
+            },
+            obtenerProductosBusqueda: function (t) {
+              var r = this;
+              return Object(C.a)(
+                regeneratorRuntime.mark(function e() {
+                  var o, n;
+                  return regeneratorRuntime.wrap(
+                    function (e) {
+                      for (;;)
+                        switch ((e.prev = e.next)) {
+                          case 0:
+                            return (
+                              (e.prev = 0),
+                              (e.next = 3),
+                              r.$api.searchProductos(t, {
+                                page: r.paginaActual,
+                                limit: 50,
+                              })
+                            );
+                          case 3:
+                            (o = e.sent),
+                              (r.productos = o.data.map(function (p) {
+                                return S(S({}, p), {}, { mostrarDetalles: !1 });
+                              })),
+                              (n = o.limit || 50),
+                              (r.totalPaginas = Math.ceil(o.total / n)),
+                              r.$nextTick(function () {
+                                r.$refs.productosScroll &&
+                                  (r.$refs.productosScroll.scrollTop = 0);
+                              }),
+                              (e.next = 13);
+                            break;
+                          case 10:
+                            (e.prev = 10),
+                              (e.t0 = e.catch(0)),
+                              console.error(
+                                "Error al obtener productos por búsqueda:",
+                                e.t0
+                              );
+                          case 13:
+                          case "end":
+                            return e.stop();
+                        }
+                    },
+                    e,
+                    null,
+                    [[0, 10]]
+                  );
+                })
+              )();
+            },
+            cambiarPagina: function (t) {
+              if (!(t < 1 || t > this.totalPaginas)) {
+                this.paginaActual = t;
+                var r = this.$route.query.term;
+                r && "" !== r.trim()
+                  ? this.obtenerProductosBusqueda(r.trim())
+                  : "Todo" === this.marcaSeleccionada
+                  ? this.obtenerProductos()
+                  : this.obtenerProductosBusqueda(this.marcaSeleccionada);
+              }
+            },
+            cambiarPaginaCarrito: function (t) {
+              t >= 1 &&
+                t <= this.totalPaginasCarrito &&
+                (this.paginaCarrito = t);
+            },
+            encargarPedido: function () {
+              var t = this;
+              return Object(C.a)(
+                regeneratorRuntime.mark(function r() {
+                  var e, o, n, c, d, l, f, m, x, h, v, _;
+                  return regeneratorRuntime.wrap(
+                    function (r) {
+                      for (;;)
+                        switch ((r.prev = r.next)) {
+                          case 0:
+                            if (0 !== t.carrito.length) {
+                              r.next = 2;
+                              break;
+                            }
+                            return r.abrupt("return");
+                          case 2:
+                            if ((e = localStorage.getItem("userId"))) {
+                              r.next = 6;
+                              break;
+                            }
+                            return (
+                              console.error(
+                                "No se encontró userId en localStorage. El usuario debe iniciar sesión."
+                              ),
+                              r.abrupt("return")
+                            );
+                          case 6:
+                            return (
+                              (o =
+                                localStorage.getItem("direccion") ||
+                                "Dirección no definida"),
+                              (n = "efectivo"),
+                              (c = new Date(Date.now() + 864e5)
+                                .toISOString()
+                                .slice(0, 10)),
+                              (d = new Date().toISOString().slice(0, 10)),
+                              (r.prev = 10),
+                              (l = {
+                                estado: "pendiente",
+                                total: 0,
+                                metodo_de_pago: n,
+                                fecha_levantamiento_pedido: d,
+                                fecha_entrega_estimada: c,
+                                direccion: o,
+                                id_usuario: e,
+                              }),
+                              (r.next = 14),
+                              t.$api.createOrder(l)
+                            );
+                          case 14:
+                            (f = r.sent),
+                              (m = f.id),
+                              (x = y(t.carrito)),
+                              (r.prev = 17),
+                              x.s();
+                          case 19:
+                            if ((h = x.n()).done) {
+                              r.next = 26;
+                              break;
+                            }
+                            return (
+                              (v = h.value),
+                              (_ = {
+                                id_pedido: m,
+                                id_producto: v.id_producto,
+                                cantidad: v.cantidad,
+                              }),
+                              (r.next = 24),
+                              t.$api.addProductToOrder(_)
+                            );
+                          case 24:
+                            r.next = 19;
+                            break;
+                          case 26:
+                            r.next = 31;
+                            break;
+                          case 28:
+                            (r.prev = 28), (r.t0 = r.catch(17)), x.e(r.t0);
+                          case 31:
+                            return (r.prev = 31), x.f(), r.finish(31);
+                          case 34:
+                            return (
+                              (r.next = 36),
+                              t.$axios.$put("/pedidos/".concat(m), {
+                                estado: "pendiente",
+                                total: t.totalCarrito,
+                                metodo_de_pago: n,
+                                fecha_entrega_estimada: c,
+                                direccion: o,
+                              })
+                            );
+                          case 36:
+                            (t.carrito = []),
+                              (t.mostrarPedidos = !1),
+                              (r.next = 43);
+                            break;
+                          case 40:
+                            (r.prev = 40),
+                              (r.t1 = r.catch(10)),
+                              console.error("Error al enviar el pedido", r.t1);
+                          case 43:
+                          case "end":
+                            return r.stop();
+                        }
+                    },
+                    r,
+                    null,
+                    [
+                      [10, 40],
+                      [17, 28, 31, 34],
+                    ]
+                  );
+                })
+              )();
+            },
+          },
+          mounted: function () {
+            var t = this.$route.query.term;
+            t && "" !== t.trim()
+              ? this.obtenerProductosBusqueda(t.trim())
+              : this.obtenerProductos();
+          },
+        },
+        O = (e(593), e(72)),
+        component = Object(O.a)(
+          j,
+          function () {
+            var t = this,
+              r = t._self._c;
+            return r(
+              f.a,
+              { staticClass: "fondo", attrs: { fluid: "" } },
+              [
+                r(
+                  v.a,
+                  { attrs: { "no-gutters": "" } },
+                  [
+                    r(
+                      l.a,
+                      {
+                        staticClass: "productos-wrapper d-flex flex-wrap",
+                        attrs: { cols: "12" },
+                      },
+                      [
+                        r(
+                          d.a,
+                          {
+                            staticClass: "d-flex flex-wrap justify-center",
+                            attrs: { "active-class": "verde white--text" },
+                          },
+                          t._l(t.marcas, function (e, i) {
+                            return r(
+                              c.a,
+                              {
+                                key: i,
+                                staticClass: "chip-filtro",
+                                class: {
+                                  "chip-selected": e === t.marcaSeleccionada,
+                                },
+                                on: {
+                                  click: function (r) {
+                                    return t.filtrarMarca(e);
+                                  },
+                                },
+                              },
+                              [t._v("\n          " + t._s(e) + "\n        ")]
+                            );
+                          }),
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    t._v(" "),
+                    r(
+                      l.a,
+                      {
+                        staticClass:
+                          "pedidos-sidebar pr-3 pl-3 transition-width",
+                        attrs: { cols: t.mostrarPedidos ? 8 : 12 },
+                      },
+                      [
+                        r(
+                          n.a,
+                          {
+                            staticClass: "productos-container pa-3",
+                            staticStyle: {
+                              "max-height": "75vh",
+                              "overflow-y": "auto",
+                            },
+                          },
+                          [
+                            r(
+                              "div",
+                              {
+                                ref: "productosScroll",
+                                staticClass: "productos-scroll",
+                              },
+                              [
+                                t._l(t.productos, function (e, c) {
+                                  return r(
+                                    n.a,
+                                    {
+                                      key: e.id_producto || c,
+                                      staticClass:
+                                        "producto-card d-flex flex-column pa-3",
+                                    },
+                                    [
+                                      r("div", {
+                                        staticClass: "decoracion-verde",
+                                      }),
+                                      t._v(" "),
+                                      r(
+                                        v.a,
+                                        {
+                                          staticClass:
+                                            "producto-info ml-5 align-center",
+                                          on: {
+                                            click: function (r) {
+                                              return t.toggleDetalles(c);
+                                            },
+                                          },
+                                        },
+                                        [
+                                          r(l.a, { attrs: { cols: "10" } }, [
+                                            r("strong", [
+                                              t._v(t._s(e.descripcion)),
+                                            ]),
+                                            t._v(" "),
+                                            r("p", [
+                                              r(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "verde--text font-weight-bold",
+                                                },
+                                                [t._v("Marca:")]
+                                              ),
+                                              t._v(
+                                                " " +
+                                                  t._s(e.marca) +
+                                                  "  \n                  "
+                                              ),
+                                              r(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "verde--text font-weight-bold",
+                                                },
+                                                [t._v("Clave:")]
+                                              ),
+                                              t._v(
+                                                " " +
+                                                  t._s(e.clave) +
+                                                  "  \n                  "
+                                              ),
+                                              r(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "verde--text font-weight-bold",
+                                                },
+                                                [t._v("Código:")]
+                                              ),
+                                              t._v(
+                                                " " +
+                                                  t._s(e.codigo) +
+                                                  "\n                "
+                                              ),
+                                            ]),
+                                          ]),
+                                          t._v(" "),
+                                          r(
+                                            l.a,
+                                            {
+                                              staticClass:
+                                                "d-flex align-center justify-end",
+                                              attrs: { cols: "2" },
+                                            },
+                                            [
+                                              r(
+                                                o.a,
+                                                {
+                                                  staticClass: "boton-azul",
+                                                  attrs: { icon: "" },
+                                                  on: {
+                                                    click: function (r) {
+                                                      return (
+                                                        r.stopPropagation(),
+                                                        t.agregarACarrito(e)
+                                                      );
+                                                    },
+                                                  },
+                                                },
+                                                [
+                                                  r(
+                                                    h.a,
+                                                    {
+                                                      staticClass:
+                                                        "white--text",
+                                                    },
+                                                    [t._v("mdi-plus")]
+                                                  ),
+                                                ],
+                                                1
+                                              ),
+                                              t._v(" "),
+                                              r(
+                                                o.a,
+                                                {
+                                                  staticClass:
+                                                    "boton-azul ml-2",
+                                                  attrs: { icon: "" },
+                                                  on: {
+                                                    click: function (r) {
+                                                      return (
+                                                        r.stopPropagation(),
+                                                        t.toggleDetalles(c)
+                                                      );
+                                                    },
+                                                  },
+                                                },
+                                                [
+                                                  r(
+                                                    h.a,
+                                                    {
+                                                      staticClass:
+                                                        "white--text",
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        "\n                    " +
+                                                          t._s(
+                                                            e.mostrarDetalles
+                                                              ? "mdi-chevron-up"
+                                                              : "mdi-chevron-down"
+                                                          ) +
+                                                          "\n                  "
+                                                      ),
+                                                    ]
+                                                  ),
+                                                ],
+                                                1
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ],
+                                        1
+                                      ),
+                                      t._v(" "),
+                                      r(x.a, [
+                                        e.mostrarDetalles
+                                          ? r(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "producto-detalle pa-0",
+                                              },
+                                              [
+                                                r(
+                                                  v.a,
+                                                  {
+                                                    staticClass:
+                                                      "ma-0 pa-0 pl-10 align-start",
+                                                  },
+                                                  [
+                                                    r(
+                                                      l.a,
+                                                      {
+                                                        staticClass:
+                                                          "detalle-col",
+                                                        attrs: { cols: "6" },
+                                                      },
+                                                      [
+                                                        r("p", [
+                                                          r(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "verde--text font-weight-bold",
+                                                            },
+                                                            [
+                                                              t._v(
+                                                                "Descripción:"
+                                                              ),
+                                                            ]
+                                                          ),
+                                                          t._v(
+                                                            " " +
+                                                              t._s(
+                                                                e.descripcion
+                                                              )
+                                                          ),
+                                                        ]),
+                                                        t._v(" "),
+                                                        r("p", [
+                                                          r(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "verde--text font-weight-bold",
+                                                            },
+                                                            [
+                                                              t._v(
+                                                                "Precio público:"
+                                                              ),
+                                                            ]
+                                                          ),
+                                                          t._v(
+                                                            " $" +
+                                                              t._s(
+                                                                e.precio_publico_con_IVA
+                                                              )
+                                                          ),
+                                                        ]),
+                                                        t._v(" "),
+                                                        r("p", [
+                                                          r(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "verde--text font-weight-bold",
+                                                            },
+                                                            [
+                                                              t._v(
+                                                                "Precio Mayoreo:"
+                                                              ),
+                                                            ]
+                                                          ),
+                                                          t._v(
+                                                            " $" +
+                                                              t._s(
+                                                                e.precio_mayoreo_con_IVA
+                                                              )
+                                                          ),
+                                                        ]),
+                                                        t._v(" "),
+                                                        r("p", [
+                                                          r(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "verde--text font-weight-bold",
+                                                            },
+                                                            [t._v("Clave:")]
+                                                          ),
+                                                          t._v(
+                                                            " " + t._s(e.clave)
+                                                          ),
+                                                        ]),
+                                                      ]
+                                                    ),
+                                                    t._v(" "),
+                                                    r(
+                                                      l.a,
+                                                      {
+                                                        staticClass:
+                                                          "detalle-col",
+                                                        attrs: { cols: "6" },
+                                                      },
+                                                      [
+                                                        r("p", [
+                                                          r(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "verde--text font-weight-bold",
+                                                            },
+                                                            [t._v("Marca:")]
+                                                          ),
+                                                          t._v(
+                                                            " " +
+                                                              t._s(e.marca) +
+                                                              " "
+                                                          ),
+                                                        ]),
+                                                        t._v(" "),
+                                                        r("p", [
+                                                          r(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "verde--text font-weight-bold",
+                                                            },
+                                                            [t._v("Código:")]
+                                                          ),
+                                                          t._v(
+                                                            " " +
+                                                              t._s(e.codigo) +
+                                                              " "
+                                                          ),
+                                                        ]),
+                                                        t._v(" "),
+                                                        r("p", [
+                                                          r(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "verde--text font-weight-bold",
+                                                            },
+                                                            [t._v("Peso:")]
+                                                          ),
+                                                          t._v(
+                                                            " " +
+                                                              t._s(e.peso_kg) +
+                                                              " "
+                                                          ),
+                                                        ]),
+                                                        t._v(" "),
+                                                        r("p", [
+                                                          r(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "verde--text font-weight-bold",
+                                                            },
+                                                            [t._v("Unidad:")]
+                                                          ),
+                                                          t._v(
+                                                            " " +
+                                                              t._s(e.unidad) +
+                                                              " "
+                                                          ),
+                                                        ]),
+                                                      ]
+                                                    ),
+                                                  ],
+                                                  1
+                                                ),
+                                              ],
+                                              1
+                                            )
+                                          : t._e(),
+                                      ]),
+                                    ],
+                                    1
+                                  );
+                                }),
+                                t._v(" "),
+                                0 === t.productos.length
+                                  ? r(
+                                      "div",
+                                      { staticClass: "text-center py-4" },
+                                      [
+                                        r("span", [
+                                          t._v("No se encontraron productos"),
+                                        ]),
+                                      ]
+                                    )
+                                  : t._e(),
+                              ],
+                              2
+                            ),
+                            t._v(" "),
+                            r(
+                              v.a,
+                              {
+                                staticClass: "mt-4",
+                                attrs: { justify: "center", align: "center" },
+                              },
+                              [
+                                r(
+                                  o.a,
+                                  {
+                                    attrs: { icon: "" },
+                                    on: {
+                                      click: function (r) {
+                                        t.paginaActual > 1 &&
+                                          t.cambiarPagina(t.paginaActual - 1);
+                                      },
+                                    },
+                                  },
+                                  [r(h.a, [t._v("mdi-chevron-left")])],
+                                  1
+                                ),
+                                t._v(" "),
+                                r(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "d-flex align-center justify-center",
+                                    staticStyle: { "min-width": "80px" },
+                                  },
+                                  [
+                                    r(_.a, {
+                                      staticClass: "mx-2 text-center",
+                                      staticStyle: {
+                                        "max-width": "80px",
+                                        "text-align": "center",
+                                      },
+                                      attrs: { type: "number" },
+                                      on: {
+                                        keyup: function (r) {
+                                          return !r.type.indexOf("key") &&
+                                            t._k(
+                                              r.keyCode,
+                                              "enter",
+                                              13,
+                                              r.key,
+                                              "Enter"
+                                            )
+                                            ? null
+                                            : t.cambiarPagina(t.paginaActual);
+                                        },
+                                        blur: function (r) {
+                                          return t.cambiarPagina(
+                                            t.paginaActual
+                                          );
+                                        },
+                                      },
+                                      model: {
+                                        value: t.paginaActual,
+                                        callback: function (r) {
+                                          t.paginaActual = t._n(r);
+                                        },
+                                        expression: "paginaActual",
+                                      },
+                                    }),
+                                    t._v(" "),
+                                    r("span", [
+                                      t._v("/ " + t._s(t.totalPaginas)),
+                                    ]),
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                r(
+                                  o.a,
+                                  {
+                                    attrs: { icon: "" },
+                                    on: {
+                                      click: function (r) {
+                                        t.paginaActual < t.totalPaginas &&
+                                          t.cambiarPagina(t.paginaActual + 1);
+                                      },
+                                    },
+                                  },
+                                  [r(h.a, [t._v("mdi-chevron-right")])],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    t._v(" "),
+                    t.mostrarPedidos
+                      ? r(
+                          l.a,
+                          {
+                            staticClass: "pedidos-sidebar pr-3 pl-3",
+                            attrs: { cols: "4" },
+                          },
+                          [
+                            r(
+                              n.a,
+                              {
+                                staticClass:
+                                  "pedidos-card pa-4 d-flex flex-column",
+                                staticStyle: { height: "75vh" },
+                              },
+                              [
+                                r(
+                                  "div",
+                                  {
+                                    staticStyle: {
+                                      "overflow-y": "auto",
+                                      flex: "1",
+                                    },
+                                  },
+                                  [
+                                    r(
+                                      "h2",
+                                      { staticClass: "font-weight-bold" },
+                                      [t._v("Mis Pedidos")]
+                                    ),
+                                    t._v(" "),
+                                    t._l(t.carritoPaginado, function (e, n) {
+                                      return r(
+                                        "div",
+                                        { key: n, staticClass: "pedido-item" },
+                                        [
+                                          r(m.a),
+                                          t._v(" "),
+                                          r(
+                                            "strong",
+                                            { staticClass: "mb-2 d-block" },
+                                            [t._v(t._s(e.descripcion))]
+                                          ),
+                                          t._v(" "),
+                                          r(
+                                            v.a,
+                                            {
+                                              staticClass:
+                                                "cantidad-container mt-2",
+                                              attrs: { align: "center" },
+                                            },
+                                            [
+                                              r(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "cantidad-wrapper",
+                                                },
+                                                [
+                                                  r(
+                                                    o.a,
+                                                    {
+                                                      staticClass:
+                                                        "cantidad-btn-outline",
+                                                      attrs: { icon: "" },
+                                                      on: {
+                                                        click: function (r) {
+                                                          return t.modificarCantidad(
+                                                            n + t.inicioCarrito,
+                                                            -1
+                                                          );
+                                                        },
+                                                      },
+                                                    },
+                                                    [
+                                                      r(h.a, [
+                                                        t._v("mdi-minus"),
+                                                      ]),
+                                                    ],
+                                                    1
+                                                  ),
+                                                  t._v(" "),
+                                                  r(_.a, {
+                                                    staticClass: "cantidad-box",
+                                                    attrs: {
+                                                      dense: "",
+                                                      solo: "",
+                                                      "hide-details": "",
+                                                      "background-color":
+                                                        "transparent",
+                                                      flat: "",
+                                                    },
+                                                    model: {
+                                                      value: e.cantidad,
+                                                      callback: function (r) {
+                                                        t.$set(
+                                                          e,
+                                                          "cantidad",
+                                                          r
+                                                        );
+                                                      },
+                                                      expression:
+                                                        "item.cantidad",
+                                                    },
+                                                  }),
+                                                  t._v(" "),
+                                                  r(
+                                                    o.a,
+                                                    {
+                                                      staticClass:
+                                                        "cantidad-btn-outline",
+                                                      attrs: { icon: "" },
+                                                      on: {
+                                                        click: function (r) {
+                                                          return t.modificarCantidad(
+                                                            n + t.inicioCarrito,
+                                                            1
+                                                          );
+                                                        },
+                                                      },
+                                                    },
+                                                    [
+                                                      r(h.a, [
+                                                        t._v("mdi-plus"),
+                                                      ]),
+                                                    ],
+                                                    1
+                                                  ),
+                                                ],
+                                                1
+                                              ),
+                                              t._v(" "),
+                                              r(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "precio-dinamico font-weight-bold",
+                                                },
+                                                [
+                                                  t._v(
+                                                    "\n                $" +
+                                                      t._s(
+                                                        (
+                                                          e.precio * e.cantidad
+                                                        ).toLocaleString(
+                                                          "en-US",
+                                                          {
+                                                            minimumFractionDigits: 2,
+                                                            maximumFractionDigits: 2,
+                                                          }
+                                                        )
+                                                      ) +
+                                                      "\n              "
+                                                  ),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                          t._v(" "),
+                                          r(
+                                            "p",
+                                            { staticClass: "disponibles" },
+                                            [t._v("+50 disponibles")]
+                                          ),
+                                          t._v(" "),
+                                          r(
+                                            o.a,
+                                            {
+                                              staticClass: "eliminar-btn",
+                                              attrs: { small: "" },
+                                              on: {
+                                                click: function (r) {
+                                                  return t.modificarCantidad(
+                                                    n + t.inicioCarrito,
+                                                    -e.cantidad
+                                                  );
+                                                },
+                                              },
+                                            },
+                                            [
+                                              t._v(
+                                                "\n              Eliminar\n            "
+                                              ),
+                                            ]
+                                          ),
+                                        ],
+                                        1
+                                      );
+                                    }),
+                                  ],
+                                  2
+                                ),
+                                t._v(" "),
+                                r(
+                                  "div",
+                                  [
+                                    r(m.a, { staticClass: "my-2" }),
+                                    t._v(" "),
+                                    r(
+                                      "div",
+                                      { staticClass: "total-container mb-2" },
+                                      [
+                                        r(
+                                          "h3",
+                                          { staticClass: "font-weight-bold" },
+                                          [t._v("Total")]
+                                        ),
+                                        t._v(" "),
+                                        r(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "font-weight-bold precio",
+                                          },
+                                          [
+                                            t._v(
+                                              "\n              $" +
+                                                t._s(
+                                                  t.totalCarrito.toLocaleString(
+                                                    "en-US",
+                                                    {
+                                                      minimumFractionDigits: 2,
+                                                      maximumFractionDigits: 2,
+                                                    }
+                                                  )
+                                                ) +
+                                                "\n            "
+                                            ),
+                                          ]
+                                        ),
+                                      ]
+                                    ),
+                                    t._v(" "),
+                                    r(
+                                      v.a,
+                                      {
+                                        attrs: {
+                                          justify: "center",
+                                          align: "center",
+                                        },
+                                      },
+                                      [
+                                        r(
+                                          o.a,
+                                          {
+                                            attrs: { icon: "" },
+                                            on: {
+                                              click: function (r) {
+                                                t.paginaCarrito > 1 &&
+                                                  t.cambiarPaginaCarrito(
+                                                    t.paginaCarrito - 1
+                                                  );
+                                              },
+                                            },
+                                          },
+                                          [r(h.a, [t._v("mdi-chevron-left")])],
+                                          1
+                                        ),
+                                        t._v(" "),
+                                        r(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "d-flex align-center justify-center",
+                                            staticStyle: {
+                                              "min-width": "80px",
+                                            },
+                                          },
+                                          [
+                                            r(_.a, {
+                                              staticClass: "mx-2 text-center",
+                                              staticStyle: {
+                                                "max-width": "80px",
+                                                "text-align": "center",
+                                              },
+                                              attrs: { type: "number" },
+                                              on: {
+                                                keyup: function (r) {
+                                                  return !r.type.indexOf(
+                                                    "key"
+                                                  ) &&
+                                                    t._k(
+                                                      r.keyCode,
+                                                      "enter",
+                                                      13,
+                                                      r.key,
+                                                      "Enter"
+                                                    )
+                                                    ? null
+                                                    : t.cambiarPaginaCarrito(
+                                                        t.paginaCarrito
+                                                      );
+                                                },
+                                                blur: function (r) {
+                                                  return t.cambiarPaginaCarrito(
+                                                    t.paginaCarrito
+                                                  );
+                                                },
+                                              },
+                                              model: {
+                                                value: t.paginaCarrito,
+                                                callback: function (r) {
+                                                  t.paginaCarrito = t._n(r);
+                                                },
+                                                expression: "paginaCarrito",
+                                              },
+                                            }),
+                                            t._v(" "),
+                                            r("span", [
+                                              t._v(
+                                                "/ " +
+                                                  t._s(t.totalPaginasCarrito)
+                                              ),
+                                            ]),
+                                          ],
+                                          1
+                                        ),
+                                        t._v(" "),
+                                        r(
+                                          o.a,
+                                          {
+                                            attrs: { icon: "" },
+                                            on: {
+                                              click: function (r) {
+                                                t.paginaCarrito <
+                                                  t.totalPaginasCarrito &&
+                                                  t.cambiarPaginaCarrito(
+                                                    t.paginaCarrito + 1
+                                                  );
+                                              },
+                                            },
+                                          },
+                                          [r(h.a, [t._v("mdi-chevron-right")])],
+                                          1
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                    t._v(" "),
+                                    r(
+                                      o.a,
+                                      {
+                                        staticClass: "encargar-btn mt-2",
+                                        attrs: { block: "" },
+                                        on: { click: t.encargarPedido },
+                                      },
+                                      [
+                                        t._v(
+                                          "\n            Encargar\n          "
+                                        ),
+                                      ]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : t._e(),
+                  ],
+                  1
+                ),
+              ],
+              1
+            );
+          },
+          [],
+          !1,
+          null,
+          null,
+          null
+        );
+      r.default = component.exports;
+    },
+  },
+]);

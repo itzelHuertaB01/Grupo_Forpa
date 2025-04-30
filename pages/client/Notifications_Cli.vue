@@ -2,7 +2,11 @@
   <div class="notifications-container">
     <v-card class="notifications-card">
       <v-list>
-        <div v-for="(noti, index) in notificaciones" :key="index" class="notification-item">
+        <div
+          v-for="(noti, index) in notificaciones"
+          :key="index"
+          class="notification-item"
+        >
           <div class="d-flex justify-space-between align-center">
             <span class="notification-title">{{ noti.titulo }}</span>
             <small class="text-muted">{{ noti.fecha }}</small>
@@ -22,37 +26,43 @@ export default {
       notificaciones: [
         {
           titulo: "📢 Oferta especial en Estuche con 50 cuchillas SKA",
-          mensaje: "Precio público: $125 | Precio Mayoreo: $90.52. ¡Aprovecha la promoción esta semana!",
-          fecha: "01/03"
+          mensaje:
+            "Precio público: $125 | Precio Mayoreo: $90.52. ¡Aprovecha la promoción esta semana!",
+          fecha: "01/03",
         },
         {
           titulo: "🔄 Reposición de stock: Martillo de uña",
-          mensaje: "Clave: H-UÑA-16 | Código: 100102. ¡Ya está disponible nuevamente en tienda!",
-          fecha: "02/03"
+          mensaje:
+            "Clave: H-UÑA-16 | Código: 100102. ¡Ya está disponible nuevamente en tienda!",
+          fecha: "02/03",
         },
         {
           titulo: "⚡ Descuento en Destornilladores de punta plana",
-          mensaje: "Clave: DST-PLANA-6 | Código: 100103. Obtén un 15% de descuento en tu compra.",
-          fecha: "03/03"
+          mensaje:
+            "Clave: DST-PLANA-6 | Código: 100103. Obtén un 15% de descuento en tu compra.",
+          fecha: "03/03",
         },
         {
           titulo: "🚀 Últimas piezas disponibles: Llave ajustable 10”",
-          mensaje: "Clave: LLAVE-AJ-10 | Código: 100104. ¡Solo quedan 5 unidades en stock!",
-          fecha: "04/03"
+          mensaje:
+            "Clave: LLAVE-AJ-10 | Código: 100104. ¡Solo quedan 5 unidades en stock!",
+          fecha: "04/03",
         },
         {
           titulo: "🛠️ Nueva herramienta en catálogo: Serrucho profesional",
-          mensaje: "Clave: SERR-PRO-12 | Código: 100105. ¡Ya disponible en nuestra tienda! Revisa las especificaciones y precios en nuestro catálogo.",
-          fecha: "05/03"
+          mensaje:
+            "Clave: SERR-PRO-12 | Código: 100105. ¡Ya disponible en nuestra tienda! Revisa las especificaciones y precios en nuestro catálogo.",
+          fecha: "05/03",
         },
         {
           titulo: "🎯 Promoción en taladros industriales",
-          mensaje: "Clave: TAL-IND-20 | Código: 100106. ¡Descuento del 20% esta semana!",
-          fecha: "06/03"
-        }
-      ]
+          mensaje:
+            "Clave: TAL-IND-20 | Código: 100106. ¡Descuento del 20% esta semana!",
+          fecha: "06/03",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
@@ -62,12 +72,12 @@ export default {
   display: flex;
   justify-content: center;
   padding: 20px;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
 }
 
 .notifications-card {
   width: 100%;
-  max-width: 750px !important; 
+  max-width: 750px !important;
   background: white;
   border-radius: 12px;
   padding: 10px;

@@ -1,1 +1,139 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{544:function(t,r,e){var content=e(564);content.__esModule&&(content=content.default),"string"==typeof content&&(content=[[t.i,content,""]]),content.locals&&(t.exports=content.locals);(0,e(18).default)("7b86026b",content,!0,{sourceMap:!1})},563:function(t,r,e){"use strict";e(544)},564:function(t,r,e){var c=e(17)((function(i){return i[1]}));c.push([t.i,'.error-page[data-v-0821c7cc]{background-color:#f3f3f3;font-family:"Segoe UI",sans-serif;overflow-x:hidden}.error-page[data-v-0821c7cc],.error-wrapper[data-v-0821c7cc]{align-items:center;display:flex;min-height:100vh}.error-wrapper[data-v-0821c7cc]{flex-wrap:wrap;padding:20px;width:100%}.text-container[data-v-0821c7cc]{animation:fadeInUp-0821c7cc 1s ease;margin:0 auto;max-width:520px;text-align:center;transition:all .3s ease}@media (min-width:960px){.text-container[data-v-0821c7cc]{margin-left:auto;padding-left:16px;text-align:left}}.error-title[data-v-0821c7cc]{color:#29235c;font-size:2rem;font-weight:800;margin-bottom:1rem;text-shadow:1px 1px 2px rgba(0,0,0,.05)}.error-subtitle[data-v-0821c7cc]{color:#555;font-size:1.3rem;line-height:1.6;margin-bottom:1.2rem;text-shadow:1px 1px 1px rgba(0,0,0,.03)}.btn-go-home[data-v-0821c7cc]{background-color:#29235c!important;border-radius:12px;color:#fff;font-size:1.1rem;font-weight:700;margin-top:1rem;padding:12px 28px;transition:all .3s ease}.btn-go-home[data-v-0821c7cc]:hover{background-color:#118737!important;transform:scale(1.05)}.cat-403img[data-v-0821c7cc]{animation:float-0821c7cc 5s ease-in-out infinite;max-height:450px;max-width:100%}@media (min-width:960px){.cat-403img[data-v-0821c7cc]{max-height:580px}.error-title[data-v-0821c7cc]{font-size:3.6rem}.error-subtitle[data-v-0821c7cc]{font-size:1.5rem}.btn-go-home[data-v-0821c7cc]{font-size:1.2rem;margin-top:1.5rem}}@keyframes float-0821c7cc{0%,to{transform:translateY(0)}50%{transform:translateY(-10px)}}@keyframes fadeInUp-0821c7cc{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}',""]),c.locals={},t.exports=c},636:function(t,r,e){"use strict";e.r(r);var c=e(511),o=e(526),n=e(530),l=e(149),d=e(189),m=e(525),f={name:"Error403"},x=(e(563),e(72)),component=Object(x.a)(f,(function(){var t=this,r=t._self._c;return r(n.a,{staticClass:"error-page",attrs:{fluid:""}},[r(m.a,{staticClass:"error-wrapper",attrs:{align:"center",justify:"center","no-gutters":""}},[r(o.a,{staticClass:"text-center order-1 order-md-2 pa-4",attrs:{cols:"12",md:"6"}},[r(d.a,{staticClass:"mx-auto cat-403img",attrs:{src:"/img/403.png",alt:"Sin acceso",contain:""}})],1),t._v(" "),r(o.a,{staticClass:"order-2 order-md-1 pa-4",attrs:{cols:"12",md:"6"}},[r("div",{staticClass:"text-container animated fadeInUp"},[r("h1",{staticClass:"error-title"},[t._v("¡Acceso denegado!")]),t._v(" "),r("p",{staticClass:"error-subtitle"},[t._v("\n          No tienes permisos para ver esta página."),r("br")]),t._v(" "),r(c.a,{staticClass:"btn-go-home",attrs:{"x-large":""},on:{click:function(r){return t.$router.push("/")}}},[r(l.a,{attrs:{left:""}},[t._v("mdi-home")]),t._v("\n          Volver al inicio\n        ")],1)],1)])],1)],1)}),[],!1,null,"0821c7cc",null);r.default=component.exports}}]);
+(window.webpackJsonp = window.webpackJsonp || []).push([
+  [3],
+  {
+    544: function (t, r, e) {
+      var content = e(564);
+      content.__esModule && (content = content.default),
+        "string" == typeof content && (content = [[t.i, content, ""]]),
+        content.locals && (t.exports = content.locals);
+      (0, e(18).default)("7b86026b", content, !0, { sourceMap: !1 });
+    },
+    563: function (t, r, e) {
+      "use strict";
+      e(544);
+    },
+    564: function (t, r, e) {
+      var c = e(17)(function (i) {
+        return i[1];
+      });
+      c.push([
+        t.i,
+        '.error-page[data-v-0821c7cc]{background-color:#f3f3f3;font-family:"Segoe UI",sans-serif;overflow-x:hidden}.error-page[data-v-0821c7cc],.error-wrapper[data-v-0821c7cc]{align-items:center;display:flex;min-height:100vh}.error-wrapper[data-v-0821c7cc]{flex-wrap:wrap;padding:20px;width:100%}.text-container[data-v-0821c7cc]{animation:fadeInUp-0821c7cc 1s ease;margin:0 auto;max-width:520px;text-align:center;transition:all .3s ease}@media (min-width:960px){.text-container[data-v-0821c7cc]{margin-left:auto;padding-left:16px;text-align:left}}.error-title[data-v-0821c7cc]{color:#29235c;font-size:2rem;font-weight:800;margin-bottom:1rem;text-shadow:1px 1px 2px rgba(0,0,0,.05)}.error-subtitle[data-v-0821c7cc]{color:#555;font-size:1.3rem;line-height:1.6;margin-bottom:1.2rem;text-shadow:1px 1px 1px rgba(0,0,0,.03)}.btn-go-home[data-v-0821c7cc]{background-color:#29235c!important;border-radius:12px;color:#fff;font-size:1.1rem;font-weight:700;margin-top:1rem;padding:12px 28px;transition:all .3s ease}.btn-go-home[data-v-0821c7cc]:hover{background-color:#118737!important;transform:scale(1.05)}.cat-403img[data-v-0821c7cc]{animation:float-0821c7cc 5s ease-in-out infinite;max-height:450px;max-width:100%}@media (min-width:960px){.cat-403img[data-v-0821c7cc]{max-height:580px}.error-title[data-v-0821c7cc]{font-size:3.6rem}.error-subtitle[data-v-0821c7cc]{font-size:1.5rem}.btn-go-home[data-v-0821c7cc]{font-size:1.2rem;margin-top:1.5rem}}@keyframes float-0821c7cc{0%,to{transform:translateY(0)}50%{transform:translateY(-10px)}}@keyframes fadeInUp-0821c7cc{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}',
+        "",
+      ]),
+        (c.locals = {}),
+        (t.exports = c);
+    },
+    636: function (t, r, e) {
+      "use strict";
+      e.r(r);
+      var c = e(511),
+        o = e(526),
+        n = e(530),
+        l = e(149),
+        d = e(189),
+        m = e(525),
+        f = { name: "Error403" },
+        x = (e(563), e(72)),
+        component = Object(x.a)(
+          f,
+          function () {
+            var t = this,
+              r = t._self._c;
+            return r(
+              n.a,
+              { staticClass: "error-page", attrs: { fluid: "" } },
+              [
+                r(
+                  m.a,
+                  {
+                    staticClass: "error-wrapper",
+                    attrs: {
+                      align: "center",
+                      justify: "center",
+                      "no-gutters": "",
+                    },
+                  },
+                  [
+                    r(
+                      o.a,
+                      {
+                        staticClass: "text-center order-1 order-md-2 pa-4",
+                        attrs: { cols: "12", md: "6" },
+                      },
+                      [
+                        r(d.a, {
+                          staticClass: "mx-auto cat-403img",
+                          attrs: {
+                            src: "/img/403.png",
+                            alt: "Sin acceso",
+                            contain: "",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                    t._v(" "),
+                    r(
+                      o.a,
+                      {
+                        staticClass: "order-2 order-md-1 pa-4",
+                        attrs: { cols: "12", md: "6" },
+                      },
+                      [
+                        r(
+                          "div",
+                          { staticClass: "text-container animated fadeInUp" },
+                          [
+                            r("h1", { staticClass: "error-title" }, [
+                              t._v("¡Acceso denegado!"),
+                            ]),
+                            t._v(" "),
+                            r("p", { staticClass: "error-subtitle" }, [
+                              t._v(
+                                "\n          No tienes permisos para ver esta página."
+                              ),
+                              r("br"),
+                            ]),
+                            t._v(" "),
+                            r(
+                              c.a,
+                              {
+                                staticClass: "btn-go-home",
+                                attrs: { "x-large": "" },
+                                on: {
+                                  click: function (r) {
+                                    return t.$router.push("/");
+                                  },
+                                },
+                              },
+                              [
+                                r(l.a, { attrs: { left: "" } }, [
+                                  t._v("mdi-home"),
+                                ]),
+                                t._v("\n          Volver al inicio\n        "),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            );
+          },
+          [],
+          !1,
+          null,
+          "0821c7cc",
+          null
+        );
+      r.default = component.exports;
+    },
+  },
+]);

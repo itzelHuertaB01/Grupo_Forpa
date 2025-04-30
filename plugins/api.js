@@ -30,7 +30,7 @@ export default ({ $axios }, inject) => {
         }
         error.config.headers.Authorization = `Bearer ${newAccessToken}`;
         return $axios.request(error.config);
-      } catch (refreshError) {  
+      } catch (refreshError) {
         console.error("Refresh token inválido o expirado:", refreshError);
       }
     }
@@ -38,6 +38,20 @@ export default ({ $axios }, inject) => {
   });
 
   const api = {
+    // EDITAR PRODUCTOS DE UN PEDIDO
+    editProducts: (id_pedido, data) =>
+      $axios.$put(`/pedidos/${id_pedido}/products`, data),
+
+    // EDITAR DETALLES DEL PEDIDO
+    editOrderDetails: (id_pedido, data) =>
+      $axios.$put(`/pedidos/${id_pedido}`, data),
+
+    // ELIMINAR PEDIDO COMPLETO
+    deleteOrder: (id_pedido) => $axios.$delete(`/pedidos/${id_pedido}`),
+
+    // ELIMINAR UN PRODUCTO DE UN PEDIDO
+    deleteProductFromOrder: (id_pedido, id_producto) =>
+      $axios.$delete(`/pedidos/${id_pedido}/producto/${id_producto}`),
 
     getUserById: (id) => $axios.$get(`/clientes/${id}`),
     getLocalidadById: (id) => $axios.$get(`/clientes/localidades/${id}`),
@@ -60,9 +74,9 @@ export default ({ $axios }, inject) => {
     // Método para agregar un producto al pedido (usa la ruta actualizada)
     addProductToOrder: (data) => $axios.$post("/pedidos/add-product", data),
     getOrderProducts: (orderId) => $axios.$get(`/pedidos/productos/${orderId}`),
-    getUserOrders: (userId, estado = 'Todas') =>
-      $axios.$get(`/pedidos/user/${userId}`, { params: { estado } }),    
-    refreshToken: () => $axios.$post("/clientes/refresh-token")
+    getUserOrders: (userId, estado = "Todas") =>
+      $axios.$get(`/pedidos/user/${userId}`, { params: { estado } }),
+    refreshToken: () => $axios.$post("/clientes/refresh-token"),
   };
 
   inject("api", api);

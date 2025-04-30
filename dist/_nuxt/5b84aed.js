@@ -1,1 +1,152 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[20],{558:function(t,e,n){var content=n(606);content.__esModule&&(content=content.default),"string"==typeof content&&(content=[[t.i,content,""]]),content.locals&&(t.exports=content.locals);(0,n(18).default)("743bc45a",content,!0,{sourceMap:!1})},605:function(t,e,n){"use strict";n(558)},606:function(t,e,n){var o=n(17)((function(i){return i[1]}));o.push([t.i,".notifications-container[data-v-f2fa31f2]{background-color:#f3f3f3;display:flex;justify-content:center;padding:20px;width:100%}.notifications-card[data-v-f2fa31f2]{background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.1);max-width:750px!important;padding:10px;width:100%}@media (max-width:960px){.notifications-card[data-v-f2fa31f2]{max-width:90%}}@media (max-width:600px){.notifications-card[data-v-f2fa31f2]{max-width:95%}}.text-muted[data-v-f2fa31f2]{color:#757575}.notification-item[data-v-f2fa31f2]{background-color:#fff;min-height:80px;padding:12px 16px}.notification-title[data-v-f2fa31f2]{font-size:16px;font-weight:700}.notification-text[data-v-f2fa31f2]{font-size:14px}.v-divider[data-v-f2fa31f2]{margin:0}",""]),o.locals={},t.exports=o},650:function(t,e,n){"use strict";n.r(e);var o=n(505),c=n(512),f=n(227),d={layout:"preventista",head:function(){return{title:"Notificaciones - Preventista",meta:[{name:"notificaciones",content:"Preventista"}]}},data:function(){return{notificaciones:[{titulo:"📢 Oferta especial en Estuche con 50 cuchillas SKA",mensaje:"Precio público: $125 | Precio Mayoreo: $90.52. ¡Aprovecha la promoción esta semana!",fecha:"01/03"},{titulo:"🔄 Reposición de stock: Martillo de uña",mensaje:"Clave: H-UÑA-16 | Código: 100102. ¡Ya está disponible nuevamente en tienda!",fecha:"02/03"},{titulo:"⚡ Descuento en Destornilladores de punta plana",mensaje:"Clave: DST-PLANA-6 | Código: 100103. Obtén un 15% de descuento en tu compra.",fecha:"03/03"},{titulo:"🚀 Últimas piezas disponibles: Llave ajustable 10”",mensaje:"Clave: LLAVE-AJ-10 | Código: 100104. ¡Solo quedan 5 unidades en stock!",fecha:"04/03"},{titulo:"🛠️ Nueva herramienta en catálogo: Serrucho profesional",mensaje:"Clave: SERR-PRO-12 | Código: 100105. ¡Ya disponible en nuestra tienda! Revisa las especificaciones y precios en nuestro catálogo.",fecha:"05/03"},{titulo:"🎯 Promoción en taladros industriales",mensaje:"Clave: TAL-IND-20 | Código: 100106. ¡Descuento del 20% esta semana!",fecha:"06/03"}]}}},l=(n(605),n(72)),component=Object(l.a)(d,(function(){var t=this,e=t._self._c;return e("div",{staticClass:"notifications-container"},[e(o.a,{staticClass:"notifications-card"},[e(f.a,t._l(t.notificaciones,(function(n,o){return e("div",{key:o,staticClass:"notification-item"},[e("div",{staticClass:"d-flex justify-space-between align-center"},[e("span",{staticClass:"notification-title"},[t._v(t._s(n.titulo))]),t._v(" "),e("small",{staticClass:"text-muted"},[t._v(t._s(n.fecha))])]),t._v(" "),e("p",{staticClass:"notification-text"},[t._v(t._s(n.mensaje))]),t._v(" "),o!==t.notificaciones.length-1?e(c.a):t._e()],1)})),0)],1)],1)}),[],!1,null,"f2fa31f2",null);e.default=component.exports}}]);
+(window.webpackJsonp = window.webpackJsonp || []).push([
+  [20],
+  {
+    558: function (t, e, n) {
+      var content = n(606);
+      content.__esModule && (content = content.default),
+        "string" == typeof content && (content = [[t.i, content, ""]]),
+        content.locals && (t.exports = content.locals);
+      (0, n(18).default)("743bc45a", content, !0, { sourceMap: !1 });
+    },
+    605: function (t, e, n) {
+      "use strict";
+      n(558);
+    },
+    606: function (t, e, n) {
+      var o = n(17)(function (i) {
+        return i[1];
+      });
+      o.push([
+        t.i,
+        ".notifications-container[data-v-f2fa31f2]{background-color:#f3f3f3;display:flex;justify-content:center;padding:20px;width:100%}.notifications-card[data-v-f2fa31f2]{background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.1);max-width:750px!important;padding:10px;width:100%}@media (max-width:960px){.notifications-card[data-v-f2fa31f2]{max-width:90%}}@media (max-width:600px){.notifications-card[data-v-f2fa31f2]{max-width:95%}}.text-muted[data-v-f2fa31f2]{color:#757575}.notification-item[data-v-f2fa31f2]{background-color:#fff;min-height:80px;padding:12px 16px}.notification-title[data-v-f2fa31f2]{font-size:16px;font-weight:700}.notification-text[data-v-f2fa31f2]{font-size:14px}.v-divider[data-v-f2fa31f2]{margin:0}",
+        "",
+      ]),
+        (o.locals = {}),
+        (t.exports = o);
+    },
+    650: function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var o = n(505),
+        c = n(512),
+        f = n(227),
+        d = {
+          layout: "preventista",
+          head: function () {
+            return {
+              title: "Notificaciones - Preventista",
+              meta: [{ name: "notificaciones", content: "Preventista" }],
+            };
+          },
+          data: function () {
+            return {
+              notificaciones: [
+                {
+                  titulo: "📢 Oferta especial en Estuche con 50 cuchillas SKA",
+                  mensaje:
+                    "Precio público: $125 | Precio Mayoreo: $90.52. ¡Aprovecha la promoción esta semana!",
+                  fecha: "01/03",
+                },
+                {
+                  titulo: "🔄 Reposición de stock: Martillo de uña",
+                  mensaje:
+                    "Clave: H-UÑA-16 | Código: 100102. ¡Ya está disponible nuevamente en tienda!",
+                  fecha: "02/03",
+                },
+                {
+                  titulo: "⚡ Descuento en Destornilladores de punta plana",
+                  mensaje:
+                    "Clave: DST-PLANA-6 | Código: 100103. Obtén un 15% de descuento en tu compra.",
+                  fecha: "03/03",
+                },
+                {
+                  titulo: "🚀 Últimas piezas disponibles: Llave ajustable 10”",
+                  mensaje:
+                    "Clave: LLAVE-AJ-10 | Código: 100104. ¡Solo quedan 5 unidades en stock!",
+                  fecha: "04/03",
+                },
+                {
+                  titulo:
+                    "🛠️ Nueva herramienta en catálogo: Serrucho profesional",
+                  mensaje:
+                    "Clave: SERR-PRO-12 | Código: 100105. ¡Ya disponible en nuestra tienda! Revisa las especificaciones y precios en nuestro catálogo.",
+                  fecha: "05/03",
+                },
+                {
+                  titulo: "🎯 Promoción en taladros industriales",
+                  mensaje:
+                    "Clave: TAL-IND-20 | Código: 100106. ¡Descuento del 20% esta semana!",
+                  fecha: "06/03",
+                },
+              ],
+            };
+          },
+        },
+        l = (n(605), n(72)),
+        component = Object(l.a)(
+          d,
+          function () {
+            var t = this,
+              e = t._self._c;
+            return e(
+              "div",
+              { staticClass: "notifications-container" },
+              [
+                e(
+                  o.a,
+                  { staticClass: "notifications-card" },
+                  [
+                    e(
+                      f.a,
+                      t._l(t.notificaciones, function (n, o) {
+                        return e(
+                          "div",
+                          { key: o, staticClass: "notification-item" },
+                          [
+                            e(
+                              "div",
+                              {
+                                staticClass:
+                                  "d-flex justify-space-between align-center",
+                              },
+                              [
+                                e(
+                                  "span",
+                                  { staticClass: "notification-title" },
+                                  [t._v(t._s(n.titulo))]
+                                ),
+                                t._v(" "),
+                                e("small", { staticClass: "text-muted" }, [
+                                  t._v(t._s(n.fecha)),
+                                ]),
+                              ]
+                            ),
+                            t._v(" "),
+                            e("p", { staticClass: "notification-text" }, [
+                              t._v(t._s(n.mensaje)),
+                            ]),
+                            t._v(" "),
+                            o !== t.notificaciones.length - 1 ? e(c.a) : t._e(),
+                          ],
+                          1
+                        );
+                      }),
+                      0
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            );
+          },
+          [],
+          !1,
+          null,
+          "f2fa31f2",
+          null
+        );
+      e.default = component.exports;
+    },
+  },
+]);

@@ -1,1 +1,1157 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[15],{335:function(t,e,r){"use strict";var o=r(511);e.a=o.a},533:function(t,e,r){var content=r(534);content.__esModule&&(content=content.default),"string"==typeof content&&(content=[[t.i,content,""]]),content.locals&&(t.exports=content.locals);(0,r(18).default)("59b49814",content,!0,{sourceMap:!1})},534:function(t,e,r){var o=r(17)((function(i){return i[1]}));o.push([t.i,'.v-chip:not(.v-chip--outlined).accent,.v-chip:not(.v-chip--outlined).error,.v-chip:not(.v-chip--outlined).info,.v-chip:not(.v-chip--outlined).primary,.v-chip:not(.v-chip--outlined).secondary,.v-chip:not(.v-chip--outlined).success,.v-chip:not(.v-chip--outlined).warning{color:#fff}.theme--light.v-chip{border-color:rgba(0,0,0,.12);color:rgba(0,0,0,.87)}.theme--light.v-chip:not(.v-chip--active){background:#e0e0e0}.theme--light.v-chip:hover:before{opacity:.04}.theme--light.v-chip--active:before,.theme--light.v-chip--active:hover:before,.theme--light.v-chip:focus:before{opacity:.12}.theme--light.v-chip--active:focus:before{opacity:.16}.theme--dark.v-chip{border-color:hsla(0,0%,100%,.12);color:#fff}.theme--dark.v-chip:not(.v-chip--active){background:#555}.theme--dark.v-chip:hover:before{opacity:.08}.theme--dark.v-chip--active:before,.theme--dark.v-chip--active:hover:before,.theme--dark.v-chip:focus:before{opacity:.24}.theme--dark.v-chip--active:focus:before{opacity:.32}.v-chip{align-items:center;cursor:default;display:inline-flex;line-height:20px;max-width:100%;outline:none;overflow:hidden;padding:0 12px;position:relative;-webkit-text-decoration:none;text-decoration:none;transition-duration:.28s;transition-property:box-shadow,opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);vertical-align:middle;white-space:nowrap}.v-chip:before{background-color:currentColor;border-radius:inherit;bottom:0;content:"";left:0;opacity:0;pointer-events:none;position:absolute;right:0;top:0}.v-chip .v-avatar{height:24px!important;min-width:24px!important;width:24px!important}.v-chip .v-icon{font-size:24px}.v-application--is-ltr .v-chip .v-avatar--left,.v-application--is-ltr .v-chip .v-icon--left{margin-left:-6px;margin-right:6px}.v-application--is-ltr .v-chip .v-avatar--right,.v-application--is-ltr .v-chip .v-icon--right,.v-application--is-rtl .v-chip .v-avatar--left,.v-application--is-rtl .v-chip .v-icon--left{margin-left:6px;margin-right:-6px}.v-application--is-rtl .v-chip .v-avatar--right,.v-application--is-rtl .v-chip .v-icon--right{margin-left:-6px;margin-right:6px}.v-chip:not(.v-chip--no-color) .v-icon{color:inherit}.v-chip .v-chip__close.v-icon{font-size:18px;max-height:18px;max-width:18px;-webkit-user-select:none;-moz-user-select:none;user-select:none}.v-application--is-ltr .v-chip .v-chip__close.v-icon.v-icon--right{margin-right:-4px}.v-application--is-rtl .v-chip .v-chip__close.v-icon.v-icon--right{margin-left:-4px}.v-chip .v-chip__close.v-icon:active,.v-chip .v-chip__close.v-icon:focus,.v-chip .v-chip__close.v-icon:hover{opacity:.72}.v-chip .v-chip__content{align-items:center;display:inline-flex;height:100%;max-width:100%}.v-chip--active .v-icon{color:inherit}.v-chip--link:before{transition:opacity .3s cubic-bezier(.25,.8,.5,1)}.v-chip--link:focus:before{opacity:.32}.v-chip--clickable{cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none}.v-chip--clickable:active{box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}.v-chip--disabled{opacity:.4;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.v-chip__filter{max-width:24px}.v-chip__filter.v-icon{color:inherit}.v-chip__filter.expand-x-transition-enter,.v-chip__filter.expand-x-transition-leave-active{margin:0}.v-chip--pill .v-chip__filter{margin:0 16px 0 0}.v-chip--pill .v-avatar{height:32px!important;width:32px!important}.v-application--is-ltr .v-chip--pill .v-avatar--left{margin-left:-12px}.v-application--is-ltr .v-chip--pill .v-avatar--right,.v-application--is-rtl .v-chip--pill .v-avatar--left{margin-right:-12px}.v-application--is-rtl .v-chip--pill .v-avatar--right{margin-left:-12px}.v-chip--label{border-radius:4px!important}.v-chip.v-chip--outlined{border-style:solid;border-width:thin}.v-chip.v-chip--outlined.v-chip--active:before{opacity:.08}.v-chip.v-chip--outlined .v-icon{color:inherit}.v-chip.v-chip--outlined.v-chip.v-chip{background-color:transparent!important}.v-chip.v-chip--selected{background:transparent}.v-chip.v-chip--selected:after{opacity:.28}.v-chip.v-size--x-small{border-radius:8px;font-size:10px;height:16px}.v-chip.v-size--small{border-radius:12px;font-size:12px;height:24px}.v-chip.v-size--default{border-radius:16px;font-size:14px;height:32px}.v-chip.v-size--large{border-radius:27px;font-size:16px;height:54px}.v-chip.v-size--x-large{border-radius:33px;font-size:18px;height:66px}',""]),o.locals={},t.exports=o},536:function(t,e,r){"use strict";r(13),r(15),r(16),r(10),r(9);var o=r(22),n=r(2),l=(r(12),r(5),r(533),r(6)),c=r(128),d=r(104),h=r(25),v=r(157),f=r(19),m=r(54),_=r(79),x=r(158),y=r(7),w=r(0);function C(t,e){var r=Object.keys(t);if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(t);e&&(o=o.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),r.push.apply(r,o)}return r}function O(t){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{};e%2?C(Object(r),!0).forEach((function(e){Object(n.a)(t,e,r[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(r)):C(Object(r)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(r,e))}))}return t}e.a=Object(l.a)(h.a,x.a,_.a,f.a,Object(v.a)("chipGroup"),Object(m.b)("inputValue")).extend({name:"v-chip",props:{active:{type:Boolean,default:!0},activeClass:{type:String,default:function(){return this.chipGroup?this.chipGroup.activeClass:""}},close:Boolean,closeIcon:{type:String,default:"$delete"},closeLabel:{type:String,default:"$vuetify.close"},disabled:Boolean,draggable:Boolean,filter:Boolean,filterIcon:{type:String,default:"$complete"},label:Boolean,link:Boolean,outlined:Boolean,pill:Boolean,tag:{type:String,default:"span"},textColor:String,value:null},data:function(){return{proxyClass:"v-chip--active"}},computed:{classes:function(){return O(O(O(O({"v-chip":!0},_.a.options.computed.classes.call(this)),{},{"v-chip--clickable":this.isClickable,"v-chip--disabled":this.disabled,"v-chip--draggable":this.draggable,"v-chip--label":this.label,"v-chip--link":this.isLink,"v-chip--no-color":!this.color,"v-chip--outlined":this.outlined,"v-chip--pill":this.pill,"v-chip--removable":this.hasClose},this.themeClasses),this.sizeableClasses),this.groupClasses)},hasClose:function(){return Boolean(this.close)},isClickable:function(){return Boolean(_.a.options.computed.isClickable.call(this)||this.chipGroup)}},created:function(){var t=this;[["outline","outlined"],["selected","input-value"],["value","active"],["@input","@active.sync"]].forEach((function(e){var r=Object(o.a)(e,2),n=r[0],l=r[1];t.$attrs.hasOwnProperty(n)&&Object(y.a)(n,l,t)}))},methods:{click:function(t){this.$emit("click",t),this.chipGroup&&this.toggle()},genFilter:function(){var t=[];return this.isActive&&t.push(this.$createElement(d.a,{staticClass:"v-chip__filter",props:{left:!0}},this.filterIcon)),this.$createElement(c.b,t)},genClose:function(){var t=this;return this.$createElement(d.a,{staticClass:"v-chip__close",props:{right:!0,size:18},attrs:{"aria-label":this.$vuetify.lang.t(this.closeLabel)},on:{click:function(e){e.stopPropagation(),e.preventDefault(),t.$emit("click:close"),t.$emit("update:active",!1)}}},this.closeIcon)},genContent:function(){return this.$createElement("span",{staticClass:"v-chip__content"},[this.filter&&this.genFilter(),Object(w.n)(this),this.hasClose&&this.genClose()])}},render:function(t){var e=[this.genContent()],r=this.generateRouteLink(),o=r.tag,data=r.data;data.attrs=O(O({},data.attrs),{},{draggable:this.draggable?"true":void 0,tabindex:this.chipGroup&&!this.disabled?0:data.attrs.tabindex}),data.directives.push({name:"show",value:this.active}),data=this.setBackgroundColor(this.color,data);var n=this.textColor||this.outlined&&this.color;return t(o,this.setTextColor(n,data),e)}})},555:function(t,e,r){var content=r(600);content.__esModule&&(content=content.default),"string"==typeof content&&(content=[[t.i,content,""]]),content.locals&&(t.exports=content.locals);(0,r(18).default)("2b214ae6",content,!0,{sourceMap:!1})},597:function(t,e,r){var content=r(598);content.__esModule&&(content=content.default),"string"==typeof content&&(content=[[t.i,content,""]]),content.locals&&(t.exports=content.locals);(0,r(18).default)("1c8f4490",content,!0,{sourceMap:!1})},598:function(t,e,r){var o=r(17)((function(i){return i[1]}));o.push([t.i,'.theme--light.v-alert .v-alert--prominent .v-alert__icon:after{background:rgba(0,0,0,.12)}.theme--dark.v-alert .v-alert--prominent .v-alert__icon:after{background:hsla(0,0%,100%,.12)}.v-sheet.v-alert{border-radius:4px}.v-sheet.v-alert:not(.v-sheet--outlined){box-shadow:0 0 0 0 rgba(0,0,0,.2),0 0 0 0 rgba(0,0,0,.14),0 0 0 0 rgba(0,0,0,.12)}.v-sheet.v-alert.v-sheet--shaped{border-radius:16px 4px}.v-alert{display:block;font-size:16px;margin-bottom:16px;padding:16px;position:relative;transition:.3s cubic-bezier(.25,.8,.5,1)}.v-alert:not(.v-sheet--tile){border-radius:4px}.v-application--is-ltr .v-alert>.v-alert__content,.v-application--is-ltr .v-alert>.v-icon{margin-right:16px}.v-application--is-rtl .v-alert>.v-alert__content,.v-application--is-rtl .v-alert>.v-icon{margin-left:16px}.v-application--is-ltr .v-alert>.v-icon+.v-alert__content{margin-right:0}.v-application--is-rtl .v-alert>.v-icon+.v-alert__content{margin-left:0}.v-application--is-ltr .v-alert>.v-alert__content+.v-icon{margin-right:0}.v-application--is-rtl .v-alert>.v-alert__content+.v-icon{margin-left:0}.v-alert__border{border-style:solid;border-width:4px;content:"";position:absolute}.v-alert__border:not(.v-alert__border--has-color){opacity:.26}.v-alert__border--left,.v-alert__border--right{bottom:0;top:0}.v-alert__border--bottom,.v-alert__border--top{left:0;right:0}.v-alert__border--bottom{border-bottom-left-radius:inherit;border-bottom-right-radius:inherit;bottom:0}.v-application--is-ltr .v-alert__border--left{border-bottom-left-radius:inherit;border-top-left-radius:inherit;left:0}.v-application--is-ltr .v-alert__border--right,.v-application--is-rtl .v-alert__border--left{border-bottom-right-radius:inherit;border-top-right-radius:inherit;right:0}.v-application--is-rtl .v-alert__border--right{border-bottom-left-radius:inherit;border-top-left-radius:inherit;left:0}.v-alert__border--top{border-top-left-radius:inherit;border-top-right-radius:inherit;top:0}.v-alert__content{flex:1 1 auto}.v-application--is-ltr .v-alert__dismissible{margin:-16px -8px -16px 8px}.v-application--is-rtl .v-alert__dismissible{margin:-16px 8px -16px -8px}.v-alert__icon{align-self:flex-start;border-radius:50%;height:24px;min-width:24px;position:relative}.v-application--is-ltr .v-alert__icon{margin-right:16px}.v-application--is-rtl .v-alert__icon{margin-left:16px}.v-alert__icon.v-icon{font-size:24px}.v-alert__wrapper{align-items:center;border-radius:inherit;display:flex}.v-application--is-ltr .v-alert--border.v-alert--prominent .v-alert__icon{margin-left:8px}.v-application--is-rtl .v-alert--border.v-alert--prominent .v-alert__icon{margin-right:8px}.v-alert--dense{padding-bottom:8px;padding-top:8px}.v-alert--dense .v-alert__border{border-width:medium}.v-alert--outlined{background:transparent!important;border:thin solid!important}.v-alert--outlined .v-alert__icon{color:inherit!important}.v-alert--prominent .v-alert__icon{align-self:center;height:48px;min-width:48px}.v-alert--prominent .v-alert__icon.v-icon{font-size:32px}.v-alert--prominent .v-alert__icon.v-icon:after{background:currentColor!important;border-radius:50%;bottom:0;content:"";left:0;opacity:.16;position:absolute;right:0;top:0}.v-alert--prominent.v-alert--dense .v-alert__icon.v-icon:after{transform:scale(1)}.v-alert--text{background:transparent!important}.v-alert--text:before{background-color:currentColor;border-radius:inherit;bottom:0;content:"";left:0;opacity:.12;pointer-events:none;position:absolute;right:0;top:0}',""]),o.locals={},t.exports=o},599:function(t,e,r){"use strict";r(555)},600:function(t,e,r){var o=r(17)((function(i){return i[1]}));o.push([t.i,".full-screen[data-v-2d73a79f]{background-color:#f3f3f3;min-height:100vh;padding-top:20px}.card-container[data-v-2d73a79f]{background-color:#fff;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);margin:auto auto 16px;max-width:95%;padding:20px}.delivery-text[data-v-2d73a79f]{color:#2c3e50;font-weight:700}.timeline[data-v-2d73a79f]{flex-direction:column;padding-left:20px}.timeline[data-v-2d73a79f],.timeline-item[data-v-2d73a79f]{display:flex;position:relative}.timeline-item[data-v-2d73a79f]{align-items:center;margin-bottom:10px}.timeline-line[data-v-2d73a79f]{background-color:#c4c4c4;height:100%;left:7px;position:absolute;top:16px;width:3px}.timeline-line.completed[data-v-2d73a79f]{background-color:#247323}.timeline-circle[data-v-2d73a79f]{background-color:#c4c4c4;border-radius:50%;height:16px;margin-right:10px;position:relative;width:16px;z-index:2}.timeline-circle.completed[data-v-2d73a79f]{background-color:#247323}.progress-horizontal[data-v-2d73a79f],.progress-line[data-v-2d73a79f]{position:relative;width:100%}.progress-line[data-v-2d73a79f]{background-color:#c4c4c4;height:4px;overflow:hidden}.progress-line-completed[data-v-2d73a79f]{background-color:#247323;height:100%;left:0;position:absolute;top:0;transition:width .3s ease-in-out}.steps[data-v-2d73a79f]{display:flex;justify-content:space-between;margin-top:-10px}.circle[data-v-2d73a79f]{background-color:#c4c4c4;border-radius:50%;height:16px;width:16px}.circle.completed[data-v-2d73a79f]{background-color:#247323}.tracking-details[data-v-2d73a79f]{max-height:1000px;overflow:hidden;transition:all .5s ease}.detail-item[data-v-2d73a79f]{margin-bottom:12px;padding-left:10px}.detail-date[data-v-2d73a79f]{color:#2c3e50;font-size:14px;font-weight:700}.detail-text[data-v-2d73a79f]{color:#555;font-size:14px;margin:4px 0 0}.btn-details[data-v-2d73a79f]{color:#2c3e50!important;font-weight:700;text-transform:uppercase}.cancelled-card[data-v-2d73a79f]{background-color:#ffe6e6!important}",""]),o.locals={},t.exports=o},634:function(t,e,r){"use strict";r.r(e);r(13),r(12),r(15),r(16),r(10),r(5),r(9);var o=r(2),n=(r(39),r(597),r(125)),l=r(335),c=r(104),d=r(54),h=r(19),v=r(318),f=r(6),m=r(7),_=r(0);function x(t,e){var r=Object.keys(t);if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(t);e&&(o=o.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),r.push.apply(r,o)}return r}function y(t){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{};e%2?x(Object(r),!0).forEach((function(e){Object(o.a)(t,e,r[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(r)):x(Object(r)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(r,e))}))}return t}var w=Object(f.a)(n.a,d.a,v.a).extend({name:"v-alert",props:{border:{type:String,validator:function(t){return["top","right","bottom","left"].includes(t)}},closeLabel:{type:String,default:"$vuetify.close"},coloredBorder:Boolean,dense:Boolean,dismissible:Boolean,closeIcon:{type:String,default:"$cancel"},icon:{default:"",type:[Boolean,String],validator:function(t){return"string"==typeof t||!1===t}},outlined:Boolean,prominent:Boolean,text:Boolean,type:{type:String,validator:function(t){return["info","error","success","warning"].includes(t)}},value:{type:Boolean,default:!0}},computed:{__cachedBorder:function(){if(!this.border)return null;var data={staticClass:"v-alert__border",class:Object(o.a)({},"v-alert__border--".concat(this.border),!0)};return this.coloredBorder&&((data=this.setBackgroundColor(this.computedColor,data)).class["v-alert__border--has-color"]=!0),this.$createElement("div",data)},__cachedDismissible:function(){var t=this;if(!this.dismissible)return null;var e=this.iconColor;return this.$createElement(l.a,{staticClass:"v-alert__dismissible",props:{color:e,icon:!0,small:!0},attrs:{"aria-label":this.$vuetify.lang.t(this.closeLabel)},on:{click:function(){return t.isActive=!1}}},[this.$createElement(c.a,{props:{color:e}},this.closeIcon)])},__cachedIcon:function(){return this.computedIcon?this.$createElement(c.a,{staticClass:"v-alert__icon",props:{color:this.iconColor}},this.computedIcon):null},classes:function(){var t=y(y({},n.a.options.computed.classes.call(this)),{},{"v-alert--border":Boolean(this.border),"v-alert--dense":this.dense,"v-alert--outlined":this.outlined,"v-alert--prominent":this.prominent,"v-alert--text":this.text});return this.border&&(t["v-alert--border-".concat(this.border)]=!0),t},computedColor:function(){return this.color||this.type},computedIcon:function(){return!1!==this.icon&&("string"==typeof this.icon&&this.icon?this.icon:!!["error","info","success","warning"].includes(this.type)&&"$".concat(this.type))},hasColoredIcon:function(){return this.hasText||Boolean(this.border)&&this.coloredBorder},hasText:function(){return this.text||this.outlined},iconColor:function(){return this.hasColoredIcon?this.computedColor:void 0},isDark:function(){return!(!this.type||this.coloredBorder||this.outlined)||h.a.options.computed.isDark.call(this)}},created:function(){this.$attrs.hasOwnProperty("outline")&&Object(m.a)("outline","outlined",this)},methods:{genWrapper:function(){var t=[Object(_.n)(this,"prepend")||this.__cachedIcon,this.genContent(),this.__cachedBorder,Object(_.n)(this,"append"),this.$scopedSlots.close?this.$scopedSlots.close({toggle:this.toggle}):this.__cachedDismissible];return this.$createElement("div",{staticClass:"v-alert__wrapper"},t)},genContent:function(){return this.$createElement("div",{staticClass:"v-alert__content"},Object(_.n)(this))},genAlert:function(){var data={staticClass:"v-alert",attrs:{role:"alert"},on:this.listeners$,class:this.classes,style:this.styles,directives:[{name:"show",value:this.isActive}]};this.coloredBorder||(data=(this.hasText?this.setTextColor:this.setBackgroundColor)(this.computedColor,data));return this.$createElement("div",data,[this.genWrapper()])},toggle:function(){this.isActive=!this.isActive}},render:function(t){var e=this.genAlert();return this.transition?t("transition",{props:{name:this.transition,origin:this.origin,mode:this.mode}},[e]):e}}),C=r(511),O=r(505),k=r(536),D=r(526),j=r(530),P=r(512),S=r(128),z=r(525);r(43),r(63);function B(t,e){var r=Object.keys(t);if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(t);e&&(o=o.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),r.push.apply(r,o)}return r}function $(t){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{};e%2?B(Object(r),!0).forEach((function(e){Object(o.a)(t,e,r[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(r)):B(Object(r)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(r,e))}))}return t}var E={data:function(){return{orders:[],isMobile:window.innerWidth<600}},computed:{filteredOrders:function(){return this.orders.filter((function(t){return"entregado"!==t.estado}))}},methods:{formatDate:function(t){if(!t)return"";return new Date(t).toLocaleDateString("es-ES",{year:"numeric",month:"long",day:"numeric"})},updateIsMobile:function(){this.isMobile=window.innerWidth<600},getPreparationDate:function(t){if(!t||!t.fecha_levantamiento_pedido)return"";var e=new Date(t.fecha_levantamiento_pedido);return e.setDate(e.getDate()+1),this.formatDate(e)},getShippingDate:function(t){if(!t||!t.fecha_levantamiento_pedido)return"";var e=new Date(t.fecha_levantamiento_pedido);return e.setDate(e.getDate()+2),this.formatDate(e)},getTimelineSteps:function(t){return[{title:"Pedido confirmado",date:t.fecha_levantamiento_pedido?this.formatDate(t.fecha_levantamiento_pedido):""},{title:"En preparación",date:t.fecha_levantamiento_pedido?this.getPreparationDate(t):"Pendiente"},{title:"En camino",date:"enviado"===t.estado?this.getShippingDate(t):"Pendiente"},{title:"Entregado",date:"entregado"===t.estado?this.formatDate(t.fecha_entrega_estimada):"Pendiente"}]},getCurrentStep:function(t){switch(t.estado){case"pendiente":return 1;case"enviado":return 2;case"cancelado":default:return 0;case"entregado":return 3}},getProgressWidth:function(t){return this.getCurrentStep(t)/3*100+"%"},getDetails:function(t){return[{date:t.fecha_levantamiento_pedido?this.formatDate(t.fecha_levantamiento_pedido):"",text:"Hemos recibido tu pedido y está en proceso de validación."},{date:t.fecha_levantamiento_pedido?this.getPreparationDate(t):"Pendiente",text:"Estamos reuniendo los productos de tu pedido."},{date:"enviado"===t.estado?this.getShippingDate(t):"Pendiente",text:"Tu pedido ha sido empacado y está listo para ser enviado."},{date:"entregado"===t.estado?this.formatDate(t.fecha_entrega_estimada):"Pendiente",text:"Tu paquete ha salido de nuestro almacén."},{date:"entregado"===t.estado?this.formatDate(t.fecha_entrega_estimada):"Pendiente",text:"El repartidor tiene tu pedido y está en camino."}]},toggleDetails:function(t){void 0===t.showDetails?this.$set(t,"showDetails",!0):t.showDetails=!t.showDetails},fetchOrders:function(){var t=this,e=localStorage.getItem("userId");e&&this.$api.getUserOrders(e,"Todas").then((function(e){t.orders=e.map((function(t){return $($({},t),{},{showDetails:!1})}))})).catch((function(t){console.error("Error al obtener los pedidos:",t)}))}},mounted:function(){this.fetchOrders(),window.addEventListener("resize",this.updateIsMobile)},beforeDestroy:function(){window.removeEventListener("resize",this.updateIsMobile)}},I=(r(599),r(72)),component=Object(I.a)(E,(function(){var t=this,e=t._self._c;return e(j.a,{staticClass:"full-screen",attrs:{fluid:""}},[e(z.a,[e(D.a,{attrs:{cols:"12"}},[e("h2",{staticClass:"font-weight-bold text-primary title-text"},[t._v("Seguimiento de tus pedidos")])])],1),t._v(" "),t.filteredOrders.length?e(z.a,t._l(t.filteredOrders,(function(r){return e(D.a,{key:r.id_pedido,attrs:{cols:"12"}},[e(O.a,{staticClass:"pa-4 card-container",class:{"cancelled-card":"cancelado"===r.estado},attrs:{outlined:""}},[e(z.a,[e(D.a,{attrs:{cols:"12"}},[e("h3",{staticClass:"font-weight-bold text-primary title-text"},[e("span",{staticClass:"delivery-text"},[t._v("\n                Llega entre el "+t._s(t.formatDate(r.fecha_entrega_estimada))+"\n              ")])])])],1),t._v(" "),e(P.a,{staticClass:"my-2"}),t._v(" "),e(z.a,[e(D.a,{attrs:{cols:"6"}},[e("p",[e("strong",[t._v("Realizado:")]),t._v(" "+t._s(t.formatDate(r.fecha_levantamiento_pedido)))])]),t._v(" "),e(D.a,{staticClass:"text-right",attrs:{cols:"6"}},[e(k.a,{attrs:{color:"primary","text-color":"white"}},[t._v("\n              "+t._s(r.estado.toUpperCase())+"\n            ")])],1)],1),t._v(" "),e(P.a,{staticClass:"my-2"}),t._v(" "),e("div",{staticClass:"tracking-container"},[t.isMobile?e("div",{staticClass:"timeline"},t._l(t.getTimelineSteps(r),(function(o,n){return e("div",{key:n,staticClass:"timeline-item"},[e("div",{staticClass:"timeline-line",class:{completed:n<t.getCurrentStep(r)}}),t._v(" "),e("div",{staticClass:"timeline-circle",class:{completed:n<t.getCurrentStep(r)}}),t._v(" "),e("div",{staticClass:"timeline-content"},[e("p",{staticClass:"step-title",class:{highlight:n<=t.getCurrentStep(r)}},[t._v("\n                  "+t._s(o.title)+"\n                ")]),t._v(" "),e("small",{staticClass:"step-date"},[t._v(t._s(o.date||"Pendiente"))])])])})),0):e("div",{staticClass:"progress-horizontal"},[e("div",{staticClass:"progress-line"},[e("div",{staticClass:"progress-line-completed",style:{width:t.getProgressWidth(r)}})]),t._v(" "),e("div",{staticClass:"steps"},t._l(t.getTimelineSteps(r),(function(o,n){return e("div",{key:n,staticClass:"step"},[e("div",{staticClass:"circle",class:{completed:n<t.getCurrentStep(r)}}),t._v(" "),e("p",{staticClass:"step-title",class:{highlight:n<=t.getCurrentStep(r)}},[t._v("\n                  "+t._s(o.title)+"\n                ")]),t._v(" "),e("small",{staticClass:"step-date"},[t._v(t._s(o.date||"Pendiente"))])])})),0)])]),t._v(" "),e(P.a,{staticClass:"my-4"}),t._v(" "),e(z.a,[e(D.a,{attrs:{cols:"12"}},[e("h4",{staticClass:"font-weight-medium"},[t._v("Detalles de seguimiento")]),t._v(" "),e(S.a,[e("div",{staticClass:"tracking-details"},t._l(r.showDetails?t.getDetails(r):t.getDetails(r).slice(0,2),(function(r,o){return e("div",{key:o,staticClass:"detail-item"},[e("span",{staticClass:"detail-date"},[t._v(t._s(r.date))]),t._v(" "),e("p",{staticClass:"detail-text"},[t._v(t._s(r.text))])])})),0)])],1)],1),t._v(" "),t.getDetails(r).length>2?e(z.a,[e(D.a,{staticClass:"text-left",attrs:{cols:"12"}},[e(C.a,{staticClass:"font-weight-bold btn-details",attrs:{text:"",color:"primary"},on:{click:function(e){return t.toggleDetails(r)}}},[t._v("\n              "+t._s(r.showDetails?"Ocultar detalles ▲":"Ver detalles ▼")+"\n            ")])],1)],1):t._e()],1)],1)})),1):e(z.a,[e(D.a,{attrs:{cols:"12"}},[e(w,{attrs:{type:"info"}},[t._v("No tienes pedidos pendientes o en camino.")])],1)],1)],1)}),[],!1,null,"2d73a79f",null);e.default=component.exports}}]);
+(window.webpackJsonp = window.webpackJsonp || []).push([
+  [15],
+  {
+    335: function (t, e, r) {
+      "use strict";
+      var o = r(511);
+      e.a = o.a;
+    },
+    533: function (t, e, r) {
+      var content = r(534);
+      content.__esModule && (content = content.default),
+        "string" == typeof content && (content = [[t.i, content, ""]]),
+        content.locals && (t.exports = content.locals);
+      (0, r(18).default)("59b49814", content, !0, { sourceMap: !1 });
+    },
+    534: function (t, e, r) {
+      var o = r(17)(function (i) {
+        return i[1];
+      });
+      o.push([
+        t.i,
+        '.v-chip:not(.v-chip--outlined).accent,.v-chip:not(.v-chip--outlined).error,.v-chip:not(.v-chip--outlined).info,.v-chip:not(.v-chip--outlined).primary,.v-chip:not(.v-chip--outlined).secondary,.v-chip:not(.v-chip--outlined).success,.v-chip:not(.v-chip--outlined).warning{color:#fff}.theme--light.v-chip{border-color:rgba(0,0,0,.12);color:rgba(0,0,0,.87)}.theme--light.v-chip:not(.v-chip--active){background:#e0e0e0}.theme--light.v-chip:hover:before{opacity:.04}.theme--light.v-chip--active:before,.theme--light.v-chip--active:hover:before,.theme--light.v-chip:focus:before{opacity:.12}.theme--light.v-chip--active:focus:before{opacity:.16}.theme--dark.v-chip{border-color:hsla(0,0%,100%,.12);color:#fff}.theme--dark.v-chip:not(.v-chip--active){background:#555}.theme--dark.v-chip:hover:before{opacity:.08}.theme--dark.v-chip--active:before,.theme--dark.v-chip--active:hover:before,.theme--dark.v-chip:focus:before{opacity:.24}.theme--dark.v-chip--active:focus:before{opacity:.32}.v-chip{align-items:center;cursor:default;display:inline-flex;line-height:20px;max-width:100%;outline:none;overflow:hidden;padding:0 12px;position:relative;-webkit-text-decoration:none;text-decoration:none;transition-duration:.28s;transition-property:box-shadow,opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);vertical-align:middle;white-space:nowrap}.v-chip:before{background-color:currentColor;border-radius:inherit;bottom:0;content:"";left:0;opacity:0;pointer-events:none;position:absolute;right:0;top:0}.v-chip .v-avatar{height:24px!important;min-width:24px!important;width:24px!important}.v-chip .v-icon{font-size:24px}.v-application--is-ltr .v-chip .v-avatar--left,.v-application--is-ltr .v-chip .v-icon--left{margin-left:-6px;margin-right:6px}.v-application--is-ltr .v-chip .v-avatar--right,.v-application--is-ltr .v-chip .v-icon--right,.v-application--is-rtl .v-chip .v-avatar--left,.v-application--is-rtl .v-chip .v-icon--left{margin-left:6px;margin-right:-6px}.v-application--is-rtl .v-chip .v-avatar--right,.v-application--is-rtl .v-chip .v-icon--right{margin-left:-6px;margin-right:6px}.v-chip:not(.v-chip--no-color) .v-icon{color:inherit}.v-chip .v-chip__close.v-icon{font-size:18px;max-height:18px;max-width:18px;-webkit-user-select:none;-moz-user-select:none;user-select:none}.v-application--is-ltr .v-chip .v-chip__close.v-icon.v-icon--right{margin-right:-4px}.v-application--is-rtl .v-chip .v-chip__close.v-icon.v-icon--right{margin-left:-4px}.v-chip .v-chip__close.v-icon:active,.v-chip .v-chip__close.v-icon:focus,.v-chip .v-chip__close.v-icon:hover{opacity:.72}.v-chip .v-chip__content{align-items:center;display:inline-flex;height:100%;max-width:100%}.v-chip--active .v-icon{color:inherit}.v-chip--link:before{transition:opacity .3s cubic-bezier(.25,.8,.5,1)}.v-chip--link:focus:before{opacity:.32}.v-chip--clickable{cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none}.v-chip--clickable:active{box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}.v-chip--disabled{opacity:.4;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.v-chip__filter{max-width:24px}.v-chip__filter.v-icon{color:inherit}.v-chip__filter.expand-x-transition-enter,.v-chip__filter.expand-x-transition-leave-active{margin:0}.v-chip--pill .v-chip__filter{margin:0 16px 0 0}.v-chip--pill .v-avatar{height:32px!important;width:32px!important}.v-application--is-ltr .v-chip--pill .v-avatar--left{margin-left:-12px}.v-application--is-ltr .v-chip--pill .v-avatar--right,.v-application--is-rtl .v-chip--pill .v-avatar--left{margin-right:-12px}.v-application--is-rtl .v-chip--pill .v-avatar--right{margin-left:-12px}.v-chip--label{border-radius:4px!important}.v-chip.v-chip--outlined{border-style:solid;border-width:thin}.v-chip.v-chip--outlined.v-chip--active:before{opacity:.08}.v-chip.v-chip--outlined .v-icon{color:inherit}.v-chip.v-chip--outlined.v-chip.v-chip{background-color:transparent!important}.v-chip.v-chip--selected{background:transparent}.v-chip.v-chip--selected:after{opacity:.28}.v-chip.v-size--x-small{border-radius:8px;font-size:10px;height:16px}.v-chip.v-size--small{border-radius:12px;font-size:12px;height:24px}.v-chip.v-size--default{border-radius:16px;font-size:14px;height:32px}.v-chip.v-size--large{border-radius:27px;font-size:16px;height:54px}.v-chip.v-size--x-large{border-radius:33px;font-size:18px;height:66px}',
+        "",
+      ]),
+        (o.locals = {}),
+        (t.exports = o);
+    },
+    536: function (t, e, r) {
+      "use strict";
+      r(13), r(15), r(16), r(10), r(9);
+      var o = r(22),
+        n = r(2),
+        l = (r(12), r(5), r(533), r(6)),
+        c = r(128),
+        d = r(104),
+        h = r(25),
+        v = r(157),
+        f = r(19),
+        m = r(54),
+        _ = r(79),
+        x = r(158),
+        y = r(7),
+        w = r(0);
+      function C(t, e) {
+        var r = Object.keys(t);
+        if (Object.getOwnPropertySymbols) {
+          var o = Object.getOwnPropertySymbols(t);
+          e &&
+            (o = o.filter(function (e) {
+              return Object.getOwnPropertyDescriptor(t, e).enumerable;
+            })),
+            r.push.apply(r, o);
+        }
+        return r;
+      }
+      function O(t) {
+        for (var e = 1; e < arguments.length; e++) {
+          var r = null != arguments[e] ? arguments[e] : {};
+          e % 2
+            ? C(Object(r), !0).forEach(function (e) {
+                Object(n.a)(t, e, r[e]);
+              })
+            : Object.getOwnPropertyDescriptors
+            ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(r))
+            : C(Object(r)).forEach(function (e) {
+                Object.defineProperty(
+                  t,
+                  e,
+                  Object.getOwnPropertyDescriptor(r, e)
+                );
+              });
+        }
+        return t;
+      }
+      e.a = Object(l.a)(
+        h.a,
+        x.a,
+        _.a,
+        f.a,
+        Object(v.a)("chipGroup"),
+        Object(m.b)("inputValue")
+      ).extend({
+        name: "v-chip",
+        props: {
+          active: { type: Boolean, default: !0 },
+          activeClass: {
+            type: String,
+            default: function () {
+              return this.chipGroup ? this.chipGroup.activeClass : "";
+            },
+          },
+          close: Boolean,
+          closeIcon: { type: String, default: "$delete" },
+          closeLabel: { type: String, default: "$vuetify.close" },
+          disabled: Boolean,
+          draggable: Boolean,
+          filter: Boolean,
+          filterIcon: { type: String, default: "$complete" },
+          label: Boolean,
+          link: Boolean,
+          outlined: Boolean,
+          pill: Boolean,
+          tag: { type: String, default: "span" },
+          textColor: String,
+          value: null,
+        },
+        data: function () {
+          return { proxyClass: "v-chip--active" };
+        },
+        computed: {
+          classes: function () {
+            return O(
+              O(
+                O(
+                  O({ "v-chip": !0 }, _.a.options.computed.classes.call(this)),
+                  {},
+                  {
+                    "v-chip--clickable": this.isClickable,
+                    "v-chip--disabled": this.disabled,
+                    "v-chip--draggable": this.draggable,
+                    "v-chip--label": this.label,
+                    "v-chip--link": this.isLink,
+                    "v-chip--no-color": !this.color,
+                    "v-chip--outlined": this.outlined,
+                    "v-chip--pill": this.pill,
+                    "v-chip--removable": this.hasClose,
+                  },
+                  this.themeClasses
+                ),
+                this.sizeableClasses
+              ),
+              this.groupClasses
+            );
+          },
+          hasClose: function () {
+            return Boolean(this.close);
+          },
+          isClickable: function () {
+            return Boolean(
+              _.a.options.computed.isClickable.call(this) || this.chipGroup
+            );
+          },
+        },
+        created: function () {
+          var t = this;
+          [
+            ["outline", "outlined"],
+            ["selected", "input-value"],
+            ["value", "active"],
+            ["@input", "@active.sync"],
+          ].forEach(function (e) {
+            var r = Object(o.a)(e, 2),
+              n = r[0],
+              l = r[1];
+            t.$attrs.hasOwnProperty(n) && Object(y.a)(n, l, t);
+          });
+        },
+        methods: {
+          click: function (t) {
+            this.$emit("click", t), this.chipGroup && this.toggle();
+          },
+          genFilter: function () {
+            var t = [];
+            return (
+              this.isActive &&
+                t.push(
+                  this.$createElement(
+                    d.a,
+                    { staticClass: "v-chip__filter", props: { left: !0 } },
+                    this.filterIcon
+                  )
+                ),
+              this.$createElement(c.b, t)
+            );
+          },
+          genClose: function () {
+            var t = this;
+            return this.$createElement(
+              d.a,
+              {
+                staticClass: "v-chip__close",
+                props: { right: !0, size: 18 },
+                attrs: { "aria-label": this.$vuetify.lang.t(this.closeLabel) },
+                on: {
+                  click: function (e) {
+                    e.stopPropagation(),
+                      e.preventDefault(),
+                      t.$emit("click:close"),
+                      t.$emit("update:active", !1);
+                  },
+                },
+              },
+              this.closeIcon
+            );
+          },
+          genContent: function () {
+            return this.$createElement(
+              "span",
+              { staticClass: "v-chip__content" },
+              [
+                this.filter && this.genFilter(),
+                Object(w.n)(this),
+                this.hasClose && this.genClose(),
+              ]
+            );
+          },
+        },
+        render: function (t) {
+          var e = [this.genContent()],
+            r = this.generateRouteLink(),
+            o = r.tag,
+            data = r.data;
+          (data.attrs = O(
+            O({}, data.attrs),
+            {},
+            {
+              draggable: this.draggable ? "true" : void 0,
+              tabindex:
+                this.chipGroup && !this.disabled ? 0 : data.attrs.tabindex,
+            }
+          )),
+            data.directives.push({ name: "show", value: this.active }),
+            (data = this.setBackgroundColor(this.color, data));
+          var n = this.textColor || (this.outlined && this.color);
+          return t(o, this.setTextColor(n, data), e);
+        },
+      });
+    },
+    555: function (t, e, r) {
+      var content = r(600);
+      content.__esModule && (content = content.default),
+        "string" == typeof content && (content = [[t.i, content, ""]]),
+        content.locals && (t.exports = content.locals);
+      (0, r(18).default)("2b214ae6", content, !0, { sourceMap: !1 });
+    },
+    597: function (t, e, r) {
+      var content = r(598);
+      content.__esModule && (content = content.default),
+        "string" == typeof content && (content = [[t.i, content, ""]]),
+        content.locals && (t.exports = content.locals);
+      (0, r(18).default)("1c8f4490", content, !0, { sourceMap: !1 });
+    },
+    598: function (t, e, r) {
+      var o = r(17)(function (i) {
+        return i[1];
+      });
+      o.push([
+        t.i,
+        '.theme--light.v-alert .v-alert--prominent .v-alert__icon:after{background:rgba(0,0,0,.12)}.theme--dark.v-alert .v-alert--prominent .v-alert__icon:after{background:hsla(0,0%,100%,.12)}.v-sheet.v-alert{border-radius:4px}.v-sheet.v-alert:not(.v-sheet--outlined){box-shadow:0 0 0 0 rgba(0,0,0,.2),0 0 0 0 rgba(0,0,0,.14),0 0 0 0 rgba(0,0,0,.12)}.v-sheet.v-alert.v-sheet--shaped{border-radius:16px 4px}.v-alert{display:block;font-size:16px;margin-bottom:16px;padding:16px;position:relative;transition:.3s cubic-bezier(.25,.8,.5,1)}.v-alert:not(.v-sheet--tile){border-radius:4px}.v-application--is-ltr .v-alert>.v-alert__content,.v-application--is-ltr .v-alert>.v-icon{margin-right:16px}.v-application--is-rtl .v-alert>.v-alert__content,.v-application--is-rtl .v-alert>.v-icon{margin-left:16px}.v-application--is-ltr .v-alert>.v-icon+.v-alert__content{margin-right:0}.v-application--is-rtl .v-alert>.v-icon+.v-alert__content{margin-left:0}.v-application--is-ltr .v-alert>.v-alert__content+.v-icon{margin-right:0}.v-application--is-rtl .v-alert>.v-alert__content+.v-icon{margin-left:0}.v-alert__border{border-style:solid;border-width:4px;content:"";position:absolute}.v-alert__border:not(.v-alert__border--has-color){opacity:.26}.v-alert__border--left,.v-alert__border--right{bottom:0;top:0}.v-alert__border--bottom,.v-alert__border--top{left:0;right:0}.v-alert__border--bottom{border-bottom-left-radius:inherit;border-bottom-right-radius:inherit;bottom:0}.v-application--is-ltr .v-alert__border--left{border-bottom-left-radius:inherit;border-top-left-radius:inherit;left:0}.v-application--is-ltr .v-alert__border--right,.v-application--is-rtl .v-alert__border--left{border-bottom-right-radius:inherit;border-top-right-radius:inherit;right:0}.v-application--is-rtl .v-alert__border--right{border-bottom-left-radius:inherit;border-top-left-radius:inherit;left:0}.v-alert__border--top{border-top-left-radius:inherit;border-top-right-radius:inherit;top:0}.v-alert__content{flex:1 1 auto}.v-application--is-ltr .v-alert__dismissible{margin:-16px -8px -16px 8px}.v-application--is-rtl .v-alert__dismissible{margin:-16px 8px -16px -8px}.v-alert__icon{align-self:flex-start;border-radius:50%;height:24px;min-width:24px;position:relative}.v-application--is-ltr .v-alert__icon{margin-right:16px}.v-application--is-rtl .v-alert__icon{margin-left:16px}.v-alert__icon.v-icon{font-size:24px}.v-alert__wrapper{align-items:center;border-radius:inherit;display:flex}.v-application--is-ltr .v-alert--border.v-alert--prominent .v-alert__icon{margin-left:8px}.v-application--is-rtl .v-alert--border.v-alert--prominent .v-alert__icon{margin-right:8px}.v-alert--dense{padding-bottom:8px;padding-top:8px}.v-alert--dense .v-alert__border{border-width:medium}.v-alert--outlined{background:transparent!important;border:thin solid!important}.v-alert--outlined .v-alert__icon{color:inherit!important}.v-alert--prominent .v-alert__icon{align-self:center;height:48px;min-width:48px}.v-alert--prominent .v-alert__icon.v-icon{font-size:32px}.v-alert--prominent .v-alert__icon.v-icon:after{background:currentColor!important;border-radius:50%;bottom:0;content:"";left:0;opacity:.16;position:absolute;right:0;top:0}.v-alert--prominent.v-alert--dense .v-alert__icon.v-icon:after{transform:scale(1)}.v-alert--text{background:transparent!important}.v-alert--text:before{background-color:currentColor;border-radius:inherit;bottom:0;content:"";left:0;opacity:.12;pointer-events:none;position:absolute;right:0;top:0}',
+        "",
+      ]),
+        (o.locals = {}),
+        (t.exports = o);
+    },
+    599: function (t, e, r) {
+      "use strict";
+      r(555);
+    },
+    600: function (t, e, r) {
+      var o = r(17)(function (i) {
+        return i[1];
+      });
+      o.push([
+        t.i,
+        ".full-screen[data-v-2d73a79f]{background-color:#f3f3f3;min-height:100vh;padding-top:20px}.card-container[data-v-2d73a79f]{background-color:#fff;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);margin:auto auto 16px;max-width:95%;padding:20px}.delivery-text[data-v-2d73a79f]{color:#2c3e50;font-weight:700}.timeline[data-v-2d73a79f]{flex-direction:column;padding-left:20px}.timeline[data-v-2d73a79f],.timeline-item[data-v-2d73a79f]{display:flex;position:relative}.timeline-item[data-v-2d73a79f]{align-items:center;margin-bottom:10px}.timeline-line[data-v-2d73a79f]{background-color:#c4c4c4;height:100%;left:7px;position:absolute;top:16px;width:3px}.timeline-line.completed[data-v-2d73a79f]{background-color:#247323}.timeline-circle[data-v-2d73a79f]{background-color:#c4c4c4;border-radius:50%;height:16px;margin-right:10px;position:relative;width:16px;z-index:2}.timeline-circle.completed[data-v-2d73a79f]{background-color:#247323}.progress-horizontal[data-v-2d73a79f],.progress-line[data-v-2d73a79f]{position:relative;width:100%}.progress-line[data-v-2d73a79f]{background-color:#c4c4c4;height:4px;overflow:hidden}.progress-line-completed[data-v-2d73a79f]{background-color:#247323;height:100%;left:0;position:absolute;top:0;transition:width .3s ease-in-out}.steps[data-v-2d73a79f]{display:flex;justify-content:space-between;margin-top:-10px}.circle[data-v-2d73a79f]{background-color:#c4c4c4;border-radius:50%;height:16px;width:16px}.circle.completed[data-v-2d73a79f]{background-color:#247323}.tracking-details[data-v-2d73a79f]{max-height:1000px;overflow:hidden;transition:all .5s ease}.detail-item[data-v-2d73a79f]{margin-bottom:12px;padding-left:10px}.detail-date[data-v-2d73a79f]{color:#2c3e50;font-size:14px;font-weight:700}.detail-text[data-v-2d73a79f]{color:#555;font-size:14px;margin:4px 0 0}.btn-details[data-v-2d73a79f]{color:#2c3e50!important;font-weight:700;text-transform:uppercase}.cancelled-card[data-v-2d73a79f]{background-color:#ffe6e6!important}",
+        "",
+      ]),
+        (o.locals = {}),
+        (t.exports = o);
+    },
+    634: function (t, e, r) {
+      "use strict";
+      r.r(e);
+      r(13), r(12), r(15), r(16), r(10), r(5), r(9);
+      var o = r(2),
+        n = (r(39), r(597), r(125)),
+        l = r(335),
+        c = r(104),
+        d = r(54),
+        h = r(19),
+        v = r(318),
+        f = r(6),
+        m = r(7),
+        _ = r(0);
+      function x(t, e) {
+        var r = Object.keys(t);
+        if (Object.getOwnPropertySymbols) {
+          var o = Object.getOwnPropertySymbols(t);
+          e &&
+            (o = o.filter(function (e) {
+              return Object.getOwnPropertyDescriptor(t, e).enumerable;
+            })),
+            r.push.apply(r, o);
+        }
+        return r;
+      }
+      function y(t) {
+        for (var e = 1; e < arguments.length; e++) {
+          var r = null != arguments[e] ? arguments[e] : {};
+          e % 2
+            ? x(Object(r), !0).forEach(function (e) {
+                Object(o.a)(t, e, r[e]);
+              })
+            : Object.getOwnPropertyDescriptors
+            ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(r))
+            : x(Object(r)).forEach(function (e) {
+                Object.defineProperty(
+                  t,
+                  e,
+                  Object.getOwnPropertyDescriptor(r, e)
+                );
+              });
+        }
+        return t;
+      }
+      var w = Object(f.a)(n.a, d.a, v.a).extend({
+          name: "v-alert",
+          props: {
+            border: {
+              type: String,
+              validator: function (t) {
+                return ["top", "right", "bottom", "left"].includes(t);
+              },
+            },
+            closeLabel: { type: String, default: "$vuetify.close" },
+            coloredBorder: Boolean,
+            dense: Boolean,
+            dismissible: Boolean,
+            closeIcon: { type: String, default: "$cancel" },
+            icon: {
+              default: "",
+              type: [Boolean, String],
+              validator: function (t) {
+                return "string" == typeof t || !1 === t;
+              },
+            },
+            outlined: Boolean,
+            prominent: Boolean,
+            text: Boolean,
+            type: {
+              type: String,
+              validator: function (t) {
+                return ["info", "error", "success", "warning"].includes(t);
+              },
+            },
+            value: { type: Boolean, default: !0 },
+          },
+          computed: {
+            __cachedBorder: function () {
+              if (!this.border) return null;
+              var data = {
+                staticClass: "v-alert__border",
+                class: Object(o.a)(
+                  {},
+                  "v-alert__border--".concat(this.border),
+                  !0
+                ),
+              };
+              return (
+                this.coloredBorder &&
+                  ((data = this.setBackgroundColor(
+                    this.computedColor,
+                    data
+                  )).class["v-alert__border--has-color"] = !0),
+                this.$createElement("div", data)
+              );
+            },
+            __cachedDismissible: function () {
+              var t = this;
+              if (!this.dismissible) return null;
+              var e = this.iconColor;
+              return this.$createElement(
+                l.a,
+                {
+                  staticClass: "v-alert__dismissible",
+                  props: { color: e, icon: !0, small: !0 },
+                  attrs: {
+                    "aria-label": this.$vuetify.lang.t(this.closeLabel),
+                  },
+                  on: {
+                    click: function () {
+                      return (t.isActive = !1);
+                    },
+                  },
+                },
+                [
+                  this.$createElement(
+                    c.a,
+                    { props: { color: e } },
+                    this.closeIcon
+                  ),
+                ]
+              );
+            },
+            __cachedIcon: function () {
+              return this.computedIcon
+                ? this.$createElement(
+                    c.a,
+                    {
+                      staticClass: "v-alert__icon",
+                      props: { color: this.iconColor },
+                    },
+                    this.computedIcon
+                  )
+                : null;
+            },
+            classes: function () {
+              var t = y(
+                y({}, n.a.options.computed.classes.call(this)),
+                {},
+                {
+                  "v-alert--border": Boolean(this.border),
+                  "v-alert--dense": this.dense,
+                  "v-alert--outlined": this.outlined,
+                  "v-alert--prominent": this.prominent,
+                  "v-alert--text": this.text,
+                }
+              );
+              return (
+                this.border && (t["v-alert--border-".concat(this.border)] = !0),
+                t
+              );
+            },
+            computedColor: function () {
+              return this.color || this.type;
+            },
+            computedIcon: function () {
+              return (
+                !1 !== this.icon &&
+                ("string" == typeof this.icon && this.icon
+                  ? this.icon
+                  : !!["error", "info", "success", "warning"].includes(
+                      this.type
+                    ) && "$".concat(this.type))
+              );
+            },
+            hasColoredIcon: function () {
+              return (
+                this.hasText || (Boolean(this.border) && this.coloredBorder)
+              );
+            },
+            hasText: function () {
+              return this.text || this.outlined;
+            },
+            iconColor: function () {
+              return this.hasColoredIcon ? this.computedColor : void 0;
+            },
+            isDark: function () {
+              return (
+                !(!this.type || this.coloredBorder || this.outlined) ||
+                h.a.options.computed.isDark.call(this)
+              );
+            },
+          },
+          created: function () {
+            this.$attrs.hasOwnProperty("outline") &&
+              Object(m.a)("outline", "outlined", this);
+          },
+          methods: {
+            genWrapper: function () {
+              var t = [
+                Object(_.n)(this, "prepend") || this.__cachedIcon,
+                this.genContent(),
+                this.__cachedBorder,
+                Object(_.n)(this, "append"),
+                this.$scopedSlots.close
+                  ? this.$scopedSlots.close({ toggle: this.toggle })
+                  : this.__cachedDismissible,
+              ];
+              return this.$createElement(
+                "div",
+                { staticClass: "v-alert__wrapper" },
+                t
+              );
+            },
+            genContent: function () {
+              return this.$createElement(
+                "div",
+                { staticClass: "v-alert__content" },
+                Object(_.n)(this)
+              );
+            },
+            genAlert: function () {
+              var data = {
+                staticClass: "v-alert",
+                attrs: { role: "alert" },
+                on: this.listeners$,
+                class: this.classes,
+                style: this.styles,
+                directives: [{ name: "show", value: this.isActive }],
+              };
+              this.coloredBorder ||
+                (data = (
+                  this.hasText ? this.setTextColor : this.setBackgroundColor
+                )(this.computedColor, data));
+              return this.$createElement("div", data, [this.genWrapper()]);
+            },
+            toggle: function () {
+              this.isActive = !this.isActive;
+            },
+          },
+          render: function (t) {
+            var e = this.genAlert();
+            return this.transition
+              ? t(
+                  "transition",
+                  {
+                    props: {
+                      name: this.transition,
+                      origin: this.origin,
+                      mode: this.mode,
+                    },
+                  },
+                  [e]
+                )
+              : e;
+          },
+        }),
+        C = r(511),
+        O = r(505),
+        k = r(536),
+        D = r(526),
+        j = r(530),
+        P = r(512),
+        S = r(128),
+        z = r(525);
+      r(43), r(63);
+      function B(t, e) {
+        var r = Object.keys(t);
+        if (Object.getOwnPropertySymbols) {
+          var o = Object.getOwnPropertySymbols(t);
+          e &&
+            (o = o.filter(function (e) {
+              return Object.getOwnPropertyDescriptor(t, e).enumerable;
+            })),
+            r.push.apply(r, o);
+        }
+        return r;
+      }
+      function $(t) {
+        for (var e = 1; e < arguments.length; e++) {
+          var r = null != arguments[e] ? arguments[e] : {};
+          e % 2
+            ? B(Object(r), !0).forEach(function (e) {
+                Object(o.a)(t, e, r[e]);
+              })
+            : Object.getOwnPropertyDescriptors
+            ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(r))
+            : B(Object(r)).forEach(function (e) {
+                Object.defineProperty(
+                  t,
+                  e,
+                  Object.getOwnPropertyDescriptor(r, e)
+                );
+              });
+        }
+        return t;
+      }
+      var E = {
+          data: function () {
+            return { orders: [], isMobile: window.innerWidth < 600 };
+          },
+          computed: {
+            filteredOrders: function () {
+              return this.orders.filter(function (t) {
+                return "entregado" !== t.estado;
+              });
+            },
+          },
+          methods: {
+            formatDate: function (t) {
+              if (!t) return "";
+              return new Date(t).toLocaleDateString("es-ES", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              });
+            },
+            updateIsMobile: function () {
+              this.isMobile = window.innerWidth < 600;
+            },
+            getPreparationDate: function (t) {
+              if (!t || !t.fecha_levantamiento_pedido) return "";
+              var e = new Date(t.fecha_levantamiento_pedido);
+              return e.setDate(e.getDate() + 1), this.formatDate(e);
+            },
+            getShippingDate: function (t) {
+              if (!t || !t.fecha_levantamiento_pedido) return "";
+              var e = new Date(t.fecha_levantamiento_pedido);
+              return e.setDate(e.getDate() + 2), this.formatDate(e);
+            },
+            getTimelineSteps: function (t) {
+              return [
+                {
+                  title: "Pedido confirmado",
+                  date: t.fecha_levantamiento_pedido
+                    ? this.formatDate(t.fecha_levantamiento_pedido)
+                    : "",
+                },
+                {
+                  title: "En preparación",
+                  date: t.fecha_levantamiento_pedido
+                    ? this.getPreparationDate(t)
+                    : "Pendiente",
+                },
+                {
+                  title: "En camino",
+                  date:
+                    "enviado" === t.estado
+                      ? this.getShippingDate(t)
+                      : "Pendiente",
+                },
+                {
+                  title: "Entregado",
+                  date:
+                    "entregado" === t.estado
+                      ? this.formatDate(t.fecha_entrega_estimada)
+                      : "Pendiente",
+                },
+              ];
+            },
+            getCurrentStep: function (t) {
+              switch (t.estado) {
+                case "pendiente":
+                  return 1;
+                case "enviado":
+                  return 2;
+                case "cancelado":
+                default:
+                  return 0;
+                case "entregado":
+                  return 3;
+              }
+            },
+            getProgressWidth: function (t) {
+              return (this.getCurrentStep(t) / 3) * 100 + "%";
+            },
+            getDetails: function (t) {
+              return [
+                {
+                  date: t.fecha_levantamiento_pedido
+                    ? this.formatDate(t.fecha_levantamiento_pedido)
+                    : "",
+                  text: "Hemos recibido tu pedido y está en proceso de validación.",
+                },
+                {
+                  date: t.fecha_levantamiento_pedido
+                    ? this.getPreparationDate(t)
+                    : "Pendiente",
+                  text: "Estamos reuniendo los productos de tu pedido.",
+                },
+                {
+                  date:
+                    "enviado" === t.estado
+                      ? this.getShippingDate(t)
+                      : "Pendiente",
+                  text: "Tu pedido ha sido empacado y está listo para ser enviado.",
+                },
+                {
+                  date:
+                    "entregado" === t.estado
+                      ? this.formatDate(t.fecha_entrega_estimada)
+                      : "Pendiente",
+                  text: "Tu paquete ha salido de nuestro almacén.",
+                },
+                {
+                  date:
+                    "entregado" === t.estado
+                      ? this.formatDate(t.fecha_entrega_estimada)
+                      : "Pendiente",
+                  text: "El repartidor tiene tu pedido y está en camino.",
+                },
+              ];
+            },
+            toggleDetails: function (t) {
+              void 0 === t.showDetails
+                ? this.$set(t, "showDetails", !0)
+                : (t.showDetails = !t.showDetails);
+            },
+            fetchOrders: function () {
+              var t = this,
+                e = localStorage.getItem("userId");
+              e &&
+                this.$api
+                  .getUserOrders(e, "Todas")
+                  .then(function (e) {
+                    t.orders = e.map(function (t) {
+                      return $($({}, t), {}, { showDetails: !1 });
+                    });
+                  })
+                  .catch(function (t) {
+                    console.error("Error al obtener los pedidos:", t);
+                  });
+            },
+          },
+          mounted: function () {
+            this.fetchOrders(),
+              window.addEventListener("resize", this.updateIsMobile);
+          },
+          beforeDestroy: function () {
+            window.removeEventListener("resize", this.updateIsMobile);
+          },
+        },
+        I = (r(599), r(72)),
+        component = Object(I.a)(
+          E,
+          function () {
+            var t = this,
+              e = t._self._c;
+            return e(
+              j.a,
+              { staticClass: "full-screen", attrs: { fluid: "" } },
+              [
+                e(
+                  z.a,
+                  [
+                    e(D.a, { attrs: { cols: "12" } }, [
+                      e(
+                        "h2",
+                        {
+                          staticClass:
+                            "font-weight-bold text-primary title-text",
+                        },
+                        [t._v("Seguimiento de tus pedidos")]
+                      ),
+                    ]),
+                  ],
+                  1
+                ),
+                t._v(" "),
+                t.filteredOrders.length
+                  ? e(
+                      z.a,
+                      t._l(t.filteredOrders, function (r) {
+                        return e(
+                          D.a,
+                          { key: r.id_pedido, attrs: { cols: "12" } },
+                          [
+                            e(
+                              O.a,
+                              {
+                                staticClass: "pa-4 card-container",
+                                class: {
+                                  "cancelled-card": "cancelado" === r.estado,
+                                },
+                                attrs: { outlined: "" },
+                              },
+                              [
+                                e(
+                                  z.a,
+                                  [
+                                    e(D.a, { attrs: { cols: "12" } }, [
+                                      e(
+                                        "h3",
+                                        {
+                                          staticClass:
+                                            "font-weight-bold text-primary title-text",
+                                        },
+                                        [
+                                          e(
+                                            "span",
+                                            { staticClass: "delivery-text" },
+                                            [
+                                              t._v(
+                                                "\n                Llega entre el " +
+                                                  t._s(
+                                                    t.formatDate(
+                                                      r.fecha_entrega_estimada
+                                                    )
+                                                  ) +
+                                                  "\n              "
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                    ]),
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                e(P.a, { staticClass: "my-2" }),
+                                t._v(" "),
+                                e(
+                                  z.a,
+                                  [
+                                    e(D.a, { attrs: { cols: "6" } }, [
+                                      e("p", [
+                                        e("strong", [t._v("Realizado:")]),
+                                        t._v(
+                                          " " +
+                                            t._s(
+                                              t.formatDate(
+                                                r.fecha_levantamiento_pedido
+                                              )
+                                            )
+                                        ),
+                                      ]),
+                                    ]),
+                                    t._v(" "),
+                                    e(
+                                      D.a,
+                                      {
+                                        staticClass: "text-right",
+                                        attrs: { cols: "6" },
+                                      },
+                                      [
+                                        e(
+                                          k.a,
+                                          {
+                                            attrs: {
+                                              color: "primary",
+                                              "text-color": "white",
+                                            },
+                                          },
+                                          [
+                                            t._v(
+                                              "\n              " +
+                                                t._s(r.estado.toUpperCase()) +
+                                                "\n            "
+                                            ),
+                                          ]
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                e(P.a, { staticClass: "my-2" }),
+                                t._v(" "),
+                                e(
+                                  "div",
+                                  { staticClass: "tracking-container" },
+                                  [
+                                    t.isMobile
+                                      ? e(
+                                          "div",
+                                          { staticClass: "timeline" },
+                                          t._l(
+                                            t.getTimelineSteps(r),
+                                            function (o, n) {
+                                              return e(
+                                                "div",
+                                                {
+                                                  key: n,
+                                                  staticClass: "timeline-item",
+                                                },
+                                                [
+                                                  e("div", {
+                                                    staticClass:
+                                                      "timeline-line",
+                                                    class: {
+                                                      completed:
+                                                        n < t.getCurrentStep(r),
+                                                    },
+                                                  }),
+                                                  t._v(" "),
+                                                  e("div", {
+                                                    staticClass:
+                                                      "timeline-circle",
+                                                    class: {
+                                                      completed:
+                                                        n < t.getCurrentStep(r),
+                                                    },
+                                                  }),
+                                                  t._v(" "),
+                                                  e(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "timeline-content",
+                                                    },
+                                                    [
+                                                      e(
+                                                        "p",
+                                                        {
+                                                          staticClass:
+                                                            "step-title",
+                                                          class: {
+                                                            highlight:
+                                                              n <=
+                                                              t.getCurrentStep(
+                                                                r
+                                                              ),
+                                                          },
+                                                        },
+                                                        [
+                                                          t._v(
+                                                            "\n                  " +
+                                                              t._s(o.title) +
+                                                              "\n                "
+                                                          ),
+                                                        ]
+                                                      ),
+                                                      t._v(" "),
+                                                      e(
+                                                        "small",
+                                                        {
+                                                          staticClass:
+                                                            "step-date",
+                                                        },
+                                                        [
+                                                          t._v(
+                                                            t._s(
+                                                              o.date ||
+                                                                "Pendiente"
+                                                            )
+                                                          ),
+                                                        ]
+                                                      ),
+                                                    ]
+                                                  ),
+                                                ]
+                                              );
+                                            }
+                                          ),
+                                          0
+                                        )
+                                      : e(
+                                          "div",
+                                          {
+                                            staticClass: "progress-horizontal",
+                                          },
+                                          [
+                                            e(
+                                              "div",
+                                              { staticClass: "progress-line" },
+                                              [
+                                                e("div", {
+                                                  staticClass:
+                                                    "progress-line-completed",
+                                                  style: {
+                                                    width:
+                                                      t.getProgressWidth(r),
+                                                  },
+                                                }),
+                                              ]
+                                            ),
+                                            t._v(" "),
+                                            e(
+                                              "div",
+                                              { staticClass: "steps" },
+                                              t._l(
+                                                t.getTimelineSteps(r),
+                                                function (o, n) {
+                                                  return e(
+                                                    "div",
+                                                    {
+                                                      key: n,
+                                                      staticClass: "step",
+                                                    },
+                                                    [
+                                                      e("div", {
+                                                        staticClass: "circle",
+                                                        class: {
+                                                          completed:
+                                                            n <
+                                                            t.getCurrentStep(r),
+                                                        },
+                                                      }),
+                                                      t._v(" "),
+                                                      e(
+                                                        "p",
+                                                        {
+                                                          staticClass:
+                                                            "step-title",
+                                                          class: {
+                                                            highlight:
+                                                              n <=
+                                                              t.getCurrentStep(
+                                                                r
+                                                              ),
+                                                          },
+                                                        },
+                                                        [
+                                                          t._v(
+                                                            "\n                  " +
+                                                              t._s(o.title) +
+                                                              "\n                "
+                                                          ),
+                                                        ]
+                                                      ),
+                                                      t._v(" "),
+                                                      e(
+                                                        "small",
+                                                        {
+                                                          staticClass:
+                                                            "step-date",
+                                                        },
+                                                        [
+                                                          t._v(
+                                                            t._s(
+                                                              o.date ||
+                                                                "Pendiente"
+                                                            )
+                                                          ),
+                                                        ]
+                                                      ),
+                                                    ]
+                                                  );
+                                                }
+                                              ),
+                                              0
+                                            ),
+                                          ]
+                                        ),
+                                  ]
+                                ),
+                                t._v(" "),
+                                e(P.a, { staticClass: "my-4" }),
+                                t._v(" "),
+                                e(
+                                  z.a,
+                                  [
+                                    e(
+                                      D.a,
+                                      { attrs: { cols: "12" } },
+                                      [
+                                        e(
+                                          "h4",
+                                          { staticClass: "font-weight-medium" },
+                                          [t._v("Detalles de seguimiento")]
+                                        ),
+                                        t._v(" "),
+                                        e(S.a, [
+                                          e(
+                                            "div",
+                                            { staticClass: "tracking-details" },
+                                            t._l(
+                                              r.showDetails
+                                                ? t.getDetails(r)
+                                                : t.getDetails(r).slice(0, 2),
+                                              function (r, o) {
+                                                return e(
+                                                  "div",
+                                                  {
+                                                    key: o,
+                                                    staticClass: "detail-item",
+                                                  },
+                                                  [
+                                                    e(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "detail-date",
+                                                      },
+                                                      [t._v(t._s(r.date))]
+                                                    ),
+                                                    t._v(" "),
+                                                    e(
+                                                      "p",
+                                                      {
+                                                        staticClass:
+                                                          "detail-text",
+                                                      },
+                                                      [t._v(t._s(r.text))]
+                                                    ),
+                                                  ]
+                                                );
+                                              }
+                                            ),
+                                            0
+                                          ),
+                                        ]),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                t.getDetails(r).length > 2
+                                  ? e(
+                                      z.a,
+                                      [
+                                        e(
+                                          D.a,
+                                          {
+                                            staticClass: "text-left",
+                                            attrs: { cols: "12" },
+                                          },
+                                          [
+                                            e(
+                                              C.a,
+                                              {
+                                                staticClass:
+                                                  "font-weight-bold btn-details",
+                                                attrs: {
+                                                  text: "",
+                                                  color: "primary",
+                                                },
+                                                on: {
+                                                  click: function (e) {
+                                                    return t.toggleDetails(r);
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                t._v(
+                                                  "\n              " +
+                                                    t._s(
+                                                      r.showDetails
+                                                        ? "Ocultar detalles ▲"
+                                                        : "Ver detalles ▼"
+                                                    ) +
+                                                    "\n            "
+                                                ),
+                                              ]
+                                            ),
+                                          ],
+                                          1
+                                        ),
+                                      ],
+                                      1
+                                    )
+                                  : t._e(),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        );
+                      }),
+                      1
+                    )
+                  : e(
+                      z.a,
+                      [
+                        e(
+                          D.a,
+                          { attrs: { cols: "12" } },
+                          [
+                            e(w, { attrs: { type: "info" } }, [
+                              t._v("No tienes pedidos pendientes o en camino."),
+                            ]),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+              ],
+              1
+            );
+          },
+          [],
+          !1,
+          null,
+          "2d73a79f",
+          null
+        );
+      e.default = component.exports;
+    },
+  },
+]);
