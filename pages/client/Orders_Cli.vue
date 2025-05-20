@@ -228,7 +228,7 @@ export default {
         case "cancelado":
           return 0;
         case "enviado":
-          return 1;
+          return 0;
         case "ruta":
           return 2;
         case "entregado":

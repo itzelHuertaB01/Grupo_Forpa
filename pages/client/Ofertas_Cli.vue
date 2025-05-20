@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     loadPdf() {
-      const fileURL = "/pdf/catalogo.pdf";
+      const fileURL = "https://catalgo-forpa.s3.us-east-1.amazonaws.com/catalogo.pdf";
       if (this.isMobile()) {
         window.location.href = fileURL;
       } else {

@@ -2,214 +2,252 @@
   {
     "name": "403",
     "path": "/403",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\403.vue",
-    "chunkName": "pages/403"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\403.vue",
+    "chunkName": "pages/403",
+    "_name": "_7acf60c4"
   },
   {
     "name": "404",
     "path": "/404",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\404.vue",
-    "chunkName": "pages/404"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\404.vue",
+    "chunkName": "pages/404",
+    "_name": "_7ab331c2"
   },
   {
     "name": "admin",
     "path": "/admin",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\index.vue",
-    "chunkName": "pages/admin/index"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\admin\\\\index.vue",
+    "chunkName": "pages/admin/index",
+    "_name": "_d6bca468"
   },
   {
     "name": "client",
     "path": "/client",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\index.vue",
-    "chunkName": "pages/client/index"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\index.vue",
+    "chunkName": "pages/client/index",
+    "_name": "_30d7f264"
   },
   {
     "name": "ErrorOffline",
     "path": "/ErrorOffline",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\ErrorOffline.vue",
-    "chunkName": "pages/ErrorOffline"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\ErrorOffline.vue",
+    "chunkName": "pages/ErrorOffline",
+    "_name": "_775b9d84"
   },
   {
     "name": "preventive",
     "path": "/preventive",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\index.vue",
-    "chunkName": "pages/preventive/index"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\index.vue",
+    "chunkName": "pages/preventive/index",
+    "_name": "_1b1a83f9"
   },
   {
     "name": "admin-Index_Admin",
     "path": "/admin/Index_Admin",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Index_Admin.vue",
-    "chunkName": "pages/admin/Index_Admin"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Index_Admin.vue",
+    "chunkName": "pages/admin/Index_Admin",
+    "_name": "_372de648"
   },
   {
     "name": "admin-Orders_Admin",
     "path": "/admin/Orders_Admin",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Orders_Admin.vue",
-    "chunkName": "pages/admin/Orders_Admin"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Orders_Admin.vue",
+    "chunkName": "pages/admin/Orders_Admin",
+    "_name": "_5010dfeb"
   },
   {
     "name": "admin-UploadFiles_Admin",
     "path": "/admin/UploadFiles_Admin",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\UploadFiles_Admin.vue",
-    "chunkName": "pages/admin/UploadFiles_Admin"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\admin\\\\UploadFiles_Admin.vue",
+    "chunkName": "pages/admin/UploadFiles_Admin",
+    "_name": "_a6d4fb00"
   },
   {
     "name": "admin-Users_Admin",
     "path": "/admin/Users_Admin",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Users_Admin.vue",
-    "chunkName": "pages/admin/Users_Admin"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Users_Admin.vue",
+    "chunkName": "pages/admin/Users_Admin",
+    "_name": "_23d032dc"
   },
   {
     "name": "client-Catalog_Cli",
     "path": "/client/Catalog_Cli",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Catalog_Cli.vue",
-    "chunkName": "pages/client/Catalog_Cli"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\Catalog_Cli.vue",
+    "chunkName": "pages/client/Catalog_Cli",
+    "_name": "_00124a94"
   },
   {
     "name": "client-History_Cli",
     "path": "/client/History_Cli",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\History_Cli.vue",
-    "chunkName": "pages/client/History_Cli"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\History_Cli.vue",
+    "chunkName": "pages/client/History_Cli",
+    "_name": "_7c34b431"
   },
   {
     "name": "client-Home_Cli",
     "path": "/client/Home_Cli",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Home_Cli.vue",
-    "chunkName": "pages/client/Home_Cli"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\Home_Cli.vue",
+    "chunkName": "pages/client/Home_Cli",
+    "_name": "_50abed74"
   },
   {
     "name": "client-Notifications_Cli",
     "path": "/client/Notifications_Cli",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Notifications_Cli.vue",
-    "chunkName": "pages/client/Notifications_Cli"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\Notifications_Cli.vue",
+    "chunkName": "pages/client/Notifications_Cli",
+    "_name": "_0fa2cd85"
   },
   {
     "name": "client-Ofertas_Cli",
     "path": "/client/Ofertas_Cli",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Ofertas_Cli.vue",
-    "chunkName": "pages/client/Ofertas_Cli"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\Ofertas_Cli.vue",
+    "chunkName": "pages/client/Ofertas_Cli",
+    "_name": "_6709f9ff"
   },
   {
     "name": "client-Orders_Cli",
     "path": "/client/Orders_Cli",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Orders_Cli.vue",
-    "chunkName": "pages/client/Orders_Cli"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\Orders_Cli.vue",
+    "chunkName": "pages/client/Orders_Cli",
+    "_name": "_813ad30c"
   },
   {
     "name": "preventive-Catalog_Pre",
     "path": "/preventive/Catalog_Pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Catalog_Pre.vue",
-    "chunkName": "pages/preventive/Catalog_Pre"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Catalog_Pre.vue",
+    "chunkName": "pages/preventive/Catalog_Pre",
+    "_name": "_036578b8"
   },
   {
     "name": "preventive-History_Pre",
     "path": "/preventive/History_Pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\History_Pre.vue",
-    "chunkName": "pages/preventive/History_Pre"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\History_Pre.vue",
+    "chunkName": "pages/preventive/History_Pre",
+    "_name": "_7a8b1d1f"
   },
   {
     "name": "preventive-Notifications_Pre",
     "path": "/preventive/Notifications_Pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Notifications_Pre.vue",
-    "chunkName": "pages/preventive/Notifications_Pre"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Notifications_Pre.vue",
+    "chunkName": "pages/preventive/Notifications_Pre",
+    "_name": "_23e4cb9a"
   },
   {
     "name": "preventive-Offers_Pre",
     "path": "/preventive/Offers_Pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Offers_Pre.vue",
-    "chunkName": "pages/preventive/Offers_Pre"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Offers_Pre.vue",
+    "chunkName": "pages/preventive/Offers_Pre",
+    "_name": "_01b750e4"
   },
   {
     "name": "preventive-Orders_Pre",
     "path": "/preventive/Orders_Pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Orders_Pre.vue",
-    "chunkName": "pages/preventive/Orders_Pre"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Orders_Pre.vue",
+    "chunkName": "pages/preventive/Orders_Pre",
+    "_name": "_20785432"
   },
   {
     "name": "preventive-Shopping_Pre",
     "path": "/preventive/Shopping_Pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Shopping_Pre.vue",
-    "chunkName": "pages/preventive/Shopping_Pre"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Shopping_Pre.vue",
+    "chunkName": "pages/preventive/Shopping_Pre",
+    "_name": "_04147775"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_53425c0e"
   },
   {
     "name": "home_cli",
     "path": "/client/Home_Cli",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Home_Cli.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\Home_Cli.vue",
+    "_name": "_50abed74"
   },
   {
     "name": "pedidos_cli",
     "path": "/client/Pedidos_Cli",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Orders_Cli.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\Orders_Cli.vue",
+    "_name": "_813ad30c"
   },
   {
     "name": "historial_cli",
     "path": "/client/Historial_Cli",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\History_Cli.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\History_Cli.vue",
+    "_name": "_7c34b431"
   },
   {
     "name": "catalogo_cli",
     "path": "/client/Catalogo_Cli",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Catalog_Cli.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\Catalog_Cli.vue",
+    "_name": "_00124a94"
   },
   {
     "name": "notificaciones_cli",
     "path": "/client/Notificaciones_Cli",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\client\\\\Notifications_Cli.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\client\\\\Notifications_Cli.vue",
+    "_name": "_0fa2cd85"
   },
   {
     "name": "compras_pre",
     "path": "/compras_pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Shopping_Pre.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Shopping_Pre.vue",
+    "_name": "_04147775"
   },
   {
     "name": "pedidos_pre",
     "path": "/pedidos_pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Orders_Pre.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Orders_Pre.vue",
+    "_name": "_20785432"
   },
   {
     "name": "historial_pre",
     "path": "/historial_pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\History_Pre.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\History_Pre.vue",
+    "_name": "_7a8b1d1f"
   },
   {
     "name": "catalogo_pre",
     "path": "/catalogo_pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Catalog_Pre.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Catalog_Pre.vue",
+    "_name": "_036578b8"
   },
   {
     "name": "notificaciones_pre",
     "path": "/notificaciones_pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Notifications_Pre.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Notifications_Pre.vue",
+    "_name": "_23e4cb9a"
   },
   {
     "name": "ofertas_pre",
     "path": "/ofertas_pre",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Offers_Pre.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\preventive\\\\Offers_Pre.vue",
+    "_name": "_01b750e4"
   },
   {
     "name": "inicio_admin",
     "path": "/inicio_admin",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Index_Admin.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Index_Admin.vue",
+    "_name": "_372de648"
   },
   {
     "name": "productos_admin",
     "path": "/productos_admin",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Orders_Admin.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Orders_Admin.vue",
+    "_name": "_5010dfeb"
   },
   {
     "name": "usuarios_admin",
     "path": "/usuarios_admin",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Users_Admin.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\admin\\\\Users_Admin.vue",
+    "_name": "_23d032dc"
   },
   {
     "name": "uploadfiles_admin",
     "path": "/uploadfiles_admin",
-    "component": "C:\\\\xampp\\\\htdocs\\\\Grupo_Forpa\\\\pages\\\\admin\\\\UploadFiles_Admin.vue"
+    "component": "C:\\\\xampp\\\\htdocs\\\\GForpa\\\\Grupo_Forpa\\\\pages\\\\admin\\\\UploadFiles_Admin.vue",
+    "_name": "_a6d4fb00"
   }
 ]
