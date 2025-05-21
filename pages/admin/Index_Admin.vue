@@ -3,36 +3,16 @@
     <!-- Filtros de estado y día -->
     <div class="d-flex align-center justify-space-between mb-4 px-4 flex-wrap">
       <div class="d-flex align-center">
-        <v-select
-          v-model="selectedFilter"
-          :items="filterOptions"
-          dense
-          outlined
-          hide-details
-          class="filter-select mr-4"
-          prepend-inner-icon="mdi-filter-variant"
-          @change="filterOrders"
-        />
+        <v-select v-model="selectedFilter" :items="filterOptions" dense outlined hide-details class="filter-select mr-4"
+          prepend-inner-icon="mdi-filter-variant" @change="filterOrders" />
         <div class="order-count grey--text text--darken-1">
           {{ filteredOrders.length }} pedidos
         </div>
       </div>
 
-      <v-chip-group
-        v-model="selectedDay"
-        class="mt-2 mt-md-0 ml-md-5"
-        row
-        active-class="chip-active"
-        @change="filterOrders"
-      >
-        <v-chip
-          v-for="(day, i) in deliveryDays"
-          :key="i"
-          :value="day"
-          class="ma-1"
-          outlined
-          color="yellow darken-2"
-        >
+      <v-chip-group v-model="selectedDay" class="mt-2 mt-md-0 ml-md-5" row active-class="chip-active"
+        @change="filterOrders">
+        <v-chip v-for="(day, i) in deliveryDays" :key="i" :value="day" class="ma-1" outlined color="yellow darken-2">
           {{ day }}
         </v-chip>
       </v-chip-group>
@@ -40,11 +20,7 @@
 
     <!-- Pedidos agrupados -->
     <div class="orders-container">
-      <div
-        v-for="(dateGroup, index) in groupedOrders"
-        :key="index"
-        class="date-group mb-6"
-      >
+      <div v-for="(dateGroup, index) in groupedOrders" :key="index" class="date-group mb-6">
         <div class="d-flex justify-space-between pa-4">
           <div class="date-header yellow--text text--darken-3 font-weight-bold">
             {{ dateGroup.date }}
@@ -57,11 +33,7 @@
 
         <v-divider></v-divider>
 
-        <div
-          v-for="order in dateGroup.orders"
-          :key="order.id_pedido"
-          class="order-item"
-        >
+        <div v-for="order in dateGroup.orders" :key="order.id_pedido" class="order-item">
           <div class="order-content">
             <div class="order-left">
               <div class="order-number success--text font-weight-bold">
@@ -83,13 +55,7 @@
                 {{ order.nombre_completo }}
               </div>
               <div class="message-btn-container">
-                <v-btn
-                  text
-                  small
-                  color="success"
-                  class="send-message-btn px-0"
-                  @click="openMessage(order)"
-                >
+                <v-btn text small color="success" class="send-message-btn px-0" @click="openMessage(order)">
                   <v-icon small left>mdi-email-outline</v-icon>
                   Enviar Mensaje
                 </v-btn>
@@ -97,34 +63,19 @@
             </div>
 
             <div class="order-right">
-              <v-btn
-                color="success"
-                outlined
-                class="mr-3 view-order-btn"
-                @click="verProductos(order)"
-              >
+              <v-btn color="success" outlined class="mr-3 view-order-btn" @click="verProductos(order)">
                 Ver Pedido
               </v-btn>
 
               <v-menu offset-y left>
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn
-                    outlined
-                    color="light-green lighten-3"
-                    class="status-btn"
-                    v-bind="attrs"
-                    v-on="on"
-                  >
+                  <v-btn outlined color="light-green lighten-3" class="status-btn" v-bind="attrs" v-on="on">
                     {{ getDisplayStatus(order.estado) }}
                     <v-icon right>mdi-chevron-down</v-icon>
                   </v-btn>
                 </template>
                 <v-list>
-                  <v-list-item
-                    v-for="(status, i) in statusOptions"
-                    :key="i"
-                    @click="updateStatus(order, status)"
-                  >
+                  <v-list-item v-for="(status, i) in statusOptions" :key="i" @click="updateStatus(order, status)">
                     <v-list-item-title>{{ status }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
@@ -137,7 +88,6 @@
     </div>
 
     <!-- Modal de Enviar Mensaje -->
-    <!-- Modal de Enviar Mensaje -->
     <v-dialog v-model="mensajeVisible" max-width="600px" persistent>
       <v-card class="pa-4 rounded-xl">
         <v-card-title class="justify-center">
@@ -147,24 +97,10 @@
         </v-card-title>
 
         <v-card-text class="pt-2 pb-0">
-          <v-text-field
-            v-model="mensajeTitulo"
-            label="Título del mensaje"
-            placeholder="Ej. Pedido urgente, Cambio de dirección..."
-            outlined
-            dense
-            clearable
-            class="mb-4"
-          />
-          <v-textarea
-            v-model="mensaje"
-            label="Contenido del mensaje"
-            placeholder="Escribe aquí el contenido del mensaje..."
-            rows="5"
-            outlined
-            auto-grow
-            clearable
-          />
+          <v-text-field v-model="mensajeTitulo" label="Título del mensaje"
+            placeholder="Ej. Pedido urgente, Cambio de dirección..." outlined dense clearable class="mb-4" />
+          <v-textarea v-model="mensaje" label="Contenido del mensaje"
+            placeholder="Escribe aquí el contenido del mensaje..." rows="5" outlined auto-grow clearable />
         </v-card-text>
 
         <v-card-actions class="justify-end mt-4">
@@ -172,6 +108,42 @@
             Cancelar
           </v-btn>
           <v-btn color="success" dark @click="enviarMensaje"> Enviar </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <!-- ✅ Modal de Productos del Pedido -->
+    <v-dialog v-model="modalVisible" max-width="700px" persistent>
+      <v-card>
+        <v-card-title class="headline font-weight-bold">Productos del Pedido</v-card-title>
+        <v-card-text>
+          <v-progress-linear v-if="loadingProductos" indeterminate color="primary" class="mb-2" />
+          <v-simple-table dense v-else>
+            <thead>
+              <tr>
+                <th class="text-left">Clave</th>
+                <th class="text-left">Código</th>
+                <th class="text-left">Descripción</th>
+                <th class="text-right">Cantidad</th>
+                <th class="text-right">Precio</th>
+                <th class="text-right">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(producto, index) in productosPedido" :key="index">
+                <td>{{ producto.clave }}</td>
+                <td>{{ producto.codigo }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td class="text-right">{{ producto.cantidad }}</td>
+                <td class="text-right">${{ producto.precio_unitario }}</td>
+                <td class="text-right">${{ producto.total }}</td>
+              </tr>
+            </tbody>
+          </v-simple-table>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" text @click="modalVisible = false">Cerrar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -206,6 +178,7 @@ export default {
       pedidoSeleccionado: null,
       productosPedido: [],
       destinatario: null,
+      loadingProductos: false,
     };
   },
   computed: {
@@ -223,13 +196,19 @@ export default {
   },
   methods: {
     async fetchOrders() {
-      const orders = await this.$api.getAllOrdersWithUnits(); // <<--- usa la nueva ruta
-      this.orders = orders;
-      this.filterOrders();
+      try {
+        const orders = await this.$api.getAllOrdersWithUnits();
+        this.orders = orders;
+        this.filterOrders();
+      } catch (err) {
+        console.error("Error al obtener pedidos:", err); // 👈 si hay error, lo verás aquí
+      }
     },
+
     removeAccents(str) {
       return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     },
+
     filterOrders() {
       let result = [...this.orders];
 
@@ -270,15 +249,28 @@ export default {
         ? "Nuevo"
         : status.charAt(0).toUpperCase() + status.slice(1);
     },
+    
     async verProductos(order) {
       if (order.estado === "enviado") {
         await this.$api.setOrderToPending(order.id_pedido);
         order.estado = "pendiente";
       }
-      this.productosPedido = await this.$api.getOrderProducts(order.id_pedido);
-      this.pedidoSeleccionado = order;
+
+      this.loadingProductos = true;
       this.modalVisible = true;
+
+      try {
+        const productos = await this.$api.getOrderProducts(order.id_pedido);
+        this.productosPedido = productos;
+      } catch (e) {
+        this.productosPedido = [];
+        this.$toast && this.$toast.error("Error al cargar productos");
+      } finally {
+        this.loadingProductos = false;
+        this.pedidoSeleccionado = order;
+      }
     },
+
     async updateStatus(order, status) {
       await this.$axios.$put(`/pedidos/${order.id_pedido}`, {
         ...order,
@@ -287,14 +279,13 @@ export default {
       order.estado = status;
       this.filterOrders(); // Reordenar después del cambio
     },
+
     openMessage(order) {
       this.destinatario = order.nombre_completo;
       this.mensajeVisible = true;
     },
+
     enviarMensaje() {
-      console.log(
-        `Mensaje a ${this.destinatario}: Título: ${this.mensajeTitulo} - ${this.mensaje}`
-      );
       this.mensajeVisible = false;
       this.mensaje = "";
       this.mensajeTitulo = "";
@@ -308,8 +299,10 @@ export default {
 
 <style scoped>
 .chip-active {
-  background-color: #ffd600 !important; /* amarillo fuerte */
-  color: black !important; /* para que el texto sea legible */
+  background-color: #ffd600 !important;
+  /* amarillo fuerte */
+  color: black !important;
+  /* para que el texto sea legible */
   font-weight: bold;
 }
 
